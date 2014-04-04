@@ -31,5 +31,3 @@ Plugin URL: http://momnt.co/downloads/portfolio-slideshow-pro
 Please send your findings over to
 
 hoa // @ // silent-comics.com
-
-
