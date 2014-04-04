@@ -340,7 +340,3 @@ Public License instead of this License.
 
 
 ***
-
-Copyright (c) SILENT COMICS 2013-2014 for all images and content
-
-<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons Licence" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">All work</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://silentcomics.com" property="cc:attributionName" rel="cc:attributionURL">SILENT COMICS</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="http://silent-comics.com" rel="dct:source">http://silent-comics.com</a>
