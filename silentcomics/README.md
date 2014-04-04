@@ -1,7 +1,7 @@
 # Silent Comics Wordpress Theme
 ***
 
-This is SilentComics — a simple Wordpress theme for comics, as used by http://silent-comics.com
+This is SilentComics — a simple Wordpress theme for comics, to be used by http://silent-comics.com
 
 ## Features:
 
