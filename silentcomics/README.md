@@ -18,7 +18,18 @@ Plugin URL: http://momnt.co/downloads/portfolio-slideshow-pro
 
 ## Getting started
 
-## Create Menus
+1. Zip SilentComics and upload 
 
+2. Create Menus 
+
+3. Edit header.php to use your own logo
+
+
+## Test and Suggest improvements
+
+
+Please send your findings over to
+
+hoa // @ // silent-comics.com
 
 
