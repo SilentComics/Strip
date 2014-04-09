@@ -3,6 +3,10 @@ WIP Wordpress-Theme-for-Silent-Comics
 
 Still rough — Working on it 
 
+Shall this project become a decent theme, it will be shared with the Wordpress community on a GNU General Public License basis.
+
+Suggestions and tips from actual developers, designers and lovers of comics are welcome as coding is very much the learning by doing side of the project for me.
+
 
 # Silent Comics Wordpress Theme
 ***
