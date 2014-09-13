@@ -18,7 +18,7 @@ This is SilentComics — a simple Wordpress theme, designed to be used by http:/
 One column, Large images, custom posts
 
 ## Extra features
-Not part of the theme but suggested.
+Not part of the theme but suggested to display comics:
 
 
 ### Slideshow plugin:
