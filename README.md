@@ -15,8 +15,10 @@ This is SilentComics — a simple Wordpress theme, designed to be used by http:/
 
 ## Features:
 
+One column, Large images, custom posts
+
 ## Extra features
-These features that are not part of the theme but are suggested.
+Not part of the theme but suggested.
 
 
 ### Slideshow plugin:
@@ -44,7 +46,16 @@ You can replace this bit with your site link:
 and replace it with your own logo — you could use [Mobilefish's Base64 Encoder](http://www.mobilefish.com/services/base64/base64.php "Mobilefish's Base64 Encoder") to encode a SVG file.
 
 
-## Test and Suggest improvements
+
+## To do:
+
+Page grid to display books / episodes
+Add columns for extra large images
+Design footer
+Lots of small css tweaks and fixes
+Redesign the theme from scratch using **Less** or **Sass**
+
+## Please Test and Suggest improvements
 
 
 Please send your findings over to
