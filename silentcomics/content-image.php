@@ -5,14 +5,14 @@
 
 // Access global variable directly to set content_width
 if ( isset( $GLOBALS['content_width'] ) )
-	$GLOBALS['content_width'] = 1272;
+	$GLOBALS['content_width'] = 2184;
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 	<div class="entry-wrap wrap clear">
 		<div class="entry-content clear">
-			<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'SilentComics' ) ); ?>
+			<?php the_content( __( 'Continue reading <span class="content_nav">&rarr;</span>', 'SilentComics' ) ); ?>
 			<?php
 				wp_link_pages( array(
 					'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'SilentComics' ) . '</span>',
@@ -26,7 +26,7 @@ if ( isset( $GLOBALS['content_width'] ) )
 		<header class="entry-header">
 			<?php
 				$categories_list = get_the_category_list( __( ', ', 'SilentComics' ) );
-				if ( $categories_list && SilentComics_categorized_blog() )
+//				if ( $categories_list && SilentComics_categorized_blog() )
 					echo '<span class="categories-links">' . $categories_list . '</span>';
 
 				if ( ! is_single() ) :

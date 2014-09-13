@@ -31,13 +31,14 @@ get_header(); ?>
 
 			<?php endwhile; ?>
 
-			<?php silentcomics_content_nav( 'nav-below' ); ?>
+			<?php _s_paging_nav(); ?>
 
 		<?php else : ?>
 
 			<?php get_template_part( 'content', 'none' ); ?>
 
 		<?php endif; ?>
+
 
 		</main><!-- #main -->
 	</div><!-- #primary -->

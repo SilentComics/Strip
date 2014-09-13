@@ -16,7 +16,7 @@ if ( isset( $GLOBALS['content_width'] ) )
 			<header class="entry-header">
 				<?php
 					$categories_list = get_the_category_list( __( ', ', 'SilentComics' ) );
-					if ( $categories_list && SilentComics_categorized_blog() )
+//					if ( $categories_list && SilentComics_categorized_blog() )
 						echo '<span class="categories-links">' . $categories_list . '</span>';
 
 					if ( ! is_single() ) :

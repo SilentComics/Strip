@@ -1,7 +1,7 @@
 # Silent Comics Wordpress Theme
 ***
 
-This is SilentComics — a simple Wordpress theme for comics, to be used by http://silent-comics.com
+This is SilentComics — a simple Wordpress theme for comics, as used by http://silent-comics.com
 
 ## Features:
 
@@ -18,16 +18,7 @@ Plugin URL: http://momnt.co/downloads/portfolio-slideshow-pro
 
 ## Getting started
 
-1. Zip SilentComics and upload 
-
-2. Create Menus 
-
-3. Edit header.php to use your own logo
+## Create Menus
 
 
-## Test and Suggest improvements
 
-
-Please send your findings over to
-
-hoa // @ // silent-comics.com
