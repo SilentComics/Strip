@@ -4,7 +4,7 @@ Theme URI: https://github.com/SilentComics/Wordpress-Theme-for-Silent-Comics/
 Author: Silent Comics
 Author URI: http://silent-comics.com
 Description: A simple theme for comics
-Version: Pre release work in progress 1.7 (12/09/2014) — Feel free to suggest improvements @silentcomics or mail hoa // at // silent-comics.com
+Version: Pre release work in progress 1.9 (18/09/2014) — Feel free to suggest improvements @silentcomics or mail hoa // at // silent-comics.com
 License: GNU General Public License v3 or later
 License URI: http://www.gnu.org/licenses/gpl.html
 Text Domain: silentcomics
@@ -136,6 +136,8 @@ a img {
     font-weight: normal;
     font-style: normal;
 }
+
+
 /* use the best ampersand http://simplebits.com/notebook/2008/08/14/ampersands-2/ */
 span.amp {
   font-family: Baskerville, 'Goudy Old Style', Palatino, 'Book Antiqua', serif;
@@ -372,9 +374,10 @@ textarea {
 --------------------------------------------------------------*/
 
 a {
-	color: #ffcccc;
+	color: #000000;
 	text-decoration:none;
 }
+
 a:visited {
 	color: #767676;
 }
@@ -434,7 +437,8 @@ h1.site-title {
 }
 h2.site-description {
 	font-family:'Fenix', Georgia, serif;
-	font-size: 0.6em; 
+	font-size: 0.6em;
+	color: #eedada; 
 	text-align: center;
 	margin-bottom: 0.2em;
 }
@@ -648,17 +652,77 @@ h2.site-description {
 ----------------------------------------------- */
 
 .widget {
-	margin: 0 0 1.5em;
+  clear: both;
+  margin: 24px 0px 0px 48px;
+}
+.widget .widget select {
+  max-width: 100%;
 }
 
-/* Make sure select elements fit in widgets */
-.widget select {
-	max-width: 100%;
+.widget-search .search-submit {
+  display: none;
 }
 
-/* Search widget */
-.widget_search .search-submit {
-	display: none;
+.widget-areas {
+  float: none;
+  font-size: 14px;
+  font-size: 1.4rem;
+  width: 100%;
+}
+.widget-areas .widget-area {
+  float: none;
+  width: 100%;
+}
+
+h1.widget-title {
+  margin-bottom: 5px;
+}
+
+.widget-area,
+.widget-area h1,
+.widget-area h2,
+.widget-area h3,
+.widget-area h4,
+.widget-area h5,
+.widget-area h6,
+.widget-area a,
+.widget-area a:visited {
+  color: lightslategrey;
+}
+
+.widget-area a:hover {
+  color: pink;
+}
+
+.widget ul,
+.widget ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.widget a:hover {
+  opacity: 1;
+}
+
+.widget img.avatar {
+  float: right;
+  margin: 0 5px 0 0;
+}
+
+.widget table {
+  border: none;
+}
+
+.widget_calendar caption {
+  padding-bottom: 10px;
+  font-weight: bold;
+}
+
+.widget_calendar caption,
+.widget_calendar th,
+.widget_calendar td {
+  text-align: center;
 }
 
 /* =Attachment page
@@ -694,6 +758,11 @@ article.attachment  .entry-meta {
 .entry-wrap {
 	margin: 0 auto;
 	max-width: 1272px;
+}
+.attachment-silentcomics-featured-thumbnail {
+	display: block;
+	margin: 0 auto 34px;
+	vertical-align: middle;
 }
 .entry-title {
 	font: 400 14px/2 Futura, "Trebuchet MS", Arial, sans-serif;
@@ -932,36 +1001,6 @@ img.aligncenter {
 	margin-bottom: 7px;
 }
 
-/* Caption Settings */
-.wp-caption {
-	margin-bottom: 34px;
-	max-width: 100%;
-}
-.wp-caption img[class*="wp-image-"] {
-	display: block;
-	height: auto;
-	margin: 0;
-	max-width: 100%;
-}
-.wp-caption-text {
-	-moz-box-sizing: border-box;
-	box-sizing:      border-box;
-	font-size: 13px;
-	font-style: italic;
-	line-height: 1.3076923076;
-	margin: 10px 0 7px;
-	padding: 0 10px 0 0; /* Avoid the caption to overflow the width of the image because wp-caption has 10px wider width */
-	text-align: left;
-}
-.wp-caption.alignleft {
-	margin: 7px 24px 0 0;
-}
-.wp-caption.alignright {
-	margin: 7px 0 0 34px;
-}
-.wp-caption.aligncenter {
-	margin-top: 7px;
-}
 
 /* Gallery Settings */
 #content .gallery {
@@ -1011,6 +1050,38 @@ img.aligncenter {
 	max-width: 90%;
 }
 
+/* Captions settings */
+
+.wp-caption {
+	margin-bottom: 34px;
+	max-width: 100%;
+}
+.wp-caption img[class*="wp-image-"] {
+	display: block;
+	height: auto;
+	margin: 0;
+	max-width: 100%;
+}
+.wp-caption-text {
+	-moz-box-sizing: border-box;
+	box-sizing:      border-box;
+	font-size: 13px;
+	font-style: italic;
+	line-height: 1.3076923076;
+	margin: 10px 0 7px;
+	padding: 0 10px 0 0; /* Avoid the caption to overflow the width of the image because wp-caption has 10px wider width */
+	text-align: left;
+}
+.wp-caption.alignleft {
+	margin: 7px 24px 0 0;
+}
+.wp-caption.alignright {
+	margin: 7px 0 0 34px;
+}
+.wp-caption.aligncenter {
+	margin-top: 7px;
+}
+
 
 /* =Navigation
 ----------------------------------------------- */
@@ -1024,18 +1095,19 @@ img.aligncenter {
 	padding: 0px 24px 0px 24px;
     }
 [class*="navigation"] .meta-nav {
-	background-color: #ffcccc;
-	border-radius: 3px; /* square shaped is 0px */
-	color: #fff;
-	font-family: helvetica;
+	background-color: none;
+	border-radius: 2px; /* square shaped is 0px */
+	color: white;
+	background-color: black;
+	font-family: Fenix;
 	font-size: 24px;
 	line-height: 48px;
 	text-align: center;
-	width: 68px;
-	height: 68px;
+	width: 100px;
+	height: 100px;
 }
 [class*="navigation"] a:hover .meta-nav {
-	background-color: #ff6666;
+	background-color: none;
 }
 
 /* Comment navigation specific */
@@ -1062,6 +1134,7 @@ img.aligncenter {
 }
 
 
+
 /*--------------------------------------------------------------
 10.3 Comments
 --------------------------------------------------------------*/
@@ -1085,13 +1158,13 @@ p.no-comments {
   max-width: 696px;
 }
 .comments-title {
-	font: italic 500 24px/1 "Futura", sans-serif;
-	margin-bottom: 68px;
+	font: italic 400 24px/1 "Futura", sans-serif;
+	margin-bottom: 48px;
 	text-align: center;
 	}
 ol.comment-list li {
   list-style: none;
-  margin: 0 auto 102px;
+  margin: 0 auto 48px;
   max-width: 696px
 }
 li.pingback {
@@ -1140,7 +1213,7 @@ ol.comment-list ol.children li {
 .comment-meta {
   font-size: 14px;
   font-size: 1.4rem;
-  text-transform: uppercase;
+  text-transform: lowercase;
 }
 
 .sticky .entry-content {
@@ -1190,7 +1263,7 @@ h3#reply-title small {
 ----------------------------------------------- */
 
 .site-info {
-	background-color: #eeeae5;
+	background-color: #eeeae6;
     height: 296px
 	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
 	font-size: 12px;
@@ -1206,8 +1279,9 @@ h3#reply-title small {
 }
 
 
-/* =Infinite Scroll
------------------------------------------------ */
+/*--------------------------------------------------------------
+11.0 Infinite scroll
+--------------------------------------------------------------*/
 
 /* Globally hidden elements when Infinite Scroll is supported and in use. */
 .infinite-scroll .paging-navigation, /* Older / Newer Posts Navigation (always hidden) */
@@ -1219,9 +1293,17 @@ h3#reply-title small {
 	display: block;
 }
 
-
-/* =Media Queries
+/* =Jetpack: Tiled Gallery
 ----------------------------------------------- */
+
+.hentry .tiled-gallery {
+	margin-bottom: 34px;
+}
+
+/*--------------------------------------------------------------
+12.0 Media queries
+--------------------------------------------------------------*/
+
 
 @media screen and (min-width: 312px) {
 	.wrap,
@@ -1259,23 +1341,23 @@ h3#reply-title small {
 	.comment-list .children {
 		margin-left: 72px;
 	}
-	.comment-author .comment-author-avatar {
+	.comment-author .comment-author .avatar {
 		top: -9px;
 		width: 48px;
 		height: 48px;
 	}
 	.comment-author {
-		padding-left: 72px;
+		padding-left: 6px;
 	}
 	.comment-author .avatar  {
 		width: 48px;
 		height: 48px;
 	}
 	.comment-content {
-		padding: 0 0 0 72px;
+		padding: 0 0 0 48px;
 	}
 	.comment-meta {
-		padding-right: 72px;
+		padding-right: 48px;
 	}
 	article.error404 .widget {
 		float: left;
@@ -1507,6 +1589,11 @@ h3#reply-title small {
 	.comment-content blockquote p {
 		font-size: 18px;
 		line-height: 1.4166666667;
+	}
+	.comments-title {
+	font: italic 400 16px/1 "Futura", sans-serif;
+	margin-bottom: 48px;
+	text-align: center;
 	}
 	.site-content .navigation-comment {
 		padding: 0;

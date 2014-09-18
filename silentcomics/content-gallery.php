@@ -9,9 +9,30 @@ if ( isset( $GLOBALS['content_width'] ) )
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+
 	<div class="entry-wrap wrap clear">
+
+<?php
+			if ( '' != get_the_post_thumbnail() ) :
+				the_post_thumbnail( 'SilentComics-featured-thumbnail' );
+			endif;
+		?>
+
+		<header class="entry-header">
+			<?php
+				$categories_list = get_the_category_list( __( ', ', 'SilentComics' ) );
+				if ( $categories_list && SilentComics_categorized_blog() )
+					echo '<span class="categories-links">' . $categories_list . '</span>';
+
+				if ( ! is_single() ) :
+					the_title( '<h1 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h1>' );
+				else :
+					the_title( '<h1 class="entry-title">', '</h1>' );
+				endif;
+			?>
+					
 		<div class="entry-content clear">
-			<?php the_content( __( 'Continue reading', 'SilentComics' ) ); ?>
+			<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'SilentComics' ) ); ?>
 			<?php
 				wp_link_pages( array(
 					'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'SilentComics' ) . '</span>',
@@ -21,19 +42,6 @@ if ( isset( $GLOBALS['content_width'] ) )
 				) );
 			?>
 		</div><!-- .entry-content -->
-
-		<header class="entry-header">
-			<?php
-				$categories_list = get_the_category_list( __( ', ', 'SilentComics' ) );
-// (template tags in extras)				if ( $categories_list && SilentComics_categorized_blog() )
-					echo '<span class="categories-links">' . $categories_list . '</span>';
-
-				if ( ! is_single() ) :
-					the_title( '<h1 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h1>' );
-				else :
-					the_title( '<h1 class="entry-title">', '</h1>' );
-				endif;
-			?>
 		</header><!-- .entry-header -->
 
 		<footer class="entry-meta">
