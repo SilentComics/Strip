@@ -1141,151 +1141,57 @@ img.aligncenter {
 --------------------------------------------------------------*/
 
 .comment-content a {
-  word-wrap: break-word;
+    word-wrap: break-word;
 }
-
-#respond,
-#respond.comment-respond {
-  font-size: 14px;
-  font-size: 1.4rem;
-  max-width: 696px;
-  margin: 5px auto 5px auto;
-  padding: 5px;
+.bypostauthor {
 }
-
-p.no-comments {
-  font-weight: 600;
-  margin: 0 auto;
-  max-width: 696px;
+.comments-area {
+    width:80%;
+    max-width: 696px;
+		font-family: 'Fenix', serif;
+    font-size: 0.8em;
+    margin: 2rem auto;
+    padding-bottom: 4rem;
 }
 .comments-title {
 	font: italic 400 24px/1 "Futura", sans-serif;
 	margin-bottom: 48px;
 	text-align: center;
 	}
-ol.comment-list li {
-  list-style: none;
-  margin: 0 auto 12px;
-  max-width: 696px
-}
-li.pingback {
-  font-size: 90%;
-  font-style: italic;
-  margin: 6px 0;
-  opacity: 0.8;
+.comment-form-comment label{
+    width: 100%;
+    display: inline-block;
 }
 
-li.pingback:last-child {
-  padding-bottom: 10px;
+.form-allowed-tags {
+    display: block;
+		width:60%;
+    float: right;
+    font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+    font-size: 1rem;
+    color: #ffcccc;
+    margin: -1rem;
 }
 
-ol.comment-list ol.children li .comment-author:before {
-  content: '';
-  float: right;
-/* try custom fonts here */
-  font-family: "Futura";
-  font-size: 12px;
-  font-style: 200;
-  font-weight: normal;
-  margin: 10px 0 0 0;
-  opacity: 0.2;
+.comment-subscription-form {
+    clear: both;
+    margin-top: 1rem;
 }
 
-/* Comment Author */
-.comment-author {
-	padding-left: 12px;
-	position: relative;
+.form-submit #submit{
+    max-width: 18%;
+    float: left;
+    border-width: 3px;
+    background: none;
+    display: inline-block;
+    padding: 15px;
+    border: #000000 2px dashed;
+    text-decoration: none;
+    transition: border ease 0.3s;
+    font-family: "Andale Mono", AndaleMono, monospace;
+    font-size: 1.3rem;
+    color: #000000;
 }
-
-.comment-author .avatar  {
-	position: relative;
-}
-.comment-author cite {
-	font-family: 400 12px/2 Futura, "Trebuchet MS", Arial, sans-serif;
-	letter-spacing: 0.1em;
-	position: relative;
-	text-transform: uppercase;
-}
-.bypostauthor > article .comment-author > cite:after {
-	font-size: 16px;
-	content: "+";
-	position: absolute;
-		top: -10px;
-		right: -16px;
-}
-.comment-author .says {
-	color: #808080;
-	font-size: 13px;
-	font-style: italic;
-}
-
-
-/* Comment Content */
-
-.comment-content {
-  clear: both;
-}
-
-.comment-metadata {
-  margin-right: 50px;
-}
-
-ol.comment-list ol.children li {
-  display: block;
-}
-
-.comment-list .comment-author-.avatar {
-  float: left;
-  margin: 0 10px 5px 0;
-}
-
-.comment-list .fn {
-  margin: 0;
-}
-
-.comment-meta {
-  font-size: 14px;
-  font-size: 1.4rem;
-  text-transform: lowercase;
-}
-
-.sticky .entry-content {
-  margin-bottom: 5px;
-  padding: 10px 5px 0 5px;
-}
-
-.comment-content {
-  margin-bottom: 5px;
-  padding: 5px 0 0 0;
-}
-
-.comment-meta {
-  font-size: 14px;
-  font-size: 1.4rem;
-  padding: 0 0 5px 0;
-}
-
-#comments h2 {
-  padding-bottom: 20px;
-}
-
-p.form-allowed-tags,
-p.form-allowed-tags code {
-  font-size: 90%;
-  opacity: 0.8;
-}
-
-#respond p.comment-form-comment textarea {
-  margin-top: 5px;
-}
-
-h3#reply-title small {
-  float: right;
-  font-size: 50%;
-  font-weight: 400;
-}
-
-
 
 /* =Footer
 ----------------------------------------------- */
