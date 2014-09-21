@@ -77,7 +77,7 @@ function silentcomics_comment( $comment, $args, $depth ) {
 		<article id="div-comment-<?php comment_ID(); ?>" class="comment-body">
 			<footer class="comment-meta">
 				<div class="comment-author vcard">
-					<?php if ( 0 != $args['avatar_size'] ) echo get_avatar( $comment, $args['avatar_size'] ); ?>
+					<span class="comment-author-avatar"><?php echo get_avatar( $comment, 48 ); ?></span>
 					<?php printf( __( '%s <span class="says">says:</span>', 'silentcomics' ), sprintf( '<cite class="fn">%s</cite>', get_comment_author_link() ) ); ?>
 				</div><!-- .comment-author -->
 

@@ -1164,14 +1164,15 @@ img.aligncenter {
 }
 
 .form-allowed-tags {
-    display: block;
-		width:60%;
-    float: right;
+	display: none;   
+	width:76%;
     font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
-    font-size: 1rem;
-    color: #ffcccc;
-    margin: -1rem;
+    font-size: 1em;
+    color: #ff6666;
+    margin: 0;
+	padding-bottom: 2rem;
 }
+
 
 .comment-subscription-form {
     clear: both;
@@ -1179,17 +1180,19 @@ img.aligncenter {
 }
 
 .form-submit #submit{
-    max-width: 18%;
+    max-width: 24%;
     float: left;
     border-width: 3px;
     background: none;
     display: inline-block;
     padding: 15px;
-    border: #000000 2px dashed;
+    border: #000000 2px solid;
     text-decoration: none;
     transition: border ease 0.3s;
-    font-family: "Andale Mono", AndaleMono, monospace;
-    font-size: 1.3rem;
+    font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
     color: #000000;
 }
 
