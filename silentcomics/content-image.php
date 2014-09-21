@@ -21,7 +21,7 @@ if ( isset( $GLOBALS['content_width'] ) )
 		<header class="entry-header">
 			<?php
 				$categories_list = get_the_category_list( __( ', ', 'SilentComics' ) );
-				// if ( $categories_list && SilentComics_categorized_blog() )
+				 if ( $categories_list && SilentComics_categorized_blog() )
 					echo '<span class="categories-links">' . $categories_list . '</span>';
 
 				if ( ! is_single() ) :
@@ -46,11 +46,11 @@ if ( isset( $GLOBALS['content_width'] ) )
 
 		<footer class="entry-meta">
 
+			<span class="entry-format"><a href="<?php echo esc_url( get_post_format_link( 'image' ) ); ?>" title="<?php echo esc_attr( sprintf( __( 'All %s posts', 'SilentComics' ), get_post_format_string( 'image' ) ) ); ?>"><?php echo get_post_format_string( 'image' ); ?></a></span>
+			
 			<?php if ( ! post_password_required() && ( comments_open() || '0' != get_comments_number() ) ) : ?>
 			<span class="comments-link"><?php comments_popup_link( __( 'Leave a comment', 'SilentComics' ), __( '1 Comment', 'SilentComics' ), __( '% Comments', 'SilentComics' ) ); ?></span>
 			<?php endif; ?>
-
-			<span class="entry-format"><a href="<?php echo esc_url( get_post_format_link( 'image' ) ); ?>" title="<?php echo esc_attr( sprintf( __( 'All %s posts', 'SilentComics' ), get_post_format_string( 'image' ) ) ); ?>"><?php echo get_post_format_string( 'image' ); ?></a></span>
 
 			<?php edit_post_link( __( 'Edit', 'SilentComics' ), '<span class="edit-link">', '</span>' ); ?>
 		</footer><!-- .entry-meta -->

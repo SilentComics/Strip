@@ -34,6 +34,15 @@ function silentcomics_setup() {
 	 * to change 'silentcomics' to the name of your theme in all the template files
 	 */
 	load_theme_textdomain( 'silentcomics', get_template_directory() . '/languages' );
+	
+	/**
+	* Add EditorStyle
+	*/
+
+function silentcomics_add_editor_styles() {
+    add_editor_style( 'custom-editor-style.css' );
+}
+add_action( 'after_setup_theme', 'silentcomics_add_editor_styles' );
 
 	/**
 	 * Add default posts and comments RSS feed links to head

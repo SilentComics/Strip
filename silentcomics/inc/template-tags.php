@@ -165,30 +165,28 @@ if ( ! function_exists( 'silentcomics_posted_on' ) ) :
 /**
  * Prints HTML with meta information for the current post-date/time and author.
  */
-function silentcomics_posted_on() {
-	$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time>';
-	if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) )
-		$time_string .= '<time class="updated" datetime="%3$s">%4$s</time>';
+function silentcomics_entry_meta() {
+	if ( is_sticky() && is_home() && ! is_paged() )
+		printf( __( '<span class="featured-post"><a href="%1$s" title="%2$s" rel="bookmark">Sticky</a></span>', 'ryu' ),
+			esc_url( get_permalink() ),
+			esc_attr( get_the_time() )
+		);
 
-	$time_string = sprintf( $time_string,
-		esc_attr( get_the_date( 'c' ) ),
-		esc_html( get_the_date() ),
-		esc_attr( get_the_modified_date( 'c' ) ),
-		esc_html( get_the_modified_date() )
-	);
-
-	printf( __( '<span class="posted-on">Posted on %1$s</span><span class="byline"> by %2$s</span>', 'silentcomics' ),
-		sprintf( '<a href="%1$s" title="%2$s" rel="bookmark">%3$s</a>',
+	if ( 'post' == get_post_type() ) {
+		printf( __( '<span class="entry-date"><a href="%1$s" title="%2$s" rel="bookmark"><time datetime="%3$s">%4$s</time></a></span><span class="author vcard"><a class="url fn n" href="%5$s" title="%6$s" rel="author">%7$s</a></span>', 'ryu' ),
 			esc_url( get_permalink() ),
 			esc_attr( get_the_time() ),
-			$time_string
-		),
-		sprintf( '<span class="author vcard"><a class="url fn n" href="%1$s" title="%2$s">%3$s</a></span>',
+			esc_attr( get_the_date( 'c' ) ),
+			esc_html( get_the_date() ),
 			esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
-			esc_attr( sprintf( __( 'View all posts by %s', 'silentcomics' ), get_the_author() ) ),
-			esc_html( get_the_author() )
-		)
-	);
+			esc_attr( sprintf( __( 'View all posts by %s', 'ryu' ), get_the_author() ) ),
+			get_the_author()
+		);
+	}
+
+	$tags_list = get_the_tag_list( '', __( ', ', 'ryu' ) );
+	if ( $tags_list )
+		echo '<span class="tags-links">' . $tags_list . '</span>';
 }
 endif;
 
@@ -196,7 +194,7 @@ endif;
  * Returns true if a blog has more than 1 category
  */
 function silentcomics_categorized_blog() {
-	if ( false === ( $all_the_cool_cats = get_transient( 'all_the_cool_cats' ) ) ) {
+	if ( false === ( $all_the_cool_cats = get_transient( 'silentcomics_categories' ) ) ) {
 		// Create an array of all the categories that are attached to posts
 		$all_the_cool_cats = get_categories( array(
 			'hide_empty' => 1,

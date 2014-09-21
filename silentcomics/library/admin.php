@@ -54,7 +54,7 @@ http://digwp.com/2010/10/customize-wordpress-dashboard/
 // RSS Dashboard Widget
 function silentcomics_rss_dashboard_widget() {
 	if(function_exists('fetch_feed')) {
-		include_once(ABSPATH . WPINC . '/feed.php');               // include the required file
+		get_template_part(ABSPATH . WPINC . '/feed.php');               // include the required file
 		$feed = fetch_feed('http://silent-comics.tumblr.com/rss/');        // specify the source feed
 		$limit = $feed->get_item_quantity(6);                      // specify number of items
 		$items = $feed->get_items(0, $limit);                      // create an array of items
@@ -122,7 +122,7 @@ you like.
 
 // Custom Backend Footer
 function silentcomics_custom_admin_footer() {
-	_e('<span id="footer-thankyou">Developed by <a href="http://silent-comics.com" target="_blank">Silent Comics</a></span>. Custom admin area thanks to <a href="http://themble.com/bones" target="_blank">Themble</a>.', 'silentcomics');
+	_e('<span id="footer-thankyou">Developed by <a href="" target="_blank">Silent Comics</a></span>. Custom admin area thanks to <a href="" target="_blank">Themble</a>.', 'silentcomics');
 }
 
 // adding it to the admin area
