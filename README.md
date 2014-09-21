@@ -6,7 +6,7 @@ Still rough — Working on it
 ![screenshot]
 
 
-If ever this becomes a decent theme, I will release it for the Wordpress community on a GNU General Public License basis.
+If this ever become a decent theme, I will release it for the Wordpress community on a GNU General Public License basis.
 
 Coding is the *learning by doing* side of the project for me. Suggestions and tips from users, actual developers, designers and lovers of comics are welcome. 
 
@@ -14,7 +14,7 @@ Coding is the *learning by doing* side of the project for me. Suggestions and ti
 # Silent Comics Wordpress Theme
 ***
 
-This is SilentComics — a simple Wordpress theme, designed to be used by http://silent-comics.com, free for everyone to use and modify.
+This is SilentComics — a simple Wordpress theme, designed for the upcoming [SILENT COMICS site](http://silent-comics.com). The theme, still in development, is free for everyone to use and adapt.
 
 ## Features:
 
