@@ -3,7 +3,7 @@ WIP Wordpress-Theme-for-Silent-Comics
 
 Still rough — Working on it
 
-![screenshot]: (screenshot)
+![screenshot]
 
 
 If ever this becomes a decent theme, I will release it for the Wordpress community on a GNU General Public License basis.
