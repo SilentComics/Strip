@@ -52,11 +52,12 @@ and replace it with your own logo — you could use [Mobilefish's Base64 Encoder
 
 ## To do:
 
-Page grid to display books / episodes
-Add columns for extra large images
-Design footer
-Lots of small css tweaks and fixes
-Redesign the theme from scratch using **Less** or **Sass**
+- modify structure / navigation to show latest comic, either in index or posts, modify the loop to show first, previous, next, last; the current page either the beginning of the comic or the latest episode (I know there are plugins to do that, but it should be simple enough to not require any plugins)
+- Page grid to display books / episodes
+- Add columns for extra large images
+- Design footer
+- Lots of small css tweaks and fixes
+- Redesign the whole theme from scratch using **Less** or **Sass**
 
 ## Please Test and Suggest improvements
 
