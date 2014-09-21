@@ -40,7 +40,8 @@ and Blueprint http://www.blueprintcss.org/
 10.0 - Content
 	10.1 - Posts and pages
 	10.2 - Asides
-	10.3 - Comments
+	10.3 - Post Formats
+	10.4 - Comments
 11.0 - Infinite scroll
 12.0 - Media
 --------------------------------------------------------------*/
@@ -1136,7 +1137,7 @@ img.aligncenter {
 
 
 /*--------------------------------------------------------------
-10.3 Comments
+10.4 Comments
 --------------------------------------------------------------*/
 
 .comment-content a {
@@ -1153,7 +1154,7 @@ img.aligncenter {
 }
 
 p.no-comments {
-  font-weight: 900;
+  font-weight: 600;
   margin: 0 auto;
   max-width: 696px;
 }
@@ -1164,13 +1165,13 @@ p.no-comments {
 	}
 ol.comment-list li {
   list-style: none;
-  margin: 0 auto 48px;
+  margin: 0 auto 12px;
   max-width: 696px
 }
 li.pingback {
   font-size: 90%;
   font-style: italic;
-  margin: 5px 0;
+  margin: 6px 0;
   opacity: 0.8;
 }
 
@@ -1179,11 +1180,11 @@ li.pingback:last-child {
 }
 
 ol.comment-list ol.children li .comment-author:before {
-  content: '(c)';
-  float: left;
+  content: '';
+  float: right;
 /* try custom fonts here */
   font-family: "Futura";
-  font-size: 18px;
+  font-size: 12px;
   font-style: 200;
   font-weight: normal;
   margin: 10px 0 0 0;
@@ -1192,25 +1193,12 @@ ol.comment-list ol.children li .comment-author:before {
 
 /* Comment Author */
 .comment-author {
-	padding-left: 34px;
+	padding-left: 12px;
 	position: relative;
 }
-.comment-author .comment-author-avatar {
-	border-radius: 50%;
-	padding: 2px;
-	position: absolute;
-		top: 0;
-		left: 0;
-	width: 24px;
-	height: 24px;
-}
+
 .comment-author .avatar  {
-	border-radius: 50%;
-	position: absolute;
-		top: 2px;
-		left: 2px;
-	width: 24px;
-	height: 24px;
+	position: relative;
 }
 .comment-author cite {
 	font-family: 400 12px/2 Futura, "Trebuchet MS", Arial, sans-serif;
@@ -1277,12 +1265,6 @@ ol.comment-list ol.children li {
   padding: 0 0 5px 0;
 }
 
-.reply {
-  position: absolute;
-  right: 0;
-  top: 0;
-}
-
 #comments h2 {
   padding-bottom: 20px;
 }
@@ -1302,6 +1284,7 @@ h3#reply-title small {
   font-size: 50%;
   font-weight: 400;
 }
+
 
 
 /* =Footer

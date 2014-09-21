@@ -167,24 +167,24 @@ if ( ! function_exists( 'silentcomics_posted_on' ) ) :
  */
 function silentcomics_entry_meta() {
 	if ( is_sticky() && is_home() && ! is_paged() )
-		printf( __( '<span class="featured-post"><a href="%1$s" title="%2$s" rel="bookmark">Sticky</a></span>', 'ryu' ),
+		printf( __( '<span class="featured-post"><a href="%1$s" title="%2$s" rel="bookmark">Sticky</a></span>', 'silentcomics' ),
 			esc_url( get_permalink() ),
 			esc_attr( get_the_time() )
 		);
 
 	if ( 'post' == get_post_type() ) {
-		printf( __( '<span class="entry-date"><a href="%1$s" title="%2$s" rel="bookmark"><time datetime="%3$s">%4$s</time></a></span><span class="author vcard"><a class="url fn n" href="%5$s" title="%6$s" rel="author">%7$s</a></span>', 'ryu' ),
+		printf( __( '<span class="entry-date"><a href="%1$s" title="%2$s" rel="bookmark"><time datetime="%3$s">%4$s</time></a></span><span class="author vcard"><a class="url fn n" href="%5$s" title="%6$s" rel="author">%7$s</a></span>', 'silentcomics' ),
 			esc_url( get_permalink() ),
 			esc_attr( get_the_time() ),
 			esc_attr( get_the_date( 'c' ) ),
 			esc_html( get_the_date() ),
 			esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
-			esc_attr( sprintf( __( 'View all posts by %s', 'ryu' ), get_the_author() ) ),
+			esc_attr( sprintf( __( 'View all posts by %s', 'silentcomics' ), get_the_author() ) ),
 			get_the_author()
 		);
 	}
 
-	$tags_list = get_the_tag_list( '', __( ', ', 'ryu' ) );
+	$tags_list = get_the_tag_list( '', __( ', ', 'silentcomics' ) );
 	if ( $tags_list )
 		echo '<span class="tags-links">' . $tags_list . '</span>';
 }
