@@ -3,7 +3,7 @@ WIP Wordpress-Theme-for-Silent-Comics
 
 Still rough — Working on it
 
-[screenshot]: http://silentcomics.com/screenshot.png
+![screenshot]: (http://silentcomics.com/images/screenshot.png)
 
 
 If ever this becomes a decent theme, I will release it for the Wordpress community on a GNU General Public License basis.
@@ -64,3 +64,5 @@ Redesign the theme from scratch using **Less** or **Sass**
 Please send your findings over to
 
 hoa // @ // silent-comics.com
+
+[screenshot]: http://silentcomics.com/images/screenshot.png
