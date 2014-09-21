@@ -1180,7 +1180,7 @@ img.aligncenter {
 }
 
 .form-submit #submit{
-    max-width: 24%;
+    max-width: 100%;
     float: left;
     border-width: 3px;
     background: none;
