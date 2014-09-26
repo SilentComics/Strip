@@ -4,7 +4,7 @@ Theme URI: https://github.com/SilentComics/Wordpress-Theme-for-Silent-Comics/
 Author: Silent Comics
 Author URI: http://silent-comics.com
 Description: A simple theme for comics
-Version: Pre release work in progress 2.0 (21/09/2014) — Feel free to suggest improvements @silentcomics or mail hoa // at // silent-comics.com
+Version: Pre release work in progress 1.9 (18/09/2014) — Feel free to suggest improvements @silentcomics or mail hoa // at // silent-comics.com
 License: GNU General Public License v3 or later
 License URI: http://www.gnu.org/licenses/gpl.html
 Text Domain: silentcomics
@@ -39,9 +39,8 @@ and Blueprint http://www.blueprintcss.org/
 9.0 - Widgets
 10.0 - Content
 	10.1 - Posts and pages
-	10.2 - Asides
-	10.3 - Post Formats
-	10.4 - Comments
+	10.2 - Post Formats
+	10.3 - Comments
 11.0 - Infinite scroll
 12.0 - Media
 --------------------------------------------------------------*/
@@ -184,10 +183,10 @@ ul, ol {
 	margin: 0 0 1.5em 3em;
 }
 ul {
-	list-style: disc;
+	list-style: square;
 }
 ol {
-	list-style: decimal;
+	list-style: none;
 }
 li > ul,
 li > ol {
@@ -482,9 +481,6 @@ h2.site-description {
 	display: none;
 	float: left;
 	position: absolute;
-		top: 1.5em;
-		left: 0;
-	z-index: 99999;
 }
 .main-navigation ul ul ul {
 	left: 100%;
@@ -572,7 +568,6 @@ h2.site-description {
 	text-align: right;
 	width: 50%;
 }
-
 
 /*--------------------------------------------------------------
 6.0 Accessibility
@@ -839,9 +834,16 @@ article.attachment  .entry-meta {
 
 
 /*--------------------------------------------------------------
-10.2 Asides
+10.3 Post Format
 --------------------------------------------------------------*/
 
+/* Standard */
+.format-standard {
+	margin-top: 0;
+	margin: 0 auto;
+}
+
+/* Asides */
 .format-aside .entry-title {
 	font-size: 23px;
 	font-weight: 400;
@@ -890,16 +892,6 @@ span > object {
     width: 100%;
     height: 100%;
 } */
-
-/*--------------------------------------------------------------
-10.3 Post Format
---------------------------------------------------------------*/
-
-/* Standard */
-.format-standard {
-	margin-top: 0;
-	margin: 0 auto;
-}
 
 /* Image */
 
@@ -1137,64 +1129,173 @@ img.aligncenter {
 
 
 /*--------------------------------------------------------------
-10.4 Comments
+10.3 Comments
 --------------------------------------------------------------*/
 
 .comment-content a {
-    word-wrap: break-word;
+  word-wrap: break-word;
 }
-.bypostauthor {
+
+#respond,
+#respond.comment-respond {
+  font-size: 14px;
+  font-size: 1.4rem;
+  max-width: 696px;
+  margin: 5px auto 5px auto;
+  padding: 5px;
 }
-.comments-area {
-    width:80%;
-    max-width: 696px;
-		font-family: 'Fenix', serif;
-    font-size: 0.8em;
-    margin: 2rem auto;
-    padding-bottom: 4rem;
+
+p.no-comments {
+  font-weight: 900;
+  margin: 0 auto;
+  max-width: 696px;
 }
 .comments-title {
 	font: italic 400 24px/1 "Futura", sans-serif;
 	margin-bottom: 48px;
 	text-align: center;
 	}
-.comment-form-comment label{
-    width: 100%;
-    display: inline-block;
+ol.comment-list li {
+  list-style: none;
+  margin: 0 auto 48px;
+  max-width: 696px
+}
+li.pingback {
+  font-size: 90%;
+  font-style: italic;
+  margin: 5px 0;
+  opacity: 0.8;
 }
 
-.form-allowed-tags {
-	display: none;   
-	width:76%;
-    font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
-    font-size: 1em;
-    color: #ff6666;
-    margin: 0;
-	padding-bottom: 2rem;
+li.pingback:last-child {
+  padding-bottom: 10px;
+}
+
+ol.comment-list ol.children li .comment-author:before {
+  content: '(c)';
+  float: left;
+/* try custom fonts here */
+  font-family: "Futura";
+  font-size: 18px;
+  font-style: 200;
+  font-weight: normal;
+  margin: 10px 0 0 0;
+  opacity: 0.2;
+}
+
+/* Comment Author */
+.comment-author {
+	padding-left: 34px;
+	position: relative;
+}
+.comment-author .comment-author-avatar {
+	border-radius: 50%;
+	padding: 2px;
+	position: absolute;
+		top: 0;
+		left: 0;
+	width: 24px;
+	height: 24px;
+}
+.comment-author .avatar  {
+	border-radius: 50%;
+	position: absolute;
+		top: 2px;
+		left: 2px;
+	width: 24px;
+	height: 24px;
+}
+.comment-author cite {
+	font-family: 400 12px/2 Futura, "Trebuchet MS", Arial, sans-serif;
+	letter-spacing: 0.1em;
+	position: relative;
+	text-transform: uppercase;
+}
+.bypostauthor > article .comment-author > cite:after {
+	font-size: 16px;
+	content: "+";
+	position: absolute;
+		top: -10px;
+		right: -16px;
+}
+.comment-author .says {
+	color: #808080;
+	font-size: 13px;
+	font-style: italic;
 }
 
 
-.comment-subscription-form {
-    clear: both;
-    margin-top: 1rem;
+/* Comment Content */
+
+.comment-content {
+  clear: both;
 }
 
-.form-submit #submit{
-    max-width: 100%;
-    float: left;
-    border-width: 3px;
-    background: none;
-    display: inline-block;
-    padding: 15px;
-    border: #000000 2px solid;
-    text-decoration: none;
-    transition: border ease 0.3s;
-    font-family: Futura, "Trebuchet MS", Arial, sans-serif;
-    font-size: 1.2rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: #000000;
+.comment-metadata {
+  margin-right: 50px;
 }
+
+ol.comment-list ol.children li {
+  display: block;
+}
+
+.comment-list .comment-author-.avatar {
+  float: left;
+  margin: 0 10px 5px 0;
+}
+
+.comment-list .fn {
+  margin: 0;
+}
+
+.comment-meta {
+  font-size: 14px;
+  font-size: 1.4rem;
+  text-transform: lowercase;
+}
+
+.sticky .entry-content {
+  margin-bottom: 5px;
+  padding: 10px 5px 0 5px;
+}
+
+.comment-content {
+  margin-bottom: 5px;
+  padding: 5px 0 0 0;
+}
+
+.comment-meta {
+  font-size: 14px;
+  font-size: 1.4rem;
+  padding: 0 0 5px 0;
+}
+
+.reply {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+#comments h2 {
+  padding-bottom: 20px;
+}
+
+p.form-allowed-tags,
+p.form-allowed-tags code {
+  font-size: 90%;
+  opacity: 0.8;
+}
+
+#respond p.comment-form-comment textarea {
+  margin-top: 5px;
+}
+
+h3#reply-title small {
+  float: right;
+  font-size: 50%;
+  font-weight: 400;
+}
+
 
 /* =Footer
 ----------------------------------------------- */
