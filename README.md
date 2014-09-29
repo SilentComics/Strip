@@ -58,6 +58,7 @@ and replace it with your own logo — you could use [Mobilefish's Base64 Encoder
 - Design the footer
 - style the sidebars properly
 - Lots of small css tweaks and fixes
+- clean markup
 - Redesign the whole theme from scratch using **Less** or **Sass**
 
 ## Please Test and Suggest improvements
