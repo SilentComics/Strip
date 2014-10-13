@@ -8,7 +8,7 @@ Still rough — Working on it
 
 If this ever become a decent theme, I will release it for the Wordpress community on a GNU General Public License basis.
 
-Coding is the *learning by doing* side of the project for me. Suggestions and tips from users, actual developers, designers and lovers of comics are welcome. 
+Coding is the *learning by doing* side of the project for me. Suggestions and tips from users, actual developers, designers and lovers of comics are welcome: hoa // @ // silent-comics.com
 
 
 # Silent Comics Wordpress Theme
@@ -18,16 +18,21 @@ This is SilentComics — a simple Wordpress theme, designed for the upcoming [SI
 
 ## Features:
 
-One column, Large images, custom posts
+Not much: Responsive, single column, light, minimal style, custom posts formats, no sidebar, infinite scroll, large images. Custom login page. Large text set in [Fenix](http://j.mp/Fenix-MyFonts). All headings are set in Futura, just as on this blog.
+The theme is light and works fine with the latest WordPress version (4.0).  
 
-## Extra features
+## Tested with these plugins:
 Not part of the theme but suggested to display comics:
 
+### For Image Slideshow:
+- [Portfolio Slideshow Pro](http://momnt.co/downloads/portfolio-slideshow-pro) by [Momnt](http://momnt.co).
 
-### Slideshow plugin:
-**Portfolio Slideshow Pro** by Momnt
-Author URL: http://momnt.co
-Plugin URL: http://momnt.co/downloads/portfolio-slideshow-pro
+- [tiled-gallery-carousel-without-jetpack](https://wordpress.org/plugins/tiled-gallery-carousel-without-jetpack/) by RAJA CRN — a mirror of the Jetpack galleries options. As its name implies, it doesn’t require your site to connect with Jetpack. 
+
+### Disqus comments
+
+### Passes Theme-check
+Although still not completed.
 
 ***
 
@@ -52,14 +57,18 @@ and replace it with your own logo — you could use [Mobilefish's Base64 Encoder
 
 ## To do:
 
-- modify structure / navigation to show latest comic, either in index or posts, modify the loop to show first, previous, next, last; the current page either the beginning of the comic or the latest episode (I know there are plugins to do that, but it should be simple enough to not require any plugins)
-- Page grid to display books / episodes
-- Add columns for extra large images
-- Design the footer
-- style the sidebars properly
-- Lots of small css tweaks and fixes
-- clean markup
-- Redesign the whole theme from scratch using **Less** or **Sass**
+*	modify navigation to show first, previous, next, last
+* design a minimal, custom post type for comics
+* Design a category archive page with custom categories
+* reverse WP default order for comics
+*	Page grid to display books / episodes if not in archive
+*	Add columns for extra large images
+*	Design the footer
+*	style the sidebars properly
+*	Lots of small css tweaks and fixes
+* Markup clean-up
+*	Redesign the whole theme from scratch using *Less* or *Sass*
+* add / enable multiple stories (?)
 
 ## Please Test and Suggest improvements
 
