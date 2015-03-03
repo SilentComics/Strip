@@ -50,8 +50,6 @@ You can replace this bit with your site link:
 
 and replace it with your own logo — you could use [Mobilefish's Base64 Encoder](http://www.mobilefish.com/services/base64/base64.php "Mobilefish's Base64 Encoder") to encode a SVG file.
 
-
-
 ## To do:
 
 *	modify navigation to show first, previous, next, last
@@ -65,6 +63,7 @@ and replace it with your own logo — you could use [Mobilefish's Base64 Encoder
 * Markup clean-up
 * add / enable multiple stories ✓ (you can call each new story by category, simple)
 * Redesign the header
+*	Fix comments
 * style sticky post, pagelink and various post formats classes
 *	Lots of small css tweaks and fixes
 *	Redesign the whole theme from scratch using *Less* or *Sass* to ease future maintenance

@@ -5,7 +5,7 @@
 
 // Access global variable directly to set content_width
 if ( isset( $GLOBALS['content_width'] ) )
-	$GLOBALS['content_width'] = 1344;
+	$GLOBALS['content_width'] = 984;
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'clear' ); ?>>
@@ -28,7 +28,8 @@ if ( isset( $GLOBALS['content_width'] ) )
 			</header><!-- .entry-header -->
 
 			<footer class="entry-meta">
-
+				<?php silentcomics_entry_meta(); ?>
+				
 				<?php if ( ! post_password_required() && ( comments_open() || '0' != get_comments_number() ) ) : ?>
 				<span class="comments-link"><?php comments_popup_link( __( 'Leave a comment', 'SilentComics' ), __( '1 Comment', 'SilentComics' ), __( '% Comments', 'SilentComics' ) ); ?></span>
 				<?php endif; ?>

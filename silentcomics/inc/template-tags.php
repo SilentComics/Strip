@@ -22,18 +22,35 @@ function silentcomics_content_nav( $nav_id ) {
 		if ( ! $next && ! $previous )
 			return;
 	}
-
-	// Don't print empty markup in archives if there's only one page.
+	
+// Don't print empty markup in archives if there's only one page.
 	if ( $wp_query->max_num_pages < 2 && ( is_home() || is_archive() || is_search() ) )
 		return;
+		
+		$nav_class = ( is_single() ) ? 'post-navigation' : 'paging-navigation';
+	
+		if ( !'comic' == get_post_type() )
+		$nav_class .= ' navigation-comic';
 
-	$nav_class = ( is_single() ) ? 'post-navigation' : 'paging-navigation';
-
+// Add a class when both navigation items are there.
+	if ( ( get_previous_posts_link() && get_next_posts_link() ) || ( is_single() && ( $next && $previous ) ) )
+		$nav_class .= ' double';
 	?>
 	<nav role="navigation" id="<?php echo esc_attr( $nav_id ); ?>" class="<?php echo $nav_class; ?>">
+		<div class="wrap clear">
 		<h1 class="screen-reader-text"><?php _e( 'Post navigation', 'silentcomics' ); ?></h1>
-
-	<?php if ( is_single() ) : // navigation links for single posts ?>
+		
+		<?php if ( 'comic' == get_post_type() && ( is_single() || is_front_page() ) ) : //comics navigation links ?>
+		
+				<nav class="navigation-comic">
+				<nav class="nav-first"><a href="<?php echo esc_url( first_comic_link()); ?>"><?php esc_html_e( '|&lt; First', 'First Episode', 'silentcomics' ); ?></a></nav>
+				<nav class="nav-previous"><?php previous_post_link( '%link', '← Previous', TRUE ); ?></nav>
+				<nav class="nav-title"><?php the_title( '<h4 class="comic-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h4>' ); ?></nav>
+				<nav class="nav-next"><?php next_post_link( '%link', 'Next →', TRUE ); ?></nav>
+				<nav class="nav-last"><a href="<?php echo esc_url( last_comic_link() ); ?>"><?php esc_html_e( 'Latest &gt;|', 'Latest Episode', 'silentcomics' ); ?></a></nav>
+			</nav>
+			
+			<?php elseif ( is_single() ) : // navigation links for single posts ?>
 
 		<?php previous_post_link( '<div class="nav-previous">%link</div>', '<span class="meta-nav">' . _x( '&larr;', 'Previous post link', 'silentcomics' ) . '</span> %title' ); ?>
 		<?php next_post_link( '<div class="nav-next">%link</div>', '%title <span class="meta-nav">' . _x( '&rarr;', 'Next post link', 'silentcomics' ) . '</span>' ); ?>
@@ -46,10 +63,11 @@ function silentcomics_content_nav( $nav_id ) {
 
 		<?php if ( get_previous_posts_link() ) : ?>
 		<div class="nav-next"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'silentcomics' ) ); ?></div>
+			<?php endif; ?>
+
 		<?php endif; ?>
 
-	<?php endif; ?>
-
+		</div>
 	</nav><!-- #<?php echo esc_html( $nav_id ); ?> -->
 	<?php
 }
@@ -59,53 +77,48 @@ if ( ! function_exists( 'silentcomics_comment' ) ) :
 /**
  * Template for comments and pingbacks.
  *
- * Used as a callback by wp_list_comments() for displaying the comments.
+ * Used as a callback by wp_list_comments() for displaying the comments. Remove it to solve conflict with toggle comments  
  */
 function silentcomics_comment( $comment, $args, $depth ) {
 	$GLOBALS['comment'] = $comment;
-
-	if ( 'pingback' == $comment->comment_type || 'trackback' == $comment->comment_type ) : ?>
-
-	<li id="comment-<?php comment_ID(); ?>" <?php comment_class(); ?>>
-		<div class="comment-body">
-			<?php _e( 'Pingback:', 'silentcomics' ); ?> <?php comment_author_link(); ?> <?php edit_comment_link( __( 'Edit', 'silentcomics' ), '<span class="edit-link">', '</span>' ); ?>
-		</div>
-
-	<?php else : ?>
-
-	<li id="comment-<?php comment_ID(); ?>" <?php comment_class( empty( $args['has_children'] ) ? '' : 'parent' ); ?>>
-		<article id="div-comment-<?php comment_ID(); ?>" class="comment-body">
-			<footer class="comment-meta">
+	switch ( $comment->comment_type ) :
+		case 'pingback' :
+		case 'trackback' :
+	?>
+	<li class="post pingback">
+		<p><?php _e( 'Pingback:', 'silentcomics' ); ?> <?php comment_author_link(); ?><?php edit_comment_link( __( 'Edit', 'silentcomics' ), '<span class="edit-link">', '<span>' ); ?></p>
+	<?php
+			break;
+		default :
+	?>
+	<li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>">
+		<article id="comment-<?php comment_ID(); ?>" class="comment">
+			<footer>
 				<div class="comment-author vcard">
 					<span class="comment-author-avatar"><?php echo get_avatar( $comment, 48 ); ?></span>
-					<?php printf( __( '%s <span class="says">says:</span>', 'silentcomics' ), sprintf( '<cite class="fn">%s</cite>', get_comment_author_link() ) ); ?>
-				</div><!-- .comment-author -->
-
-				<div class="comment-metadata">
-					<a href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ); ?>">
-						<time datetime="<?php comment_time( 'c' ); ?>">
-							<?php printf( _x( '%1$s at %2$s', '1: date, 2: time', 'silentcomics' ), get_comment_date(), get_comment_time() ); ?>
-						</time>
-					</a>
-					<?php edit_comment_link( __( 'Edit', 'silentcomics' ), '<span class="edit-link">', '</span>' ); ?>
-				</div><!-- .comment-metadata -->
-
-				<?php if ( '0' == $comment->comment_approved ) : ?>
-				<p class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.', 'silentcomics' ); ?></p>
-				<?php endif; ?>
-			</footer><!-- .comment-meta -->
+					<?php printf( __( '%s <span class="says">says:</span>', 'silentcomics' ), sprintf( '<cite class="fn theme-genericon">%s</cite>', get_comment_author_link() ) ); ?>
+				</div><!-- .comment-author .vcard -->
+			</footer>
 
 			<div class="comment-content">
 				<?php comment_text(); ?>
-			</div><!-- .comment-content -->
+				<?php if ( $comment->comment_approved == '0' ) : ?>
+					<p><em><?php _e( 'Your comment is awaiting moderation.', 'silentcomics' ); ?></em></p>
+				<?php endif; ?>
+			</div>
 
-			<div class="reply">
-				<?php comment_reply_link( array_merge( $args, array( 'add_below' => 'div-comment', 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
-			</div><!-- .reply -->
-		</article><!-- .comment-body -->
+			<div class="comment-meta commentmetadata">
+				<a href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ); ?>"><time datetime="<?php comment_time( 'c' ); ?>">
+				<?php printf( _x( '%1$s at %2$s', '1: date, 2: time', 'silentcomics' ), get_comment_date(), get_comment_time() ); ?>
+				</time></a>
+				<?php comment_reply_link( array_merge( $args, array( 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
+				<?php edit_comment_link( __( 'Edit', 'silentcomics' ), '<span class="edit-link">', '<span>' ); ?>
+			</div><!-- .comment-meta .commentmetadata -->
+		</article><!-- #comment-## -->
 
 	<?php
-	endif;
+			break;
+	endswitch;
 }
 endif; // ends check for silentcomics_comment()
 
@@ -115,7 +128,7 @@ if ( ! function_exists( 'silentcomics_the_attached_image' ) ) :
  */
 function silentcomics_the_attached_image() {
 	$post                = get_post();
-	$attachment_size     = apply_filters( 'silentcomics_attachment_size', array( 1200, 1200 ) );
+	$attachment_size     = apply_filters( 'silentcomics_attachment_size', array( 1272, 1272 ) );
 	$next_attachment_url = wp_get_attachment_url();
 
 	/**
@@ -161,7 +174,7 @@ function silentcomics_the_attached_image() {
 }
 endif;
 
-if ( ! function_exists( 'silentcomics_posted_on' ) ) :
+if ( ! function_exists( 'silentcomics_entry_meta' ) ) :
 /**
  * Prints HTML with meta information for the current post-date/time and author.
  */
@@ -224,3 +237,43 @@ function silentcomics_category_transient_flusher() {
 }
 add_action( 'edit_category', 'silentcomics_category_transient_flusher' );
 add_action( 'save_post',     'silentcomics_category_transient_flusher' );
+
+/**
+ * Link to the first comic post
+ *
+ * @param string $format
+ * @param array $args
+ */
+ 
+function first_comic_link() {
+
+$query = new WP_Query( array());
+
+	$first = get_comic_boundary_post( TRUE, '', TRUE );
+    apply_filters( the_title('', '', false), $first[0]->post_title ); 
+    
+if ( $query->have_posts() )
+		$query->the_post(); 
+		return post_permalink( $first[0]->ID );
+}      
+wp_reset_postdata();
+
+/**
+ * Link to the last post in a series.
+ *
+ * @param string $format
+ * @param array $args
+ */
+ 
+ function last_comic_link() { 
+	 
+$query = new WP_Query( array());
+	 
+	$last = get_comic_boundary_post( TRUE, '', FALSE );
+    apply_filters( 'the_title', $last[0]->post_title );    
+     
+if ( $query->have_posts() )
+		$query->the_post(); 
+		return post_permalink( $last[0]->ID );
+}      
+wp_reset_postdata();

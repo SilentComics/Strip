@@ -4,7 +4,7 @@ Theme URI: https://github.com/SilentComics/Wordpress-Theme-for-Silent-Comics/
 Author: Silent Comics
 Author URI: http://silent-comics.com
 Description: A simple theme for comics
-Version: Pre release work in progress 2.1 (26/09/2014) — Feel free to suggest improvements @silentcomics or mail hoa // at // silent-comics.com
+Version: Pre release work in progress 2.2.3 (27/02/2015) — Restarting from scratch @silentcomics or mail hoa // at // silent-comics.com
 License: GNU General Public License v3 or later
 License URI: http://www.gnu.org/licenses/gpl.html
 Text Domain: silentcomics
@@ -41,7 +41,9 @@ and Blueprint http://www.blueprintcss.org/
 	10.1 - Posts and pages
 	10.2 - Asides
 	10.3 - Post Formats
-	10.4 - Comments
+	10.4 - Comics
+	10.5 - Comments
+	10.6 - Footer
 11.0 - Infinite scroll
 12.0 - Media
 --------------------------------------------------------------*/
@@ -162,10 +164,39 @@ textarea {
 h1, h2, h3, h4, h5, h6 {
 	clear: both;
 font-family: Futura, "Trebuchet MS", Arial, sans-serif;
-	font-weight: normal;
+	font-weight: 300;
 	margin-bottom: 1em;
 }
-
+h1 {
+	font-size: 3.2rem;
+	line-height: 1;
+}
+h2 {
+	font-size: 2.4rem;
+	line-height: 1.2;
+}
+h3 {
+	font-size: 1.2rem;
+	line-height: 1.2142857142;
+}
+h4 {
+	font-size: 1.2rem;
+	line-height: 1.3076923076;
+}
+h5 {
+	font-size: 1rem;
+	line-height: 1.4166666666;
+}
+h6 {
+	font-size: 0.9rem;
+	line-height: 1.4782608695;
+}
+hr {
+	background-color: rgba(0, 0, 0, 0.1);
+	border: 0;
+	height: 1px;
+	margin-bottom: 33px;
+}
 /* Selection */
 
 ::-selection{background:#ffcc00;color:#ffffff;}
@@ -276,36 +307,43 @@ button,
 input,
 select,
 textarea {
-	font-size: 100%; /* Corrects font size not being inherited in all browsers */
-	margin: 0; /* Addresses margins set differently in IE6/7, F3/4, S5, Chrome */
-	vertical-align: baseline; /* Improves appearance and consistency in all browsers */
-	*vertical-align: middle; /* Improves appearance and consistency in IE6/IE7 */
-}
+  font-size: 100%;
+  /* Corrects font size not being inherited in all browsers */
+  margin: 0;
+  /* Addresses margins set differently in IE6/7, F3/4, S5, Chrome */
+  vertical-align: baseline;
+  /* Improves appearance and consistency in all browsers */ }
+
 button,
-input[type="button"],
+html input[type="button"],
 input[type="reset"],
 input[type="submit"] {
-	border: 1px solid #ccc;
-	border-color: #ccc #ccc #bbb #ccc;
-	border-radius: 3px;
-	background: #e6e6e6;
-	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5), inset 0 15px 17px rgba(255, 255, 255, 0.5), inset 0 -5px 12px rgba(0, 0, 0, 0.05);
-	color: rgba(0, 0, 0, .8);
-	cursor: pointer; /* Improves usability and consistency of cursor style between image-type 'input' and others */
-	-webkit-appearance: button; /* Corrects inability to style clickable 'input' types in iOS */
-	font-size: 12px;
-	font-size: 1.2rem;
-	line-height: 1;
-	padding: .6em 1em .4em;
-	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
-}
+  border: 1px solid;
+  border-color: #ccc #ccc #bbb;
+  background-clip: padding-box;
+  /* stops bg color from leaking outside the border: */
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  background: #000000;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5), inset 0 15px 17px rgba(255, 255, 255, 0.5), inset 0 -5px 12px rgba(0, 0, 0, 0.05);
+  color: rgba(0, 0, 0, 0.8);
+  cursor: pointer;
+  /* Improves usability and consistency of cursor style between image-type 'input' and others */
+  -webkit-appearance: button;
+  /* Corrects inability to style clickable 'input' types in iOS */
+  font-size: 12px;
+  font-size: 1.2rem;
+  line-height: 1;
+  padding: .6em 1em .4em;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8); }
+
 button:hover,
 input[type="button"]:hover,
 input[type="reset"]:hover,
 input[type="submit"]:hover {
-	border-color: #ccc #bbb #aaa #bbb;
-	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8), inset 0 15px 17px rgba(255, 255, 255, 0.8), inset 0 -5px 12px rgba(0, 0, 0, 0.02);
-}
+  border-color: #ccc #bbb #aaa;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8), inset 0 15px 17px rgba(255, 255, 255, 0.8), inset 0 -5px 12px rgba(0, 0, 0, 0.02); }
+
 button:focus,
 input[type="button"]:focus,
 input[type="reset"]:focus,
@@ -314,58 +352,70 @@ button:active,
 input[type="button"]:active,
 input[type="reset"]:active,
 input[type="submit"]:active {
-	border-color: #aaa #bbb #bbb #bbb;
-	box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.5), inset 0 2px 5px rgba(0, 0, 0, 0.15);
-}
+  border-color: #aaa #bbb #bbb;
+  box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.5), inset 0 2px 5px rgba(0, 0, 0, 0.15); }
+
 input[type="checkbox"],
 input[type="radio"] {
-	padding: 0; /* Addresses excess padding in IE8/9 */
-}
+  padding: 0;
+  /* Addresses excess padding in IE8/9 */ }
+
 input[type="search"] {
-	-webkit-appearance: textfield; /* Addresses appearance set to searchfield in S5, Chrome */
-	-webkit-box-sizing: content-box; /* Addresses box sizing set to border-box in S5, Chrome (include -moz to future-proof) */
-	-moz-box-sizing:    content-box;
-	box-sizing:         content-box;
-}
-input[type="search"]::-webkit-search-decoration { /* Corrects inner padding displayed oddly in S5, Chrome on OSX */
-	-webkit-appearance: none;
-}
+  -webkit-appearance: textfield;
+  /* Addresses appearance set to searchfield in S5, Chrome */
+  -webkit-box-sizing: content-box;
+  /* Addresses box sizing set to border-box in S5, Chrome (include -moz to future-proof) */
+  -moz-box-sizing: content-box;
+  box-sizing: content-box; }
+
+input[type="search"]::-webkit-search-decoration {
+  /* Corrects inner padding displayed oddly in S5, Chrome on OSX */
+  -webkit-appearance: none; }
+
 button::-moz-focus-inner,
-input::-moz-focus-inner { /* Corrects inner padding and border displayed oddly in FF3/4 www.sitepen.com/blog/2008/05/14/the-devils-in-the-details-fixing-dojos-toolbar-buttons/ */
-	border: 0;
-	padding: 0;
-}
+input::-moz-focus-inner {
+  /* Corrects inner padding and border displayed oddly in FF3/4 www.sitepen.com/blog/2008/05/14/the-devils-in-the-details-fixing-dojos-toolbar-buttons/ */
+  border: 0;
+  padding: 0; }
+
 input[type="text"],
 input[type="email"],
 input[type="url"],
 input[type="password"],
-input[type="search"],
 textarea {
-	color: #666;
-	border: 1px solid #ccc;
-	border-radius: 3px;
-}
+  width: 100%; 
+  color: #666;
+  border: 1px solid #ccc;
+  background-clip: padding-box;
+  /* stops bg color from leaking outside the border: */
+  -webkit-border-radius: 3px;
+  border-radius: 3px; }
+
 input[type="text"]:focus,
 input[type="email"]:focus,
 input[type="url"]:focus,
 input[type="password"]:focus,
 input[type="search"]:focus,
 textarea:focus {
-	color: #111;
-}
+  color: #111; }
+
 input[type="text"],
 input[type="email"],
 input[type="url"],
 input[type="password"],
 input[type="search"] {
-	padding: 3px;
-}
+  padding: 3px; }
+  
+input[type="search"] {
+  width: 67%; }
+
 textarea {
-	overflow: auto; /* Removes default vertical scrollbar in IE6/7/8/9 */
-	padding-left: 3px;
-	vertical-align: top; /* Improves readability and alignment in all browsers */
-	width: 98%;
-}
+  overflow: auto;
+  /* Removes default vertical scrollbar in IE6/7/8/9 */
+  padding-left: 3px;
+  vertical-align: top;
+  /* Improves readability and alignment in all browsers */
+  width: 98%; }
 
 /*--------------------------------------------------------------
 5.0 Navigation
@@ -384,10 +434,10 @@ a:visited {
 }
 a:hover,
 a:focus, {
-color: #ffcccc;
+color: #00ffab;
 }
 a:active {
-	color: #ff6666;
+	color: #FF7369;
 }
 
 /*--------------------------------------------------------------
@@ -586,7 +636,7 @@ h2.site-description {
 	border-radius: 3px;
 	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
 	clip: auto !important;
-	color: #21759b;
+	color: #20759c;
 	display: block;
 	font-size: 14px;
 	font-weight: bold;
@@ -642,84 +692,149 @@ h2.site-description {
 	display: none;
 }
 
+/* =Basic Structure
+----------------------------------------------- */
+
+body {
+	background-color: #fff;
+}
+.wrap {
+	margin: 0 auto;
+}
+#page {
+	border-top: 9px solid transparent;
+}
+#colophon {
+	padding: 12px 0;
+}
+
+
 /*--------------------------------------------------------------
 9.0 Widgets
 --------------------------------------------------------------*/
-/* =Widgets
------------------------------------------------ */
-
+#secondary {
+	clear: both;
+	color: #b59c9c;
+	margin: 0 auto;
+	padding: 1.6em 0;
+}
+#secondary a {
+	color: #b68181
+}
+#secondary a:hover {
+	color: #ff6666;
+}
+.widget-area-wrapper {
+	margin: 0 auto;
+	max-width: 1248px;
+}
+.sidebar-1,
+.sidebar-2,
+.sidebar-3 {
+	float: left;
+	margin: 0 5% 3.2em 0;
+	width: 30%;
+}
+.sidebar-3 {
+	margin-right: 0;
+}
 .widget {
-  clear: both;
-  margin: 24px 0px 0px 48px;
+	font: 300 10px/1 "Futura", "Trebuchet MS", Arial, sans-serif;
+	font-size: 10px;
+	font-size: 1rem;
+	margin: 0 0 1.6em;
 }
-.widget .widget select {
-  max-width: 100%;
+.widget ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
 }
-
-.widget-search .search-submit {
-  display: none;
+.widget ul > li {
+	border-top: 0px solid #eee;
+	display: block;
+	list-style: none;
+	padding: .8em 0;
 }
-
-.widget-areas {
-  float: none;
-  font-size: 14px;
-  font-size: 1.4rem;
-  width: 100%;
+.widget ul > li:last-child {
+	padding-bottom: 0;
 }
-.widget-areas .widget-area {
-  float: none;
-  width: 100%;
+.widget ul ul > li:first-child {
+	margin-top: .8em;
 }
-
-h1.widget-title {
-  margin-bottom: 5px;
+.widget ul ul {
+	margin-left: .8em;
 }
-
-.widget-area,
-.widget-area h1,
-.widget-area h2,
-.widget-area h3,
-.widget-area h4,
-.widget-area h5,
-.widget-area h6,
-.widget-area a,
-.widget-area a:visited {
-  color: lightslategrey;
+#secondary .widget ul > li {
+	border-top: 0px solid rgba(182, 86, 86, 0.2);
 }
-
-.widget-area a:hover {
-  color: pink;
+.widget-title,
+.widget-title a {
+	line-height: 1.24;
+	margin: 1em 0 .6em;
+	text-decoration: none;
 }
-
-.widget ul,
-.widget ol {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+#secondary .widget-title,
+#secondary .widget-title a {
+	font-size: 12px;
+	font-size: 1.2rem;
+	font-style: italic;
+	color: #e9d1d1;
+	line-height: 1.24;
+	text-decoration: none;
 }
 
-.widget a:hover {
-  opacity: 1;
+/* Make sure select elements fit in widgets */
+.widget select {
+	max-width: 100%;
 }
 
-.widget img.avatar {
-  float: right;
-  margin: 0 5px 0 0;
+/* Search widget */
+
+.widget_search form {
+	position: relative;
+	}
+.widget_search .search-field {
+font-family: sans-serif;
+font-size:10px;
+
+color:#ff6666;
+padding: 6px;
+width:168px;
+}
+.widget_search .search-submit {
+	display: none;
 }
 
-.widget table {
-  border: none;
+/* Calendar widget */
+#wp-calendar td,
+#wp-calendar th {
+	text-align: center;
+}
+#wp-calendar td {
+	color: #999;
+}
+#wp-calendar a {
+	text-decoration: none;
+}
+#wp-calendar caption {
+	font-weight: bold;
+	margin: .8em 0;
+	text-align: center;
+}
+.widget_recent_comments td {
+	border: 0;
+	padding: 5px 5px 10px 5px;
+	vertical-align: top;
 }
 
-.widget_calendar caption {
-  padding-bottom: 10px;
-  font-weight: bold;
-}
-
-.widget_calendar caption,
-.widget_calendar th,
-.widget_calendar td {
-  text-align: center;
+/* Smiley */
+#wpstats {
+	display: block;
+	margin: 0 0 0 -5px;
+	position: absolute;
+		top: 0;
+		left: 50%;
+	z-index: -1;
 }
 
 /* =Attachment page
@@ -748,13 +863,15 @@ article.attachment  .entry-meta {
 /*--------------------------------------------------------------
 10.1 Posts and pages
 --------------------------------------------------------------*/
-
 .sticky .entry-date {
 	display: none;
 }
 .entry-wrap {
 	margin: 0 auto;
 	max-width: 1272px;
+}
+.hentry {
+	padding: 0px 0 42px;
 }
 .attachment-silentcomics-featured-thumbnail {
 	display: block;
@@ -765,21 +882,25 @@ article.attachment  .entry-meta {
 	font: 400 14px/2 Futura, "Trebuchet MS", Arial, sans-serif;
 	margin: 0 auto;
 	max-width: 696px;
+	/* support non-breaking text for edge cases  */
+	-ms-word-wrap: break-word;
+	word-wrap: break-word;
 }
 .entry-title, .entry-title a{
 	text-decoration:none;
-	font-size:38px;
+	font-size:32px;
 	color:#000;
 	text-transform:uppercase;
 	text-align:center;
 }
 .entry-title a:hover{
 	text-decoration:none;
-	color:#ff6666;
+	color:#FF7369;
 }
 .categories-links {
 	display: block;
 	font: 400 12px/2 Futura, "Trebuchet MS", Arial, sans-serif;
+	font-size: 10px;
 	letter-spacing: 0.1em;
 	max-width: 696px;
 	padding: 8px 0 9px;
@@ -788,22 +909,25 @@ article.attachment  .entry-meta {
 .entry-meta {
 	display: block;
 	font: 400 12px/2 Futura, "Trebuchet MS", Arial, sans-serif;
-    font-size: 12px;
+    font-size: 10px;
     letter-spacing: 0.1em;
 	margin-top: 34px;
 	padding: 8px 0 9px;
 	text-transform: uppercase;
 }
 .entry-meta span + span:before {
-	content: "";
+	content: "\0020\007C\0020";
 	color: rgba(0, 0, 0, 0.2);
+}
+.entry-meta:hover {
+  opacity: 1;
 }
 .entry-meta a{
 	text-decoration:none;
-	color:#999;
+	color:#ba9e9e;
 }
 .sep{
-	color:#e6e6e6;
+	color:#f74545;
 	font-style:italic;
 }
 .byline {
@@ -823,6 +947,7 @@ article.attachment  .entry-meta {
 	clear: both;
 	margin: 0 0 1.5em;
 }
+
 .single-thumbnail{
 	margin:20px 0;
 }
@@ -832,7 +957,6 @@ article.attachment  .entry-meta {
 	-khtml-opacity: 0.9;
 	opacity: 0.9;
 }
-
 
 /*--------------------------------------------------------------
 10.2 Asides
@@ -896,12 +1020,12 @@ span > object {
 	margin-top: 0;
 	margin: 0 auto;
 }
+.entry-meta {
+	margin-bottom: 12px;
+}
 
 /* Image */
 
-.format-image.hentry {
-	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-}
 .format-image .entry-content {
 	margin-top: 0;
 	margin: 0 auto;
@@ -934,12 +1058,11 @@ span > object {
 .format-link  {
 	margin-left: 2px;
 	margin: 0 auto;
-    	max-width: 696px;
+    max-width: 696px;
 	text-align: left;
 }
 
 /* Gallery */
-
 .format-gallery .entry-content {
 	margin: 0 auto;
 	max-width: 1248px;
@@ -950,6 +1073,7 @@ span > object {
 
 /* Video */
 .format-video {
+	margin-top: 2em;
 	position: relative;
 }
 .format-video .band {
@@ -1046,7 +1170,6 @@ img.aligncenter {
 .site-content .gallery-columns-9 a img {
 	max-width: 90%;
 }
-
 /* Captions settings */
 
 .wp-caption {
@@ -1086,8 +1209,8 @@ img.aligncenter {
 .site-content [class*="navigation"] {
 	margin: 0 0 1.5em;
 	overflow: hidden;
-    font-family: Fenix, serif;
-	font-size: 0.8em;
+  font-family: Fenix, serif;
+	font-size: 0.6em;
 	line-height: 1;
 	padding: 0px 24px 0px 24px;
     }
@@ -1104,7 +1227,7 @@ img.aligncenter {
 	height: 100px;
 }
 [class*="navigation"] a:hover .meta-nav {
-	background-color: none;
+	background-color: #ff6666;
 }
 
 /* Comment navigation specific */
@@ -1120,7 +1243,7 @@ img.aligncenter {
 .navigation-comment .next {
 	-moz-box-sizing: border-box;
 	box-sizing:      border-box;
-	margin: 0;
+	margin: 0 auto;
 	height: auto;
 }
 .navigation-comment .previous {
@@ -1130,16 +1253,234 @@ img.aligncenter {
 	padding-left: 10px;
 }
 
-
-
 /*--------------------------------------------------------------
-10.4 Comments
+10.4 Comics
+--------------------------------------------------------------*/
+.comic {
+border-top: 0px dotted rgba(255, 76, 0, 0.24);
+}
+
+.comic .entry-title {
+	font: 400 14px/2 Futura, "Trebuchet MS", Arial, sans-serif;
+	margin: 0 auto;
+	max-width: 696px;
+}
+.comic .entry-title{
+	text-decoration:none;
+	font-size:24px;
+	color:#f1e6e6;
+	text-transform:uppercase;
+	text-align:center;
+}
+.comic .categories-links {
+	display: block;
+}
+.comic .entry-meta {
+	display: none;
+}
+.comic .entry-content {
+	margin-top: 0;
+	margin: 0 auto;
+	max-width: 2048px;
+	text-align: left;
+}
+
+[class*="navigation"] a {
+	text-decoration: none;
+}
+[class*="navigation"] .nav-previous {
+	float: left;
+	text-align: left;
+	width: 50%;
+}
+[class*="navigation"] .nav-next {
+	float: right;
+	text-align: right;
+	width: 50%;
+}
+.entry-comic .navigation-comic {
+	font-style: normal;
+	margin: .8em 0 0;
+	text-align: center;
+	width: 100%;
+}
+.entry-comic .navigation-comic [class*="nav-"] {
+	float: none;
+	display: inline-block;
+	padding: 0.8em 0 0;
+
+	width: 18.5%;
+}
+.entry-comic .navigation-comic .nav-first {
+	text-align: left;
+}
+.entry-comic .navigation-comic .nav-last {
+	text-align: right;
+}
+.entry-comic .navigation-comic .nav-title {
+	text-align: center;
+	font-size: 12px;
+	font-size: 1.2rem;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+}
+.entry-comic .navigation-comic .nav-previous a,
+.entry-comic .navigation-comic .nav-next a,
+.entry-comic .navigation-comic .nav-first a,
+.entry-comic .navigation-comic .nav-last a {
+	background: #fff6f3;
+	border-radius: 3px;
+	color: rgba(176, 142, 142, 0.6);
+	display: inline;
+	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+	font-size: 12px;
+	font-size: 1.2rem;
+	letter-spacing: 0.1em;
+	padding: 9px 9px;
+	text-transform: uppercase;
+	}
+.entry-comic .navigation-comic .nav-previous a:hover,
+.entry-comic .navigation-comic .nav-next a:hover,
+.entry-comic .navigation-comic .nav-first a:hover,
+.entry-comic .navigation-comic .nav-last a:hover {
+	background: #FF7369;
+	color: #fff;
+}
+.comicbook-title {
+	margin: auto;
+	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+	text-align: center;
+	font-size: 12px;
+	font-size: 1.2rem;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+}
+.comicbook-episode {
+	margin: auto;
+	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+	text-align: center;
+	font-size: 12px;
+	font-size: 1.2rem;
+	line-height: 1.76em;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+}
+/*  the comic page title */
+.page-title {
+	font: italic 400 24px/1 Futura, "Trebuchet MS", Arial, sans-serif;
+	margin-bottom: 24px;
+	text-align: center;
+}
+.taxonomy-description {
+	font: italic 400 24px/1 Futura, "Trebuchet MS", Arial, sans-serif;
+	margin-bottom: 24px;
+	text-align: center;
+}
+.taxonomy-description a {
+	color: #ff0070;
+	}
+.page-links {
+	clear: both;
+	font: 400 16px/1 Futura, "Trebuchet MS", Arial, sans-serif;
+	letter-spacing: 0.1em;
+	margin: 0 0 34px;
+	text-transform: uppercase;
+}
+.page-links > span {
+	border: 2px solid #000;
+	border-radius: 50%;
+	display: inline-block;
+	text-align: center;
+	width: 26px;
+	height: 26px;
+}
+.page-links a {
+	background-color: #000;
+	border: 2px solid #000;
+	border-radius: 50%;
+	color: #fff;
+	display: inline-block;
+	text-align: center;
+	margin: 2px 0;
+	text-decoration: none;
+	width: 26px;
+	height: 28px;
+}
+.entry-summary .page-links a,
+.entry-content .page-links a {
+	border-bottom: 0;
+}
+.entry-summary .page-links a:hover,
+.entry-content .page-links a:hover {
+	background: #333;
+	border: 2px solid #333;
+	border-bottom: 0;
+	color: #fff;
+}
+.page-links > span.page-links-title {
+	border: none;
+	padding-right: 9px;
+	width: auto;
+	height: auto;
+}	
+.entry-content a,
+.entry-summary a,
+.comment-content a {
+	hover: #ffcccc;
+}
+.entry-content a:hover,
+.entry-summary a:hover,
+.comment-content a:hover {
+	color: #ff0042;
+}
+/*  the comic blurb */
+.comicbook-blurb {
+	margin: auto;
+	max-width: 696px;
+	color: #b6d9ec;
+	font-family:'Fenix', Georgia, serif;
+	text-align: left;
+	font-size: 16px;
+	font-size: 1.6rem;
+	line-height: 1.2;
+	
+}
+/*--------------------------------------------------------------
+10.5.1 Hide Comments
+--------------------------------------------------------------*/
+button.toggle-comments {
+	max-width: 100%;
+    float: left;
+    border-width: 3px;
+    background: none;
+    display: inline-block;
+    padding: 10px;
+    border: #000000 2px solid;
+    text-decoration: none;
+    transition: border ease 0.3s;
+    font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #000000;
+    background-color: transparent;
+}
+#toggle-comments-container {
+	padding-top: 2em;
+	padding-bottom: 2.4em;
+	margin-left: 10%;        
+}
+/* enables viewing if user has disabled javascript */
+.royalSlider > .rsContent {
+    visibility: visible;
+}
+/*--------------------------------------------------------------
+10.5.2 Comments
 --------------------------------------------------------------*/
 .comment-author {
 	color: #242424;
 	font-size: 16px;
 }
-
 .comment-author .says {
 	color: #898080;
 	font-size: 13px;
@@ -1150,26 +1491,20 @@ img.aligncenter {
 	color: #a2a2a2;
 	font-size: 13px;
 }
-
 .comment-meta a:hover {
 	color: #ea9629;
 }
-
 .comment-metadata {
 	margin-bottom: 20px;
 }
-
 .ping-meta {
 	color: #a2a2a2;
 	font-size: 13px;
 	line-height: 2;
 }
-
 .comment-awaiting-moderation {
 	color: #ffbb00;
 }
-
-
 .comment-content a {
     word-wrap: break-word;
 }
@@ -1184,7 +1519,8 @@ img.aligncenter {
     padding-bottom: 4rem;
 }
 .comments-title {
-	font: italic 400 24px/1 "Futura", sans-serif;
+	font: italic 400 24px/1; 
+	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
 	margin-bottom: 48px;
 	text-align: center;
 	}
@@ -1192,58 +1528,68 @@ img.aligncenter {
     width: 100%;
     display: inline-block;
 }
-
 .form-allowed-tags {
 	display: none;   
 	width:76%;
     font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
     font-size: 1em;
-    color: #ff6666;
+    color: #FF7369;
     margin: 0;
 	padding-bottom: 2rem;
 }
-
 .comment-subscription-form {
     clear: both;
     margin-top: 1rem;
 }
-
 .form-submit #submit{
     max-width: 100%;
     float: left;
     border-width: 3px;
     background: none;
     display: inline-block;
-    padding: 15px;
+    padding: 10px;
     border: #000000 2px solid;
     text-decoration: none;
     transition: border ease 0.3s;
     font-family: Futura, "Trebuchet MS", Arial, sans-serif;
-    font-size: 1.2rem;
+    font-size: 1rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     color: #000000;
 }
-
-/* =Footer
------------------------------------------------ */
-
+/*--------------------------------------------------------------
+10.6 Footer
+--------------------------------------------------------------*/
+.site-footer {
+	background-color: #402020;
+	background-opacity: 24%;
+	border-top: 2px solid #ff6666;
+	clear: both;
+	position: relative;
+	width: 100%;
+}
+.site-footer a {
+	color: #ffcccc;
+	text-decoration: none;
+}
 .site-info {
-	background-color: #eeeae6;
-    height: 296px
+	background-color: #ff6666;
 	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
-	font-size: 12px;
+	font-size: 1rem;
 	line-height: 1.2;
 	padding: 8px 0 9px;
 	text-align: center;
-}
+	}
 .site-info a {
-	color: #000;
+	color: #fff;
 }
 .site-info a:hover {
-	color: #ff6666;
+	color: #000000;
 }
-
+.colophon-wrapper {
+	margin: 1.6em auto;
+	max-width: 1272px;
+}
 
 /*--------------------------------------------------------------
 11.0 Infinite scroll
@@ -1261,26 +1607,18 @@ img.aligncenter {
 
 /* =Jetpack: Tiled Gallery
 ----------------------------------------------- */
-
 .hentry .tiled-gallery {
 	margin-bottom: 34px;
 }
-
 /*--------------------------------------------------------------
 12.0 Media queries
 --------------------------------------------------------------*/
-
-
 @media screen and (min-width: 312px) {
 	.wrap,
 	#search-wrapper .searchform {
 		max-width: 264px;
 	}
-	#secondary {
-		max-width: 288px;
-	}
 }
-
 @media screen and (min-width: 456px) {
 	.wrap,
 	#search-wrapper .searchform {
@@ -1290,19 +1628,9 @@ img.aligncenter {
 		display: block;
 	}
 }
-
 @media screen and (min-width: 600px) {
 	.wrap {
 		max-width: 552px;
-	}
-	#secondary.one {
-		max-width: 288px;
-	}
-	#secondary {
-		max-width: 576px;
-	}
-	#secondary .widget-area:nth-child(3) {
-		clear: both;
 	}
 	.comment-list .children {
 		margin-left: 72px;
@@ -1336,7 +1664,6 @@ img.aligncenter {
 		padding-left: 12px;
 	}
 }
-
 @media screen and (min-width: 744px) {
 	.wrap {
 		max-width: 696px;
@@ -1349,51 +1676,63 @@ img.aligncenter {
 		width: 85%;
 	}
 }
-
 @media screen and (min-width: 888px) {
 	.wrap,
 	.categories-links,
 	.entry-title {
 		max-width: 840px;
 	}
-	.entry-meta {
-		float: right;
-		width: 120px;
-		margin: 34px 24px 34px 0;
-		padding: 0;
+	.entry-meta span + span:before {
+		content: "";
 	}
-
+	.entry-meta {
+		position: absolute;
+		right: 0;
+		top: inherit;
+		text-align: left;
+		width: auto;
+		margin: 12px 24px 12px 0;
+		padding: 0;
+		}
+	.entry-meta span {
+		border-bottom: 0px dotted #e4d3d3;
+		display: block;
+		padding: 2px 0px;
+		}
 	.entry-content,
 	.entry-summary,
 	article.attachment .entry-caption {
-		float: right;
+		margin: auto;
 	}
 	.format-image .entry-content,
 	.format-gallery .entry-content,
 	article.attachment .entry-content {
 		float: none;
 	}
+	.format-image .entry-meta {
+		margin: 0 auto;
+	}
 	.format-video .band {
-		background-color: #ffcc00;
+		background-color: #000;
 		display: block;
 		position: absolute;
 			top: 0px;
 			left: 0;
 		width: 100%;
-		height: 554px; /* Custom Height*/
+		height: 560px; /* Custom Height*/
 		z-index: -1;
 	}
 	.format-video .entry-info {
 		float: left;
 		margin-top: 102px;
 		max-width: 240px;
-		padding: 17px 0;
+		padding: 16px 0;
 	}
 	.format-video .categories-links {
 		font-size: 12px;
 		font-weight: 400;
 		line-height: 1.4166666666;
-		margin-bottom: 17px;
+		margin-bottom: 16px;
 		padding: 0;
 	}
 	.format-video .entry-meta {
@@ -1413,10 +1752,10 @@ img.aligncenter {
 	}
 	.format-video .entry-info,
 	.format-video .entry-info a {
-		color: #000;
+		color: #ffcccc;
 	}
 	.format-video .entry-title {
-		color: #fff;
+		color: #ffffff;
 		font-size: 22px;
 		line-height: 1.5454545454;
 		margin-bottom: 17px;
@@ -1427,20 +1766,25 @@ img.aligncenter {
 		margin-top: 0;
 		max-width: 552px;
 	}
-	#secondary.two {
-		max-width: 576px;
+	.widget-area {
+		margin: 0;
+		overflow: hidden;
 	}
+	.widget-area {
+		margin: 0 ;
+		overflow: hidden;
+	}
+	.sidebar-1,
+	.sidebar-2,
+	.sidebar-3,
 	#secondary {
-		max-width: 864px;
-	}
-	#secondary .widget-area:nth-child(3) {
-		clear: none;
-	}
-	#secondary .widget-area:nth-child(4) {
-		clear: both;
+		margin: 0;
+		overflow: hidden;
+		margin-right: 5%;
+		margin-left: 5%;
+		width: auto;
 	}
 }
-
 @media screen and (min-width: 1032px) {
 	.wrap {
 		max-width: 984px;
@@ -1454,7 +1798,7 @@ img.aligncenter {
 		width: 168px;
 	}
 	.entry-meta span.entry-format {
-		display: none;
+		display: block;
 	}
 	.entry-format-badge {
 		display: block;
@@ -1469,7 +1813,6 @@ img.aligncenter {
 		max-width: 720px;
 	}
 }
-
 @media screen and (min-width: 1176px) {
 	.wrap {
 		max-width: 1128px;
@@ -1484,17 +1827,7 @@ img.aligncenter {
 	.format-video .entry-content {
 		max-width: 840px;
 	}
-	#secondary.three {
-		max-width: 864px;
-	}
-	#secondary {
-		max-width: 1152px;
-	}
-	#secondary .widget-area:nth-child(4) {
-		clear: none;
-	}
 }
-
 @media screen and (min-width: 1320px) {
 	.wrap {
 		max-width: 1272px;
@@ -1503,7 +1836,41 @@ img.aligncenter {
 		max-width: 984px;
 	}
 }
-
+@media screen and (min-width: 1680px) {
+	.wrap {
+		max-width: 1272px;
+	}
+	.format-video .entry-content {
+		max-width: 984px;
+	}
+	.comic .wrap {
+	max-width: 1896px;
+	}
+}
+@media screen and (max-width: 816px) {
+	.widget-area {
+		margin: 0 auto;
+		overflow: hidden;
+	}
+	.sidebar-1,
+	.sidebar-2,
+	.sidebar-3,
+#secondary {
+		margin-right: 1em;
+		margin-left: 1em;
+		width: auto;
+	}
+	.entry-comic .navigation-comic .nav-previous a,
+	.entry-comic .navigation-comic .nav-next a,
+	.entry-comic .navigation-comic .nav-title,
+	.entry-comic .navigation-comic .nav-first a,
+	.entry-comic .navigation-comic .nav-last a {
+	font-size: 12px;
+	font-size: 1.2rem;
+	letter-spacing: normal;
+	width: -moz-max-content;
+	}
+}
 @media screen and (max-width: 600px) {
 	body, button, input, select, textarea {
 		font-size: 18px;
@@ -1514,9 +1881,11 @@ img.aligncenter {
 		height: 31px;
         }     
     .philactery {
+	    
 		width: 12.666px;
 		height: 16px;
 	}
+	
     .site-description {
          display: none;
     }
@@ -1527,17 +1896,17 @@ img.aligncenter {
 		margin-bottom: 34px;
 	}
 	.hentry {
-		padding: 34px 0 0;
+		padding: 6px 0 0;
 	}
 	.entry-title {
-		font-size: 51px;
+		font-size: 24px;
 	}
 	.entry-meta {
-		margin-top: 17px;
+		margin-top: 16px;
 	}
 	.entry-content,
 	.entry-summary {
-		margin-top: 17px;
+		margin-top: 16px;
 	}
 	.site-content [class*="navigation"],
 	#comments {
@@ -1579,14 +1948,31 @@ img.aligncenter {
 	.infinite-loader {
 		margin: 34px auto;
 	}
+	.entry-comic .navigation-comic .nav-previous a,
+	.entry-comic .navigation-comic .nav-next a,
+	.entry-comic .navigation-comic .nav-title,
+	.entry-comic .navigation-comic .nav-first a,
+	.entry-comic .navigation-comic .nav-last a {
+	font-size: 9px;
+	font-size: 0.9rem;
+	letter-spacing: normal;
+	}
 }
-
 @media screen and (max-width: 456px) {
 	.entry-title {
-		font-size: 34px;
+		font-size: 24px;
 	}
 	.categories-links {
 		font-size: 13px;
 		line-height: 1.3076923076;
+	}
+	.entry-comic .navigation-comic .nav-previous a,
+	.entry-comic .navigation-comic .nav-next a,
+	.entry-comic .navigation-comic .nav-title,
+	.entry-comic .navigation-comic .nav-first a,
+	.entry-comic .navigation-comic .nav-last a {
+	font-size: 6px;
+	font-size: 0.6rem;
+width: auto;
 	}
 }

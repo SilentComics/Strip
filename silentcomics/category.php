@@ -15,10 +15,12 @@ get_header(); ?>
 
 	<div id="primary" class="content-area">
 		<div id="content" class="site-content" role="main">
+</br>
+<h4 class="comicbook-blurb">			
+Categories for blog posts.
+</h4>
 
-		<?php if ( have_posts() ) : ?>
-	
-	<?php /* Start the Loop */ ?>
+			<?php /* Start the Loop */ ?>
 			<?php while ( have_posts() ) : the_post(); ?>
 
 				<?php
@@ -29,15 +31,7 @@ get_header(); ?>
 					get_template_part( 'content', get_post_format() );
 				?>
 
-			<?php endwhile; ?>
-
-			<?php silentcomics_content_nav( 'nav-below' ); ?>
-
-		<?php else : ?>
-
-			<?php get_template_part( 'no-results', 'index' ); ?>
-
-		<?php endif; ?>
+			<?php endwhile; // end of the loop. ?>
 
 		</div><!-- #content -->
 	</div><!-- #primary -->

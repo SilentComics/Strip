@@ -28,9 +28,10 @@
 function silentcomics_custom_header_setup() {
 	add_theme_support( 'custom-header', apply_filters( 'silentcomics_custom_header_args', array(
 		'default-image'          => '',
+		'header-text'  			 => false,
 		'default-text-color'     => '000',
-		'width'                  => 696,
-		'height'                 => 224,
+		'width'                  => 1272,
+		'height'                 => 318,
 		'flex-height'            => true,
 		'wp-head-callback'       => 'silentcomics_header_style',
 		'admin-head-callback'    => 'silentcomics_admin_header_style',

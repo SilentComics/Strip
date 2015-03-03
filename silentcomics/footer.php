@@ -11,8 +11,12 @@
 	</div><!-- #content -->
 
 	<footer id="colophon" class="site-footer" role="contentinfo">
+		<?php get_sidebar( 'tertiary' ); ?>
 		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'http://wordpress.org/', 'silentcomics' ) ); ?>"><?php printf( __( 'Proudly powered by %s', 'shizukana' ), 'WordPress' ); ?></a>
+			&copy; <?php 
+  $fromYear = 2013; 
+  $thisYear = (int)date('Y'); 
+  echo $fromYear . (($fromYear != $thisYear) ? '-' . $thisYear : '');?> SILENT COMICS
 			<span class="sep"> | </span>
 			<?php printf( __( 'Theme: %1$s by %2$s.', 'silentcomics' ), 'silentcomics', '<a href="" rel="designer">Silent Comics</a>' ); ?>
 		</div><!-- .site-info -->

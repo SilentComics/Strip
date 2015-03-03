@@ -31,7 +31,8 @@
 		</header><!-- .entry-header -->
 
 		<footer class="entry-meta">
-
+				<?php SilentComics_entry_meta(); ?>
+			
 			<?php if ( ! post_password_required() && ( comments_open() || '0' != get_comments_number() ) ) : ?>
 			<span class="comments-link"><?php comments_popup_link( __( 'Leave a comment', 'SilentComics' ), __( '1 Comment', 'SilentComics' ), __( '% Comments', 'SilentComics' ) ); ?></span>
 			<?php endif; ?>
