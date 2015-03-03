@@ -5,21 +5,18 @@ Still rough — Working on it
 
 ![screenshot]
 
+Coding is the *learning by doing* side of the project for me. Suggestions and tips from users, actual developers, designers and lovers of comics are welcome: hoa // @ // silent-comics.com
 
 If this ever become a decent theme, I will release it for the Wordpress community on a GNU General Public License basis.
 
-Coding is the *learning by doing* side of the project for me. Suggestions and tips from users, actual developers, designers and lovers of comics are welcome: hoa // @ // silent-comics.com
-
-
 # Silent Comics Wordpress Theme
-***
 
 This is SilentComics — a simple Wordpress theme, designed for the upcoming [SILENT COMICS site](http://silent-comics.com). The theme, still in development, is free for everyone to use and adapt.
 
 ## Features:
 
-Not much: Responsive, single column, light, minimal style, custom posts formats, no sidebar, infinite scroll, large images. Custom login page. Large text set in [Fenix](http://j.mp/Fenix-MyFonts). All headings are set in Futura, just as on this blog.
-The theme is light and works fine with the latest WordPress version (4.0).  
+Not much: white, light, one-column, fixed-layout, responsive-layout, custom-background, custom-colors, custom-header, custom-menu, featured-images, flexible-header, post-formats, editor-style.
+Minimal look, custom posts format for comics, no sidebar, infinite scroll, large images. Custom login page. Large text set in [Fenix](http://j.mp/Fenix-MyFonts). The theme is light and works fine with the latest WordPress version (4.0).  
 
 ## Tested with these plugins:
 Not part of the theme but suggested to display comics:
@@ -59,16 +56,19 @@ and replace it with your own logo — you could use [Mobilefish's Base64 Encoder
 
 *	modify navigation to show first, previous, next, last
 * design a minimal, custom post type for comics
-* Design a category archive page with custom categories
-* reverse WP default order for comics
+* Re-design the category archive page(s) with custom categories
+* reverse WP default order for comics archive ✓
 *	Page grid to display books / episodes if not in archive
-*	Add columns for extra large images
-*	Design the footer
+*	Add columns for extra large images 
+*	Redesign the footer in columns / fix the media queries
 *	style the sidebars properly
-*	Lots of small css tweaks and fixes
 * Markup clean-up
-*	Redesign the whole theme from scratch using *Less* or *Sass*
-* add / enable multiple stories (?)
+* add / enable multiple stories ✓ (you can call each new story by category, simple)
+* Redesign the header
+* style sticky post, pagelink and various post formats classes
+*	Lots of small css tweaks and fixes
+*	Redesign the whole theme from scratch using *Less* or *Sass* to ease future maintenance
+*	…
 
 ## Please Test and Suggest improvements
 
