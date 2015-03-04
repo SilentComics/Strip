@@ -1,9 +1,8 @@
 <?php
 /**
- * Template Name: Page of Stories
- * I'd like this page to put all the comics on a grid
- * Selectable from a dropdown menu on the edit page screen.
- */
+ * Template Name: Page of Stories 
+ * TO DO: I'd like this page to put all the comics on a grid
+ * Selectable from a dropdown menu on the edit page screen. */
 ?>
 
 <?php get_header(); ?>

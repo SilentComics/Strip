@@ -17,7 +17,7 @@ get_header(); ?>
 
 			<div class="entry-comic">
 
-				<?php get_template_part( 'content', get_post_format() ); ?>
+				<?php get_template_part( 'content-comic', get_post_format() ); ?>
 
 				<?php silentcomics_content_nav( 'comics-nav-below' ); ?>
 

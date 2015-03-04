@@ -168,32 +168,32 @@ font-family: Futura, "Trebuchet MS", Arial, sans-serif;
 	margin-bottom: 1em;
 }
 h1 {
-	font-size: 3.2rem;
-	line-height: 1;
+	font-size: 3.6rem;
+	line-height: inherit;
 }
 h2 {
-	font-size: 2.4rem;
-	line-height: 1.2;
+	font-size: 3.2rem;
+	line-height: inherit;
 }
 h3 {
-	font-size: 1.2rem;
-	line-height: 1.2142857142;
+	font-size: 2.4rem;
+	line-height: inherit;
 }
 h4 {
-	font-size: 1.2rem;
+	font-size: 1.8rem;
 	line-height: 1.3076923076;
 }
 h5 {
-	font-size: 1rem;
-	line-height: 1.4166666666;
+	font-size: 1.6rem;
+	line-height: inherit;
 }
 h6 {
-	font-size: 0.9rem;
-	line-height: 1.4782608695;
+	font-size: 1.2rem;
+	line-height: inherit;
 }
 hr {
 	background-color: rgba(0, 0, 0, 0.1);
-	border: 0;
+	border: 2px;
 	height: 1px;
 	margin-bottom: 33px;
 }
@@ -239,6 +239,42 @@ dfn, cite, em, i {
 }
 blockquote {
 	margin: 0 1.5em;
+}
+blockquote em, blockquote i, blockquote cite {
+	font-style: normal;
+}
+blockquote p {
+	font-family:'Fenix', Georgia, serif;
+	font-size: 24px;
+	line-height: inherit;
+	margin-bottom: 51px;
+}
+blockquote cite,
+.quote-caption {
+	color: #808080;
+	font: ;
+	font-weight: 400;
+	letter-spacing: 0.15em;
+	padding-left: 50px;
+	position: relative;
+	text-transform: uppercase;
+}
+.quote-caption {
+	display: inline;
+}
+blockquote cite a,
+.quote-caption a {
+	color: #808080;
+}
+blockquote cite:before,
+.quote-caption:before {
+	content: "";
+	background: #000;
+	width: 40px;
+	height: 1px;
+	position: absolute;
+		top: 10px;
+		left: 0;
 }
 address {
 	margin: 0 0 1.5em;
@@ -307,115 +343,98 @@ button,
 input,
 select,
 textarea {
-  font-size: 100%;
-  /* Corrects font size not being inherited in all browsers */
-  margin: 0;
-  /* Addresses margins set differently in IE6/7, F3/4, S5, Chrome */
-  vertical-align: baseline;
-  /* Improves appearance and consistency in all browsers */ }
-
+	font-size: 100%; /* Corrects font size not being inherited in all browsers */
+	margin: 0; /* Addresses margins set differently in IE6/7, F3/4, S5, Chrome */
+	vertical-align: top;
+}
+button,
+input {
+	line-height: normal; /* Addresses FF3/4 setting line-height using !important in the UA stylesheet */
+	*overflow: visible;  /* Corrects inner spacing displayed oddly in IE6/7 */
+}
 button,
 html input[type="button"],
 input[type="reset"],
 input[type="submit"] {
-  border: 1px solid;
-  border-color: #ccc #ccc #bbb;
-  background-clip: padding-box;
-  /* stops bg color from leaking outside the border: */
-  -webkit-border-radius: 3px;
-  border-radius: 3px;
-  background: #000000;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5), inset 0 15px 17px rgba(255, 255, 255, 0.5), inset 0 -5px 12px rgba(0, 0, 0, 0.05);
-  color: rgba(0, 0, 0, 0.8);
-  cursor: pointer;
-  /* Improves usability and consistency of cursor style between image-type 'input' and others */
-  -webkit-appearance: button;
-  /* Corrects inability to style clickable 'input' types in iOS */
-  font-size: 12px;
-  font-size: 1.2rem;
-  line-height: 1;
-  padding: .6em 1em .4em;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8); }
-
+	border: 0;
+	background: #000;
+	color: #fff;
+	cursor: pointer;
+	font: 700 12px/1 Lato, sans-serif;
+	letter-spacing: 0.1em;
+	padding: 11px 22px;
+	text-transform: uppercase;
+}
 button:hover,
-input[type="button"]:hover,
+html input[type="button"]:hover,
 input[type="reset"]:hover,
-input[type="submit"]:hover {
-  border-color: #ccc #bbb #aaa;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8), inset 0 15px 17px rgba(255, 255, 255, 0.8), inset 0 -5px 12px rgba(0, 0, 0, 0.02); }
-
+input[type="submit"]:hover,
 button:focus,
-input[type="button"]:focus,
+html input[type="button"]:focus,
 input[type="reset"]:focus,
-input[type="submit"]:focus,
+input[type="submit"]:focus{
+	background-color: #333;
+}
 button:active,
-input[type="button"]:active,
+html input[type="button"]:active,
 input[type="reset"]:active,
 input[type="submit"]:active {
-  border-color: #aaa #bbb #bbb;
-  box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.5), inset 0 2px 5px rgba(0, 0, 0, 0.15); }
-
+	background-color: #333;
+	box-shadow: inset 0 0 8px 2px rgba(0, 0, 0, 0.2), 0 1px 0 0 rgba(0, 0, 0, 0.2);
+}
 input[type="checkbox"],
 input[type="radio"] {
-  padding: 0;
-  /* Addresses excess padding in IE8/9 */ }
-
+	-moz-box-sizing: border-box;
+	box-sizing:      border-box; /* Addresses box sizing set to content-box in IE8/9 */
+	padding: 0; /* Addresses excess padding in IE8/9 */
+	vertical-align: middle;
+}
 input[type="search"] {
-  -webkit-appearance: textfield;
-  /* Addresses appearance set to searchfield in S5, Chrome */
-  -webkit-box-sizing: content-box;
-  /* Addresses box sizing set to border-box in S5, Chrome (include -moz to future-proof) */
-  -moz-box-sizing: content-box;
-  box-sizing: content-box; }
-
-input[type="search"]::-webkit-search-decoration {
-  /* Corrects inner padding displayed oddly in S5, Chrome on OSX */
-  -webkit-appearance: none; }
-
+	-webkit-appearance: textfield; /* Addresses appearance set to searchfield in S5, Chrome */
+	-moz-box-sizing: border-box;
+	box-sizing:      border-box;
+}
+input[type="search"]::-webkit-search-decoration { /* Corrects inner padding displayed oddly in S5, Chrome on OSX */
+	-webkit-appearance: none;
+}
 button::-moz-focus-inner,
-input::-moz-focus-inner {
-  /* Corrects inner padding and border displayed oddly in FF3/4 www.sitepen.com/blog/2008/05/14/the-devils-in-the-details-fixing-dojos-toolbar-buttons/ */
-  border: 0;
-  padding: 0; }
-
+input::-moz-focus-inner { /* Corrects inner padding and border displayed oddly in FF3/4 www.sitepen.com/blog/2008/05/14/the-devils-in-the-details-fixing-dojos-toolbar-buttons/ */
+	border: 0;
+	padding: 0;
+}
 input[type="text"],
 input[type="email"],
-input[type="url"],
 input[type="password"],
+input[type="search"],
 textarea {
-  width: 100%; 
-  color: #666;
-  border: 1px solid #ccc;
-  background-clip: padding-box;
-  /* stops bg color from leaking outside the border: */
-  -webkit-border-radius: 3px;
-  border-radius: 3px; }
-
+	-moz-box-sizing: border-box;
+	box-sizing:      border-box;
+	border-radius: 0;
+	color: #111;
+	border: 1px solid rgba(0, 0, 0, 0.1);
+}
 input[type="text"]:focus,
 input[type="email"]:focus,
-input[type="url"]:focus,
 input[type="password"]:focus,
 input[type="search"]:focus,
 textarea:focus {
-  color: #111; }
-
+	outline: none;
+	color: #111;
+}
 input[type="text"],
 input[type="email"],
-input[type="url"],
 input[type="password"],
-input[type="search"] {
-  padding: 3px; }
-  
-input[type="search"] {
-  width: 67%; }
-
+input[type="search"],
 textarea {
-  overflow: auto;
-  /* Removes default vertical scrollbar in IE6/7/8/9 */
-  padding-left: 3px;
-  vertical-align: top;
-  /* Improves readability and alignment in all browsers */
-  width: 98%; }
+	font-size: 15px;
+	padding: 7px 3px 8px 7px;
+}
+textarea {
+	overflow: auto; /* Removes default vertical scrollbar in IE6/7/8/9 */
+	padding: 7px 7px 8px 7px;
+	vertical-align: top; /* Improves readability and alignment in all browsers */
+	width: 100%;
+}
 
 /*--------------------------------------------------------------
 5.0 Navigation
@@ -889,9 +908,11 @@ article.attachment  .entry-meta {
 .entry-title, .entry-title a{
 	text-decoration:none;
 	font-size:32px;
-	color:#000;
+	color:#241212;
+	line-height: inherit;
 	text-transform:uppercase;
 	text-align:center;
+	margin-bottom: 34px;
 }
 .entry-title a:hover{
 	text-decoration:none;
@@ -931,7 +952,7 @@ article.attachment  .entry-meta {
 	font-style:italic;
 }
 .byline {
-	display: none;
+	display: block;
 }
 .single .byline,
 .group-blog .byline {
@@ -939,7 +960,7 @@ article.attachment  .entry-meta {
 }
 .entry-content,
 .entry-summary {
-	margin: 1.5em 0 0;
+	margin: 24px 0px 19px 0px;
 	max-width: 696px;
 	width: 100%;
 }
@@ -1041,7 +1062,7 @@ span > object {
 	content: "";
 }
 .format-quote .entry-title {
-	font-size: 23px;
+	font-size: 24px;
 	font-weight: 400;
 	line-height: 1.4782608695;
 	margin-bottom: 34px;
@@ -1065,7 +1086,7 @@ span > object {
 /* Gallery */
 .format-gallery .entry-content {
 	margin: 0 auto;
-	max-width: 1248px;
+	max-width: 2048px;
 }
 .format-gallery .entry-meta {
 	margin-bottom: 12px;
@@ -1209,22 +1230,23 @@ img.aligncenter {
 .site-content [class*="navigation"] {
 	margin: 0 0 1.5em;
 	overflow: hidden;
-  font-family: Fenix, serif;
+	font: 300 14px/2 Futura, "Trebuchet MS", Arial, sans-serif;
 	font-size: 0.6em;
-	line-height: 1;
-	padding: 0px 24px 0px 24px;
+	line-height: inherit;
+	padding: 0px 24px;
     }
 [class*="navigation"] .meta-nav {
 	background-color: none;
 	border-radius: 2px; /* square shaped is 0px */
 	color: white;
 	background-color: black;
-	font-family: Fenix;
-	font-size: 24px;
-	line-height: 48px;
+	font-family: sans-serif;
+	font-size: 16px;
+	line-height: 32px;
 	text-align: center;
-	width: 100px;
-	height: 100px;
+	padding: 0px 3px;
+	width: 48px;
+	height: 48px;
 }
 [class*="navigation"] a:hover .meta-nav {
 	background-color: #ff6666;
@@ -1267,8 +1289,8 @@ border-top: 0px dotted rgba(255, 76, 0, 0.24);
 }
 .comic .entry-title{
 	text-decoration:none;
-	font-size:24px;
-	color:#f1e6e6;
+	font-size: 24px;
+	color: #f3e7e7;
 	text-transform:uppercase;
 	text-align:center;
 }
@@ -1276,7 +1298,8 @@ border-top: 0px dotted rgba(255, 76, 0, 0.24);
 	display: block;
 }
 .comic .entry-meta {
-	display: none;
+	position: absolute;
+	left: auto;
 }
 .comic .entry-content {
 	margin-top: 0;
@@ -1307,7 +1330,7 @@ border-top: 0px dotted rgba(255, 76, 0, 0.24);
 .entry-comic .navigation-comic [class*="nav-"] {
 	float: none;
 	display: inline-block;
-	padding: 0.8em 0 0;
+	padding: 1em 0 0 0;
 
 	width: 18.5%;
 }
@@ -1319,6 +1342,8 @@ border-top: 0px dotted rgba(255, 76, 0, 0.24);
 }
 .entry-comic .navigation-comic .nav-title {
 	text-align: center;
+	color: rgba(76, 36, 36, 0.6);
+	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
 	font-size: 12px;
 	font-size: 1.2rem;
 	letter-spacing: 0.1em;
@@ -1379,20 +1404,23 @@ border-top: 0px dotted rgba(255, 76, 0, 0.24);
 .taxonomy-description a {
 	color: #ff0070;
 	}
+/* pagination */
+
 .page-links {
 	clear: both;
-	font: 400 16px/1 Futura, "Trebuchet MS", Arial, sans-serif;
+	font: 400 1.4rem/1.33 Futura, "Trebuchet MS", Arial, sans-serif;
 	letter-spacing: 0.1em;
-	margin: 0 0 34px;
+	margin: 0 auto;
 	text-transform: uppercase;
+	text-align: center;
 }
 .page-links > span {
 	border: 2px solid #000;
 	border-radius: 50%;
 	display: inline-block;
-	text-align: center;
-	width: 26px;
-	height: 26px;
+	text-align: -moz-center;
+	width: 24px;
+	height: 24px;
 }
 .page-links a {
 	background-color: #000;
@@ -1400,11 +1428,11 @@ border-top: 0px dotted rgba(255, 76, 0, 0.24);
 	border-radius: 50%;
 	color: #fff;
 	display: inline-block;
-	text-align: center;
-	margin: 2px 0;
+	text-align: -moz-center;
+
 	text-decoration: none;
-	width: 26px;
-	height: 28px;
+	width: 24px;
+	height: 24px;
 }
 .entry-summary .page-links a,
 .entry-content .page-links a {
@@ -1437,7 +1465,7 @@ border-top: 0px dotted rgba(255, 76, 0, 0.24);
 .comicbook-blurb {
 	margin: auto;
 	max-width: 696px;
-	color: #b6d9ec;
+	background-color: #b6d9ec;
 	font-family:'Fenix', Georgia, serif;
 	text-align: left;
 	font-size: 16px;
@@ -1890,7 +1918,7 @@ button.toggle-comments {
          display: none;
     }
 	blockquote p {
-		font-size: 34px;
+		font-size: 24px;
 		font-weight: 400;
 		line-height: 1;
 		margin-bottom: 34px;
@@ -1956,6 +1984,7 @@ button.toggle-comments {
 	font-size: 9px;
 	font-size: 0.9rem;
 	letter-spacing: normal;
+	padding: 6px 6px;
 	}
 }
 @media screen and (max-width: 456px) {
@@ -1971,8 +2000,10 @@ button.toggle-comments {
 	.entry-comic .navigation-comic .nav-title,
 	.entry-comic .navigation-comic .nav-first a,
 	.entry-comic .navigation-comic .nav-last a {
-	font-size: 6px;
-	font-size: 0.6rem;
+	font-size: 7px;
+	font-size: 0.7rem;
+	letter-spacing: normal;
+	padding: 4px 4px;
 width: auto;
 	}
 }

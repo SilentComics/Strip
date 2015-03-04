@@ -43,17 +43,17 @@ function silentcomics_content_nav( $nav_id ) {
 		<?php if ( 'comic' == get_post_type() && ( is_single() || is_front_page() ) ) : //comics navigation links ?>
 		
 				<nav class="navigation-comic">
-				<nav class="nav-first"><a href="<?php echo esc_url( first_comic_link()); ?>"><?php esc_html_e( '|&lt; First', 'First Episode', 'silentcomics' ); ?></a></nav>
-				<nav class="nav-previous"><?php previous_post_link( '%link', '← Previous', TRUE ); ?></nav>
-				<nav class="nav-title"><?php the_title( '<h4 class="comic-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h4>' ); ?></nav>
-				<nav class="nav-next"><?php next_post_link( '%link', 'Next →', TRUE ); ?></nav>
-				<nav class="nav-last"><a href="<?php echo esc_url( last_comic_link() ); ?>"><?php esc_html_e( 'Latest &gt;|', 'Latest Episode', 'silentcomics' ); ?></a></nav>
+				<nav class="nav-first"><a href="<?php echo esc_url( first_comic_link()); ?>"><?php esc_html_e( '&#124;&#10094; First', 'First Episode', 'silentcomics' ); ?></a></nav>
+				<nav class="nav-previous"><?php previous_post_link( '%link', '&#10094; Previous', TRUE ); ?></nav>
+				<nav class="nav-title"><?php the_title( '<h6 class="comic-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h6>' ); ?></nav>
+				<nav class="nav-next"><?php next_post_link( '%link', 'Next &#10095;', TRUE ); ?></nav>
+				<nav class="nav-last"><a href="<?php echo esc_url( last_comic_link() ); ?>"><?php esc_html_e( 'Latest &#10095;&#124;', 'Latest Episode', 'silentcomics' ); ?></a></nav>
 			</nav>
 			
 			<?php elseif ( is_single() ) : // navigation links for single posts ?>
 
-		<?php previous_post_link( '<div class="nav-previous">%link</div>', '<span class="meta-nav">' . _x( '&larr;', 'Previous post link', 'silentcomics' ) . '</span> %title' ); ?>
-		<?php next_post_link( '<div class="nav-next">%link</div>', '%title <span class="meta-nav">' . _x( '&rarr;', 'Next post link', 'silentcomics' ) . '</span>' ); ?>
+		<?php previous_post_link( '<div class="nav-previous">%link</div>', '<span class="meta-nav">' . _x( '&#8592;', 'Previous post link', 'silentcomics' ) . '</span> %title' ); ?>
+		<?php next_post_link( '<div class="nav-next">%link</div>', '%title <span class="meta-nav">' . _x( '&#8594;', 'Next post link', 'silentcomics' ) . '</span>' ); ?>
 
 	<?php elseif ( $wp_query->max_num_pages > 1 && ( is_home() || is_archive() || is_search() ) ) : // navigation links for home, archive, and search pages ?>
 

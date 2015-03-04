@@ -101,7 +101,7 @@ get_header(); ?>
 		);
     while ($custom_loop->have_posts()) : $custom_loop->the_post();
   ?>
-    <h4 class="comicbook-episode"><li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li></h4>
+    <h4 class="comicbook-episode"><ul><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></ul></h4>
 </p>  
     <?php endwhile; ?>
 <?php 

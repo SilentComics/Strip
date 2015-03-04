@@ -245,7 +245,7 @@ function add_my_post_types_to_query( $query ) {
 
 add_filter('pre_get_posts', 'query_post_type');
 function query_post_type($query) {
-  if($query->is_category() || $query->is_tag() && $query->is_main_query && empty( $query->query_get['suppress_filters'] ) ) {
+  if($query->is_main_query() && $query->is_category() || $query->is_tag() && empty( $query->query_vars['suppress_filters'] ) ) {
     $post_type = get_query_var('post_type');
 	if($post_type)
 	    $post_type = $post_type;

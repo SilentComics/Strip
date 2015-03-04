@@ -16,7 +16,7 @@ get_header(); ?>
 						<h1 class="entry-title"><?php _e( 'Oops! That page can&rsquo;t be found.', 'silentcomics' ); ?></h1>
 					</header><!-- .entry-header -->
 
-						<p><?php _e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'silentcomics' ); ?></p>
+						<p><?php _e( 'A glitch happened, nothing was found at this location. Maybe try one of the links below or a search?', 'silentcomics' ); ?></p>
 
 						<?php get_search_form(); ?>
 
