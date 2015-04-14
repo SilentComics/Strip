@@ -69,10 +69,9 @@ and replace it with your own logo — you could use [Mobilefish's Base64 Encoder
 *	Redesign the whole theme from scratch using *Less* or *Sass* to ease future maintenance
 *	…
 
-## Please Test and Suggest improvements
+## Code review needed
 
-
-Please send your findings over to
+Please test and suggest improvements, send your findings over to
 
 hoa // @ // silent-comics.com
 
