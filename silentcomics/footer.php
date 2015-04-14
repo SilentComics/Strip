@@ -11,7 +11,9 @@
 	</div><!-- #content -->
 
 	<footer id="colophon" class="site-footer" role="contentinfo">
-		<?php get_sidebar( 'tertiary' ); ?>
+		<div class="entry-wrap">
+			<?php get_sidebar( 'secondary' ); ?>
+		</div>
 		<div class="site-info">
 			&copy; <?php 
   $fromYear = 2013; 

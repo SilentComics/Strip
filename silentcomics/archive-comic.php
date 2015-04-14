@@ -58,7 +58,8 @@ get_header(); ?>
 				get_template_part( 'content', get_post_format() );
 				?>
 
-						<?php endwhile; ?>
+						<?php endwhile;
+						wp_reset_postdata(); ?>
 
 		<?php else : ?>
 
@@ -72,56 +73,53 @@ get_header(); ?>
 <h2 class="taxonomy-description">
 	All <a href="http://localhost:8888/shibakuzo/category/exile/">Exile</a> episodes by title.
 					</h2>
-<?php // Create and run custom loop for category exile
-    $custom_loop = new WP_Query();
-    $custom_loop->query( array(
+<?php // Run custom loop for category exile
+    $comic = new WP_Query();
+    $comic->query( array(
     	'post_type' 	=> 'comic',
 		'showposts'		=> -1, 
 		'category_name' => 'exile',
 		'orderby'  		=> 'title',
 		'order'  		=> 'ASC',)
 		);
-    while ($custom_loop->have_posts()) : $custom_loop->the_post();
+    while ($comic->have_posts()) : $comic->the_post();
   ?>
     <h4 class="comicbook-episode"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
     
-  <?php endwhile; ?>
-<p>
+		<?php endwhile; 
+		wp_reset_postdata();  
+		?>
+
     <h2 class="taxonomy-description">
 	All <a href="http://localhost:8888/shibakuzo/category/tofu/">Tofu</a> episodes.
 					</h2>
-<?php // Create and run custom loop for category tofu
-    $custom_loop = new WP_Query();
-    $custom_loop->query( array(
+<?php // Run custom loop for category tofu
+    $comic = new WP_Query();
+    $comic->query( array(
     	'post_type' 	=> 'comic',
 		'showposts'		=> -1, 
 		'category_name' => 'tofu',
 		'orderby'  		=> 'title',
 		'order'  		=> 'ASC',)
 		);
-    while ($custom_loop->have_posts()) : $custom_loop->the_post();
+    while ($comic->have_posts()) : $comic->the_post();
   ?>
-    <h4 class="comicbook-episode"><ul><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></ul></h4>
-</p>  
-    <?php endwhile; ?>
-<?php 
-    wp_reset_postdata();
-?>
+    <h4 class="comicbook-episode"><ol><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></ol></h4>
+ 
+    	<?php endwhile; 
+		wp_reset_postdata();
+		?>
 
+<?php // Run custom loop for all comics
+if (have_posts()) : while (have_posts()) : the_post(); ?>
+<h3 class="comicbook-episode"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+<?php endwhile; endif; ?>
 
+<?php rewind_posts(); ?>
 
-<?php 
-	// calling the category http://codex.wordpress.org/Function_Reference/get_the_category#Get_the_Post_Categories_From_Outside_the_Loop can be helpful if styled correctly
-$categories = get_the_category();
-$separator = ' ';
-$output = '';
-if($categories){
-	foreach($categories as $category) {
-		$output .= '<a href="'.get_category_link( $category->term_id ).'" title="' . esc_attr( sprintf( __( "View all episodes in %s" ), $category->name ) ) . '">'.$category->cat_name.'</a>'.$separator;
-	}
-echo trim($output, $separator);
-}
-?>
+<?php while (have_posts()) : the_post(); ?>
+<?php the_content(); ?>
+<?php endwhile; ?>
 
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>

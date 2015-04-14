@@ -42,7 +42,7 @@ if ( isset( $GLOBALS['content_width'] ) )
 			<a class="entry-format-badge genericon" href="<?php echo esc_url( get_post_format_link( 'video' ) ); ?>" title="<?php echo esc_attr( sprintf( __( 'All %s posts', 'SilentComics' ), get_post_format_string( 'video' ) ) ); ?>"><span class="screen-reader-text"><?php echo get_post_format_string( 'video' ); ?></span></a>
 		</div><!-- .entry-info -->
 
-		<div class="entry-content clear">
+		<div class="entry-content wrap">
 			<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'SilentComics' ) ); ?>
 			<?php
 				wp_link_pages( array(

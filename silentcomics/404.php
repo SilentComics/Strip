@@ -15,17 +15,18 @@ get_header(); ?>
 					<header class="entry-header">
 						<h1 class="entry-title"><?php _e( 'Oops! That page can&rsquo;t be found.', 'silentcomics' ); ?></h1>
 					</header><!-- .entry-header -->
-
-						<p><?php _e( 'A glitch happened, nothing was found at this location. Maybe try one of the links below or a search?', 'silentcomics' ); ?></p>
+					
+					<div class="entry-content clear">
+						<p><?php _e( 'Nothing was found at this location. Maybe try one of the links below or a search?', 'silentcomics' ); ?></p>
 
 						<?php get_search_form(); ?>
 
-						<?php the_widget( 'WP_Widget_Recent_Posts', 10 ); ?>
+						<?php the_widget( 'WP_Widget_Recent_Posts', 6 ); ?>
 
 						<div class="widget widget_most_used_categories">
 							<h2 class="widgettitle"><?php _e( 'Most Used Categories', 'silentcomics' ); ?></h2>
 							<ul>
-							<?php wp_list_categories( array( 'orderby' => 'count', 'order' => 'DESC', 'show_count' => 1, 'title_li' => '', 'number' => 10 ) ); ?>
+							<?php wp_list_categories( array( 'orderby' => 'count', 'order' => 'DESC', 'show_count' => 1, 'title_li' => '', 'number' => 6 ) ); ?>
 							</ul>
 						</div>
 

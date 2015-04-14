@@ -3,16 +3,6 @@
  * Sample implementation of the Custom Header feature
  * http://codex.wordpress.org/Custom_Headers
  *
- * You can add an optional custom header image to header.php like so ...
-
-	<?php $header_image = get_header_image();
-	if ( ! empty( $header_image ) ) { ?>
-		<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
-			<img src="<?php header_image(); ?>" width="<?php echo get_custom_header()->width; ?>" height="<?php echo get_custom_header()->height; ?>" alt="">
-		</a>
-	<?php } // if ( ! empty( $header_image ) ) ?>
-
- *
  * @package SilentComics
  */
 
@@ -27,9 +17,10 @@
  */
 function silentcomics_custom_header_setup() {
 	add_theme_support( 'custom-header', apply_filters( 'silentcomics_custom_header_args', array(
-		'default-image'          => '',
-		'header-text'  			 => false,
+		'default-image'          => get_template_directory_uri() . '/library/images/fuct.png',
+		'header-text'  			 => true,
 		'default-text-color'     => '000',
+		'flex-width'   			 => true,
 		'width'                  => 1272,
 		'height'                 => 318,
 		'flex-height'            => true,
@@ -59,12 +50,15 @@ function silentcomics_header_style() {
 	<style type="text/css">
 	<?php
 		// Has the text been hidden?
-		if ( 'blank' == $header_text_color ) :
+		if ( ! display_header_text() ) :
 	?>
 		.site-title,
 		.site-description {
 			position: absolute;
 			clip: rect(1px, 1px, 1px, 1px);
+		}
+		.header-image {
+			margin-bottom: 0;
 		}
 	<?php
 		// If the user has set a custom color for the text use that
@@ -89,20 +83,34 @@ if ( ! function_exists( 'silentcomics_admin_header_style' ) ) :
 function silentcomics_admin_header_style() {
 ?>
 	<style type="text/css">
-		.appearance_page_custom-header #headimg {
-			border: none;
-		}
-		#headimg h1,
-		#desc {
-		}
-		#headimg h1 {
-		}
-		#headimg h1 a {
-		}
-		#desc {
-		}
-		#headimg img {
-		}
+	.appearance_page_custom-header #headimg {
+		border: none;
+		text-align: center;
+	}
+	<?php if ( ! display_header_text() ) : ?>
+	#headimg h1,
+	#desc {
+		display: none;
+	}
+	<?php endif; ?>
+	#headimg h1 {
+		font: 700 12px/1.4166666666 Futura, "Trebuchet MS", Arial, sans-serif;
+		letter-spacing: 0.1em;
+		margin: 0;
+		text-transform: uppercase;
+	}
+	#headimg h1 a {
+		text-decoration: none;
+	}
+	#desc {
+		font: italic 400 14px/2.4285714285 'Fenix', Georgia, serif;
+	}
+	#headimg img {
+		margin-bottom: 0px;
+	}
+	#headimg img[src*=""] {
+		border-radius: 50px;
+	}
 	</style>
 <?php
 }

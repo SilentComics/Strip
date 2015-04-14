@@ -56,6 +56,11 @@ add_action( 'after_setup_theme', 'silentcomics_add_editor_styles' );
 	 */
 	add_theme_support( 'post-thumbnails' );
 	add_image_size( 'featured-image', 1272, 0 );
+	
+	/**
+	 * Enable support for title-tag. Allows themes to add document title tag to HTML <head> (since version 4.1.).
+	 */
+	add_theme_support( 'title-tag' );
 
 	/**
 	 * This theme uses wp_nav_menu() in one location.
@@ -120,11 +125,24 @@ function silentcomics_widgets_init() {
 add_action( 'widgets_init', 'silentcomics_widgets_init' );
 
 /**
+* add ie conditional html5 shim to header
+ */
+function add_ie_html5_shim () {
+    echo '<!--[if lt IE 9]>';
+    echo '<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>';
+    echo '<![endif]-->';
+}
+add_action('wp_head', 'add_ie_html5_shim');
+
+/**
  * Enqueue scripts and styles
  */
 function silentcomics_scripts() {
 	// add custom font here if any
 	wp_enqueue_style( 'silentcomics-style', get_stylesheet_uri() );
+	
+	wp_enqueue_script('jquery');
+	
 if ( has_nav_menu( 'primary' ) )
 	wp_enqueue_script( 'silentcomics-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
 
@@ -173,8 +191,8 @@ require get_template_directory() . '/inc/jetpack.php';
 *
 */
 
-add_action( 'init', 'cptui_register_my_cpts' );
-function cptui_register_my_cpts() {
+add_action( 'init', 'register_ctp_comic' );
+function register_ctp_comic() {
 	$labels = array(
 		'name' => 'Comics',
 		'singular_name' => 'Comic',
@@ -195,7 +213,7 @@ function cptui_register_my_cpts() {
 
 	$args = array(
 		'labels' => $labels,
-		'description' => 'For comics and webcomics',
+		'description' => 'Comics and Webcomics',
 		'public' => true,
 		'show_ui' => true,
 		'has_archive' => true,
@@ -204,12 +222,12 @@ function cptui_register_my_cpts() {
 		'capability_type' => 'post',
 		'map_meta_cap' => true,
 		'hierarchical' => true,
-		'rewrite' => array( 'slug' => 'comic', 'with_front' => true ),
+		'rewrite' => array( 'slug' => 'stories', 'with_front' => true ),
 		'query_var' => true,
 		'menu_position' => 20,		'menu_icon' => 'dashicons-book-alt',		'supports' => array( 'title', 'editor', 'excerpt', 'trackbacks', 'custom-fields', 'comments', 'revisions', 'thumbnail', 'author', 'page-attributes', 'post-formats' ),		'taxonomies' => array( 'category', 'post_tag' )	);
 	register_post_type( 'comic', $args );
 
-// End of cptui_register_my_cpts()
+// End of register_cpt_comic()
 }
 
 /**
@@ -238,11 +256,6 @@ function add_my_post_types_to_query( $query ) {
 }
 */
 
-/**
-* If testing is needed, paste below this line add_action or add_filter?
-*/
-
-
 add_filter('pre_get_posts', 'query_post_type');
 function query_post_type($query) {
   if($query->is_main_query() && $query->is_category() || $query->is_tag() && empty( $query->query_vars['suppress_filters'] ) ) {
@@ -256,59 +269,9 @@ function query_post_type($query) {
     }
 }
 
-
 /**
 * Test something below
 */
-
-/**
-* Get the first and latest post link for CTP comic — this functions works fine to retrieve the first and last post and fine if you have only one story, but should be improved to sort comics by categories so you can add multiple stories.
-*/
-
-/** 
-function first_comic_post() {
-
-// Query the database for the oldest post
-$first_comic = new WP_Query( array(
-'post_type' => 'comic',
-'post_per_page' =>1,
-'order'   => 'ASC',
-)
-);
-
-if ($first_comic->have_posts()) { 
-
-    $first_comic->the_post(); 
-    $first_url=get_permalink();
-    echo $first_url; 
-}      
-
-wp_reset_postdata();
-}
-/*
-for latest post link
-*/
-
-/**
-function latest_comic_post( $query ) {
-
-// Query the database for the most recent post
-$last_comic = new WP_Query( array(
-'post_type' => 'comic', 
-'showposts'=>1
-)    
-);
-if ($last_comic->have_posts()) {
-
-    $last_comic->the_post(); 
-    $latest_url=get_permalink();
-    echo $latest_url;
-}
-
-wp_reset_postdata();
-}
-
-
 
 /**
 * Append the query string for the custom post type 'my_custom_post_type' permalink URLs: http://codex.wordpress.org/Plugin_API/Filter_Reference/post_type_link
@@ -316,18 +279,12 @@ wp_reset_postdata();
 *
 */
 
-/**
 function append_query_string( $url, $post ) {
-    if ( 'comic' == get_post_type( $post ) ) {
+    if ( 'comic' === get_post_type( $post ) ) {
         return add_query_arg( $_GET, $url );
     }
     return $url;
 }
-add_filter( 'post_type_link', 'append_query_string', 10, 2 );
-*/
-
-
-
 
 /**
 * Get the first and latest post for custom post type using get_boundary_post() [https://core.trac.wordpress.org/ticket/27094](https://core.trac.wordpress.org/ticket/27094)

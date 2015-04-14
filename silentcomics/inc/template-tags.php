@@ -29,7 +29,7 @@ function silentcomics_content_nav( $nav_id ) {
 		
 		$nav_class = ( is_single() ) ? 'post-navigation' : 'paging-navigation';
 	
-		if ( !'comic' == get_post_type() )
+		if ( !'comic' === get_post_type() )
 		$nav_class .= ' navigation-comic';
 
 // Add a class when both navigation items are there.
@@ -39,7 +39,7 @@ function silentcomics_content_nav( $nav_id ) {
 	<nav role="navigation" id="<?php echo esc_attr( $nav_id ); ?>" class="<?php echo $nav_class; ?>">
 		<div class="wrap clear">
 		<h1 class="screen-reader-text"><?php _e( 'Post navigation', 'silentcomics' ); ?></h1>
-		
+		</div>
 		<?php if ( 'comic' == get_post_type() && ( is_single() || is_front_page() ) ) : //comics navigation links ?>
 		
 				<nav class="navigation-comic">
@@ -51,7 +51,7 @@ function silentcomics_content_nav( $nav_id ) {
 			</nav>
 			
 			<?php elseif ( is_single() ) : // navigation links for single posts ?>
-
+			<div class="wrap clear">
 		<?php previous_post_link( '<div class="nav-previous">%link</div>', '<span class="meta-nav">' . _x( '&#8592;', 'Previous post link', 'silentcomics' ) . '</span> %title' ); ?>
 		<?php next_post_link( '<div class="nav-next">%link</div>', '%title <span class="meta-nav">' . _x( '&#8594;', 'Next post link', 'silentcomics' ) . '</span>' ); ?>
 
@@ -239,18 +239,17 @@ add_action( 'edit_category', 'silentcomics_category_transient_flusher' );
 add_action( 'save_post',     'silentcomics_category_transient_flusher' );
 
 /**
- * Link to the first comic post
+ * Link to the first comic post in category
  *
  * @param string $format
  * @param array $args
  */
  
-function first_comic_link() {
-
-$query = new WP_Query( array());
-
+function first_comic_link( $args = array() ) {
 	$first = get_comic_boundary_post( TRUE, '', TRUE );
-    apply_filters( the_title('', '', false), $first[0]->post_title ); 
+    apply_filters( 'the_title', $first[0]->post_title ); 
+
+$query = new WP_Query( $args );
     
 if ( $query->have_posts() )
 		$query->the_post(); 
@@ -265,12 +264,11 @@ wp_reset_postdata();
  * @param array $args
  */
  
- function last_comic_link() { 
-	 
-$query = new WP_Query( array());
-	 
+ function last_comic_link( $args = array() ) {  
 	$last = get_comic_boundary_post( TRUE, '', FALSE );
-    apply_filters( 'the_title', $last[0]->post_title );    
+    apply_filters( 'the_title', $last[0]->post_title );
+	 
+$query = new WP_Query( $args );    
      
 if ( $query->have_posts() )
 		$query->the_post(); 

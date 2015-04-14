@@ -17,6 +17,12 @@
 
 		<header class="entry-header">
 			
+			<div class="comic-meta entry-meta">
+		<a href="<?php the_permalink(); ?>"><?php echo get_the_date(); ?></a>
+		
+		<?php edit_post_link( __( 'Edit', 'silentcomics' ), '<span class="sep"> ~ </span><span class="comic-edit-link">', '</span>' ); ?>
+		
+	</div>
 			<?php
 				$categories_list = get_the_category_list( __( ', ', 'SilentComics' ) );
 			//	if ( $categories_list && SilentComics_categorized_blog() )
@@ -30,22 +36,12 @@
 			?>
 		</header><!-- .entry-header -->
 		
-				
-		<div class="comic-meta entry-meta">
-		<a href="<?php the_permalink(); ?>"><?php echo get_the_date(); ?></a>
-		
-		<?php edit_post_link( __( 'Edit', 'silentcomics' ), '<span class="sep"> ~ </span><span class="comic-edit-link">', '</span>' ); ?>
-		
-	</div>
 	<div class="comic-content">
 		<?php the_content(); ?>
-		<?php
-			wp_link_pages( array(
-				'before' => '<div class="page-links">' . __( 'Pages:', 'silentcomics' ),
-				'after'  => '</div>',
-			) );
-		?>
+
 	</div>
+
+	
 	<footer >
 		
 	</footer>

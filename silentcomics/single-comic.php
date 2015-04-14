@@ -1,4 +1,4 @@
-	<?php
+<?php
 /**
  * The Template for displaying comics. (ideally, with navigation in template-tags)
  *

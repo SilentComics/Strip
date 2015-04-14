@@ -7,9 +7,8 @@
 
 get_header(); ?>
 
-	<section id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
-
+		<div class="entry-wrap wrap clear">
+			<div class="entry-content clear">
 		<?php if ( have_posts() ) : ?>
 
 			<header class="page-header">
@@ -19,7 +18,7 @@ get_header(); ?>
 			<?php /* Start the Loop */ ?>
 			<?php while ( have_posts() ) : the_post(); ?>
 
-				<?php get_template_part( 'content', 'search' ); ?>
+				<?php get_template_part( 'content', get_post_format() ); ?>
 
 			<?php endwhile; ?>
 
@@ -31,8 +30,8 @@ get_header(); ?>
 
 		<?php endif; ?>
 
-		</main><!-- #main -->
-	</section><!-- #primary -->
+		</div><!-- .entry-content -->
+		</div><!-- .entry-wrap -->
 
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>
