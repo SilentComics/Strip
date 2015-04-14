@@ -61,7 +61,7 @@ and replace it with your own logo — you could use [Mobilefish's Base64 Encoder
 *	Redesign the footer in columns / fix the media queries
 *	style the sidebars properly
 * Markup clean-up
-* add / enable multiple stories ✓ (you can call each new story by category, simple)
+* add / enable multiple stories ✓ (sort each new story by category, simple)
 * Redesign the header
 *	Fix comments
 * style sticky post, pagelink and various post formats classes
