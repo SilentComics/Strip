@@ -52,12 +52,12 @@ and replace it with your own logo — you could use [Mobilefish's Base64 Encoder
 
 ## To do:
 
-*	modify navigation to show first, previous, next, last
-* design a minimal, custom post type for comics
+*	modify navigation to show first, previous, next, last ✓
+* design a minimal, custom post type for comics ✓
 * Re-design the category archive page(s) with custom categories
 * reverse WP default order for comics archive ✓
 *	Page grid to display books / episodes if not in archive
-*	Add columns for extra large images 
+*	Add columns for extra large images ✓
 *	Redesign the footer in columns / fix the media queries
 *	style the sidebars properly
 * Markup clean-up
