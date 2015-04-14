@@ -58,15 +58,16 @@ and replace it with your own logo — you could use [Mobilefish's Base64 Encoder
 * reverse WP default order for comics archive ✓
 *	Page grid to display books / episodes if not in archive
 *	Add columns for extra large images ✓
-*	Redesign the footer in columns / fix the media queries
+*	Redesign the footer in columns / fix media queries
 *	style the sidebars properly
 * Markup clean-up
 * add / enable multiple stories ✓ (sort each new story by category, simple)
 * Redesign the header
-*	Fix comments
+*	Fix comments JS, PHP & CSS
 * style sticky post, pagelink and various post formats classes
 *	Lots of small css tweaks and fixes
 *	Redesign the whole theme from scratch using *Less* or *Sass* to ease future maintenance
+*	Third parties integration (e-commerce, social media, etc.)
 *	…
 
 ## Code review needed
