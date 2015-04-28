@@ -50,8 +50,6 @@ and replace it with your own logo — you could use [Mobilefish's Base64 Encoder
 
 ## To do:
 
-## To do:
-
 *	modify navigation to show first, previous, next, last ✓
 *	fix said navigation icons — as svg symbols 
 * design a minimal, custom post type for comics ✓
