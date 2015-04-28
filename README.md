@@ -5,9 +5,7 @@ Still rough — Working on it
 
 ![screenshot]
 
-Coding is the *learning by doing* side of the project for me. Suggestions and tips from users, actual developers, designers and lovers of comics are welcome: hoa // @ // silent-comics.com
-
-If this ever become a decent theme, I will release it for the Wordpress community on a GNU General Public License basis.
+Coding is the *learning by doing* side of the project for me. Code review needed. Developers, designers and lovers of comics are welcome to write any finding to: hoa // @ // silent-comics.com
 
 # Silent Comics Wordpress Theme
 
@@ -16,7 +14,7 @@ This is SilentComics — a simple Wordpress theme, designed for the upcoming [SI
 ## Features:
 
 Not much: white, light, one-column, fixed-layout, responsive-layout, custom-background, custom-colors, custom-header, custom-menu, featured-images, flexible-header, post-formats, editor-style.
-Minimal look, custom posts format for comics, no sidebar, infinite scroll, large images. Custom login page. Large text set in [Fenix](http://j.mp/Fenix-MyFonts). The theme is light and works fine with the latest WordPress version (4.0).  
+Minimal look, custom posts format for comics, no sidebar, infinite scroll, large images. Custom login page. Large text set in [Fenix](http://j.mp/Fenix-MyFonts). The theme is light and works fine with the latest WordPress version (4.2.1).  
 
 ## Tested with these plugins:
 Not part of the theme but suggested to display comics:
@@ -52,22 +50,29 @@ and replace it with your own logo — you could use [Mobilefish's Base64 Encoder
 
 ## To do:
 
+## To do:
+
 *	modify navigation to show first, previous, next, last ✓
+*	fix said navigation icons — as svg symbols 
 * design a minimal, custom post type for comics ✓
 * Re-design the category archive page(s) with custom categories
 * reverse WP default order for comics archive ✓
 *	Page grid to display books / episodes if not in archive
 *	Add columns for extra large images ✓
-*	Redesign the footer in columns / fix media queries
+*	Fix 3 columns footer widget media queries ✓
 *	style the sidebars properly
 * Markup clean-up
-* add / enable multiple stories ✓ (sort each new story by category, simple)
-* Redesign the header
-*	Fix comments JS, PHP & CSS
+* add / enable multiple stories by category ✓ 
+* Redesign header.php 
+* Improve header on mobile 
+*	Fix comments JS, PHP & CSS 
+*	Trim unused code
 * style sticky post, pagelink and various post formats classes
 *	Lots of small css tweaks and fixes
 *	Redesign the whole theme from scratch using *Less* or *Sass* to ease future maintenance
 *	Third parties integration (e-commerce, social media, etc.)
+*	Add `<picture>`element support for responsive images. See [picturefill.js + WP](http://www.taupecat.com/2014/05/picturefill-js-wordpress/)
+*	Improve 404 page
 *	…
 
 ## Code review needed
