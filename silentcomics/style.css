@@ -4,7 +4,7 @@ Theme URI: https://github.com/SilentComics/Wordpress-Theme-for-Silent-Comics/
 Author: Silent Comics
 Author URI: http://silent-comics.com
 Description: A simple theme for comics
-Version: Pre release WIP 2.2.5 (08/04/2015) — Restarting from scratch + cleanup @silentcomics or mail hoa // at // silent-comics.com
+Version: Pre release WIP 2.2.5 (28/04/2015) — Restarting from scratch + cleanup @silentcomics or mail hoa // at // silent-comics.com
 License: GNU General Public License v3 or later
 License URI: http://www.gnu.org/licenses/gpl.html
 Text Domain: silentcomics
@@ -14,10 +14,8 @@ Tags: black, white, light, one-column, fixed-layout, responsive-layout, custom-b
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 
- SilentComics is based on Underscores http://underscores.me/, (C) 2012-2013 Automattic, Inc.
-
+SilentComics is based on Underscores http://underscores.me/, (C) 2012-2013 Automattic, Inc.
 */
-
 
 /*--------------------------------------------------------------
 >>> TABLE OF CONTENTS:
@@ -736,7 +734,6 @@ html input[type="button"]:active,
 input[type="reset"]:active,
 input[type="submit"]:active {
 	background-color: #ff6666;
-	box-shadow: inset 0 0 8px 2px rgba(0, 0, 0, 0.2), 0 1px 0 0 rgba(0, 0, 0, 0.2);
 }
 input[type="checkbox"],
 input[type="radio"] {
@@ -792,11 +789,10 @@ textarea {
 	width: 98%;
 }
 .search-form {
-	float: right;
+	float: none;
 	max-width: 408px;
 }
 .search-field input[type="find"] {
-	background-color: rgba(255, 255, 255, 0.1);
 	border: 1px solid rgba(255, 255, 255, 0.2);
 	color: #fff;
 	font-style: italic;
@@ -805,6 +801,7 @@ textarea {
 #search-wrapper input[type="submit"] {
 	display: none;
 }
+
 
 /*--------------------------------------------------------------
 5.0 Navigation
@@ -830,7 +827,6 @@ color: #90a42c;
 a:active {
 	color: #69e9ff;
 }
-
 
 /*--------------------------------------------------------------
 5.2 Menus
@@ -860,8 +856,6 @@ a.logo: after {
   height: 49px;
   background-image: url(silent-comics-logo.png);
 }
-
-
 /* =Masthead
 ----------------------------------------------- */
 h1.site-title {
@@ -882,6 +876,7 @@ h2.site-description {
 	text-align: center;
 	margin-bottom: 0.2em;
 }
+
 
 /* =Menu
 ----------------------------------------------- */
@@ -1099,7 +1094,6 @@ display:block;
 	clear: both;
 }
 
-
 /* Hidden */
 .hide {
 	display: none;
@@ -1121,10 +1115,13 @@ body {
 	padding: 12px 0;
 }
 
-
 /*--------------------------------------------------------------
 9.0 Widgets
 --------------------------------------------------------------*/
+.widget-area-wrapper {
+	margin: 0 auto;
+	max-width: 1128px;
+}
 #secondary {
 	clear: both;
 	color: #b59c9c;
@@ -1138,26 +1135,24 @@ body {
 	color: #ff6666;
 }
 #secondary .widget-area {
-	margin: 0 auto;
-	max-width: 696px;
+overflow: hidden;
 }
 .sidebar-1,
 .sidebar-2,
 .sidebar-3 {
 	float: left;
 	margin: 0;
-	width: 33.3%;
-	max-width: 696px;
+	width: 33.3%;;
 }
 .sidebar-3 {
 	margin-right: 0;
 }
 .widget {
 	font: 300 10px/1 "Futura", "Trebuchet MS", Arial, sans-serif;
-	font-size: 10px;
-	font-size: 1rem;
-  line-height: 1.5rem;
-	margin: 0px 0px 2px 0px;
+	font-size: 12px;
+	font-size: 1.2rem;
+  line-height: 1.24rem;
+	margin: 0px 0px 24px 0px;
 }
 .widget ul {
 	list-style: none;
@@ -1206,7 +1201,7 @@ body {
 /* Search widget */
 
 .widget_search form {
-	position: absolute;
+	position: relative;
 	}
 .widget_search .search-field {
 font-family: sans-serif;
@@ -1365,6 +1360,7 @@ article.error404 .widget_calendar #wp-calendar tbody a {
 article.error404 .widget_calendar #wp-calendar tbody a:hover {
 	background-color: #333;
 }
+
 /*--------------------------------------------------------------
 10.0 Content
 --------------------------------------------------------------*/
@@ -1535,9 +1531,6 @@ display: none;
 .format-aside .entry-title a:hover {
 	opacity: 1;
 }
-.format-aside .entry-format-badge:before {
-	content: "Aside";
-}
 
 /* Make sure embeds and iframes fit their containers */
 embed,
@@ -1554,6 +1547,25 @@ span > iframe,
 span > object {
 	margin-bottom: 0;
 }
+
+/* Make embedded content responsive */
+/* http://mobile.smashingmagazine.com/2014/02/27/making-embedded-content-work-in-responsive-design/ */
+
+/* .video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 35px;
+    height: 0;
+    overflow: hidden;
+}
+
+.video-container iframe {
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+} */
 
 /*--------------------------------------------------------------
 10.3 Post Format
@@ -1624,7 +1636,6 @@ span > object {
 	display: none;
 }
 
-
 /* =Media
 ----------------------------------------------- */
 
@@ -1665,7 +1676,6 @@ img.aligncenter {
 	margin-top: 7px;
 	margin-bottom: 7px;
 }
-
 
 /* Gallery Settings */
 .gallery-item {
@@ -1859,10 +1869,6 @@ img.aligncenter {
 .navigation-comment .next {
 	padding-left: 10px;
 }
-
-/*--------------------------------------------------------------
-10.4 Comics
---------------------------------------------------------------*/
 .comic {
 border-top: 0px dotted rgba(255, 76, 0, 0.24);
 }
@@ -1916,11 +1922,11 @@ border-top: 0px dotted rgba(255, 76, 0, 0.24);
 	text-align: center;
 	width: 100%;
 }
+/*check float left*/
 .entry-comic .navigation-comic [class*="nav-"] {
 	float: none;
 	display: inline-block;
 	padding: 1em 0 0 0;
-
 	width: 18.5%;
 }
 .entry-comic .navigation-comic .nav-first {
@@ -2066,6 +2072,7 @@ border-top: 0px dotted rgba(255, 76, 0, 0.24);
 .royalSlider > .rsContent {
     visibility: visible;
 }
+
 /*--------------------------------------------------------------
 10.5.1 Hide Comments
 --------------------------------------------------------------*/
@@ -2446,18 +2453,6 @@ button.toggle-comments {
 	}
 }
 @media screen and (max-width: 816px) {
-	.widget-area {
-		margin: 0 auto;
-		overflow: hidden;
-	}
-	.sidebar-1,
-	.sidebar-2,
-	.sidebar-3,
-#secondary {
-		margin-right: 24px;
-		margin-left: 24px;
-		max-width: 696px;
-	}
 	.entry-comic .navigation-comic .nav-previous a,
 	.entry-comic .navigation-comic .nav-next a,
 	.entry-comic .navigation-comic .nav-title,
@@ -2565,6 +2560,20 @@ button.toggle-comments {
 	letter-spacing: normal;
 	padding: 6px 6px;
 	}
+  .widget-area {
+	margin: 0 auto;
+	overflow: hidden;
+	}
+	.sidebar-1,
+	.sidebar-2,
+	.sidebar-3,
+#secondary {
+		clear: both;
+		float: none;
+		margin-right: 0;
+		margin-left: 0;
+		width: auto;
+	}
 }
 @media screen and (max-width: 456px) {
 .comic .entry-title{
@@ -2583,7 +2592,7 @@ button.toggle-comments {
 	font-size: 8px;
 	font-size: 0.8rem;
 	letter-spacing: normal;
-	padding: 4px4px;
+	padding: 4px 4px;
 
 	}
 }
