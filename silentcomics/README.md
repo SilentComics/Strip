@@ -1,11 +1,11 @@
 # Silent Comics Wordpress Theme
 ***
 
-This is SilentComics — a simple Wordpress theme, designed to be used by http://silent-comics.com, free for everyone to use and modify.
+This is SilentComics — a simple Wordpress theme, still under development, to be used by http://silent-comics.com. Free for everyone to use and modify.
 
 ## Features:
 
-One column, Large images, custom posts, comics, webcomics
+One column, Large images, custom posts, comics, webcomics, large images, 3 column footer widget
 
 ## Extra features
 Not part of the theme but suggested to display comics:
