@@ -5,7 +5,7 @@ This is SilentComics — a simple Wordpress theme, still under development, to b
 
 ## Features:
 
-One column, Large images, custom posts, comics, webcomics, large images, 3 column footer widget
+One column, Large images, comics custom posts, webcomics, large images, 3 columns footer widget
 
 ## Extra features
 Not part of the theme but suggested to display comics:
