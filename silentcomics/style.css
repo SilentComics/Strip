@@ -4,7 +4,7 @@ Theme URI: https://github.com/SilentComics/Wordpress-Theme-for-Silent-Comics/
 Author: Silent Comics
 Author URI: http://silent-comics.com
 Description: A simple theme for comics
-Version: Pre release WIP 2.2.8.1 (05/05/2015) — Restarting from scratch + cleanup @silentcomics or mail hoa // at // silent-comics.com
+Version: Pre release WIP 2.3.1 (06/05/2015) — Restarting from scratch + cleanup @silentcomics or mail hoa // at // silent-comics.com
 License: GNU General Public License v3 or later
 License URI: http://www.gnu.org/licenses/gpl.html
 Text Domain: silentcomics
@@ -472,7 +472,6 @@ td,
 th {
   padding: 0;
 }
-
 /*--------------------------------------------------------------
 2.0 Typography
 --------------------------------------------------------------*/
@@ -547,10 +546,6 @@ h6 {
 	line-height: inherit;
 }
 hr {
-	background-color: rgba(0, 0, 0, 0.1);
-	border: 2px;
-	height: 1px;
-	margin-bottom: 33px;
 }
 /* Selection */
 ::-selection{background:#ff6666;color:#ffffff;}
@@ -562,34 +557,15 @@ img -moz-selection{background:transparent;
 /*--------------------------------------------------------------
 3.0 Elements
 --------------------------------------------------------------*/
-p {
-	margin-bottom: 1.5em;
-}
-ul, ol {
-	margin: 0 0 1.5em 3em;
-}
 ul {
-	list-style: decimal;
+	list-style: decimal-leading-zero;
 }
 ol {
-	list-style: decimal-leading-zero;
+	list-style: none;
 }
 li > ul,
 li > ol {
 	margin-bottom: 0;
-	margin-left: 0.4em;
-}
-dt {
-	font-weight: bold;
-}
-dd {
-	margin: 0 1.5em 1.5em;
-}
-b, strong {
-	font-weight: bold;
-}
-dfn, cite, em, i {
-	font-style: italic;
 }
 blockquote, blockquote em, blockquote i, blockquote cite {
   font-style: italic;
@@ -597,95 +573,60 @@ blockquote, blockquote em, blockquote i, blockquote cite {
 blockquote p {
 	background-color: #fff;
     font-size: 2.4rem;
-    color: gray;
+    line-height: inherit;
+    color: lightblue;
     padding: 1em;
     width: 100%;
 }
-cite,
+blockquote cite,
 .quote-caption {
-	font-family:'Fenix', Georgia, serif;
 	color: black;
-	letter-spacing: 0.15em;
-	padding-left: 1.6em;
+	letter-spacing: 0.16em;
+	padding-left: 1.2em;
 	position: relative;
 	text-transform: uppercase;
 }
 .quote-caption {
 	display: inline;
 }
-cite a,
+blockquote cite a,
 .quote-caption a {
 	color: lightsalmon;
 }
-cite:before,
+blockquote cite:before,
 .quote-caption:before {
 	content: "";
-	background: #000;
-	width: 24px;
+	background: black;
+	width: 1em;
 	height: 2px;
 	position: absolute;
 	top: 9px;
 	left: 0;
 }
-address {
-	margin: 0 0 1.5em;
-}
 pre {
-	background: #fafafa;
-	font-family: "Courier 10 Pitch", Courier, monospace;
+	background: darkblue;
+	font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
 	font-size: 1.6rem;
 	line-height: 1.6;
-	margin-bottom: 1.6em;
-	
+	color: aquamarine;
 	overflow: auto;
-	padding: 1.6em;
+	padding: 1.2em;
 }
 code, kbd, tt, var {
-	font: 1.2rem Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+	font: 1.6rem Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
 }
 abbr, acronym {
 	border-bottom: 1px dotted #666;
 	cursor: help;
 }
 mark, ins {
-	background: #ffe600;
+	background: #ffee00;
 	text-decoration: none;
-}
-sup,
-sub {
-	font-size: 75%;
-	height: 0;
-	line-height: 0;
-	position: relative;
-	vertical-align: baseline;
-}
-sup {
-	bottom: 1ex;
-}
-sub {
-	top: .5ex;
-}
-small {
-	font-size: 75%;
-}
-big {
-	font-size: 125%;
-}
-figure {
-	margin: 0 0 42px;
-}
-table {
-	margin: 0 0 34px;
-	width: 100%;
-}
-th {
-	font-weight: bold;
 }
 img {
 	height: auto; /* Make sure images are scaled correctly. */
 	max-width: 100%; /* Adhere to container width. */
 }
-
 /*--------------------------------------------------------------
 4.0 Forms
 --------------------------------------------------------------*/
@@ -747,11 +688,6 @@ input[type="search"] {
 input[type="search"]::-webkit-search-decoration { /* Corrects inner padding displayed oddly in S5, Chrome on OSX */
 	-webkit-appearance: none;
 }
-button::-moz-focus-inner,
-input::-moz-focus-inner { /* Corrects inner padding and border displayed oddly in FF3/4 www.sitepen.com/blog/2008/05/14/the-devils-in-the-details-fixing-dojos-toolbar-buttons/ */
-	border: 0;
-	padding: 0;
-}
 input[type="text"],
 input[type="email"],
 input[type="password"],
@@ -760,8 +696,8 @@ textarea {
 	-moz-box-sizing: border-box;
 	box-sizing:      border-box;
 	border-radius: 0;
-  font-size: 1.2rem;
-	padding: 0.6em;
+	font-size: 1.6rem;
+	padding: 0.4em;
 	color: #ff6666;
 	border: 1px solid rgba(0, 0, 0, 0.1);
 }
@@ -773,16 +709,14 @@ textarea:focus {
 	outline: none;
 	color: #111;
 }
-
 textarea {
 	overflow: auto; /* Removes default vertical scrollbar in IE6/7/8/9 */
-	padding: 7px 7px 8px 7px;
 	vertical-align: top; /* Improves readability and alignment in all browsers */
 	width: 98%;
 }
 .search-form {
 	float: none;
-	max-width: 408px;
+	width: 100%;
 }
 .search-field input[type="find"] {
 	border: 1px solid rgba(255, 255, 255, 0.2);
@@ -800,21 +734,21 @@ textarea {
 /*--------------------------------------------------------------
 5.1 Links
 --------------------------------------------------------------*/
-
-a {
-	color: #242424;
-	text-decoration:none;
+a:link {
+	color: #56cccc;
+	text-decoration: none !important;
 }
 
 a:visited {
 	color: #996c6c;
+	text-decoration: none !important;
 }
 a:hover,
 a:focus,
 a:active {
-	color: #ff4242;
+	color: #ffc7c7;
+	text-decoration: none !important;
 }
-
 /*--------------------------------------------------------------
 5.2 Menus
 --------------------------------------------------------------*/
@@ -1089,7 +1023,7 @@ display:block;
 ----------------------------------------------- */
 
 body {
-	background-color: yellow;
+	background-color: fff;
 }
 .wrap {
 	margin: 0 auto;
@@ -1107,21 +1041,6 @@ body {
 .widget-area-wrapper {
 	margin: 0 auto;
 	max-width: 1128px;
-}
-#secondary {
-	clear: both;
-	color: #b59c9c;
-	margin: 0 auto;
-	padding: 0.6em 0;
-}
-#secondary a {
-	color: #b68181;
-}
-#secondary a:hover {
-	color: #ff6666;
-}
-#secondary .widget-area {
-overflow: hidden;
 }
 .sidebar-1,
 .sidebar-2,
@@ -1157,36 +1076,25 @@ overflow: hidden;
 .widget ul ul {
 	margin-left: .2em;
 }
-#secondary .widget ul > li {
-	border-top: 0px solid rgba(182, 86, 86, 0.2);
-}
 .widget-title,
 .widget-title a {
 	line-height: 1;
 	margin: 0 0 .6em;
 	text-decoration: none;
-}
-#secondary .widget-title,
-#secondary .widget-title a {
-	font-size: 1.4rem;
-	font-style: italic;
-	color: #e9d1d1;
-	line-height: 1.24;
-	text-decoration: none;
+	max-width: 92%;
 }
 
 /* Make sure select elements fit in widgets */
 .widget select {
 	max-width: 100%;
 }
-
 /* Search widget */
 
 .widget_search form {
 	position: relative;
 	}
 .widget_search .search-field {
-display: block;
+width: 92%;
 }
 .widget_search .search-submit {
 	display: none;
@@ -1213,7 +1121,6 @@ display: block;
 	padding: 5px 5px 10px 5px;
 	vertical-align: top;
 }
-
 
 /* =Attachment page
 ----------------------------------------------- */
@@ -1263,7 +1170,7 @@ article.no-results .searchform {
 article.error404 input[type="search"],
 article.no-results input[type="search"] {
 	margin-bottom: 17px;
-	width: 100%;
+	width: 92%;
 }
 article.error404 .widget {
 	-moz-box-sizing: border-box;
@@ -1386,8 +1293,8 @@ display: none;
 .entry-meta {
 	display: block;
 	font: 400 12px/2 Futura, "Trebuchet MS", Arial, sans-serif;
-    font-size: 10px;
-    letter-spacing: 0.1em;
+  font-size: 10px;
+  letter-spacing: 0.1em;
 	margin-top: 34px;
 	padding: 8px 0 9px;
 	text-transform: uppercase;
@@ -1399,7 +1306,7 @@ display: none;
 .entry-meta:hover {
   opacity: 1;
 }
-.entry-meta a{
+.entry-meta a {
 	text-decoration:none;
 	color:#ba9e9e;
 }
@@ -1425,10 +1332,9 @@ display: none;
 	max-width: 696px;
 }
 .page-links {
-	clear: both;
+	
 	margin: 0 0 1.5em;
 }
-
 .single-thumbnail{
 	margin:20px 0;
 }
@@ -1437,17 +1343,6 @@ display: none;
 	-moz-opacity:0.9;
 	-khtml-opacity: 0.9;
 	opacity: 0.9;
-}
-.entry-content a,
-.entry-summary a,
-.comment-content a {
-	border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-}
-.entry-content a:hover,
-.entry-summary a:hover,
-.comment-content a:hover {
-	border-bottom: 1px solid rgba(0, 0, 0, 1);
-	color: #000;
 }
 .entry-content table,
 .entry-summary table,
@@ -1540,7 +1435,7 @@ span > object {
 
 /* Quote */
 .format-quote .entry-format-badge:after {
-	content: "Verdome";
+	content: "Citation needed";
 }
 .format-quote .entry-title {
 	font-size: 2.4rem;
@@ -1578,7 +1473,6 @@ span > object {
 	margin-top: 1.6em;
 	position: relative;
 }
-
 .format-video .band {
 	display: none;
 }
@@ -1973,14 +1867,14 @@ img.aligncenter {
 	width: auto;
 	height: auto;
 }	
-.entry-content a,
-.entry-summary a,
+.comic .entry-content a,
+.comic .entry-summary a,
 .comment-content a {
 	hover: #ffcccc;
 }
-.entry-content a:hover,
-.entry-summary a:hover,
-.comment-content a:hover {
+.comic .entry-content a:hover,
+.comic .entry-summary a:hover,
+.comic .comment-content a:hover {
 	color: #ff0042;
 }
 /*  the comic blurb */
@@ -2030,17 +1924,16 @@ button.toggle-comments {
 .comment-author,
 .comment-author .says {
 	color: pink;
-  font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
 	font-size: 1.6rem;
-  font-style: italic;
+	font-style: italic;
 }
 .comment-meta,
 .comment-meta a {
 	color: gainsboro;
-  overflow: hidden;
-  position: relative;
-  background-color:lavenderblush;
-
+	overflow: hidden;
+	margin: 0 2em 2em;
+	background-color: none;
 	font-size: 1.2rem;
 }
 .comment-meta a:hover {
@@ -2057,50 +1950,60 @@ button.toggle-comments {
 .comment-content a {
     word-wrap: break-word;
 }
+.comment-content ul,
+.comment-content ol  {
+	margin: 0 0 1em;
+}
+.comment-content ul ul,
+.comment-content ol ol,
+.comment-content ul ol,
+.comment-content ol ul {
+	margin-right: 2em;
+}
 .comment-author .avatar {
-	  border-radius: 50%;
-    float: left;
+	border-radius: 50%;
+  vertical-align: middle;
 }
 .comments-area {
-    width: 92%;
-    max-width: 696px;
-	  font-family: monospace; 
-    font-size: 1.4rem;
-    margin: 2.4em auto;
-    padding-bottom: 2em;
+  width: 90%;
+  max-width: 696px;
+  font-family: "Andale Mono", AndaleMono, monospace;
+  font-size: 1.4rem;
+  margin: 2.4em auto;
+  padding-bottom: 2em;
 }
 .comments-title {
-	font: italic 400 24px/1; 
+  font: italic 400 2.4rem/1; 
 	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
 	margin-bottom: 48px;
 	text-align: center;
 	}
 .comment-form-comment label{
-    width: 92%;
+    width: 96%;
     display: inline-block;
 }
 .form-allowed-tags {
 	display: block;   
 	width:92%;
-  font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
-  font-size: auto;
-  color: #FF7369;
-  margin: 0 auto;
+	font-family: monospace;
+	font-size: 1.4rem;
+	color: #FF7369;
+	margin: 0 auto;
 	padding-bottom: 2rem;
 }
 .comment-subscription-form {
     clear: both;
-    margin-top: 1rem;
+    margin-top: 1em;
 }
 .form-submit #submit{
     float: right;
     background: none;
     display: inline-block;
-    border: #000000 2px solid;
+    border: #000 2px solid;
     text-decoration: none;
     transition: border ease 0.3s;
     font-family: Futura, "Trebuchet MS", Arial, sans-serif;
-    color: #000000;
+    color: #000;
 }
 /*--------------------------------------------------------------
 10.6 Footer
@@ -2175,17 +2078,12 @@ button.toggle-comments {
 	.comment-list .children {
 		margin-left: 72px;
 	}
-	.comment-author .comment-author .avatar {
-		top: -9px;
-		width: 48px;
-		height: 48px;
-	}
 	.comment-author {
-		padding-left: 6px;
+		padding-left: 0;
 	}
 	.comment-author .avatar  {
-		width: 48px;
-		height: 48px;
+		width: 96px;
+		height: 96px;
 	}
 	.comment-content {
 		padding: 0 0 0 48px;
@@ -2227,7 +2125,7 @@ button.toggle-comments {
 		content: "";
 	}
 	.entry-meta {
-		float: left;
+		float: right;
 		text-align: left;
 		width: 120px;
 		margin: 12px 24px 12px 0;
@@ -2268,16 +2166,16 @@ button.toggle-comments {
 		padding: 16px 0;
 	}
 	.format-video .categories-links {
-		font-size: 12px;
+		font-size: 1.2rem;
 		font-weight: 400;
 		line-height: 1.4166666666;
-		margin-bottom: 16px;
+		margin-bottom: 1.6em;
 		padding: 0;
 	}
 	.format-video .entry-meta {
 		border: 0;
 		float: none;
-		font-size: 11px;
+		font-size: 1.1rem;
 		line-height: 1.5454545454;
 		margin: 0;
 		width: auto;
@@ -2295,7 +2193,7 @@ button.toggle-comments {
 	}
 	.format-video .entry-title {
 		color: #ffffff;
-		font-size: 22px;
+		font-size: 1.8rem;
 		line-height: 1.5454545454;
 		margin-bottom: 17px;
 	}
@@ -2382,7 +2280,7 @@ button.toggle-comments {
 }
 @media screen and (max-width: 600px) {
 	body, textarea {
-		font-size: 18px;
+		font-size: 1.6rem;
 		line-height: 1.4166666667;
 	}
 	button, input, select, {
@@ -2395,6 +2293,7 @@ button.toggle-comments {
     } 
     .main-navigation {
 	font-size: 1.2rem;
+  line-height: 1.4;
     }
     .site-description {
     display: none;
@@ -2420,7 +2319,11 @@ button.toggle-comments {
 	}
 	.site-content [class*="navigation"],
 	#comments {
-		padding: 34px 0;
+		padding: 0;
+	}
+  .comment-author .avatar  {
+		width: 48px;
+		height: 48px;
 	}
 	.comments-area article,
 	.comment-list li.trackback,
@@ -2432,8 +2335,9 @@ button.toggle-comments {
 		margin-bottom: 34px;
 	}
 	.comment-content blockquote p {
-		font-size: 18px;
-		line-height: 1.4166666667;
+
+    font-size: 1.2rem;
+		line-height: 1.6;
 	}
 	.comments-title {
 	font: italic 400 16px/1 "Futura", sans-serif;
@@ -2480,8 +2384,7 @@ button.toggle-comments {
 	}
 	.sidebar-1,
 	.sidebar-2,
-	.sidebar-3,
-#secondary {
+	.sidebar-3 {
 		clear: both;
 		float: none;
 		margin-right: 0;
@@ -2494,8 +2397,9 @@ button.toggle-comments {
 	font-size: 1.6rem;
 }
 .comic .categories-links,
-.comic .entry-meta 	
-	{
+.comic .entry-meta
+  }
+.comic .	{
 	display: none;
 	}
 }

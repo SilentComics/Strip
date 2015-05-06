@@ -12,7 +12,6 @@ get_header(); ?>
 
 <?php while ( have_posts() ) : the_post(); ?>
 			
-			
 			<?php if ( 'comic' == get_post_type() ) : ?>
 
 			<div class="entry-comic">
