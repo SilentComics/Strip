@@ -572,8 +572,8 @@ blockquote, blockquote em, blockquote i, blockquote cite {
 }
 blockquote p {
 	background-color: #fff;
-    font-size: 2.4rem;
-    line-height: inherit;
+    font-size: 1.8rem;
+    line-height: 1.6;
     color: lightblue;
     padding: 1em;
     width: 100%;
@@ -600,20 +600,20 @@ blockquote cite:before,
 	width: 1em;
 	height: 2px;
 	position: absolute;
-	top: 9px;
+	top: 0.6em;
 	left: 0;
 }
 pre {
-	background: darkblue;
+	background: royalblue;
 	font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
 	font-size: 1.6rem;
 	line-height: 1.6;
-	color: aquamarine;
+	color: aliceblue;
 	overflow: auto;
 	padding: 1.2em;
 }
 code, kbd, tt, var {
-	font: 1.6rem Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+	font: 1.2rem Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
 }
 abbr, acronym {
 	border-bottom: 1px dotted #666;
@@ -692,9 +692,13 @@ textarea {
 	vertical-align: top; /* Improves readability and alignment in all browsers */
 	width: 98%;
 }
-.search-form {
-	float: none;
-	width: 100%;
+.comment-form-author,
+.comment-form-email {
+	display: block;
+  width: 100%;
+}
+.comment-form-url #url{
+  max-width: 264px;
 }
 .search-field input[type="find"] {
 	border: 1px solid rgba(255, 255, 255, 0.2);
@@ -733,7 +737,9 @@ a:active {
 
 /* author's custom style
 ----------------------------------------------- */
-
+.site-branding {
+ display: flex;
+	}
 .logo {
   width: 12%; /* required to center */
   height: 12%;
@@ -744,7 +750,7 @@ a.logo {
 }
 a.logo: after {
   content: ""; 
-  position: absolute; 
+  position: fixed; 
   top: 0; 
   right: 0; 
   bottom: 12; 
@@ -816,7 +822,7 @@ display:block;
 	padding: 12px 6px 6px 10px;
 }
 .main-navigation a:hover {
-	background: #ffcc00;
+	background: #ffff00;
 	color: #000;
 }
 .main-navigation a:active {
@@ -834,11 +840,12 @@ display:block;
 	top: 0;
 }
 .main-navigation ul ul a {
-	color: #fff;
+	color: black;
 	line-height: 1.6;
-	background-color: #ff6666;
-	padding: 8px 12px 0px 12px;
-	white-space: normal;
+	background-color: #ffee00;
+	padding: 0.3em;
+  margin: 0.1em;
+	white-space: nowrap;
 	width: 200px;
 }
 .main-navigation ul ul li {
@@ -848,7 +855,7 @@ display:block;
 .main-navigation ul ul :hover > a {
 }
 .main-navigation ul ul a:hover {
-	background-color: #ff6666;
+	background-color: black;
 	color: #fff;
 }
 
@@ -1958,11 +1965,14 @@ button.toggle-comments {
 	margin-bottom: 48px;
 	text-align: center;
 	}
-.form-allowed-tags, .form-allowed-tags code { 
+.form-allowed-tags, .form-allowed-tags code {
+	display: none;   
+	width:92%;
 	font-family: monospace;
 	font-size: 1.2rem;
   text-align: left;
 	color: #FF7369;
+	margin: 0 auto;
 	padding-bottom: 2rem;
 }
 .form-submit #submit{ 
@@ -1973,10 +1983,6 @@ button.toggle-comments {
     transition: border ease 0.3s;
     font-family: Futura, "Trebuchet MS", Arial, sans-serif;
     color: #000;
-   margin-bottom: 2rem;
-}
-.comments code, kbd, tt, var {
-	font: 1.2rem Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
 }
 .required {
 	color: tomato;
