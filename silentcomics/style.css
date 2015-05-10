@@ -4,7 +4,7 @@ Theme URI: https://github.com/SilentComics/Wordpress-Theme-for-Silent-Comics/
 Author: Silent Comics
 Author URI: http://silent-comics.com
 Description: A simple theme for comics
-Version: Pre release WIP 2.3.1 (06/05/2015) — Restarting from scratch + cleanup @silentcomics or mail hoa // at // silent-comics.com
+Version: Pre release WIP 2.3.4 (10/05/2015) — Restarting from scratch + cleanup @silentcomics or mail hoa // at // silent-comics.com
 License: GNU General Public License v3 or later
 License URI: http://www.gnu.org/licenses/gpl.html
 Text Domain: silentcomics
@@ -28,7 +28,7 @@ SilentComics is based on Underscores http://underscores.me/, (C) 2012-2013 Autom
 	5.1 - Links
 	5.2 - Menus
 6.0 - Accessibility
-7.0 - Alignments
+7.0 - Alignments (nope)
 8.0 - Clearings
 9.0 - Widgets
 10.0 - Content
@@ -504,7 +504,7 @@ button,
 input,
 select,
 textarea {
-	color: #242424;
+	color:  #422442;
 	font-family:'Fenix', Georgia, serif;
 	font-size: 2.4rem;
 	line-height: 1.2;
@@ -630,14 +630,7 @@ img {
 /*--------------------------------------------------------------
 4.0 Forms
 --------------------------------------------------------------*/
-button,
-input,
-select,
-textarea {
-	font-size: 100%; /* Corrects font size not being inherited in all browsers */
-	margin: 0; /* Addresses margins set differently in IE6/7, F3/4, S5, Chrome */
-	vertical-align: top;
-}
+
 button,
 input {
 	line-height: normal; /* Addresses FF3/4 setting line-height using !important in the UA stylesheet */
@@ -665,28 +658,13 @@ button:focus,
 html input[type="button"]:focus,
 input[type="reset"]:focus,
 input[type="submit"]:focus{
-	background-color: #333;
+background-color: thistle;
 }
 button:active,
 html input[type="button"]:active,
 input[type="reset"]:active,
 input[type="submit"]:active {
 	background-color: forestgreen;
-}
-input[type="checkbox"],
-input[type="radio"] {
-	-moz-box-sizing: border-box;
-	box-sizing:      border-box; /* Addresses box sizing set to content-box in IE8/9 */
-	padding: 0; /* Addresses excess padding in IE8/9 */
-	vertical-align: middle;
-}
-input[type="search"] {
-	-webkit-appearance: textfield; /* Addresses appearance set to searchfield in S5, Chrome */
-	-moz-box-sizing: border-box;
-	box-sizing:      border-box;
-}
-input[type="search"]::-webkit-search-decoration { /* Corrects inner padding displayed oddly in S5, Chrome on OSX */
-	-webkit-appearance: none;
 }
 input[type="text"],
 input[type="email"],
@@ -735,7 +713,7 @@ textarea {
 5.1 Links
 --------------------------------------------------------------*/
 a:link {
-	color: #56cccc;
+	color: #ff6666;
 	text-decoration: none !important;
 }
 
@@ -929,23 +907,10 @@ display:block;
 }
 .site-content .comment-navigation,
 .site-content .paging-navigation,
-.site-content .post-navigation {
-	margin: 0 0 1.5em;
+.site-content .post-navigation
+.site-content .navigation-image {
+	margin: 0 0 2em;
 	overflow: hidden;
-}
-.comment-navigation .nav-previous,
-.paging-navigation .nav-previous,
-.post-navigation .nav-previous {
-	float: left;
-  text-align: left;
-	width: 50%;
-}
-.comment-navigation .nav-next,
-.paging-navigation .nav-next,
-.post-navigation .nav-next {
-	float: right;
-	text-align: right;
-	width: 50%;
 }
 
 /*--------------------------------------------------------------
@@ -986,21 +951,6 @@ display:block;
 /*--------------------------------------------------------------
 7.0 Alignments
 --------------------------------------------------------------*/
-.alignleft {
-	display: inline;
-	float: left;
-	margin-right: 1.5em;
-}
-.alignright {
-	display: inline;
-	float: right;
-	margin-left: 1.5em;
-}
-.aligncenter {
-	clear: both;
-	display: block;
-	margin: 0 auto;
-}
 
 /*--------------------------------------------------------------
 8.0 Clearings
@@ -1189,7 +1139,7 @@ article.error404 .widgettitle {
 	text-transform: uppercase;
 }
 article.error404 .widget ul {
-	font: 400 17px/2 Futura, "Trebuchet MS", Arial, sans-serif;
+	font: 400 1.6rem/2 Futura, "Trebuchet MS", Arial, sans-serif;
 	list-style: none;
 	margin: 0;
 }
@@ -1198,7 +1148,7 @@ article.error404 .widget li {
 }
 article.error404 .widget_archive p,
 article.error404 .widget_calendar  {
-	font-size: 17px;
+	font-size: 1.6rem;
 }
 article.error404 .widget_calendar {
 	clear: both;
@@ -1295,7 +1245,7 @@ display: none;
 	font: 400 12px/2 Futura, "Trebuchet MS", Arial, sans-serif;
   font-size: 10px;
   letter-spacing: 0.1em;
-	margin-top: 34px;
+	margin-top: 0;
 	padding: 8px 0 9px;
 	text-transform: uppercase;
 }
@@ -1664,25 +1614,45 @@ img.aligncenter {
 ----------------------------------------------- */
 
 .site-content [class*="navigation"] {
-	margin: 0 0 4.8em;
 	overflow: hidden;
-	font: 300 1.2rem Futura, "Trebuchet MS", Arial, sans-serif;
-	line-height: inherit;
-	padding: 0px 2px;
+	font: 300 1.4rem/1 Futura, "Trebuchet MS", Arial, sans-serif;
+	line-height: 2;
+	padding: 0 0 2em;
     }
 [class*="navigation"] .meta-nav {
 	border-radius: 3px; /* square shaped is 0px */
 	color: white;
 	background-color: black;
 	text-align: center;
-	padding: 3px;
-	width: 4.8em;
+	padding: 4px;
 	width: 4.8em;
 }
 [class*="navigation"] a:hover .meta-nav {
 	background-color: #ff6666;
 }
-
+#image-navigation .text-nav {
+	display: block;
+} 
+.navigation-image .nav-previous,
+.navigation-image .previous {
+	float: left;
+	text-align: left;
+} 
+ 
+.navigation-image .nav-next,
+.navigation-image .next {
+	float: right;
+	text-align: right;
+}  
+  
+[class*="navigation-image"] .meta-nav {
+	border-radius: 3px; /* square shaped is 0px */
+	font-size: 2.4rem;
+	color: black;
+	background-color: transparent;
+	text-align: center;
+	padding: 4px;
+  }
 /* Comment navigation specific */
 .comment-navigation .nav-previous,
 .paging-navigation .nav-previous,
@@ -1718,13 +1688,15 @@ img.aligncenter {
 	display: block;
 }
 .comic .entry-meta {
+	display: block;
 	position: absolute;
-	right: 0;
-	top: inherit;
-	text-align: left;
 	width: auto;
-	padding: 0px 42px 0px 0px;
+	margin-top: 0;
+	right: 9%;
 }	
+.comic .comments-link { 
+  display: none;
+}
 .comic .entry-content {
 	margin-top: 0;
 	margin: 0 auto;
@@ -1914,27 +1886,35 @@ button.toggle-comments {
     background-color: transparent;
 }
 #toggle-comments-container {
-	padding-top: 2.4em;
-	padding-bottom: 2.4em;
-	padding-left: 4.8em;        
+	padding: 2.4em 2.4em 4.8em;        
 }
 /*--------------------------------------------------------------
 10.5.2 Comments
 --------------------------------------------------------------*/
-.comment-author,
-.comment-author .says {
-	color: pink;
+.comment-author .author-cite {
+  color: darkgrey;
 	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
-	font-size: 1.6rem;
+	font-size: 1.4rem;
+  text-transform: uppercase;
+}
+.comment-author .says {
+	color: lightgrey;
+	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+	font-size: 1.4rem;
 	font-style: italic;
 }
 .comment-meta,
 .comment-meta a {
 	color: gainsboro;
 	overflow: hidden;
-	margin: 0 2em 2em;
+	margin: 0;
 	background-color: none;
 	font-size: 1.2rem;
+}
+.comment-meta .comment-reply-link {
+  background-color: lightpink;
+  padding: 3px;
+  color: #fff;
 }
 .comment-meta a:hover {
 	color: #ffcccc;
@@ -1952,13 +1932,13 @@ button.toggle-comments {
 }
 .comment-content ul,
 .comment-content ol  {
-	margin: 0 0 1em;
+	margin: 0 0 0.3em;
 }
 .comment-content ul ul,
 .comment-content ol ol,
 .comment-content ul ol,
 .comment-content ol ul {
-	margin-right: 2em;
+	margin: 0;
 }
 .comment-author .avatar {
 	border-radius: 50%;
@@ -1978,25 +1958,14 @@ button.toggle-comments {
 	margin-bottom: 48px;
 	text-align: center;
 	}
-.comment-form-comment label{
-    width: 96%;
-    display: inline-block;
-}
-.form-allowed-tags {
-	display: block;   
-	width:92%;
+.form-allowed-tags, .form-allowed-tags code { 
 	font-family: monospace;
-	font-size: 1.4rem;
+	font-size: 1.2rem;
+  text-align: left;
 	color: #FF7369;
-	margin: 0 auto;
 	padding-bottom: 2rem;
 }
-.comment-subscription-form {
-    clear: both;
-    margin-top: 1em;
-}
-.form-submit #submit{
-    float: right;
+.form-submit #submit{ 
     background: none;
     display: inline-block;
     border: #000 2px solid;
@@ -2004,6 +1973,13 @@ button.toggle-comments {
     transition: border ease 0.3s;
     font-family: Futura, "Trebuchet MS", Arial, sans-serif;
     color: #000;
+   margin-bottom: 2rem;
+}
+.comments code, kbd, tt, var {
+	font: 1.2rem Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+}
+.required {
+	color: tomato;
 }
 /*--------------------------------------------------------------
 10.6 Footer
@@ -2048,11 +2024,6 @@ button.toggle-comments {
 	display: block;
 }
 
-/* =Jetpack: Tiled Gallery
------------------------------------------------ */
-.hentry .tiled-gallery {
-	margin-bottom: 3.6em;
-}
 /*--------------------------------------------------------------
 12.0 Media queries
 --------------------------------------------------------------*/
@@ -2076,7 +2047,7 @@ button.toggle-comments {
 		max-width: 552px;
 	}
 	.comment-list .children {
-		margin-left: 72px;
+		margin-left: 6px;
 	}
 	.comment-author {
 		padding-left: 0;
@@ -2086,10 +2057,10 @@ button.toggle-comments {
 		height: 96px;
 	}
 	.comment-content {
-		padding: 0 0 0 48px;
+		padding: 0 0 0 2.4em;
 	}
 	.comment-meta {
-		padding-right: 48px;
+		padding: 0 0 0 2.4em;
 	}
 	article.error404 .widget {
 		float: left;
@@ -2125,14 +2096,13 @@ button.toggle-comments {
 		content: "";
 	}
 	.entry-meta {
-		float: right;
-		text-align: left;
-		width: 120px;
-		margin: 12px 24px 12px 0;
-		padding: 0;
+	display: block;
+	position: absolute;
+	width: 98px;
+	margin-top: 12px;
+	right: 1.2em;
 		}
 	.entry-meta span {
-		border-bottom: 0px dotted #e4d3d3;
 		display: block;
 		padding: 2px 0px;
 		}
@@ -2147,23 +2117,25 @@ button.toggle-comments {
 		float: none;
 	}
 	.format-image .entry-meta {
-		margin: 0 auto;
+		position: inherit;
+ 
 	}
 	.format-video .band {
 		background-color: #000;
 		display: block;
 		position: absolute;
-			top: 1em;
-			left: 0;
+		top: 1em;
+		left: 0;
 		width: 100%;
 		height: 560px; /* Custom Height*/
 		z-index: -1;
 	}
 	.format-video .entry-info {
-		float: left;
-		margin-top: 102px;
-		max-width: 240px;
-		padding: 16px 0;
+		right: 0;
+    position: absolute;
+		margin: 92px 48px;
+		max-width: 120px;
+		padding: 0;
 	}
 	.format-video .categories-links {
 		font-size: 1.2rem;
@@ -2199,8 +2171,7 @@ button.toggle-comments {
 	}
 	.format-video .entry-content {
 		background-color: transparent;
-		float: right;
-		margin-top: 0;
+		margin-top: 0 auto;
 		max-width: 552px;
 	}
 }
@@ -2213,7 +2184,6 @@ button.toggle-comments {
 		max-width: 912px;
 	}
 	.entry-meta {
-		margin-right: 48px;
 		width: 168px;
 	}
 	.entry-meta span.entry-format {
@@ -2399,7 +2369,4 @@ button.toggle-comments {
 .comic .categories-links,
 .comic .entry-meta
   }
-.comic .	{
-	display: none;
-	}
 }
