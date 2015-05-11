@@ -3,7 +3,7 @@
  * @package silentcomics
  */
 ?>
-<article id="scomic-<?php the_id(); ?>" <?php post_class(); ?>>
+<article id="single-comic-<?php the_id(); ?>" <?php post_class('clear'); ?>>
 	<div class="entry-wrap wrap clear">
 		<?php if ( '' != get_the_post_thumbnail() ) : ?>
 			<?php if ( ! is_single() ) : ?>
@@ -41,4 +41,8 @@
 
 	</div>
 
+	
+	<footer >
+		
+	</footer>
 </article>

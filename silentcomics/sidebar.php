@@ -1,37 +1,29 @@
 <?php
 /**
- * The Sidebar containing the main widget areas.
+ * The Sidebar containing the footer widgets.
  *
  * @package SilentComics
  */
-
-$facebook = get_theme_mod( 'jetpack-facebook' );
-$twitter = get_theme_mod( 'jetpack-twitter' );
-$tumblr = get_theme_mod( 'jetpack-tumblr' );
 ?>
-	<div id="secondary" class="widget-area" role="complementary">
-		<?php do_action( 'before_sidebar' ); ?>
-		<?php if ( ! dynamic_sidebar( 'sidebar-1' ) ) : ?>
-
-			<aside id="search" class="widget widget_search">
-				<?php get_search_form(); ?>
-			</aside>
-
-			<aside id="archives" class="widget">
-				<h1 class="widget-title"><?php esc_html_e( 'Archives', 'silentcomics' ); ?></h1>
-				<ul>
-					<?php wp_get_archives( array( 'type' => 'monthly' ) ); ?>
-				</ul>
-			</aside>
-
-			<aside id="meta" class="widget">
-				<h1 class="widget-title"><?php esc_html_e( 'Meta', 'silentcomics' ); ?></h1>
-				<ul>
-					<?php wp_register(); ?>
-					<li><?php wp_loginout(); ?></li>
-					<?php wp_meta(); ?>
-				</ul>
-			</aside>
-
-		<?php endif; // end sidebar widget area ?>
+<?php if ( is_active_sidebar( 'footer-sidebar-1' ) || is_active_sidebar( 'footer-sidebar-2' ) || is_active_sidebar( 'footer-sidebar-3' ) ) : ?>
+	<div id="secondary" class="widget-area clear" role="complementary">
+		<div class="widget-area-wrapper">
+			<?php do_action( 'before_sidebar' ); ?>
+			<?php if ( is_active_sidebar( 'footer-sidebar-1' ) ) : ?>
+				<div class="sidebar-1">
+					<?php dynamic_sidebar( 'footer-sidebar-1' ); ?>
+				</div>
+			<?php endif; ?>
+			<?php if ( is_active_sidebar( 'footer-sidebar-2' ) ) : ?>
+				<div class="sidebar-2">
+					<?php dynamic_sidebar( 'footer-sidebar-2' ); ?>
+				</div>
+			<?php endif; ?>
+			<?php if ( is_active_sidebar( 'footer-sidebar-3' ) ) : ?>
+				<div class="sidebar-3">
+					<?php dynamic_sidebar( 'footer-sidebar-3' ); ?>
+				</div>
+			<?php endif; ?>
+		</div><!-- .widget-area-wrapper -->
 	</div><!-- #secondary -->
+<?php endif; //is_active_sidebar ?>

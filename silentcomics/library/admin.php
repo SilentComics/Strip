@@ -19,22 +19,18 @@ Digging into WP - http://digwp.com/2010/10/customize-wordpress-dashboard/
 
 // disable default dashboard widgets
 function disable_default_dashboard_widgets() {
-	global $wp_meta_boxes;
-	// unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_right_now']);    // Right Now Widget
-	unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_activity']);        // Activity Widget
-	unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_recent_comments']); // Comments Widget
-	unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_incoming_links']);  // Incoming Links Widget
-	unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_plugins']);         // Plugins Widget
+	// remove_meta_box('dashboard_right_now', 'dashboard', 'core');    // Right Now Widget
+	remove_meta_box('dashboard_recent_comments', 'dashboard', 'core'); // Comments Widget
+	remove_meta_box('dashboard_incoming_links', 'dashboard', 'core');  // Incoming Links Widget
+	remove_meta_box('dashboard_plugins', 'dashboard', 'core');         // Plugins Widget
 
-	// unset($wp_meta_boxes['dashboard']['side']['core']['dashboard_quick_press']);    // Quick Press Widget
-	unset($wp_meta_boxes['dashboard']['side']['core']['dashboard_recent_drafts']);     // Recent Drafts Widget
-	unset($wp_meta_boxes['dashboard']['side']['core']['dashboard_primary']);           //
-	unset($wp_meta_boxes['dashboard']['side']['core']['dashboard_secondary']);         //
+	// remove_meta_box('dashboard_quick_press', 'dashboard', 'core');  // Quick Press Widget
+	remove_meta_box('dashboard_recent_drafts', 'dashboard', 'core');   // Recent Drafts Widget
+	remove_meta_box('dashboard_primary', 'dashboard', 'core');         //
+	remove_meta_box('dashboard_secondary', 'dashboard', 'core');       //
 
-	// remove plugin dashboard boxes
-	unset($wp_meta_boxes['dashboard']['normal']['core']['yoast_db_widget']);           // Yoast's SEO Plugin Widget
-	unset($wp_meta_boxes['dashboard']['normal']['core']['rg_forms_dashboard']);        // Gravity Forms Plugin Widget
-	unset($wp_meta_boxes['dashboard']['normal']['core']['bbp-dashboard-right-now']);   // bbPress Plugin Widget
+	// removing plugin dashboard boxes
+	remove_meta_box('yoast_db_widget', 'dashboard', 'normal');         // Yoast's SEO Plugin Widget
 
 	/*
 	have more plugin widgets you'd like to remove?
@@ -60,13 +56,8 @@ function silentcomics_rss_dashboard_widget() {
 	if(function_exists('fetch_feed')) {
 		get_template_part(ABSPATH . WPINC . '/feed.php');               // include the required file
 		$feed = fetch_feed('http://silent-comics.tumblr.com/rss/');        // specify the source feed
-		if (is_wp_error($feed)) {
-			$limit = 0;
-			$items = 0;
-		} else {
-			$limit = $feed->get_item_quantity(6);                        // specify number of items
-			$items = $feed->get_items(0, $limit);                        // create an array of items
-		}
+		$limit = $feed->get_item_quantity(6);                      // specify number of items
+		$items = $feed->get_items(0, $limit);                      // create an array of items
 	}
 	if ($limit == 0) echo '<div>The RSS Feed is either empty or unavailable.</div>';   // fallback message
 	else foreach ($items as $item) { ?>
@@ -131,7 +122,7 @@ you like.
 
 // Custom Backend Footer
 function silentcomics_custom_admin_footer() {
-	_e('<span id="footer-thankyou">Developed by <a href="http://silent-comics.com" target="_blank">Silent Comics</a></span>. Custom admin area thanks to <a href="" target="_blank">Themble</a>.', 'silentcomics');
+	_e('<span id="footer-thankyou">Developed by <a href="" target="_blank">Silent Comics</a></span>. Custom admin area thanks to <a href="" target="_blank">Themble</a>.', 'silentcomics');
 }
 
 // adding it to the admin area

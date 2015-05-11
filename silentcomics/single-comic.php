@@ -1,4 +1,4 @@
-<?php
+	<?php
 /**
  * The Template for displaying comics. (ideally, with navigation in template-tags)
  *
@@ -11,6 +11,7 @@ get_header(); ?>
 		<div id="content" class="entry-comic" role="main">
 
 <?php while ( have_posts() ) : the_post(); ?>
+			
 			
 			<?php if ( 'comic' == get_post_type() ) : ?>
 

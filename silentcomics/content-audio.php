@@ -10,7 +10,7 @@ if ( isset( $GLOBALS['content_width'] ) )
 
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'clear' ); ?>>
 
-	<div class="entry-wrap wrap clear">
+	<div class="entry-wrap">
 		<div class="entry-info">
 			<header class="entry-header">
 				<?php
