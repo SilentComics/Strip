@@ -10,10 +10,10 @@
 <html <?php language_attributes(); ?>>
 <head>
 <meta charset="<?php bloginfo( 'charset' ); ?>">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
-<script src="http://code.jquery.com/jquery-latest.js"></script>
 <title><?php wp_title( '|', true, 'right' ); ?></title>
+<meta name="description" content="">
 <link rel="profile" href="http://gmpg.org/xfn/11">
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 <link type="text/plain" rel="author" href="http://silent-comics.com/humans.txt" />
@@ -23,34 +23,25 @@
 
 <body <?php body_class(); ?>>
 <div id="page" class="hfeed site">
-	
-	
 	<header id="masthead" class="site-header" role="banner">
+		
 		<div class="wrap">
 				<?php do_action( 'before' ); ?>
 				
 			<?php $header_image = get_header_image();
 			if ( ! empty( $header_image ) ) { ?>
-			
-			 
- <img src="<?php header_image(); ?>" width="<?php echo get_custom_header()->width; ?>" height="<?php echo get_custom_header()->height; ?>" alt="" class="no-grav header-image" />
+				<a class="site-logo"  href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
+					<img src="<?php header_image(); ?>" width="<?php echo get_custom_header()->width; ?>" height="<?php echo get_custom_header()->height; ?>" alt="" class="no-img header-image" />
 				</a>
 			<?php } // if ( ! empty( $header_image ) ) ?>
-			
-		<div class="site-branding">
-			<h1 class="site-title"><a href="http://silent-comics.com" class="logo">
- <object type="image/svg+xml" data="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjQgNjIuODI2IiA+PHN0eWxlPi5zdHlsZTB7ZmlsbDogIzAwMDt9OmhvdmVyIHtmaWxsOiAjZmY1ZTVlO306dmlzaXRlZCB7ZmlsbDogI2ZmZjt9PC9zdHlsZT48cGF0aCBkPSJNOS42NzQgMjguMDczYy0yLjU2NCAwLTQuNDM1LTIuMDAxLTQuNzgyLTQuNDQ5bC0yLjYgMC43MzFjMC43NjMgMy43IDMuNiA2LjIgNy40IDYuMiA0LjIgMCA3LjUwOS0zLjIxMSA3LjUwOS03LjQwNCAwLTMuODEzLTIuNjI5LTUuMzcxLTUuNzM0LTYuNzM2TDkuOTMgMTUuNzE0Yy0xLjYxNy0wLjczMS0zLjc0LTEuNjg1LTMuNzQtMy43NSAwLTIuMTkzIDEuODM2LTMuNzE3IDMuOTYxLTMuNzE3IDIgMCAzLjIgMSA0LjEgMi42MDRsMi4xMjMtMS4zNjVjLTEuMjY4LTIuMzUzLTMuNTE4LTMuNzE4LTYuMTc5LTMuNzE4IC0zLjUgMC02LjY4NSAyLjM4Mi02LjY4NSA2LjEgMCAzLjQgMi40IDQuOSA1LjIgNi4xMzFsMS40NTggMC42MzVjMi4yMTkgMSA0LjQgMiA0LjQgNC43NjZDMTQuNTg2IDI2LjEgMTIuMiAyOC4xIDkuNyAyOC4wNzN6Ii8+PHJlY3QgeD0iMjYuNiIgeT0iNi4yIiB3aWR0aD0iMi43IiBoZWlnaHQ9IjI0Ii8+PHBvbHlnb24gcG9pbnRzPSIzOS44LDYuMiAzOS44LDMwLjEgNDkuMSwzMC4xIDQ5LjEsMjcuNyA0Mi41LDI3LjcgNDIuNSw2LjIiLz48cG9seWdvbiBwb2ludHM9IjY5LjgsOC43IDY5LjgsNi4yIDU3LjQsNi4yIDU3LjQsMzAuMSA2OS44LDMwLjEgNjkuOCwyNy43IDYwLjEsMjcuNyA2MC4xLDE4LjMgNjkuNSwxOC4zIDY5LjUsMTUuOCA2MC4xLDE1LjggNjAuMSw4LjciLz48cG9seWdvbiBwb2ludHM9Ijk4LjUsMjQuNyA3OS45LDUuMiA3OS45LDMwLjEgODIuNSwzMC4xIDgyLjUsMTEuNyAxMDEuMiwzMS4yIDEwMS4yLDYuMiA5OC41LDYuMiIvPjxwb2x5Z29uIHBvaW50cz0iMTA5LjcsOC43IDExNS41LDguNyAxMTUuNSwzMC4xIDExOC4yLDMwLjEgMTE4LjIsOC43IDEyNCw4LjcgMTI0LDYuMiAxMDkuNyw2LjIiLz48cGF0aCBkPSJNMTIuNDU0IDU3LjAyNmMyLjUzNCAwIDUuMDY3LTAuODU3IDcuMTI4LTIuMzV2LTMuMzA1Yy0xLjkgMS45MDYtNC41MjkgMy4xNzctNy4yMjMgMy4yIC01LjQgMC05LjY5NS00LjY0LTkuNjk1LTkuOTE0IDAtNS4yNzIgNC4zMDgtOS45MTIgOS42MjktOS45MTIgMi44IDAgNS40IDEuMiA3LjMgMy4xNzd2LTMuMzA0Yy0yLjEyNC0xLjU4OC00LjQ2Ny0yLjM1MS03LjEyOC0yLjM1MSAtNi44IDAtMTIuNDUyIDUuNjIzLTEyLjQ1MiAxMi40ODZDMC4wMDIgNTEuNSA1LjcgNTcgMTIuNSA1Ny4wMjZ6Ii8+PHBhdGggZD0iTTIyLjg3NiA0NC42NjdjMCA2LjkgNS42IDEyLjQgMTIuNSAxMi4zNThTNDcuNzggNTEuNiA0Ny44IDQ0LjY2N2MwLTYuODYyLTUuNjQtMTIuNDIzLTEyLjQ1Mi0xMi40MjNTMjIuODc2IDM3LjggMjIuOSA0NC42Njd6TTM1LjMyOCAzNC43MjJjNS40ODEgMCA5LjggNC41IDkuOCA5LjkgMCA1LjQwMi00LjM3NSA5LjkxNC05Ljc5MSA5LjkgLTUuNCAwLTkuNzkxLTQuNTEyLTkuNzkxLTkuOTE0QzI1LjUzNyAzOS4yIDI5LjggMzQuNyAzNS4zIDM0LjcyMnoiLz48cG9seWdvbiBwb2ludHM9IjQ5LjYsNTYuNiA1Mi40LDU2LjYgNTUuNCw0MC40IDU1LjUsNDAuNCA2My4yLDU3LjYgNzAuOSw0MC40IDcwLjksNDAuNCA3NCw1Ni42IDc2LjcsNTYuNiA3MS45LDMxLjMgNjMuMiw1MS40IDU0LjUsMzEuMyIvPjxyZWN0IHg9Ijc5LjgiIHk9IjMyLjciIHdpZHRoPSIyLjciIGhlaWdodD0iMjQiLz48cGF0aCBkPSJNOTguMjgxIDM0LjcyMmMyLjc1OCAwIDUuNCAxLjIgNy4zIDMuMTc3di0zLjMwNGMtMi4xMjEtMS41ODgtNC40NjUtMi4zNTEtNy4xMjctMi4zNTEgLTYuOCAwLTEyLjQ1MyA1LjYyMy0xMi40NTMgMTIuNSAwIDYuOCA1LjcgMTIuMyAxMi41IDEyLjMgMi41IDAgNS4wNjgtMC44NTcgNy4xMjctMi4zNXYtMy4zMDVjLTEuODk4IDEuOTA2LTQuNTI5IDMuMTc3LTcuMjI1IDMuMiAtNS40IDAtOS42OTUtNC42NC05LjY5NS05LjkxNEM4OC42NDggMzkuNCA5MyAzNC43IDk4LjMgMzQuNzIyeiIvPjxwYXRoIGQ9Ik0xMTYuMzA5IDU0LjU0OGMtMi41NjYgMC00LjQzNi0yLjAwMS00Ljc4My00LjQ0N2wtMi42IDAuNzI5YzAuNzYgMy43IDMuNiA2LjIgNy40IDYuMiA0LjIgMCA3LjUxMi0zLjIwOCA3LjUxMi03LjQwMSAwLTMuODE0LTIuNjMxLTUuMzctNS43MzYtNi43MzdsLTEuNTgyLTAuNjk3Yy0xLjYxNS0wLjczMi0zLjc0Mi0xLjY4Ni0zLjc0Mi0zLjc1IDAtMi4xOTEgMS44NC0zLjcxOCAzLjk2My0zLjcxOCAyIDAgMy4yIDEgNC4xIDIuNjA1bDIuMTIzLTEuMzY1Yy0xLjI2OC0yLjM1My0zLjUxNi0zLjcxOC02LjE4LTMuNzE4IC0zLjYgMC02LjY4NiAyLjM4NC02LjY4NiA2LjEgMCAzLjQgMi40IDQuOSA1LjIgNi4xMzRsMS40NTcgMC42MzVjMi4yMTkgMSA0LjQgMiA0LjQgNC43NjVDMTIxLjIyMSA1Mi42IDExOC45IDU0LjUgMTE2LjMgNTQuNTQ4eiIvPjxyZWN0IHk9IjYyLjEiIHdpZHRoPSIxMjQiIGhlaWdodD0iMC44Ii8+PHJlY3QgeT0iLTAuMSIgd2lkdGg9IjEyNCIgaGVpZ2h0PSIwLjgiLz48cmVjdCB4PSItMTI5LjIiIHk9Ii04OC40IiB3aWR0aD0iMC4yIiBoZWlnaHQ9IjAiLz48L3N2Zz4="></object></a></h1><div class="philactery"><object type="image/svg+xml" data="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMCAyMCI+PHBvbHlnb24gcG9pbnRzPSIxLC0wIDEwLDIwIDE5LC0wIi8+PC9zdmc+"></object></div>
-
- 
-<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
-		</div>
+							
+			<h1 class="site-title"><a href="http://silent-comics.com" <svg class="logo"><object type="image/svg+xml" data="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxOTggOTkiPjxzdHlsZT4uc3R5bGUwe2ZpbGw6ICMwMDA7fTpob3ZlciB7ZmlsbDogI2ZmZjt9PC9zdHlsZT4gPHBhdGggZD0iTTE1LjQgNDQuMmMtNC4xIDAtNy4xLTMuMi03LjYtNy4xbC00LjEgMS4yYzEuMiA1LjkgNS44IDkuOSAxMS45IDkuOWM2LjYgMCAxMi01LjEgMTItMTEuOCBjMC02LjEtNC4yLTguNi05LjItMTAuN2wtMi41LTEuMWMtMi42LTEuMi02LTIuNy02LTZjMC0zLjUgMi45LTUuOSA2LjMtNS45YzMuMiAwIDUuMSAxLjUgNi42IDQuMWwzLjQtMi4yYy0yLTMuNy01LjYtNS45LTkuOS01LjkgYy01LjcgMC0xMC43IDMuOC0xMC43IDkuN2MwIDUuNSAzLjggNy43IDguMyA5LjhsMi4zIDFjMy41IDEuNiA3IDMuMSA3IDcuNkMyMy4zIDQxLjEgMTkuNSA0NC4yIDE1LjQgNDQuMnoiLz48cmVjdCB4PSI0Mi41IiB5PSI5LjQiIHdpZHRoPSI0LjMiIGhlaWdodD0iMzguMiIvPjxwb2x5Z29uIHBvaW50cz0iNjMuNiw5LjQgNjMuNiw0Ny41IDc4LjMsNDcuNSA3OC4zLDQzLjYgNjcuOCw0My42IDY3LjgsOS40Ii8+PHBvbHlnb24gcG9pbnRzPSIxMTEuNCwxMy4zIDExMS40LDkuNCA5MS42LDkuNCA5MS42LDQ3LjUgMTExLjQsNDcuNSAxMTEuNCw0My42IDk1LjksNDMuNiA5NS45LDI4LjYgMTExLDI4LjYgMTExLDI0LjcgOTUuOSwyNC43IDk1LjksMTMuMyIvPjxwb2x5Z29uIHBvaW50cz0iMTU3LjMsMzguOSAxMjcuNSw3LjggMTI3LjUsNDcuNSAxMzEuOCw0Ny41IDEzMS44LDE4LjEgMTYxLjUsNDkuMiAxNjEuNSw5LjQgMTU3LjMsOS40Ii8+PHBvbHlnb24gcG9pbnRzPSIxNzUuMiwxMy4zIDE4NC40LDEzLjMgMTg0LjQsNDcuNSAxODguNyw0Ny41IDE4OC43LDEzLjMgMTk4LDEzLjMgMTk4LDkuNCAxNzUuMiw5LjQiLz48cGF0aCBkPSJNMTkuOSA5MC4zYzQgMCA4LjEtMS40IDExLjQtMy43di01LjNjLTMgMy03LjIgNS4xLTExLjUgNS4xYy04LjUgMC0xNS41LTcuNC0xNS41LTE1LjggYzAtOC40IDYuOS0xNS44IDE1LjQtMTUuOGM0LjQgMCA4LjYgMS45IDExLjYgNS4xdi01LjNjLTMuNC0yLjUtNy4xLTMuNy0xMS40LTMuN0M5IDUwLjkgMCA1OS44IDAgNzAuOEMwIDgxLjYgOS4xIDkwLjMgMTkuOSA5MC4zIHoiLz48cGF0aCBkPSJNMzYuNSA3MC43YzAgMTEgOSAxOS43IDE5LjkgMTkuN2MxMC45IDAgMTkuOS04LjcgMTkuOS0xOS43YzAtMTAuOS05LTE5LjgtMTkuOS0xOS44IEM0NS41IDUwLjkgMzYuNSA1OS43IDM2LjUgNzAuN3ogTTU2LjQgNTQuOEM2NS4yIDU0LjggNzIgNjIgNzIgNzAuNmMwIDguNi03IDE1LjgtMTUuNiAxNS44Yy04LjcgMC0xNS42LTcuMi0xNS42LTE1LjggQzQwLjggNjIgNDcuNyA1NC44IDU2LjQgNTQuOHoiLz48cG9seWdvbiBwb2ludHM9Ijc5LjMsODkuNyA4My42LDg5LjcgODguNSw2My45IDg4LjYsNjMuOSAxMDAuOSw5MS4yIDExMy4yLDYzLjkgMTEzLjMsNjMuOSAxMTguMiw4OS43IDEyMi41LDg5LjcgMTE0LjgsNDkuNCAxMDAuOSw4MS40IDg3LDQ5LjQiLz48cmVjdCB4PSIxMjcuNSIgeT0iNTEuNSIgd2lkdGg9IjQuMyIgaGVpZ2h0PSIzOC4xIi8+PHBhdGggZD0iTTE1Ni45IDU0LjhjNC40IDAgOC42IDEuOSAxMS42IDUuMXYtNS4zYy0zLjQtMi41LTcuMS0zLjctMTEuNC0zLjdjLTEwLjkgMC0xOS45IDktMTkuOSAxOS45IGMwIDEwLjggOS4xIDE5LjYgMTkuOSAxOS42YzQgMCA4LjEtMS40IDExLjQtMy43di01LjNjLTMgMy03LjIgNS4xLTExLjUgNS4xYy04LjUgMC0xNS41LTcuNC0xNS41LTE1LjggQzE0MS42IDYyLjIgMTQ4LjQgNTQuOCAxNTYuOSA1NC44eiIvPjxwYXRoIGQ9Ik0xODUuNyA4Ni40Yy00LjEgMC03LjEtMy4yLTcuNi03LjFsLTQuMSAxLjJjMS4yIDUuOSA1LjggOS45IDExLjkgOS45YzYuNiAwIDEyLTUuMSAxMi0xMS44IGMwLTYuMS00LjItOC42LTkuMi0xMC43bC0yLjUtMS4xYy0yLjYtMS4yLTYtMi43LTYtNmMwLTMuNSAyLjktNS45IDYuMy01LjljMy4yIDAgNS4xIDEuNSA2LjYgNC4xbDMuNC0yLjJjLTItMy43LTUuNi01LjktOS45LTUuOSBjLTUuNyAwLTEwLjcgMy44LTEwLjcgOS43YzAgNS41IDMuOCA3LjcgOC4zIDkuOGwyLjMgMWMzLjUgMS42IDcgMy4xIDcgNy42QzE5My42IDgzLjMgMTg5LjggODYuNCAxODUuNyA4Ni40eiIvPjxyZWN0IHk9Ijk3IiB3aWR0aD0iMTk4IiBoZWlnaHQ9IjIiLz48cmVjdCB5PSIwIiB3aWR0aD0iMTk4IiBoZWlnaHQ9IjIiLz48L3N2Zz4="></object></a></h1> <h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
+		</div><!-- .wrap -->
 
 		<nav id="site-navigation" class="main-navigation" role="navigation">
-			<h1 class="menu-toggle"><?php _e( 'Menu', 'silentcomics' ); ?></h1>
+			<h1 class="menu-toggle"><?php _e( 'Explore', 'silentcomics' ); ?></h1>
 			<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'silentcomics' ); ?></a>
 
 			<?php wp_nav_menu( array( 'theme_location' => 'primary', 'container_class' => 'wrap'  ) ); ?>
 		</nav><!-- #site-navigation -->
 	</header><!-- #masthead -->
-
-	<div id="content" class="site-content">

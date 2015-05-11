@@ -31,22 +31,13 @@ $content_width = 1272;
 								'link_after'  => '</span>',
 							) );
 						?>
+						</div><!-- .entry-content -->
 
-						<div class="comment-status">
-							<?php
-								if ( comments_open() && pings_open() ) : // Comments and trackbacks open
-									printf( __( '<a class="comment-link" href="#respond" title="Post a comment">Post a comment</a> or leave a trackback: <a class="trackback-link" href="%s" title="Trackback URL for your post" rel="trackback">Trackback URL</a>.', 'SilentComics' ), esc_url( get_trackback_url() ) );
-								elseif ( ! comments_open() && pings_open() ) : // Only trackbacks open
-									printf( __( 'Comments are closed, but you can leave a trackback: <a class="trackback-link" href="%s" title="Trackback URL for your post" rel="trackback">Trackback URL</a>.', 'SilentComics' ), esc_url( get_trackback_url() ) );
-								elseif ( comments_open() && ! pings_open() ) : // Only comments open
-									_e( 'Trackbacks are closed, but you can <a class="comment-link" href="#respond" title="Post a comment">post a comment</a>.', 'SilentComics' );
-								elseif ( ! comments_open() && ! pings_open() ) : // Comments and trackbacks closed
-									_e( 'Both comments and trackbacks are currently closed.', 'SilentComics' );
-								endif;
-							?>
-						</div>
-					</div><!-- .entry-content -->
-
+<nav role="navigation" id="image-navigation" class="navigation-image clear double">
+				<?php next_image_link( false, __( '<div class="next"><span class="meta-nav">&rarr;</span> <span class="text-nav">Next</span></div>', 'SilentComics' ) ); ?>
+				<?php previous_image_link( false, __( '<div class="previous"><span class="meta-nav">&larr;</span> <span class="text-nav">Previous</span></div>', 'SilentComics' ) ); ?>
+			</nav><!-- #image-navigation -->
+	
 					<header class="entry-header">
 						<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 					</header><!-- .entry-header -->
@@ -77,12 +68,7 @@ $content_width = 1272;
 
 				</div><!-- .entry-wrap -->
 			</article><!-- #post-## -->
-
-			<nav role="navigation" id="image-navigation" class="navigation-image clear double">
-				<?php next_image_link( false, __( '<div class="next"><span class="meta-nav">&rarr;</span> <span class="text-nav">Next</span></div>', 'SilentComics' ) ); ?>
-				<?php previous_image_link( false, __( '<div class="previous"><span class="meta-nav">&larr;</span> <span class="text-nav">Previous</span></div>', 'SilentComics' ) ); ?>
-			</nav><!-- #image-navigation -->
-
+			
 			<?php
 				// If comments are open or we have at least one comment, load up the comment template
 				if ( comments_open() || '0' != get_comments_number() )

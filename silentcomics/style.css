@@ -758,7 +758,7 @@ a.logo: after {
 }
 .no-svg .logo {
   width: 96px;
-  height: 49px;
+  height: 48px;
   background-image: url(../images/silent-comics-logo.png);
 }
 /* =Masthead
@@ -911,13 +911,6 @@ display:block;
 	.main-navigation ul {
 		display: none;
 	}
-}
-.site-content .comment-navigation,
-.site-content .paging-navigation,
-.site-content .post-navigation
-.site-content .navigation-image {
-	margin: 0 0 2em;
-	overflow: hidden;
 }
 
 /*--------------------------------------------------------------
@@ -1635,6 +1628,14 @@ img.aligncenter {
 /* =Navigation
 ----------------------------------------------- */
 
+.site-content .comment-navigation,
+.site-content .paging-navigation,
+.site-content .post-navigation
+.site-content .navigation-image {
+	margin: 0 0 2em;
+	overflow: hidden;
+}
+
 .site-content [class*="navigation"] {
 	overflow: hidden;
 	font: 300 1.4rem/1 Futura, "Trebuchet MS", Arial, sans-serif;
@@ -2280,7 +2281,7 @@ button.toggle-comments {
 	}
 	#masthead .logo {
 		width: 60px;
-		height: 31px;
+		height: 30px;
     } 
     .main-navigation {
 	font-size: 1.2rem;

@@ -57,7 +57,6 @@
 			?>
 		</div><!-- .entry-content -->
 		<?php endif; ?>
-
-		<span class="entry-format-badge genericon"><span class="screen-reader-text"><?php _e( 'Standard', 'SilentComics' ); ?></span></span>
+		
 	</div><!-- .entry-wrap -->
 </article><!-- #post-## -->

@@ -39,5 +39,5 @@ new WP_Query( array( 'post_type'  => 'comic','orderby' => array( 'title' => 'DES
 		</div><!-- #content -->
 	</div><!-- #primary -->
 
-<?php get_sidebar(); ?>
+
 <?php get_footer(); ?>

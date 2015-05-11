@@ -9,7 +9,7 @@
  get_header(); ?>
 
 	<div id="primary" class="content-area">
-		<div id="content" class="entry-comic" role="main">
+		<div class="wrap" class="entry-comic" role="main">
 	
 	<?php if ( have_posts() ) : ?>
 	<header class="page-header">

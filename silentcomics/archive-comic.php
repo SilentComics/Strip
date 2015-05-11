@@ -71,8 +71,7 @@ get_header(); ?>
 	</section><!-- #primary -->
 
 <h2 class="taxonomy-description">
-	All <a href="http://localhost:8888/shibakuzo/category/exile/">Exile</a> episodes by title.
-					</h2>
+	All <a href="http://localhost:8888/shibakuzo/category/exile/">Exile</a> episodes by title.</h2>
 <?php // Run custom loop for category exile
     $comic = new WP_Query();
     $comic->query( array(
@@ -91,8 +90,7 @@ get_header(); ?>
 		?>
 
     <h2 class="taxonomy-description">
-	All <a href="http://localhost:8888/shibakuzo/category/tofu/">Tofu</a> episodes.
-					</h2>
+	All <a href="http://localhost:8888/shibakuzo/category/tofu/">Tofu</a> episodes.</h2>
 <?php // Run custom loop for category tofu
     $comic = new WP_Query();
     $comic->query( array(
@@ -121,5 +119,4 @@ if (have_posts()) : while (have_posts()) : the_post(); ?>
 <?php the_content(); ?>
 <?php endwhile; ?>
 
-<?php get_sidebar(); ?>
 <?php get_footer(); ?>
