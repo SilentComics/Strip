@@ -4,7 +4,7 @@ Theme URI: https://github.com/SilentComics/Wordpress-Theme-for-Silent-Comics/
 Author: Silent Comics
 Author URI: http://silent-comics.com
 Description: A simple theme for comics
-Version: Pre release WIP 2.3.5.1 (10/05/2015) — Restarting from scratch + cleanup @silentcomics or mail hoa // at // silent-comics.com
+Version: Pre release WIP 2.3.5.4 (11/05/2015) — Restarting from scratch + cleanup @silentcomics or mail hoa // at // silent-comics.com
 License: GNU General Public License v3 or later
 License URI: http://www.gnu.org/licenses/gpl.html
 Text Domain: silentcomics
@@ -12,7 +12,7 @@ Domain Path: /languages/
 Tags: black, white, light, one-column, fixed-layout, responsive-layout, custom-background, custom-colors, custom-header, custom-menu, featured-images, flexible-header, post-formats, editor-style, rtl-language-support, sticky-post, translation-ready
 
 SilentComics is distributed under the terms of the GNU GPL.
-Use it to make something cool, have fun, and share what you've learned with others.
+Use it to make something cool.
 
 SilentComics is based on Underscores http://underscores.me/, (C) 2012-2013 Automattic, Inc.
 */
@@ -28,7 +28,7 @@ SilentComics is based on Underscores http://underscores.me/, (C) 2012-2013 Autom
 	5.1 - Links
 	5.2 - Menus
 6.0 - Accessibility
-7.0 - Alignments (nope)
+7.0 - Alignments
 8.0 - Clearings
 9.0 - Widgets
 10.0 - Content
@@ -486,7 +486,6 @@ th {
     font-style: normal;
 }
 
-
 /* use the best ampersand http://simplebits.com/notebook/2008/08/14/ampersands-2/ */
 span.amp {
   font-family: Baskerville, 'Goudy Old Style', Palatino, 'Book Antiqua', serif;
@@ -514,7 +513,6 @@ h1, h2, h3 {
 	clear: both;
 	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
 	font-weight: 700;
-	margin-bottom: 0.02em;
 }
 h4, h5, h6 {
 	clear: both;
@@ -523,27 +521,27 @@ h4, h5, h6 {
 }
 h1 {
 	font-size: 3.6rem;
-	line-height: inherit;
+	line-height: 1;
 }
 h2 {
 	font-size: 3.2rem;
-	line-height: inherit;
+	line-height: 1;
 }
 h3 {
 	font-size: 2.4rem;
-	line-height: inherit;
+	line-height: 1;
 }
 h4 {
 	font-size: 1.8rem;
-	line-height: 1.3076923076;
+	line-height: 1.2;
 }
 h5 {
 	font-size: 1.6rem;
-	line-height: inherit;
+	line-height: 1;
 }
 h6 {
 	font-size: 1.2rem;
-	line-height: inherit;
+	line-height: 1;
 }
 hr {
 }
@@ -591,7 +589,6 @@ blockquote cite,
 }
 blockquote cite a,
 .quote-caption a {
-	color: lightsalmon;
 }
 blockquote cite:before,
 .quote-caption:before {
@@ -720,7 +717,6 @@ a:link {
 	color: #ff6666;
 	text-decoration: none !important;
 }
-
 a:visited {
 	color: #996c6c;
 	text-decoration: none !important;
@@ -728,7 +724,8 @@ a:visited {
 a:hover,
 a:focus,
 a:active {
-	color: #ffc7c7;
+	color: #ffcccc;
+  padding: 0.2em;
 	text-decoration: none !important;
 }
 /*--------------------------------------------------------------
@@ -921,7 +918,6 @@ display:block;
 	clip: rect(1px, 1px, 1px, 1px);
 	position: absolute !important;
 }
-
 .screen-reader-text:hover,
 .screen-reader-text:active,
 .screen-reader-text:focus {
@@ -1248,8 +1244,7 @@ display: none;
 }
 .categories-links {
 	display: block;
-	font: 400 12px/1 Futura, "Trebuchet MS", Arial, sans-serif;
-	font-size: 10px;
+	font: 400 1rem/1 Futura, "Trebuchet MS", Arial, sans-serif;
 	letter-spacing: 0.1em;
 	max-width: 696px;
 	padding: 8px 0 9px;
@@ -1702,13 +1697,14 @@ img.aligncenter {
 .comic .entry-title{
 	text-decoration:none;
 	font-size: 2.4rem;
-	line-height: inherit;
+	line-height: 2.7;
 	color: #f3e7e7;
 	text-transform:uppercase;
 	text-align:center;
 }
-.comic .categories-links {
-	display: block;
+.comic .categories-links a {
+  display: inline-block;
+  color: #422424;
 }
 .comic .entry-meta {
 	display: block;
@@ -1721,7 +1717,7 @@ img.aligncenter {
   display: none;
 }
 .comic .entry-content {
-	margin-top: 0;
+	padding-top: 1.2em;
 	margin: 0 auto;
 	max-width: 2048px;
 	text-align: left;
@@ -1742,7 +1738,7 @@ img.aligncenter {
 }
 .entry-comic .navigation-comic {
 	font-style: normal;
-	margin: .8em 0 0;
+	margin: 0 auto;
 	text-align: center;
 	width: 100%;
 }
@@ -1750,7 +1746,6 @@ img.aligncenter {
 .entry-comic .navigation-comic [class*="nav-"] {
 	float: none;
 	display: inline-block;
-	padding: 1em 0 0 0;
 	width: 18.5%;
 }
 .entry-comic .navigation-comic .nav-first {
@@ -1760,13 +1755,18 @@ img.aligncenter {
 	text-align: right;
 }
 .entry-comic .navigation-comic .nav-title {
-	text-align: center;
-	color: rgba(76, 36, 36, 0.6);
+	margin: 0 auto;
+  text-align: center;
 	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
-	font-size: 12px;
 	font-size: 1.2rem;
 	letter-spacing: 0.1em;
 	text-transform: uppercase;
+}
+.entry-comic .navigation-comic .nav-title a {
+  color: black;
+}
+.entry-comic .navigation-comic .nav-title a:hover{
+  color: #ff6666;
 }
 .entry-comic .navigation-comic .nav-previous a,
 .entry-comic .navigation-comic .nav-next a,
@@ -1777,10 +1777,9 @@ img.aligncenter {
 	color: rgba(176, 142, 142, 0.6);
 	display: inline;
 	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
-	font-size: 12px;
 	font-size: 1.2rem;
 	letter-spacing: 0.1em;
-	padding: 9px 9px;
+	padding: 0.9em;
 	text-transform: uppercase;
 	}
 .entry-comic .navigation-comic .nav-previous a:hover,
@@ -1790,10 +1789,11 @@ img.aligncenter {
 	background: #FF7369;
 	color: #fff;
 }
-.comicbook-title {
+.comicbook-title, .comicbook-title a {
 	margin: auto;
 	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
 	text-align: center;
+  color: black;
 	font-size: 1.2rem;
 	letter-spacing: 0.1em;
 	text-transform: uppercase;
@@ -1879,7 +1879,6 @@ img.aligncenter {
 	background-color: #b6d9ec;
 	font-family:'Fenix', Georgia, serif;
 	text-align: left;
-	font-size: 16px;
 	font-size: 1.6rem;
 	line-height: 1.2;
 	
@@ -1888,28 +1887,26 @@ img.aligncenter {
 .royalSlider > .rsContent {
     visibility: visible;
 }
+
 /*--------------------------------------------------------------
 10.5.1 Hide Comments
 --------------------------------------------------------------*/
 button.toggle-comments {
-	  max-width: 100%;
-    float: left;
     border-width: 3px;
     background: none;
-    display: inline-block;
-    padding: 10px;
-    border: #000000 2px solid;
+    padding: 1em;
+    border: snow 2px solid;
     text-decoration: none;
     transition: border ease 0.3s;
     font-family: Futura, "Trebuchet MS", Arial, sans-serif;
     font-size: 1rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: #000000;
+    color: snow;
     background-color: transparent;
 }
 #toggle-comments-container {
-	padding: 2.4em 2.4em 4.8em;        
+	margin: 2.4em;
 }
 /*--------------------------------------------------------------
 10.5.2 Comments
@@ -1928,7 +1925,7 @@ button.toggle-comments {
 }
 .comment-meta,
 .comment-meta a {
-	color: gainsboro;
+	color: snow;
 	overflow: hidden;
 	margin: 0;
 	background-color: none;
@@ -2264,7 +2261,6 @@ button.toggle-comments {
 	.entry-comic .navigation-comic .nav-title,
 	.entry-comic .navigation-comic .nav-first a,
 	.entry-comic .navigation-comic .nav-last a {
-	font-size: 12px;
 	font-size: 1.2rem;
 	letter-spacing: normal;
 	width: -moz-max-content;
