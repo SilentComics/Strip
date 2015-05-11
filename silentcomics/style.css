@@ -4,7 +4,7 @@ Theme URI: https://github.com/SilentComics/Wordpress-Theme-for-Silent-Comics/
 Author: Silent Comics
 Author URI: http://silent-comics.com
 Description: A simple theme for comics
-Version: Pre release WIP 2.3.5.4 (11/05/2015) — Restarting from scratch + cleanup @silentcomics or mail hoa // at // silent-comics.com
+Version: Pre release WIP 2.3.5.5 (12/05/2015) — Restarting from scratch + cleanup @silentcomics or mail hoa // at // silent-comics.com
 License: GNU General Public License v3 or later
 License URI: http://www.gnu.org/licenses/gpl.html
 Text Domain: silentcomics
@@ -725,8 +725,6 @@ a:hover,
 a:focus,
 a:active {
 	color: #ffcccc;
-  padding: 0.2em;
-	text-decoration: none !important;
 }
 /*--------------------------------------------------------------
 5.2 Menus
@@ -756,7 +754,8 @@ a.logo: after {
 .no-svg .logo {
   width: 96px;
   height: 48px;
-  background-image: url(../images/silent-comics-logo.png);
+  background-image: url('../images/silent-comics-logo.png');
+  background-repeat: no-repeat;
 }
 /* =Masthead
 ----------------------------------------------- */
@@ -764,7 +763,7 @@ h1.site-title {
 	font-size: 1.6rem !important;
   font-family: Futura, "Trebuchet MS", Arial, sans-serif;
 	letter-spacing: 0.1em;
-	margin-top: 12px;
+	margin-top: 0;
 	text-align: center;
 	text-transform: uppercase;
 }
@@ -855,7 +854,6 @@ display:block;
 	background-color: black;
 	color: #fff;
 }
-
 .main-navigation ul li:hover > ul {
 	display: block;
 }
@@ -869,7 +867,7 @@ display:block;
 .menu-toggle {
 	display: none;
 	cursor: pointer;
-	font: 400 14px/1.2 Futura, "Trebuchet MS", Arial, sans-serif;
+	font: 400 1.4rem/1.2 Futura, "Trebuchet MS", Arial, sans-serif;
 	margin: 0;
 	padding: 6px 0px 0px 0px;
 	text-align: center;
@@ -916,6 +914,7 @@ display:block;
 /* Text meant only for screen readers */
 .screen-reader-text {
 	clip: rect(1px, 1px, 1px, 1px);
+ 	overflow: hidden;
 	position: absolute !important;
 }
 .screen-reader-text:hover,
@@ -2363,7 +2362,7 @@ button.toggle-comments {
 	.entry-comic .navigation-comic .nav-title a,
 	.entry-comic .navigation-comic .nav-first a,
 	.entry-comic .navigation-comic .nav-last a {
-	font-size: 1rem;
+	font-size: 0.9rem;
 	padding: 0.3em;
 	}
   .widget-area {
