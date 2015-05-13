@@ -21,7 +21,7 @@ function silentcomics_custom_header_setup() {
 		'header-text'  			 => true,
 		'default-text-color'     => '000',
 		'flex-width'   			 => true,
-		'width'                  => 1800,
+		'width'                  => 2048,
 		'height'                 => 600,
 		'flex-height'            => true,
 		'wp-head-callback'       => 'silentcomics_header_style',

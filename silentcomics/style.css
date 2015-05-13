@@ -4,7 +4,7 @@ Theme URI: https://github.com/SilentComics/Wordpress-Theme-for-Silent-Comics/
 Author: Silent Comics
 Author URI: http://silent-comics.com
 Description: A simple theme for comics
-Version: Pre release WIP 2.3.5.5 (12/05/2015) — Restarting from scratch + cleanup @silentcomics or mail hoa // at // silent-comics.com
+Version: Pre release WIP 2.3.5.6 (13/05/2015) — Restarting from scratch + cleanup @silentcomics or mail hoa // at // silent-comics.com
 License: GNU General Public License v3 or later
 License URI: http://www.gnu.org/licenses/gpl.html
 Text Domain: silentcomics
@@ -589,6 +589,7 @@ blockquote cite,
 }
 blockquote cite a,
 .quote-caption a {
+    color: black;	
 }
 blockquote cite:before,
 .quote-caption:before {
@@ -757,11 +758,12 @@ a.logo: after {
   background-image: url('../images/silent-comics-logo.png');
   background-repeat: no-repeat;
 }
+
 /* =Masthead
 ----------------------------------------------- */
 h1.site-title {
 	font-size: 1.6rem !important;
-  font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
 	letter-spacing: 0.1em;
 	margin-top: 0;
 	text-align: center;
@@ -776,6 +778,11 @@ h2.site-description {
 	color: #eedada; 
 	text-align: center;
 	margin-bottom: 0.2em;
+}
+.header-image .no-header-image {
+	width: 100%;
+	height: auto;
+	-ms-interpolation-mode: bicubic;
 }
 
 /* =Menu
@@ -1203,7 +1210,7 @@ article.error404 .widget_calendar #wp-calendar tbody a:hover {
 10.1 Posts and pages
 --------------------------------------------------------------*/
 .blog .entry-meta { 
-display: none; 
+display: block; 
 }
 .sticky .entry-date {
 	display: none;
@@ -1252,8 +1259,8 @@ display: none;
 .entry-meta {
 	display: block;
 	font: 400 12px/2 Futura, "Trebuchet MS", Arial, sans-serif;
-  font-size: 10px;
-  letter-spacing: 0.1em;
+	font-size: 1rem;
+    letter-spacing: 0.1em;
 	margin-top: 0;
 	padding: 8px 0 9px;
 	text-transform: uppercase;
@@ -1894,14 +1901,14 @@ button.toggle-comments {
     border-width: 3px;
     background: none;
     padding: 1em;
-    border: snow 2px solid;
+    border: lightpink 2px solid;
     text-decoration: none;
     transition: border ease 0.3s;
     font-family: Futura, "Trebuchet MS", Arial, sans-serif;
     font-size: 1rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: snow;
+    color: lightpink;
     background-color: transparent;
 }
 #toggle-comments-container {
@@ -2114,12 +2121,10 @@ button.toggle-comments {
 		content: "";
 	}
 	.entry-meta {
-	display: block;
-	position: absolute;
-	width: 98px;
-	margin-top: 12px;
-	right: 1.2em;
-		}
+    float: right;
+	width: 120px;
+	text-align: right;
+	}
 	.entry-meta span {
 		display: block;
 		padding: 2px 0px;
@@ -2134,41 +2139,36 @@ button.toggle-comments {
 	article.attachment .entry-content {
 		float: none;
 	}
-	.format-image .entry-meta {
-		position: inherit;
- 
-	}
 	.format-video .band {
-		background-color: #000;
+		background-color: tomato;
 		display: block;
 		position: absolute;
 		top: 1em;
 		left: 0;
 		width: 100%;
-		height: 560px; /* Custom Height*/
+		height: 554px; /* Custom Height*/
 		z-index: -1;
 	}
 	.format-video .entry-info {
-		right: 0;
-    position: absolute;
-		margin: 92px 48px;
-		max-width: 120px;
-		padding: 0;
+	float: right;
+	margin-top: 102px;
+	max-width: 120px;
+	padding: 17px 0;
 	}
-	.format-video .categories-links {
-		font-size: 1.2rem;
-		font-weight: 400;
-		line-height: 1.4166666666;
-		margin-bottom: 1.6em;
-		padding: 0;
+  	.format-video .entry-meta {
+    font-size: 1.1rem;
+		line-height: 1.6;
+		margin: 0 0 0 2em;
+		position: relative;
 	}
-	.format-video .entry-meta {
-		border: 0;
-		float: none;
+  .format-video .entry-title {
+    color: snow;
+  }
+	.format-video .categories-links, {
 		font-size: 1.1rem;
-		line-height: 1.5454545454;
-		margin: 0;
-		width: auto;
+    line-height: 1.6;
+		font-weight: 400;
+		margin-bottom: 1.2em;
 	}
 	.format-video .entry-meta span {
 		border-bottom: 0;
@@ -2177,16 +2177,11 @@ button.toggle-comments {
 	.format-video .entry-meta span.entry-format {
 		display: none;
 	}
-	.format-video .entry-info,
+	.format-video .entry-meta a,
 	.format-video .entry-info a {
-		color: #ffcccc;
+    color: snow;
 	}
-	.format-video .entry-title {
-		color: #ffffff;
-		font-size: 1.8rem;
-		line-height: 1.5454545454;
-		margin-bottom: 17px;
-	}
+  /* try 816px */
 	.format-video .entry-content {
 		background-color: transparent;
 		margin-top: 0 auto;
@@ -2202,19 +2197,11 @@ button.toggle-comments {
 		max-width: 912px;
 	}
 	.entry-meta {
-		width: 168px;
+		min-width: 168px;
+    right: 6%;
 	}
 	.entry-meta span.entry-format {
 		display: block;
-	}
-	.entry-format-badge {
-		display: block;
-		float: right;
-		margin: 34px 0 0;
-	}
-	.format-video .entry-format-badge {
-		float: none;
-		margin: 17px 0 0 -3px;
 	}
 	.format-video .entry-content {
 		max-width: 720px;
@@ -2295,7 +2282,7 @@ button.toggle-comments {
 		padding: 6px 0 0;
 	}
 	.entry-title {
-		font-size: 24px;
+		font-size: 2.4rem;
 	}
 	.entry-meta {
 		margin-top: 16px;

@@ -39,7 +39,6 @@ if ( isset( $GLOBALS['content_width'] ) )
 				<?php edit_post_link( __( 'Edit', 'SilentComics' ), '<span class="edit-link">', '</span>' ); ?>
 			</footer><!-- .entry-meta -->
 
-			<a class="entry-format-badge genericon" href="<?php echo esc_url( get_post_format_link( 'video' ) ); ?>" title="<?php echo esc_attr( sprintf( __( 'All %s posts', 'SilentComics' ), get_post_format_string( 'video' ) ) ); ?>"><span class="screen-reader-text"><?php echo get_post_format_string( 'video' ); ?></span></a>
 		</div><!-- .entry-info -->
 
 		<div class="entry-content wrap">
