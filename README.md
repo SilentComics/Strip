@@ -49,33 +49,33 @@ and replace the Base64 code to insert your own logo — you could use [Mobilefis
 <figure>
 	<img src="http://silentcomics.com/images/3-columns-gallery.jpg"></a>
 </figure>
-<small>e.g. a three columns comic post</small>
+*e.g. a three columns comic post</small*
 
 Clicking on one image will then take the user to one single image—so the story can read panel by panel. This allows navigation by click and by keyboard.
 
 <figure>
 	<img src="http://silentcomics.com/images/panel-image-view.jpg"></a>
-	<figcaption>Single panel/image view</figcaption>
 </figure>
+*Single panel/image view*
 
 Or, if you have multiple images per comic post, you can also use an image. I have tested and would recommend RoyalSlider or Portfolio Slideshow Pro (see above).
 
 <figure>
 	<img src="http://silentcomics.com/images/800X1280_RoyalSlider-Panel-view.jpg"></a>
-	<figcaption>RoyalSlider panel view</figcaption>
 </figure>
+*RoyalSlider panel view*
 
 <figure>
 	<img src="http://silentcomics.com/images/800X1280_RoyalSlider-Panel-view-02.jpg"></a>
-	<figcaption>RoyalSlider panel view — transition</figcaption>
 </figure>
+*>RoyalSlider panel view — transition*
 
 9. You can use the widget to display three columns above the footer. 
 
 <figure>
 	<img src="http://silentcomics.com/images/customise-dashboard.jpg"></a>
-	<figcaption>Customise</figcaption>
 </figure>
+*Customise*
 
 ## Known issues
 
