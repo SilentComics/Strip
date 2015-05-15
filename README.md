@@ -48,8 +48,8 @@ and replace the Base64 code to insert your own logo — you could use [Mobilefis
 
 <figure>
 	<img src="http://silentcomics.com/images/3-columns-gallery.jpg"></a>
-	<figcaption>e.g. a three columns comic post</figcaption>
 </figure>
+<small>e.g. a three columns comic post</small>
 
 Clicking on one image will then take the user to one single image—so the story can read panel by panel. This allows navigation by click and by keyboard.
 
