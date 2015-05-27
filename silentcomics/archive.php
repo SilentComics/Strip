@@ -10,7 +10,7 @@
 get_header(); ?>
 
 		<div id="primary" class="content-area">
-		<main id="content" class="site-content" role="main">
+			<div id="content" class="site-content" role="main">
 
 
 		<?php if ( have_posts() ) : ?>
@@ -48,6 +48,9 @@ get_header(); ?>
 
 							elseif ( is_tax( 'post_format', 'post-format-aside' ) ) :
 								_e( 'Asides', 'SilentComics' );
+								
+								elseif ( is_tax( 'post_format', 'post-format-gallery' ) ) :
+								_e( 'Galleries', 'SilentComics' );
 
 							elseif ( is_tax( 'post_format', 'post-format-image' ) ) :
 								_e( 'Images', 'SilentComics');
@@ -60,6 +63,12 @@ get_header(); ?>
 
 							elseif ( is_tax( 'post_format', 'post-format-link' ) ) :
 								_e( 'Links', 'SilentComics' );
+								
+								elseif ( is_tax( 'post_format', 'post-format-audio' ) ) :
+							_e( 'Audios', 'SilentComics' );
+
+						elseif ( is_tax( 'post_format', 'post-format-chat' ) ) :
+							_e( 'Chats', 'SilentComics' );
 
 							else :
 								_e( 'Archives', 'SilentComics' );

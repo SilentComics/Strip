@@ -17,10 +17,11 @@
 
 		<header class="entry-header">
 			
-			<div class="comic-meta entry-meta">
+			<div class="entry-meta">
+		
 		<a href="<?php the_permalink(); ?>"><?php echo get_the_date(); ?></a>
 		
-		<?php edit_post_link( __( 'Edit', 'silentcomics' ), '<span class="sep"> ~ </span><span class="comic-edit-link">', '</span>' ); ?>
+		<?php edit_post_link( __( 'Edit', 'silentcomics' ), '<span class="edit-link">', '</span>' ); ?>
 		
 	</div>
 			<?php

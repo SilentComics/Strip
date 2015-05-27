@@ -234,11 +234,16 @@ function register_ctp_comic() {
 		'hierarchical' => true,
 		'rewrite' => array( 'slug' => 'stories', 'with_front' => true ),
 		'query_var' => true,
-		'menu_position' => 20,		'menu_icon' => 'dashicons-book-alt',		'supports' => array( 'title', 'editor', 'excerpt', 'trackbacks', 'custom-fields', 'comments', 'revisions', 'thumbnail', 'author', 'page-attributes', 'post-formats' ),		'taxonomies' => array( 'category', 'post_tag' )	);
+		'menu_position' => 20,		
+		'menu_icon' => 'dashicons-book-alt',		
+		'supports' => array( 'title', 'editor', 'excerpt', 'trackbacks', 'custom-fields', 'comments', 'revisions', 'thumbnail', 'author', 'page-attributes', 'post-formats' ),		
+		'taxonomies' => array( 'category', 'post_tag', 'slug' )	);
 	register_post_type( 'comic', $args );
 
 // End of register_cpt_comic()
 }
+
+register_taxonomy_for_object_type( 'category', 'comic' );
 
 /**
 * Add custom post type tags/categories to archive pages - to make this work, you need to create a custom category-name.php 
@@ -301,7 +306,7 @@ function append_query_string( $url, $post ) {
 */
 function get_comic_boundary_post( $in_same_term = false, $excluded_terms = '', $start = true, $taxonomy = 'category' ) {
     $post = get_post();
-    if ( ! $post || ! is_single() || is_attachment() || ! taxonomy_exists( $taxonomy ) )
+    if ( ! $post || ! is_single() || is_attachment() ||  ! taxonomy_exists( $taxonomy ) )
         return null;
 
     $query_args = array(

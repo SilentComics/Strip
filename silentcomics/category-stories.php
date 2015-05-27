@@ -1,6 +1,6 @@
 <?php
 /**
- * The template for displaying the Category "Tories" pages
+ * The template for displaying the Category "stories" pages
  * Learn more: http://codex.wordpress.org/Template_Hierarchy
  *
  * @package SilentComics
@@ -9,7 +9,7 @@
  get_header(); ?>
 
 	<div id="primary" class="content-area">
-		<div id="content" class="entry-comic" role="main">
+		<div class="wrap" class="entry-comic" role="main">
 	
 	<?php if ( have_posts() ) : ?>
 	<header class="page-header">
@@ -27,15 +27,16 @@
 		'order'   => 'ASC',)
 		);
  
-  while ($comic->have_posts()) : $comic->the_post();   
+    while ($comic->have_posts()) : $comic->the_post();   
 				
 				get_template_part( 'content', get_post_format() );
 				?>
 
 						<?php endwhile; ?>
-
-
-		<?php else : ?>
+<?php 
+    wp_reset_query();
+?>
+	<?php else : ?>
 
 			<?php get_template_part( 'no-results', 'archive-comic' ); ?>
 

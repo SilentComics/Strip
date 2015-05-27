@@ -4,14 +4,10 @@
  *
  * @package SilentComics
  */
-
-$facebook = get_theme_mod( 'jetpack-facebook' );
-$twitter = get_theme_mod( 'jetpack-twitter' );
-$tumblr = get_theme_mod( 'jetpack-tumblr' );
 ?>
 	<div id="secondary" class="widget-area" role="complementary">
-		<?php do_action( 'before_sidebar' ); ?>
-		<?php if ( ! dynamic_sidebar( 'sidebar-1' ) ) : ?>
+		
+		<?php if ( is_active_sidebar( 'sidebar-1' ) ) : ?>
 
 			<aside id="search" class="widget widget_search">
 				<?php get_search_form(); ?>

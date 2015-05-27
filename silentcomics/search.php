@@ -7,8 +7,8 @@
 
 get_header(); ?>
 
-		<div class="entry-wrap wrap clear">
-			<div class="entry-content clear">
+	<section id="primary" class="content-area">
+		<div id="content" class="site-content" role="main">
 		<?php if ( have_posts() ) : ?>
 
 			<header class="page-header">

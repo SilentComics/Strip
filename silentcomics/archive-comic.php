@@ -3,7 +3,7 @@
  * Template Name: Archive all comics
  * The template for displaying comics in archived pages. 
  * (comic)
- * This template is important because it provides an overview to peruse all stories — it also has links, in a second loop that direct to custom comic posts
+ * This template provides an overview to peruse all stories — it also has links to custom comic posts in a second loop 
  *
  * @package SilentComics
  */

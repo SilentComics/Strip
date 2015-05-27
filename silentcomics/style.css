@@ -4,7 +4,7 @@ Theme URI: https://github.com/SilentComics/Wordpress-Theme-for-Silent-Comics/
 Author: Silent Comics
 Author URI: http://silent-comics.com
 Description: A simple theme for comics
-Version: Pre release WIP 2.3.5.6 (13/05/2015) — Restarting from scratch + cleanup @silentcomics or mail hoa // at // silent-comics.com
+Version: Pre release WIP 2.3.5.8 (27/05/2015) — Restarting from scratch + cleanup @silentcomics or mail hoa // at // silent-comics.com
 License: GNU General Public License v3 or later
 License URI: http://www.gnu.org/licenses/gpl.html
 Text Domain: silentcomics
@@ -238,6 +238,13 @@ img {
 
 svg:not(:root) {
   overflow: hidden;
+}
+
+/**
+ * center twitter & tumblr embed (doesn't work)
+ */
+#embed_post_embed_post .embeddable-posts {
+  margin: 0 auto;
 }
 
 /* Grouping content
@@ -1020,7 +1027,7 @@ body {
 	margin-right: 0;
 }
 .widget {
-	font: 300 1.2rem/1 "Futura", "Trebuchet MS", Arial, sans-serif;
+	font: 300 1.3rem/1.6 Futura, "Trebuchet MS", Arial, sans-serif;
 	margin: 0 0 2.4em 0;
 }
 .widget ul {
@@ -1150,7 +1157,7 @@ article.error404 .widget a {
 }
 article.error404 .widget-title,
 article.error404 .widgettitle {
-	font: 700 1.6em/2 Futura, "Trebuchet MS", Arial, sans-serif;
+	font: 700 1.8rem/2 Futura, "Trebuchet MS", Arial, sans-serif;
 	letter-spacing: 0.1em;
 	margin-bottom: 2.4em;
 	text-transform: uppercase;
@@ -1250,7 +1257,7 @@ display: block;
 }
 .categories-links {
 	display: block;
-	font: 400 1rem/1 Futura, "Trebuchet MS", Arial, sans-serif;
+	font: 400 10px/1 Futura, "Trebuchet MS", Arial, sans-serif;
 	letter-spacing: 0.1em;
 	max-width: 696px;
 	padding: 8px 0 9px;
@@ -1272,7 +1279,7 @@ display: block;
 .entry-meta:hover {
   opacity: 1;
 }
-.entry-meta a {
+entry-meta, .entry-meta a {
 	text-decoration:none;
 	color:#ba9e9e;
 }
@@ -1696,29 +1703,25 @@ img.aligncenter {
 10.4 Comics
 --------------------------------------------------------------*/
 .comic .entry-title {
-	font: 400 1.4em/2 Futura, "Trebuchet MS", Arial, sans-serif;
-	margin: 0 auto;
-	max-width: 696px;
-}
-.comic .entry-title{
+	font: 400 2.4rem/1.2 Futura, "Trebuchet MS", Arial, sans-serif;
 	text-decoration:none;
-	font-size: 2.4rem;
-	line-height: 2.7;
 	color: #f3e7e7;
 	text-transform:uppercase;
 	text-align:center;
+
+	max-width: 696px;
 }
 .comic .categories-links a {
   display: inline-block;
   color: #422424;
 }
-.comic .entry-meta {
-	display: block;
-	position: absolute;
-	width: auto;
-	margin-top: 0;
-	right: 9%;
-}	
+/* check */
+.comic .entry-meta,
+.comic .post-edit-link {
+    float: right;
+    width: 120px;
+    text-align: right;
+}
 .comic .comments-link { 
   display: none;
 }
@@ -1748,7 +1751,6 @@ img.aligncenter {
 	text-align: center;
 	width: 100%;
 }
-/*check float left*/
 .entry-comic .navigation-comic [class*="nav-"] {
 	float: none;
 	display: inline-block;
@@ -1826,7 +1828,7 @@ img.aligncenter {
 
 .page-links {
 	clear: both;
-	font: 400 1.4rem/1.33 Futura, "Trebuchet MS", Arial, sans-serif;
+	font: 400 1.4rem/1 Futura, "Trebuchet MS", Arial, sans-serif;
 	letter-spacing: 0.1em;
 	margin: 0 auto;
 	text-transform: uppercase;
@@ -1911,8 +1913,10 @@ button.toggle-comments {
     color: lightpink;
     background-color: transparent;
 }
-#toggle-comments-container {
-	margin: 2.4em;
+#toggle-comments-container .toggle-comments {
+display: block;
+margin: auto;
+  margin-bottom: 4.8em;
 }
 /*--------------------------------------------------------------
 10.5.2 Comments
@@ -2371,6 +2375,7 @@ button.toggle-comments {
 	font-size: 1.6rem;
 }
 .comic .categories-links,
-.comic .entry-meta
+.comic .entry-meta {
+display: none;
   }
 }

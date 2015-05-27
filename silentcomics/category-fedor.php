@@ -8,7 +8,7 @@
 get_header(); ?>
 
 	<div id="primary" class="content-area">
-		<div id="content" class="entry-comic" role="main">
+		<div class="wrap" class="entry-comic" role="main">
 	
 	<?php if ( have_posts() ) : ?>
 	<header class="page-header">
@@ -17,7 +17,7 @@ get_header(); ?>
 	</header><!-- .page-header -->
 	
 <?php // Create and run first loop in reverse order
-    $comic = new WP_Query();
+    	$comic = new WP_Query();
 		$comic->query( array(
 		'post_type' => 'comic',
     	'showposts' => -1, 
@@ -45,5 +45,4 @@ get_header(); ?>
 		</div><!-- #content -->
 	</div><!-- #primary -->
 
-<?php get_sidebar(); ?>
 <?php get_footer(); ?>
