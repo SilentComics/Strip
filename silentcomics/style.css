@@ -3,8 +3,8 @@ Theme Name: SilentComics
 Theme URI: https://github.com/SilentComics/Wordpress-Theme-for-Silent-Comics/
 Author: Silent Comics
 Author URI: http://silent-comics.com
-Description: A simple theme for comics
-Version: Pre release WIP 2.3.5.8 (27/05/2015) — Restarting from scratch + cleanup @silentcomics or mail hoa // at // silent-comics.com
+Description: A simple theme for comics & web-comics
+Version: Pre release WIP 2.3.9 (31/05/2015) — Streamline @silentcomics or mail hoa // at // silent-comics.com
 License: GNU General Public License v3 or later
 License URI: http://www.gnu.org/licenses/gpl.html
 Text Domain: silentcomics
@@ -14,7 +14,7 @@ Tags: black, white, light, one-column, fixed-layout, responsive-layout, custom-b
 SilentComics is distributed under the terms of the GNU GPL.
 Use it to make something cool.
 
-SilentComics is based on Underscores http://underscores.me/, (C) 2012-2013 Automattic, Inc.
+SilentComics is based on Underscores http://underscores.me/, (C) 2012-2015 Automattic, Inc.
 */
 
 /*--------------------------------------------------------------
@@ -696,6 +696,8 @@ textarea {
 	overflow: auto; /* Removes default vertical scrollbar in IE6/7/8/9 */
 	vertical-align: top; /* Improves readability and alignment in all browsers */
 	width: 98%;
+  font-family: "Andale Mono", AndaleMono, monospace;
+  color: palevioletred;
 }
 .comment-form-author,
 .comment-form-email {
@@ -740,9 +742,7 @@ a:active {
 
 /* author's custom style
 ----------------------------------------------- */
-.site-branding {
- display: flex;
-	}
+
 .logo {
   width: 12%; /* required to center */
   height: 12%;
@@ -786,20 +786,15 @@ h2.site-description {
 	text-align: center;
 	margin-bottom: 0.2em;
 }
-.header-image .no-header-image {
-	width: 100%;
+.header-image {
+  width: 100%;
 	height: auto;
 	-ms-interpolation-mode: bicubic;
 }
 
 /* =Menu
 ----------------------------------------------- */
-.main-navigation  a>.sf-sub-indicator {
-top: 50%;
-right: 2px;
-margin-top: -5px;
-display:block;
-}
+
 .main-navigation {
 	clear: both;
 	display: block;
@@ -1715,7 +1710,6 @@ img.aligncenter {
   display: inline-block;
   color: #422424;
 }
-/* check */
 .comic .entry-meta,
 .comic .post-edit-link {
     float: right;
@@ -2114,7 +2108,6 @@ margin: auto;
 		width: 100%;
 	}
 }
-/* check float - left, right if possible */
 @media screen and (min-width: 888px) {
 	.wrap,
 	.categories-links,
@@ -2125,7 +2118,7 @@ margin: auto;
 		content: "";
 	}
 	.entry-meta {
-    float: right;
+  float: right;
 	width: 120px;
 	text-align: right;
 	}
@@ -2155,24 +2148,24 @@ margin: auto;
 	}
 	.format-video .entry-info {
 	float: right;
-	margin-top: 102px;
+	margin-top: 96px;
 	max-width: 120px;
-	padding: 17px 0;
 	}
   	.format-video .entry-meta {
     font-size: 1.1rem;
-		line-height: 1.6;
-		margin: 0 0 0 2em;
-		position: relative;
+		line-height: 2.4;
+		max-width: 120px;
 	}
-  .format-video .entry-title {
-    color: snow;
+  .format-video .entry-title a {
+    font-size: 2.1rem;
+    line-height: 1.2;
+    text-align: right;
   }
-	.format-video .categories-links, {
+	.format-video .categories-links {
 		font-size: 1.1rem;
     line-height: 1.6;
 		font-weight: 400;
-		margin-bottom: 1.2em;
+    text-align: right;
 	}
 	.format-video .entry-meta span {
 		border-bottom: 0;
@@ -2181,11 +2174,11 @@ margin: auto;
 	.format-video .entry-meta span.entry-format {
 		display: none;
 	}
+  .format-video .entry-meta,
 	.format-video .entry-meta a,
 	.format-video .entry-info a {
     color: snow;
 	}
-  /* try 816px */
 	.format-video .entry-content {
 		background-color: transparent;
 		margin-top: 0 auto;
