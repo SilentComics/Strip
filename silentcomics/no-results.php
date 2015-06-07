@@ -8,7 +8,8 @@
  */
 ?>
 
-<section class="no-results not-found">
+<article id="post-0" class="post no-results not-found">
+	<div class="entry-wrap wrap clear">
 	<header class="page-header">
 		<h1 class="page-title"><?php _e( 'Nothing Found', 'silentcomics' ); ?></h1>
 	</header><!-- .page-header -->
@@ -29,5 +30,6 @@
 			<?php get_search_form(); ?>
 
 		<?php endif; ?>
-	</div><!-- .page-content -->
-</section><!-- .no-results -->
+		</div><!-- .entry-content -->
+	</div><!-- .entry-wrap -->
+</article><!-- #post-0 .post .no-results .not-found -->

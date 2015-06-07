@@ -4,7 +4,8 @@ Theme URI: https://github.com/SilentComics/Wordpress-Theme-for-Silent-Comics/
 Author: Silent Comics
 Author URI: http://silent-comics.com
 Description: A simple theme for comics & web-comics
-Version: Pre release WIP 2.3.9 (31/05/2015) — Streamline @silentcomics or mail hoa // at // silent-comics.com
+Version: Pre release WIP 2.4 (05/06/2015) — Streamline 
+Code Review: Found a bug, want to help improving the theme? Please contact @silentcomics or mail hoa // at // silent-comics.com
 License: GNU General Public License v3 or later
 License URI: http://www.gnu.org/licenses/gpl.html
 Text Domain: silentcomics
@@ -696,13 +697,13 @@ textarea {
 	overflow: auto; /* Removes default vertical scrollbar in IE6/7/8/9 */
 	vertical-align: top; /* Improves readability and alignment in all browsers */
 	width: 98%;
-  font-family: "Andale Mono", AndaleMono, monospace;
-  color: palevioletred;
+	font-family: "Andale Mono", AndaleMono, monospace;
+	color: palevioletred;
 }
 .comment-form-author,
 .comment-form-email {
 	display: block;
-  width: 100%;
+	width: 100%;
 }
 .comment-form-url #url{
   max-width: 264px;
@@ -714,6 +715,10 @@ textarea {
 	width: 100%;
 }
 #search-wrapper input[type="submit"] {
+	display: none;
+	
+}
+#mc4wp-form-1 [type="submit"] {
 	display: none;
 }
 
@@ -2008,14 +2013,14 @@ margin: auto;
 10.6 Footer
 --------------------------------------------------------------*/
 .site-footer {
-	background-color: #000;
-	border-top: 3px solid #ff6666;
+	background-color: #fcf6f6;
+	border-top: 3px solid black;
 	clear: both;
 	position: relative;
 	width: 100%;
 }
 .site-info {
-	background-color: #ff6666;
+	background-color: #ffee00;
 	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
 	font-size: 1rem;
 	line-height: 1.2;

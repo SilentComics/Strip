@@ -245,7 +245,6 @@ add_action( 'save_post',     'silentcomics_category_transient_flusher' );
 
 /**
  * Link to the first comic post in same category
- *
  * @param string $format
  * @param array $args
  */
@@ -257,15 +256,15 @@ function first_comic_link( $args = array() ) {
 $query = new WP_Query( $args );
     
 if ( $query->have_posts() )
-		$query->the_post(); 
-		echo post_permalink( $first[0]->ID );
+	$query->the_post(); 
+	echo post_permalink( $first[0]->ID );
+		
 }  
 
 wp_reset_postdata();
 
 /**
  * Link to the last comic post in same category
- *
  * @param string $format
  * @param array $args
  */
@@ -277,12 +276,13 @@ wp_reset_postdata();
 $query = new WP_Query( $args );    
      
 if ( $query->have_posts() )
-		$query->the_post(); 
-		echo post_permalink( $last[0]->ID );
+	$query->the_post(); 
+	echo post_permalink( $last[0]->ID );
 } 
 
 wp_reset_postdata();
 
 /**
-* TO DO: fix error when no category is set https://core.trac.wordpress.org/ticket/32073 (this doesn't solve the issue though)
+* TO DO: fix "UNDEFINED OFFSET: 0" error when no category is set 
+* similar to this ticket ( https://core.trac.wordpress.org/ticket/32073 (doesn't solve the issue)
 */

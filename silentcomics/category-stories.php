@@ -28,8 +28,7 @@
 		);
  
     while ($comic->have_posts()) : $comic->the_post();   
-				
-				get_template_part( 'content', get_post_format() );
+			get_template_part( 'content', get_post_format() );
 				?>
 
 						<?php endwhile; ?>

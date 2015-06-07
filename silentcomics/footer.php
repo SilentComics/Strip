@@ -9,6 +9,7 @@
 ?>
 
 	</div><!-- #content -->
+	<footer id="colophon" class="site-footer" role="contentinfo">
 
 <div class="entry-wrap wrap clear">
 			<?php if ( is_active_sidebar( 'footer-sidebar-1' ) || is_active_sidebar( 'footer-sidebar-2' ) || is_active_sidebar( 'footer-sidebar-3' ) ) : ?>
@@ -35,7 +36,6 @@
 <?php endif; //is_active_sidebar ?>
 		</div>
 		
-	<footer id="colophon" class="site-footer" role="contentinfo">
 		<div class="site-info">
 			&copy; <?php 
   $fromYear = 2013; 
