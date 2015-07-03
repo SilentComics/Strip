@@ -10,7 +10,6 @@ One column, Large images, custom posts, comics, webcomics
 ## Extra features
 Not part of the theme but suggested to display comics:
 
-
 ### Suggested Slideshow plugins:
 **RoyalSlider plugin** by Dmitry Semenov 
 Author URL: http://dimsemenov.com

@@ -4,7 +4,7 @@ Theme URI: https://github.com/SilentComics/Wordpress-Theme-for-Silent-Comics/
 Author: Silent Comics
 Author URI: http://silent-comics.com
 Description: A simple theme for comics & web-comics
-Version: Pre release WIP 2.4 (05/06/2015) — Streamline 
+Version: Pre release WIP 2.4.2 (24/06/2015) — Streamline 
 Code Review: Found a bug, want to help improving the theme? Please contact @silentcomics or mail hoa // at // silent-comics.com
 License: GNU General Public License v3 or later
 License URI: http://www.gnu.org/licenses/gpl.html
@@ -46,7 +46,7 @@ SilentComics is based on Underscores http://underscores.me/, (C) 2012-2015 Autom
 /*--------------------------------------------------------------
 1.0 - Normalize
 --------------------------------------------------------------*/
-/*! normalize.css v3.0.2 | MIT License | git.io/normalize */
+/*! normalize.css v3.0.2 | MIT License | http://necolas.github.io/normalize.css/ */
 
 /**
  * 1. Set default font family to sans-serif.
@@ -664,7 +664,7 @@ button:focus,
 html input[type="button"]:focus,
 input[type="reset"]:focus,
 input[type="submit"]:focus{
-background-color: thistle;
+background-color: #ffee00;
 }
 button:active,
 html input[type="button"]:active,
@@ -697,30 +697,35 @@ textarea {
 	overflow: auto; /* Removes default vertical scrollbar in IE6/7/8/9 */
 	vertical-align: top; /* Improves readability and alignment in all browsers */
 	width: 98%;
-	font-family: "Andale Mono", AndaleMono, monospace;
-	color: palevioletred;
+	font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+	color: #676767;
 }
 .comment-form-author,
-.comment-form-email {
+.comment-form-email,
+.comment-form-url {
 	display: block;
 	width: 100%;
 }
+.comment-form-author #author,
+.comment-form-email #email,
 .comment-form-url #url{
-  max-width: 264px;
+  font-size: 1.2rem;
+  font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
 }
 .search-field input[type="find"] {
 	border: 1px solid rgba(255, 255, 255, 0.2);
 	color: #fff;
-	font-style: italic;
 	width: 100%;
 }
-#search-wrapper input[type="submit"] {
+#search-wrapper input .search-field [type="submit"] {
 	display: none;
 	
 }
 #mc4wp-form-1 [type="submit"] {
 	display: none;
+	font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
 }
+
 
 /*--------------------------------------------------------------
 5.0 Navigation
@@ -749,8 +754,8 @@ a:active {
 ----------------------------------------------- */
 
 .logo {
-  width: 12%; /* required to center */
-  height: 12%;
+  width: 9%; /* required to center */
+  height: 9%;
 }
 a.logo {
  position: relative;
@@ -761,7 +766,6 @@ a.logo: after {
   position: fixed; 
   top: 0; 
   right: 0; 
-  bottom: 12; 
   left: 50%;
 }
 .no-svg .logo {
@@ -789,7 +793,7 @@ h2.site-description {
 	font-size: 0.6em;
 	color: #eedada; 
 	text-align: center;
-	margin-bottom: 0.2em;
+	margin-bottom: 0.1em;
 }
 .header-image {
   width: 100%;
@@ -1003,7 +1007,7 @@ body {
 	margin: 0 auto;
 }
 #page {
-	border-top: 0.9em solid transparent;
+	border-top: 0.6em solid transparent;
 }
 #colophon {
 	padding: 1em 0;
@@ -1494,7 +1498,7 @@ img.aligncenter {
 /* Gallery Settings */
 .gallery-item {
     float: left;
-    margin: 0px 4px 4px 0px;
+    margin: 0px 6px 0px 0px;
     overflow: hidden;
     position: relative;
 }
@@ -1505,42 +1509,42 @@ img.aligncenter {
 
 .gallery-columns-2 .gallery-item {
     max-width: 48%;
-    max-width: calc(50% - 4px);
+    max-width: calc(50% - 6px);
 }
 
 .gallery-columns-3 .gallery-item {
     max-width: 32%;
-    max-width: calc(33.3% - 4px);
+    max-width: calc(33.3% - 6px);
 }
 
 .gallery-columns-4 .gallery-item {
     max-width: 23%;
-    max-width: calc(25% - 4px);
+    max-width: calc(25% - 6px);
 }
 
 .gallery-columns-5 .gallery-item {
     max-width: 19%;
-    max-width: calc(20% - 4px);
+    max-width: calc(20% - 6px);
 }
 
 .gallery-columns-6 .gallery-item {
     max-width: 15%;
-    max-width: calc(16.7% - 4px);
+    max-width: calc(16.7% - 6px);
 }
 
 .gallery-columns-7 .gallery-item {
     max-width: 13%;
-    max-width: calc(14.28% - 4px);
+    max-width: calc(14.28% - 6px);
 }
 
 .gallery-columns-8 .gallery-item {
     max-width: 11%;
-    max-width: calc(12.5% - 4px);
+    max-width: calc(12.5% - 6px);
 }
 
 .gallery-columns-9 .gallery-item {
     max-width: 9%;
-    max-width: calc(11.1% - 4px);
+    max-width: calc(11.1% - 6px);
 }
 
 .gallery-columns-1 .gallery-item:nth-of-type(1n),
@@ -1704,22 +1708,35 @@ img.aligncenter {
 --------------------------------------------------------------*/
 .comic .entry-title {
 	font: 400 2.4rem/1.2 Futura, "Trebuchet MS", Arial, sans-serif;
-	text-decoration:none;
+  text-decoration:none;
 	color: #f3e7e7;
 	text-transform:uppercase;
 	text-align:center;
-
 	max-width: 696px;
 }
 .comic .categories-links a {
-  display: inline-block;
-  color: #422424;
+	display: inline-block;
+	color: #422424;
 }
-.comic .entry-meta,
 .comic .post-edit-link {
-    float: right;
-    width: 120px;
-    text-align: right;
+    padding: 1em;
+    font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: black;
+    background-color: yellow;
+}
+.comic .entry-meta {
+	float: right;
+	max-width: 120px;
+}
+.single-comic .entry-meta {
+	display: none;
+}
+.comic .post-edit-link,
+.story .post-edit-link {
+	float: left;
 }
 .comic .comments-link { 
   display: none;
@@ -1817,7 +1834,7 @@ img.aligncenter {
 /*  the comic page title */
 .page-title, .taxonomy-description {
 	font: italic 400 24px/1 Futura, "Trebuchet MS", Arial, sans-serif;
-	margin-bottom: 2.4em;
+	margin-bottom: 1.2em;
 	text-align: center;
 }
 .taxonomy-description a {
@@ -1883,9 +1900,10 @@ img.aligncenter {
 .comicbook-blurb {
 	margin: auto;
 	max-width: 696px;
-	background-color: #b6d9ec;
+	background-color: #fcf6f6;
 	font-family:'Fenix', Georgia, serif;
 	text-align: left;
+	padding: 1.2em;
 	font-size: 1.6rem;
 	line-height: 1.2;
 	
@@ -1976,8 +1994,8 @@ margin: auto;
 .comments-area {
   width: 90%;
   max-width: 696px;
-  font-family: "Andale Mono", AndaleMono, monospace;
-  font-size: 1.4rem;
+  font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+  font-size: 1.2rem;
   margin: 2.4em auto;
   padding-bottom: 2em;
 }
@@ -2028,10 +2046,10 @@ margin: auto;
 	text-align: center;
 	}
 .site-info a {
-	color: #fff;
+	color: black;
 }
 .site-info a:hover {
-	color: #000;
+	color: purple;
 }
 .colophon-wrapper {
 	margin: 1.6em auto;
@@ -2341,11 +2359,6 @@ margin: auto;
 	.comic .entry-title{
 	font-size: 1.6rem;
 }
-.comic .categories-links,
-.comic .entry-meta 	
-	{
-	display: -moz-grid;
-}
 	.entry-comic .navigation-comic .nav-previous a,
 	.entry-comic .navigation-comic .nav-next a,
 	.entry-comic .navigation-comic .nav-title a,
@@ -2371,9 +2384,5 @@ margin: auto;
 @media screen and (max-width: 456px) {
 .comic .entry-title{
 	font-size: 1.6rem;
-}
-.comic .categories-links,
-.comic .entry-meta {
-display: none;
   }
 }

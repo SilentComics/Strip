@@ -17,12 +17,12 @@
  */
 function silentcomics_custom_header_setup() {
 	add_theme_support( 'custom-header', apply_filters( 'silentcomics_custom_header_args', array(
-		'default-image'          => get_template_directory_uri() . '/library/images/fuct.png',
+		'default-image'          => get_template_directory_uri() . '/library/images/',
 		'header-text'  			 => true,
 		'default-text-color'     => '000',
 		'flex-width'   			 => true,
 		'width'                  => 1704,
-		'height'                 => 426,
+		'height'                 => 284,
 		'flex-height'            => true,
 		'wp-head-callback'       => 'silentcomics_header_style',
 		'admin-head-callback'    => 'silentcomics_admin_header_style',

@@ -13,7 +13,6 @@ if ( isset( $GLOBALS['content_width'] ) )
 	<div class="entry-wrap wrap clear">
 		<div class="entry-content clear">	
 			
-		
 	<?php
 			if ( '' != get_the_post_thumbnail() ) :
 				the_post_thumbnail( 'SilentComics-featured-thumbnail' );

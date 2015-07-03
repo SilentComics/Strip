@@ -1,6 +1,6 @@
 <?php
 /**
- * The Template for displaying comics. (ideally, with navigation in template-tags)
+ * The Template for displaying comics.
  *
  * @package SilentComics
  */
@@ -12,19 +12,19 @@ get_header(); ?>
 
 <?php while ( have_posts() ) : the_post(); ?>
 			
-			<?php if ( 'comic' === get_post_type() ) : ?>
+			<?php if ( 'comic' === get_post_type() && ( is_single() ||  is_front_page() ) ) : ?>
 
 			<div class="entry-comic">
 
 				<?php get_template_part( 'content-comic', get_post_format() ); ?>
 
 				<?php silentcomics_content_nav( 'comics-nav-below' ); ?>
-
 			</div>
+			
+			
 
 		<?php endif; ?>
-		
-		<?php
+				<?php
 				// If comments are open or we have at least one comment, load up the comment template
 				if ( comments_open() || '0' != get_comments_number() )
 					comments_template();

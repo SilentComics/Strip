@@ -42,7 +42,5 @@
 				endif;
 			?>
 		</div><!-- .entry-content -->
-
-		<a class="entry-format-badge genericon" href="<?php echo esc_url( get_post_format_link( 'quote' ) ); ?>" title="<?php echo esc_attr( sprintf( __( 'All %s posts', 'SilentComics' ), get_post_format_string( 'quote' ) ) ); ?>"><span class="screen-reader-text"><?php echo get_post_format_string( 'quote' ); ?></span></a>
-	</div><!-- .entry-wrap -->
+		</div><!-- .entry-wrap -->
 </article><!-- #post-## -->

@@ -2,7 +2,7 @@
 /**
  * Custom template tags for this theme.
  *
- * Eventually, some of the functionality here could be replaced by core features
+ * Eventually, some of the functionality here could be replaced by core features — Version 2015 06 17 Note — it "works" but it is a mess — please streamline and improve
  *
  * @package SilentComics
  */
@@ -29,10 +29,8 @@ function silentcomics_content_nav( $nav_id ) {
 		
 		$nav_class = ( is_single() ) ? 'post-navigation' : 'paging-navigation';
 	
-		if ( !'comic' === get_post_type() )
-		$nav_class .= ' navigation-comic'; ?>
 			
-			<?php // Add a class when both navigation items are there.
+		// Add a class when both navigation items are there.
 	if ( ( get_previous_posts_link() && get_next_posts_link() ) || ( is_single() && ( $next && $previous ) ) )
 		$nav_class .= ' double';
 	?>
@@ -40,14 +38,42 @@ function silentcomics_content_nav( $nav_id ) {
 	<nav role="navigation" id="<?php echo esc_attr( $nav_id ); ?>" class="<?php echo $nav_class; ?> clear">
 		<h1 class="screen-reader-text"><?php esc_html_e( 'Post navigation', 'silentcomics' ); ?></h1>
 		
-		<?php if ( 'comic' === get_post_type() && ( is_single() || is_front_page() ) ) : //comics navigation links ?>
+		<?php if ( 'comic' === get_post_type() && ( is_single() ||  is_front_page() ) ) : //comics navigation links 
+		$nav_class .= ' navigation-comic'; ?>
+		
+		<?php    // get_posts (comics) in same custom taxonomy
+$story = wp_get_post_terms( $post->ID, 'story' );
+$story_slug = $story[0]->slug;
+
+     $story_args = array(
+    'posts_per_page'  => -1,
+    'orderby'         => 'menu_order title',
+    'order'           => 'ASC',
+    'post_type'       => 'comic',
+    'tax_query' => array(
+	'relation' => 'AND',
+	array(
+	'taxonomy' => 'story',
+	'field' => 'slug',
+	'terms' => $story_slug ) ) )
+    ; 
+     $story_args = get_posts( $story_args );
+
+    // get ids of posts retrieved from get_posts
+    $ids = array();
+    foreach ($story_args as $thepost) {
+     $ids[] = $thepost->ID;
+     }
+
+    // get and echo previous and next post in the same taxonomy           
+$thisindex = array_search($post->ID, $ids); ?>
 		
 				<div class="navigation-comic">
 				<nav class="nav-first"><a href="<?php echo esc_url( first_comic_link()); ?>"><?php esc_html_e( '&#124;&#10094; First', 'First Episode', 'silentcomics' ); ?></a></nav>
-				<nav class="nav-previous"><?php previous_post_link( '%link', '&#10094; Previous', TRUE ); ?></nav>
+				<nav class="nav-previous"><?php if ( $thisindex != 0 ) { $previd = $ids[$thisindex-1]; echo '<a rel="prev" href="' . get_permalink($previd). '" rel="nofollow">previous</a>'; }?></nav>
 				<nav class="nav-title"><?php the_title( '<h6 class="comic-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h6>' ); ?></nav>
-				<nav class="nav-next"><?php next_post_link( '%link', 'Next &#10095;', TRUE ); ?></nav>
-				<nav class="nav-last"><a href="<?php echo esc_url( last_comic_link() ); ?>"><?php esc_html_e( 'Latest &#10095;&#124;', 'Latest Episode', 'silentcomics' ); ?></a></nav>
+				<nav class="nav-next"><?php if ( $thisindex != count($ids)-1 ) { $nextid = $ids[$thisindex+1]; echo '<a rel="next" href="' . get_permalink($nextid). '" rel="nofollow">next</a>'; } ?></nav>
+				<nav class="nav-last"><a href="<?php echo esc_url( last_comic_link()); ?>"><?php esc_html_e( 'Latest &#10095;&#124;', 'Latest Episode', 'silentcomics' ); ?></a></nav>
 			</div>
 
 			<?php elseif ( is_single() ) : // navigation links for single posts ?>
@@ -55,8 +81,6 @@ function silentcomics_content_nav( $nav_id ) {
 				
 		<?php previous_post_link( '<div class="nav-previous">%link</div>', '<span class="meta-nav">' . _x( '&#8592;', 'Previous post link', 'silentcomics' ) . '</span> %title' ); ?>
 		<?php next_post_link( '<div class="nav-next">%link</div>', '%title <span class="meta-nav">' . _x( '&#8594;', 'Next post link', 'silentcomics' ) . '</span>' ); ?>
-		
-		
 
 	<?php elseif ( $wp_query->max_num_pages > 1 && ( is_home() || is_archive() || is_search() ) ) : // navigation links for home, archive, and search pages ?>
 
@@ -244,13 +268,13 @@ add_action( 'edit_category', 'silentcomics_category_transient_flusher' );
 add_action( 'save_post',     'silentcomics_category_transient_flusher' );
 
 /**
- * Link to the first comic post in same category
+ * Link to the first comic post in same term
  * @param string $format
  * @param array $args
  */
  
 function first_comic_link( $args = array() ) {
-	$first = get_comic_boundary_post( TRUE, '', TRUE );
+	$first = get_comic_boundary_post( TRUE, '', TRUE, 'story' );
     apply_filters( 'the_title', $first[0]->post_title ); 
 
 $query = new WP_Query( $args );
@@ -258,19 +282,24 @@ $query = new WP_Query( $args );
 if ( $query->have_posts() )
 	$query->the_post(); 
 	echo post_permalink( $first[0]->ID );
-		
+
+// TO DO: Fix "UNDEFINED OFFSET: 0" error when "comic" post has no taxonomy set
+//if ( $first != 0 ) {
+//   $firstid = $first[0];
+//   echo get_permalink($firstid);
+//	}		
 }  
 
 wp_reset_postdata();
 
 /**
- * Link to the last comic post in same category
+ * Link to the last comic post in same term
  * @param string $format
  * @param array $args
  */
  
  function last_comic_link( $args = array() ) {  
-	$last = get_comic_boundary_post( TRUE, '', FALSE );
+	$last = get_comic_boundary_post( TRUE, '', FALSE, 'story' );
     apply_filters( 'the_title', $last[0]->post_title );
 	 
 $query = new WP_Query( $args );    
@@ -281,8 +310,3 @@ if ( $query->have_posts() )
 } 
 
 wp_reset_postdata();
-
-/**
-* TO DO: fix "UNDEFINED OFFSET: 0" error when no category is set 
-* similar to this ticket ( https://core.trac.wordpress.org/ticket/32073 (doesn't solve the issue)
-*/

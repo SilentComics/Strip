@@ -72,7 +72,7 @@ add_action( 'after_setup_theme', 'silentcomics_add_editor_styles' );
 	/**
 	 * Enable support for Post Formats
 	 */
-	add_theme_support( 'post-formats', array( 'aside', 'image', 'video', 'quote', 'link', 'gallery','audio' ) );
+	add_theme_support( 'post-formats', array( 'aside', 'image', 'video', 'quote', 'link', 'gallery','audio', 'chat') );
 
 	/**
 	 * Setup the WordPress core custom background feature.
@@ -92,6 +92,21 @@ add_action( 'after_setup_theme', 'silentcomics_add_editor_styles' );
 }
 endif; // silentcomics_setup
 add_action( 'after_setup_theme', 'silentcomics_setup' );
+
+
+function wpse_allowedtags() {
+// Add custom tags to this string
+    return '<script>,<style>,<br>,<em>,<i>,<ul>,<ol>,<li>,<a>,<p>,<img>,<video>,<audio>'; 
+}
+
+/**
+ * Add read more link to exerpts
+ */
+
+function wpse_excerpt_more( $more ) {
+    return ' <a class="read-more" href="'. get_permalink( get_the_ID() ) . '">' . __('Read More', 'your-text-domain') . '</a>';
+}
+add_filter( 'excerpt_more', 'wpse_excerpt_more' );
 
 /**
  * Register widgetized area and update sidebar with default widgets
@@ -223,10 +238,11 @@ function comic_post_type() {
 	);
 	$args = array(
 		'label'               => __( 'Comic', 'text_domain' ),
-		'description'         => __( 'Comics and Webcomics', 'text_domain' ),
+		'description'         => __( 'Publish Comics and Webcomics', 'text_domain' ),
 		'labels'              => $labels,
-		'supports'            => array( 'title', 'editor', 'excerpt', 'trackbacks', 'custom-fields', 'comments', 'revisions', 'thumbnail', 'author', 'page-attributes', 'post-formats' ),
-		'taxonomies'          => array( 'stories', 'category' ),
+		'supports'            => array( 'title', 'editor', 'excerpt', 'trackbacks', 'custom-fields', 'comments', 'revisions', 'thumbnail', 'author', 'page-attributes' //, 'post-formats' You don't need post format and you probably don't need page-attributes either
+		 ),
+		'taxonomies'          => array( 'story', 'story_term', 'story_draft' ),
 		'hierarchical'        => true,
 		'public'              => true,
 		'show_ui'             => true,
@@ -237,16 +253,23 @@ function comic_post_type() {
 		'show_in_nav_menus'   => true,
 		'can_export'          => true,
 		'has_archive'         => true,
+		'feeds'				  => true,
 		'exclude_from_search' => false,
-		'rewrite' => array( 'slug' => 'stories', 'with_front' => true ),
+		'rewrite' 			  => array( 'slug' => 'stories', 'with_front' => true ),
 		'publicly_queryable'  => true,
 		'capability_type'     => 'post',
 		
 	);
 	register_post_type( 'comic', $args );
-
+	register_taxonomy_for_object_type( 'story', 'comic' );
+	register_taxonomy( 'story', // register custom taxonomy - comic story
+			'comic',
+			array( 'hierarchical' => true,
+				'label' => 'Stories'
+			)
+		);
 }
-	register_taxonomy_for_object_type( 'stories', 'comic', 'category' );
+	
 // Hook into the 'init' action
 add_action( 'init', 'comic_post_type', 0 );// End of register_cpt_comic()
 
@@ -255,11 +278,12 @@ function my_rewrite_flush() {
 }
 add_action( 'after_switch_theme', 'my_rewrite_flush' );
 
-// Register Custom Taxonomy
-function comic_stories_taxonomy() {
+
+// Register Custom Taxonomy 'story'
+function comic_story_taxonomy() {
 
 	$labels = array(
-		'name'                       => _x( 'Stories', 'Taxonomy General Name', 'text_domain' ),
+		'name'                       => _x( 'Story', 'Taxonomy General Name', 'text_domain' ),
 		'singular_name'              => _x( 'Story', 'Taxonomy Singular Name', 'text_domain' ),
 		'menu_name'                  => __( 'Stories', 'text_domain' ),
 		'all_items'                  => __( 'All Stories', 'text_domain' ),
@@ -270,7 +294,7 @@ function comic_stories_taxonomy() {
 		'edit_item'                  => __( 'Edit Story', 'text_domain' ),
 		'update_item'                => __( 'Update Story', 'text_domain' ),
 		'view_item'                  => __( 'View Item', 'text_domain' ),
-		'separate_items_with_commas' => __( 'Separate genress with commas', 'text_domain' ),
+		'separate_items_with_commas' => __( 'Separate stories with commas', 'text_domain' ),
 		'add_or_remove_items'        => __( 'Add or remove stories', 'text_domain' ),
 		'choose_from_most_used'      => __( 'Choose from the most used stories', 'text_domain' ),
 		'popular_items'              => __( 'Popular Items', 'text_domain' ),
@@ -285,14 +309,51 @@ function comic_stories_taxonomy() {
 		'show_admin_column'          => true,
 		'show_in_nav_menus'          => true,
 		'show_tagcloud'              => true,
+		'query_var'       			 => true,
+		'rewrite'          			 => array( 'slug' => 'story' ),
 	);
-	register_taxonomy( 'stories', array( 'comic' ), $args );
-	register_taxonomy_for_object_type( 'stories', 'comic', 'category' );
+	register_taxonomy( 'story', array( 'comic' ), $args );
 }
 
 // Hook into the 'init' action
-add_action( 'init', 'comic_stories_taxonomy', 0 );
+add_action( 'init', 'comic_story_taxonomy', 0 );
 
+// Add new taxonomy, NOT hierarchical (like tags)
+	$labels = array(
+		'name'                       => _x( 'Prints', 'taxonomy general name' ),
+		'singular_name'              => _x( 'Print', 'taxonomy singular name' ),
+		'search_items'               => __( 'Search Prints' ),
+		'popular_items'              => __( 'Popular Prints' ),
+		'all_items'                  => __( 'All Prints' ),
+		'parent_item'                => null,
+		'parent_item_colon'          => null,
+		'edit_item'                  => __( 'Edit Print' ),
+		'update_item'                => __( 'Update Print' ),
+		'add_new_item'               => __( 'Add New Print' ),
+		'new_item_name'              => __( 'New Author Name' ),
+		'separate_items_with_commas' => __( 'Separate prints with commas' ),
+		'add_or_remove_items'        => __( 'Add or remove prints' ),
+		'choose_from_most_used'      => __( 'Choose from the most used prints' ),
+		'not_found'                  => __( 'No prints found.' ),
+		'menu_name'                  => __( 'Prints' ),
+	);
+
+	$args = array(
+		'hierarchical'          => false,
+		'labels'                => $labels,
+		'show_ui'               => true,
+		'show_admin_column'     => true,
+		'update_count_callback' => '_update_post_term_count',
+		'query_var'             => true,
+		'rewrite'               => array( 'slug' => 'prints' ),
+	);
+
+	register_taxonomy( 'print', // register custom taxonomy - comic tag
+			'comic',
+			array( 'hierarchical' => false,
+				'label' => 'Prints'
+			)
+		);
 
 /**
 * Add custom post type tags/categories to archive pages - to make this work, you need to create a custom category-name.php 
@@ -306,7 +367,7 @@ add_action( 'init', 'comic_stories_taxonomy', 0 );
 
 add_filter('pre_get_posts', 'query_post_type');
 function query_post_type($query) {
-  if($query->is_main_query() && $query->is_category() || $query->is_tag() && empty( $query->query_vars['suppress_filters'] ) ) {
+  if($query->is_main_query() && $query->is_comic_story_taxonomy() || $query->is_category() && empty( $query->query_vars['suppress_filters'] ) ) {
     $post_type = get_query_var('post_type');
 	if($post_type)
 	    $post_type = $post_type;
@@ -318,20 +379,43 @@ function query_post_type($query) {
 }
 
 /**
+* Add an automatic default custom taxonomy for custom post type.
+* If no story (taxonomy) is set, the comic post will be sorted as “draft” and won’t return an offset error
+*
+*/
+    function set_default_object_terms( $post_id, $post ) {
+        if ( 'publish' === $post->post_status && $post->post_type === 'comic' ) {
+            $defaults = array(
+                'story' => array( 'draft' )
+                );
+            $taxonomies = get_object_taxonomies( $post->post_type );
+            foreach ( (array) $taxonomies as $taxonomy ) {
+                $terms = wp_get_post_terms( $post_id, $taxonomy );
+                if ( empty( $terms ) && array_key_exists( $taxonomy, $defaults ) ) {
+                    wp_set_object_terms( $post_id, $defaults[$taxonomy], $taxonomy );
+                }
+            }
+        }
+    }
+    add_action( 'save_post', 'set_default_object_terms', 0, 2 );
+
+/**
 * Append the query string for the custom post type 'my_custom_post_type' permalink URLs: http://codex.wordpress.org/Plugin_API/Filter_Reference/post_type_link
 * (uses add_query_arg and get_post_type)
 *
 */
 
-function append_query_string( $url, $post ) {
-    if ( 'comic' === get_post_type( $post ) ) {
-        return add_query_arg( $_GET, $url );
-    }
-    return $url;
-}
+//function append_query_string( $url, $post ) {
+//   if ( 'comic' == get_post_type( $post ) ) {
+//   return add_query_arg( $_GET, $url );
+//   }
+//return $url;
+//}
 
 /**
-* Get the first and latest post for custom post type using get_boundary_post() [https://core.trac.wordpress.org/ticket/27094](https://core.trac.wordpress.org/ticket/27094)
+* Get the first and last custom type post using get_boundary_post() 
+* See https://core.trac.wordpress.org/ticket/27094](https://core.trac.wordpress.org/ticket/27094
+*
 */
 function get_comic_boundary_post( $in_same_term = false, $excluded_terms = '', $start = true, $taxonomy = 'category' ) {
     $post = get_post();

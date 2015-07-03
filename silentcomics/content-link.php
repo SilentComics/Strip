@@ -35,7 +35,8 @@
 					'link_after'  => '</span>',
 				) );
 			?>
-		</div><!-- .entry-content -->
+		
 
-	</div><!-- .entry-wrap -->
+		</div><!-- .entry-content -->
+		</div><!-- .entry-wrap -->
 </article><!-- #post-## -->

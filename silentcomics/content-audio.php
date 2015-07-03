@@ -29,7 +29,7 @@ if ( isset( $GLOBALS['content_width'] ) )
 			<footer class="entry-meta">
 
 				<?php if ( ! post_password_required() && ( comments_open() || '0' != get_comments_number() ) ) : ?>
-				<span class="comments-link"><?php comments_popup_link( __( 'Leave a comment', 'SilentComics' ), __( '1 Comment', 'SilentComics' ), __( '% Comments', 'SilentComics' ) ); ?></span>
+				<span class="comments-link"><?php comments_popup_link( __( 'comment', 'SilentComics' ), __( '1 Comment', 'SilentComics' ), __( '% Comments', 'SilentComics' ) ); ?></span>
 				<?php endif; ?>
 
 				<span class="entry-format"><a href="<?php echo esc_url( get_post_format_link( 'audio' ) ); ?>" title="<?php echo esc_attr( sprintf( __( 'All %s posts', 'SilentComics' ), get_post_format_string( 'audio' ) ) ); ?>"><?php echo get_post_format_string( 'audio' ); ?></a></span>

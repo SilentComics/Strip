@@ -43,20 +43,21 @@ get_header(); ?>
 					endif;
 				?>
 			</header><!-- .page-header -->
+
 			
 <?php // Create and run first loop in reverse order
     $comic = new WP_Query();
     $comic = new WP_Query( array(
 					'post_type' => 'comic',
 					'showposts' => -1, 
-					'paged'=>$paged,
+					'paged'		=>$paged,
 					'orderby'   => 'title',
-					'order'   => 'ASC',)
+					'order'   	=> 'ASC',)
 					);
     while ($comic->have_posts()) : $comic->the_post();   
 				
-				get_template_part( 'content', get_post_format() );
-				?>
+				get_template_part( 'content-comic', get_post_format() );
+				// to style it like the blog entry page, change to 'content' ?> 
 
 						<?php endwhile;
 						wp_reset_postdata(); ?>
@@ -72,12 +73,12 @@ get_header(); ?>
 
 <h2 class="taxonomy-description">
 	All <a href="http://localhost:8888/shibakuzo/category/exile/">Exile</a> episodes by title.</h2>
-<?php // Run custom loop for category exile
+<?php // Run custom loop for taxonomy exile
     $comic = new WP_Query();
     $comic->query( array(
     	'post_type' 	=> 'comic',
 		'showposts'		=> -1, 
-		'category_name' => 'exile',
+		'story'  		=> 'exile',
 		'orderby'  		=> 'title',
 		'order'  		=> 'ASC',)
 		);
@@ -89,34 +90,25 @@ get_header(); ?>
 		wp_reset_postdata();  
 		?>
 
+<br>
+
     <h2 class="taxonomy-description">
 	All <a href="http://localhost:8888/shibakuzo/category/tofu/">Tofu</a> episodes.</h2>
-<?php // Run custom loop for category tofu
+<?php // Run custom loop for taxonomy tofu
     $comic = new WP_Query();
     $comic->query( array(
     	'post_type' 	=> 'comic',
 		'showposts'		=> -1, 
-		'category_name' => 'tofu',
+		'story'		    => 'tofu',
 		'orderby'  		=> 'title',
 		'order'  		=> 'ASC',)
 		);
     while ($comic->have_posts()) : $comic->the_post();
   ?>
-    <h4 class="comicbook-episode"><ol><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></ol></h4>
+    <h4 class="comicbook-episode"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
  
     	<?php endwhile; 
 		wp_reset_postdata();
 		?>
-
-<?php // Run custom loop for all comics
-if (have_posts()) : while (have_posts()) : the_post(); ?>
-<h3 class="comicbook-episode"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-<?php endwhile; endif; ?>
-
-<?php rewind_posts(); ?>
-
-<?php while (have_posts()) : the_post(); ?>
-<?php the_content(); ?>
-<?php endwhile; ?>
 
 <?php get_footer(); ?>

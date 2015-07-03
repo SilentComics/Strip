@@ -131,7 +131,7 @@ you like.
 
 // Custom Backend Footer
 function silentcomics_custom_admin_footer() {
-	_e('<span id="footer-thankyou">Developed by <a href="http://silent-comics.com" target="_blank">Silent Comics</a></span>. Custom admin area thanks to <a href="" target="_blank">Themble</a>.', 'silentcomics');
+	_e('<span id="footer-thankyou">Developed by and for <a href="http://silent-comics.com" target="_blank">Silent Comics</a></span>. Custom admin area thanks to <a href="" target="_blank">Themble</a>.', 'silentcomics');
 }
 
 // adding it to the admin area
