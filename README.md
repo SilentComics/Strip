@@ -3,7 +3,7 @@ WIP Wordpress-Theme-for-Silent-Comics
 
 Still rough — Working on it
 
-![screenshot]
+![screenshot](http://silentcomics.com/images/screenshot.png)
 
 Coding is the *learning by doing* side of the project for me. Code review needed. Developers, designers and lovers of comics are welcome to write any finding to: hoa // @ // silent-comics.com
 
