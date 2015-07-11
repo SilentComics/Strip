@@ -16,3 +16,6 @@ This is SilentComics — a simple Wordpress theme, designed for the upcoming [SI
 Coding is the *learning by doing* side of the project for me. This is not perfect, and needs improvements. 
 
 Do you know how this theme can be improved? Please send your findings and suggestions over to hoa // @ // silent-comics.com
+
+## How you can help
+If you would like to support this project, you can do so [here ♥](http://silentcomics.com/subscribe/). *Thank you!*
