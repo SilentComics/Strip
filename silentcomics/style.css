@@ -4,7 +4,7 @@ Theme URI: https://github.com/SilentComics/Wordpress-Theme-for-Silent-Comics/
 Author: Silent Comics
 Author URI: http://silent-comics.com
 Description: A simple theme for comics & web-comics
-Version: Pre release WIP 2.4.2 (24/06/2015) — Streamline 
+Version: Pre release WIP 2.4.3 (04/07/2015) — Streamline 
 Code Review: Found a bug, want to help improving the theme? Please contact @silentcomics or mail hoa // at // silent-comics.com
 License: GNU General Public License v3 or later
 License URI: http://www.gnu.org/licenses/gpl.html
@@ -1665,8 +1665,9 @@ img.aligncenter {
 [class*="navigation"] a:hover .meta-nav {
 	background-color: #ff6666;
 }
-#image-navigation .text-nav {
+.navigation-image .text-nav {
 	display: block;
+	text-align: center
 } 
 .navigation-image .nav-previous,
 .navigation-image .previous {
@@ -1780,7 +1781,7 @@ img.aligncenter {
 }
 .entry-comic .navigation-comic .nav-title {
 	margin: 0 auto;
-  text-align: center;
+	text-align: center;
 	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
 	font-size: 1.2rem;
 	letter-spacing: 0.1em;
@@ -1822,7 +1823,7 @@ img.aligncenter {
 	letter-spacing: 0.1em;
 	text-transform: uppercase;
 }
-.comicbook-episode {
+.comicbook-episode, .comicbook-episode a{
 	margin: auto;
 	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
 	text-align: center;
@@ -1830,6 +1831,7 @@ img.aligncenter {
 	line-height: 1.76em;
 	letter-spacing: 0.1em;
 	text-transform: uppercase;
+  color: #ffcc00; 
 }
 /*  the comic page title */
 .page-title, .taxonomy-description {
@@ -1838,7 +1840,8 @@ img.aligncenter {
 	text-align: center;
 }
 .taxonomy-description a {
-	color: #ff0070;
+	color: black;
+  background-color: #ffee00;
 	}
 /* pagination */
 
@@ -2258,7 +2261,12 @@ margin: auto;
 		max-width: 984px;
 	}
 	.comic .wrap {
-	max-width: 1896px;
+	max-width: 1848px;
+	}
+}
+@media screen and (min-width: 2048px) {
+	.comic .wrap {
+	max-width: 1920px;
 	}
 }
 @media screen and (max-width: 816px) {

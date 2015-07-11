@@ -9,7 +9,7 @@
  * Set the content width based on the theme's design and stylesheet.
  */
 if ( ! isset( $content_width ) )
-	$content_width = 2048; /* pixels */
+	$content_width = 2040; /* pixels */
 
 if ( ! function_exists( 'silentcomics_setup' ) ) :
 /**
@@ -93,6 +93,16 @@ add_action( 'after_setup_theme', 'silentcomics_add_editor_styles' );
 endif; // silentcomics_setup
 add_action( 'after_setup_theme', 'silentcomics_setup' );
 
+/**
+ * Add theme support for Aesop Story Engine
+ */
+ 
+// add_theme_support("aesop-component-styles", array("parallax", "image", "quote", "gallery", "content", "video", "audio", "collection", "chapter", "document", "character", "map", "timeline" ) );
+
+
+/**
+ * Implementation for excerpts (TO DO)
+ */
 
 function wpse_allowedtags() {
 // Add custom tags to this string
@@ -103,10 +113,10 @@ function wpse_allowedtags() {
  * Add read more link to exerpts
  */
 
-function wpse_excerpt_more( $more ) {
+function new_excerpt_more( $more ) {
     return ' <a class="read-more" href="'. get_permalink( get_the_ID() ) . '">' . __('Read More', 'your-text-domain') . '</a>';
 }
-add_filter( 'excerpt_more', 'wpse_excerpt_more' );
+add_filter( 'excerpt_more', 'new_excerpt_more' );
 
 /**
  * Register widgetized area and update sidebar with default widgets
@@ -121,7 +131,6 @@ function silentcomics_widgets_init() {
 		'after_title'   => '</h1>',
 	) );
 
-	
 	register_sidebar( array(
 		'name'          => __( 'Footer Sidebar 1', 'silentcomics' ),
 		'id'            => 'footer-sidebar-1',
@@ -240,9 +249,8 @@ function comic_post_type() {
 		'label'               => __( 'Comic', 'text_domain' ),
 		'description'         => __( 'Publish Comics and Webcomics', 'text_domain' ),
 		'labels'              => $labels,
-		'supports'            => array( 'title', 'editor', 'excerpt', 'trackbacks', 'custom-fields', 'comments', 'revisions', 'thumbnail', 'author', 'page-attributes' //, 'post-formats' You don't need post format and you probably don't need page-attributes either
-		 ),
-		'taxonomies'          => array( 'story', 'story_term', 'story_draft' ),
+		'supports'            => array( 'title', 'editor', 'excerpt', 'trackbacks', 'custom-fields', 'comments', 'revisions', 'thumbnail', 'author'),
+		'taxonomies'          => array( 'story', 'story_term', 'draft' ),
 		'hierarchical'        => true,
 		'public'              => true,
 		'show_ui'             => true,
@@ -356,13 +364,9 @@ add_action( 'init', 'comic_story_taxonomy', 0 );
 		);
 
 /**
-* Add custom post type tags/categories to archive pages - to make this work, you need to create a custom category-name.php 
-*
-*This line returns no content but only titles for specific categories: if(is_category() || is_tag()  && empty( $query->query_vars['suppress_filters'] ) ) {
-* This also works: if($query->is_category() || $query->is_tag() && $query->is_main_query && empty( $query->query_get['suppress_filters'] ) ) {
-*
-*
+* Add custom post type tags/categories to archive pages 
 * If you want custom post type comics to also appear on blog and home, see https://developer.wordpress.org/plugins/custom-post-types-and-taxonomies/working-with-custom-post-type-data/
+*
 */
 
 add_filter('pre_get_posts', 'query_post_type');
