@@ -1,7 +1,7 @@
 WIP Wordpress-Theme-for-Silent-Comics
 =================================
 
-Still rough — Working on it
+Still rough — Working on it — Feel free to download the ZIP file and test the theme.
 
 ![screenshot](http://silentcomics.com/images/screenshot.png)
 
