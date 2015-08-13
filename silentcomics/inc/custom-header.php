@@ -17,7 +17,7 @@
  */
 function silentcomics_custom_header_setup() {
 	add_theme_support( 'custom-header', apply_filters( 'silentcomics_custom_header_args', array(
-		'default-image'          => get_template_directory_uri() . '/library/images/',
+		'default-image'          => get_template_directory_uri() . '/images/Default-header.png',
 		'header-text'  			 => true,
 		'default-text-color'     => '000',
 		'flex-width'   			 => true,
