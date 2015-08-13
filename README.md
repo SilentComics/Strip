@@ -17,5 +17,5 @@ Coding is the *learning by doing* side of the project for me. This is not perfec
 
 Do you know how this theme can be improved? Please send your findings and suggestions over to hoa // @ // silent-comics.com
 
-## How you can help
+## How can you help?
 If you would like to support this project, you can do so [here ♥](http://silentcomics.com/subscribe/). *Thank you!*
