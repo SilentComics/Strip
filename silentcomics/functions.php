@@ -169,6 +169,44 @@ function add_ie_html5_shim () {
 add_action('wp_head', 'add_ie_html5_shim');
 
 /**
+* Webfonts 
+* Font URLs function http://themeshaper.com/2014/08/13/how-to-add-google-fonts-to-wordpress-themes/
+*/
+function theme_slug_fonts_url() {
+    $fonts_url = '';
+ 
+    /* Translators: If there are characters in your language that are not
+    * supported by Fenix, translate this to 'off'. Do not translate
+    * into your own language.
+    */
+    $fenix = _x( 'on', 'Fenix font: on or off', 'theme-slug' );
+ 
+    if ( 'off' !== $fenix ) {
+        $font_families = array();
+ 
+        if ( 'off' !== $fenix ) {
+            $font_families[] = 'Fenix:400';
+        }
+
+        $query_args = array(
+            'family' => urlencode( implode( '|', $font_families ) ),
+            'subset' => urlencode( 'latin' ),
+        );
+ 
+        $fonts_url = add_query_arg( $query_args, 'https://fonts.googleapis.com/css' );
+    }
+ 
+    return esc_url_raw( $fonts_url );
+}
+/**
+* Now enqueue the custom font to the front end (see function above)
+*/
+function theme_slug_scripts_styles() {
+    wp_enqueue_style( 'theme-slug-fonts', theme_slug_fonts_url(), array(), null );
+}
+add_action( 'wp_enqueue_scripts', 'theme_slug_scripts_styles' );
+
+/**
  * Enqueue scripts and styles
  */
 function silentcomics_scripts() {
