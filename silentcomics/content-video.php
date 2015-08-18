@@ -41,7 +41,7 @@ if ( isset( $GLOBALS['content_width'] ) )
 
 		</div><!-- .entry-info -->
 
-		<div class="entry-content wrap">
+		<div class="entry-content clear">
 			<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'SilentComics' ) ); ?>
 			<?php
 				wp_link_pages( array(

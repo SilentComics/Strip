@@ -30,7 +30,7 @@
 
 		<header class="entry-header">
 			
-			<?php //each serie is called by get_object_terms the custom taxonomy "story" stands for WP built-in "category" here
+			<?php // we call each serie by get_object_terms, the custom taxonomy "story" replaces WP native "category"
 			$story_terms = wp_get_object_terms( $post->ID,  'story' );
 if ( ! empty( $story_terms ) ) {
 	if ( ! is_wp_error( $story_terms ) ) {

@@ -20,7 +20,7 @@ get_header(); ?>
 					<h1 class="page-title">
 						<?php
 							if ( is_category() ) :
-								printf( __( 'Archives: %s', 'SilentComics' ), '<span>' . single_cat_title( '', false ) . '</span>' );
+								printf( __( 'Category Archives: %s', 'SilentComics' ), '<span>' . single_cat_title( '', false ) . '</span>' );
 
 							elseif ( is_tag() ) :
 								printf( __( 'Tag Archives: %s', 'SilentComics' ), '<span>' . single_tag_title( '', false ) . '</span>' );
@@ -113,4 +113,5 @@ get_header(); ?>
 		</div><!-- #content -->
 	</section><!-- #primary -->
 
+<?php get_sidebar(); ?>
 <?php get_footer(); ?>

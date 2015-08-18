@@ -14,13 +14,14 @@
 	
 	<?php if ( have_posts() ) : ?>
 	<header class="page-header">
+		</br>
 			<?php
 						// Show an optional term description.
 						$term_description = term_description();
 						if ( ! empty( $term_description ) ) :
 							printf( '<div class="taxonomy-description">%s</div>', $term_description );
 						endif; ?>
-			<h4 class="comicbook-blurb">Here are your uncategorized comics. If you want to order them, go to Add New Comic, then + Add New Story and write a series title of your choice, or check an existing series box, if you had one.</h4>
+			<h4 class="comicbook-blurb">Here are your uncategorized comics. If you want to order them, go to Add New Comic, then + Add New Story and write a series title of your choice, or check an existing series box, if you had one. To write your own custom taxonomies, clone this taxonomy-story-draft and replace draft by your own story name.</h4>
 			</br>
 	</header><!-- .page-header -->
 	

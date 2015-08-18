@@ -24,26 +24,19 @@
 <body <?php body_class(); ?>>
 <div id="page" class="hfeed site">
 	<header id="masthead" class="site-header" role="banner">
-		
-		
-				<?php do_action( 'before' ); ?>
-				
-			<?php $header_image = get_header_image();
-			if ( ! empty( $header_image ) ) { ?>
-				<a class="header"  href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
-					<img src="<?php header_image(); ?>" width="<?php echo get_custom_header()->width; ?>" height="<?php echo get_custom_header()->height; ?>" alt="" class="header-image" />
-				</a>
-			<?php } // if ( ! empty( $header_image ) ) ?>
-							
-			<h1 class="site-title"><?php get_template_part('library/inline', 'logo.svg'); ?></h1> <h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
-		
+			
+	<div class="site-branding">
+		<?php get_template_part('library/inline', 'logo.svg'); ?>				
+		<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1> <h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
+	</div><!-- .site-branding -->
 		
 		<?php if ( has_nav_menu( 'primary' ) ) : ?>
 		<nav id="site-navigation" class="main-navigation" role="navigation">
-			<h1 class="menu-toggle"><?php _e( 'Explore', 'silentcomics' ); ?></h1>
+			<h1 class="menu-toggle"><?php _e( 'discover', 'silentcomics' ); ?></h1>
 			<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'silentcomics' ); ?></a>
 
 			<?php wp_nav_menu( array( 'theme_location' => 'primary', 'container_class' => 'wrap'  ) ); ?>
 		</nav><!-- #site-navigation -->
 		<?php endif; ?>
+		
 	</header><!-- #masthead -->

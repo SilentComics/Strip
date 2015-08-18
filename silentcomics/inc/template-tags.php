@@ -6,7 +6,18 @@
  *
  * @package SilentComics
  */
-
+ 
+ /**
+ * Add custom header image to header area
+ */
+function silentcomics_header_background() {
+	if ( get_header_image() ) {
+		$css = '.site-branding { background-image: url(' . esc_url( get_header_image() ) . '); }';
+		wp_add_inline_style( 'silentcomics-style', $css );
+	}
+}
+add_action( 'wp_enqueue_scripts', 'silentcomics_header_background', 11 );
+ 
 if ( ! function_exists( 'silentcomics_content_nav' ) ) :
 /**
  * Display navigation to next/previous pages when applicable

@@ -5,9 +5,10 @@
  * @package SilentComics
  */
 ?>
-	<div id="secondary" class="widget-area" role="complementary">
+<div class="wrap">
+	<div id="primary" class="sidebar" role="complementary">
 		
-		<?php if ( is_active_sidebar( 'sidebar-1' ) ) : ?>
+		<?php if ( is_active_sidebar( 'sidebar' ) ) : ?>
 
 			<aside id="search" class="widget widget_search">
 				<?php get_search_form(); ?>
@@ -31,3 +32,4 @@
 
 		<?php endif; // end sidebar widget area ?>
 	</div><!-- #secondary -->
+</div><!-- .entry-wrap -->

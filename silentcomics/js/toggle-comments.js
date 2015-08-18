@@ -13,14 +13,14 @@ jQuery(document).ready(function() {
 	// Append a link to show/hide
 	jQuery('<button/>')
 		.attr('class', 'toggle-comments')
-		.attr('href', '#')
+		.attr('href', '#respond')
 		.text('Join the discussion')
 		.insertBefore(commentsDiv);
 
 	// Encase button in #toggle-comments-container div
 	jQuery('.toggle-comments').wrap(jQuery('<div/>', {
 		id: 'toggle-comments-container'
-	}))
+	}));
 
 	// When show/hide is clicked
 	jQuery('.toggle-comments').on('click', function(e) {
@@ -30,11 +30,11 @@ jQuery(document).ready(function() {
 	jQuery(commentsDiv).toggle('slow', function() {
 	// change the text of the anchor
 		var anchor = jQuery('.toggle-comments');
-		var anchorText = anchor.html() == 'Hide Comments' ? 'Show Comments' : 'Hide Comments';
+		var anchorText = anchor.html() === 'Hide Comments' ? 'Show Comments' : 'Hide Comments';
 		jQuery(anchor).text(anchorText);
 	});
 	});
  
 	} // End of commentsDiv.length
-
+	
 }); // End of Show/Hide Comments

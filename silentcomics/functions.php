@@ -99,11 +99,9 @@ add_action( 'after_setup_theme', 'silentcomics_setup' );
  
 // add_theme_support("aesop-component-styles", array("parallax", "image", "quote", "gallery", "content", "video", "audio", "collection", "chapter", "document", "character", "map", "timeline" ) );
 
-
 /**
  * Implementation for excerpts (TO DO)
  */
-
 function wpse_allowedtags() {
 // Add custom tags to this string
     return '<script>,<style>,<br>,<em>,<i>,<ul>,<ol>,<li>,<a>,<p>,<img>,<video>,<audio>'; 
@@ -112,7 +110,6 @@ function wpse_allowedtags() {
 /**
  * Add read more link to exerpts
  */
-
 function new_excerpt_more( $more ) {
     return ' <a class="read-more" href="'. get_permalink( get_the_ID() ) . '">' . __('Read More', 'your-text-domain') . '</a>';
 }
@@ -124,7 +121,7 @@ add_filter( 'excerpt_more', 'new_excerpt_more' );
 function silentcomics_widgets_init() {
 	register_sidebar( array(
 		'name'          => __( 'Primary Sidebar', 'silentcomics' ),
-		'id'            => 'sidebar-1',
+		'id'            => 'sidebar',
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</aside>',
 		'before_title'  => '<h1 class="widget-title">',
@@ -406,10 +403,9 @@ add_action( 'init', 'comic_story_taxonomy', 0 );
 * If you want custom post type comics to also appear on blog and home, see https://developer.wordpress.org/plugins/custom-post-types-and-taxonomies/working-with-custom-post-type-data/
 *
 */
-
 add_filter('pre_get_posts', 'query_post_type');
 function query_post_type($query) {
-  if($query->is_main_query() && $query->is_comic_story_taxonomy() || $query->is_category() && empty( $query->query_vars['suppress_filters'] ) ) {
+  if($query->is_main_query() && $query->is_comic_story_taxonomy() || $query->is_story() && empty( $query->query_vars['suppress_filters'] ) ) {
     $post_type = get_query_var('post_type');
 	if($post_type)
 	    $post_type = $post_type;
@@ -459,7 +455,7 @@ function query_post_type($query) {
 * See https://core.trac.wordpress.org/ticket/27094](https://core.trac.wordpress.org/ticket/27094
 *
 */
-function get_comic_boundary_post( $in_same_term = false, $excluded_terms = '', $start = true, $taxonomy = 'category' ) {
+function get_comic_boundary_post( $in_same_term = false, $excluded_terms = '', $start = true, $taxonomy = 'story' ) {
     $post = get_post();
     if ( ! $post || ! is_single() || is_attachment() ||  ! taxonomy_exists( $taxonomy ) )
         return null;

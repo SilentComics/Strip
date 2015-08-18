@@ -17,12 +17,12 @@
  */
 function silentcomics_custom_header_setup() {
 	add_theme_support( 'custom-header', apply_filters( 'silentcomics_custom_header_args', array(
-		'default-image'          => get_template_directory_uri() . '/images/Default-header.png',
+		'default-image'          => get_template_directory_uri() . '/library/images/Default-header.png',
 		'header-text'  			 => true,
 		'default-text-color'     => '000',
 		'flex-width'   			 => true,
-		'width'                  => 1704,
-		'height'                 => 284,
+		'width'                  => 1992,
+		'height'                 => 498,
 		'flex-height'            => true,
 		'wp-head-callback'       => 'silentcomics_header_style',
 		'admin-head-callback'    => 'silentcomics_admin_header_style',
@@ -32,6 +32,18 @@ function silentcomics_custom_header_setup() {
 add_action( 'after_setup_theme', 'silentcomics_custom_header_setup' );
 
 if ( ! function_exists( 'silentcomics_header_style' ) ) :
+
+/**
+* Register default header image
+*
+*/
+
+register_default_headers( array(
+    'DefaultHeader' => array(
+    'url'   => get_template_directory_uri() . '/library/images/Default-header.png',
+    'thumbnail_url' => get_template_directory_uri() . '/library/images/Default-header.png',
+    'description'   => _x( 'DefaultHeader', 'header image description', 'silentcomics' )),
+));
 /**
  * Styles the header image and text displayed on the blog
  *
@@ -50,15 +62,12 @@ function silentcomics_header_style() {
 	<style type="text/css">
 	<?php
 		// Has the text been hidden?
-		if ( ! display_header_text() ) :
+		if ( 'blank' == $header_text_color ) :
 	?>
 		.site-title,
 		.site-description {
 			position: absolute;
 			clip: rect(1px, 1px, 1px, 1px);
-		}
-		.header-image {
-			margin-bottom: 0;
 		}
 	<?php
 		// If the user has set a custom color for the text use that
@@ -66,9 +75,13 @@ function silentcomics_header_style() {
 	?>
 		.site-title a,
 		.site-description {
-			color: #<?php echo $header_text_color; ?>;
+			color: #<?php echo esc_attr( $header_text_color ); ?>;
+		}
+		.site-title {
+			border-color: #<?php echo esc_attr( $header_text_color ); ?>;
 		}
 	<?php endif; ?>
+	
 	</style>
 	<?php
 }
@@ -83,33 +96,27 @@ if ( ! function_exists( 'silentcomics_admin_header_style' ) ) :
 function silentcomics_admin_header_style() {
 ?>
 	<style type="text/css">
-	.appearance_page_custom-header #headimg {
-		border: none;
-		text-align: center;
-	}
-	<?php if ( ! display_header_text() ) : ?>
+		.appearance_page_custom-header #headimg {
+			border: none;
+		}
 	#headimg h1,
-	#desc {
-		display: none;
-	}
-	<?php endif; ?>
+		#desc {
+		}
 	#headimg h1 {
 		font: 700 2.4rem/1.4166666666 Futura, "Trebuchet MS", Arial, sans-serif;
-		letter-spacing: 0.1em;
-		margin: 0;
+		text-align: center;
 		text-transform: uppercase;
 	}
 	#headimg h1 a {
-		text-decoration: none;
+		border: 6px solid #424242;
+		font-size: 1.2em;
+		letter-spacing: 0.1em;
+		line-height: 1.24;
+		padding: 0 .76em;
 	}
 	#desc {
-		font: italic 400 14px/2.4285714285 'Fenix', Georgia, serif;
 	}
 	#headimg img {
-		margin-bottom: 0px;
-	}
-	#headimg img[src*=""] {
-		border-radius: 50px;
 	}
 	</style>
 <?php
@@ -124,15 +131,15 @@ if ( ! function_exists( 'silentcomics_admin_header_image' ) ) :
  */
 function silentcomics_admin_header_image() {
 	$style        = sprintf( ' style="color:#%s;"', get_header_textcolor() );
-	$header_image = get_header_image();
+//	$header_image = get_header_image();
 ?>
 	<div id="headimg">
 		<h1 class="displaying-header-text"><a id="name"<?php echo $style; ?> onclick="return false;" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo( 'name' ); ?></a></h1>
 		<div class="displaying-header-text" id="desc"<?php echo $style; ?>><?php bloginfo( 'description' ); ?></div>
-		<?php if ( ! empty( $header_image ) ) : ?>
-			<img src="<?php echo esc_url( $header_image ); ?>" alt="">
+		<?php if ( get_header_image() ) : ?>
+		<img src="<?php header_image(); ?>" alt="">
 		<?php endif; ?>
-	</div>
+	</div><!-- #headimg -->
 <?php
 }
 endif; // silentcomics_admin_header_image

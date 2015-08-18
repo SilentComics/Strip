@@ -4,7 +4,7 @@ Theme URI: https://github.com/SilentComics/Wordpress-Theme-for-Silent-Comics/
 Author: Silent Comics
 Author URI: http://silent-comics.com
 Description: A simple theme for comics & web-comics
-Version: Pre release WIP 2.4.3 (04/07/2015) — Streamline 
+Version: Pre release WIP 2.4.4 (16/08/2015) — Improve 
 Code Review: Found a bug, want to help improving the theme? Please contact @silentcomics or mail hoa // at // silent-comics.com
 License: GNU General Public License v3 or later
 License URI: http://www.gnu.org/licenses/gpl.html
@@ -34,11 +34,10 @@ SilentComics is based on Underscores http://underscores.me/, (C) 2012-2015 Autom
 9.0 - Widgets
 10.0 - Content
 	10.1 - Posts and pages
-	10.2 - Asides
-	10.3 - Post Formats
-	10.4 - Comics
-	10.5 - Comments
-	10.6 - Footer
+	10.2 - Post Formats
+	10.3 - Comics
+	10.4 - Comments
+	10.5 - Footer
 11.0 - Infinite scroll
 12.0 - Media
 --------------------------------------------------------------*/
@@ -578,10 +577,10 @@ blockquote, blockquote em, blockquote i, blockquote cite {
 }
 blockquote p {
 	background-color: #fff;
-    font-size: 1.8rem;
-    line-height: 1.6;
-    color: lightblue;
-    padding: 1em;
+    font-size: 2.4rem;
+    line-height: 1.2;
+    color: #928882;
+    padding: 0.6em;
     width: 100%;
 }
 blockquote cite,
@@ -713,19 +712,19 @@ textarea {
   font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
 }
 .search-field input[type="find"] {
+	font-size: 1.2rem;
+	font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
 	border: 1px solid rgba(255, 255, 255, 0.2);
 	color: #fff;
 	width: 100%;
 }
 #search-wrapper input .search-field [type="submit"] {
 	display: none;
-	
 }
 #mc4wp-form-1 [type="submit"] {
 	display: none;
 	font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
 }
-
 
 /*--------------------------------------------------------------
 5.0 Navigation
@@ -752,7 +751,6 @@ a:active {
 
 /* author's custom style
 ----------------------------------------------- */
-
 .logo {
   width: 9%; /* required to center */
   height: 9%;
@@ -777,21 +775,41 @@ a.logo: after {
 
 /* =Masthead
 ----------------------------------------------- */
-h1.site-title {
-	font-size: 1.6rem !important;
+.site-branding {
+	background-color: #eeeae6;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	margin: 0 auto;
+	padding: 1.2em 0;
+	position: relative;
+	text-align: center;
+}
+.home .site-branding {
+	padding: 1.2em 0;
+}
+.site-title {
+	border: 6px solid #420084;
+	display: table;
+	/* font-size: 1.6rem !important; */
 	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+	line-height: 1.2;
 	letter-spacing: 0.1em;
-	margin-top: 0;
+	margin: 0 auto;
+	max-width: 90%;
+	padding: 0 .24em;
 	text-align: center;
 	text-transform: uppercase;
+	z-index: 0;
 }
 .site-title a {
 	text-decoration: none;
+	color: #420084;
 }
-h2.site-description {
+.site-description {
 	font-family:'Fenix', Georgia, serif;
 	font-size: 0.6em;
-	color: #eedada; 
+	color: dark; 
 	text-align: center;
 	margin-bottom: 0.1em;
 }
@@ -984,11 +1002,14 @@ h2.site-description {
 8.0 Clearings
 --------------------------------------------------------------*/
 .clear:before,
-.clear:after {
+.clear:after,
+.site-branding:before,
+.site-branding:after {
 	content: "";
 	display: table;
 }
-.clear:after {
+.clear:after,
+.site-branding:after {
 	clear: both;
 }
 
@@ -1016,6 +1037,10 @@ body {
 /*--------------------------------------------------------------
 9.0 Widgets
 --------------------------------------------------------------*/
+#primary.sidebar {
+	margin: 0 auto;
+	max-width: 696px;
+}
 .widget-area-wrapper {
 	margin: 0 auto;
 	max-width: 1128px;
@@ -1031,7 +1056,10 @@ body {
 	margin-right: 0;
 }
 .widget {
-	font: 300 1.3rem/1.6 Futura, "Trebuchet MS", Arial, sans-serif;
+	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+	font-size: small;
+	line-height: inherit;
+	font-weight: 300;
 	margin: 0 0 2.4em 0;
 }
 .widget ul {
@@ -1040,10 +1068,9 @@ body {
 	padding: 0;
 }
 .widget ul > li {
-	border-top: 0px solid #eee;
 	display: block;
 	list-style: none;
-	padding: .8em 0;
+	padding: .6em 0;
 }
 .widget ul > li:last-child {
 	padding-bottom: 0;
@@ -1067,12 +1094,13 @@ body {
 	max-width: 100%;
 }
 /* Search widget */
-
 .widget_search form {
 	position: relative;
 	}
 .widget_search .search-field {
-width: 92%;
+	font-size: 1.2rem;
+	font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+	width: 92%;
 }
 .widget_search .search-submit {
 	display: none;
@@ -1127,7 +1155,8 @@ article.no-results {
 	padding-top: 48px;
 }
 article.no-results {
-	text-align: center;
+	margin: 0 auto;
+	max-width: 696px;
 }
 .error404 .entry-title,
 .no-results .entry-title {
@@ -1138,16 +1167,15 @@ article.no-results {
 	float: none;
 	margin: 34px auto 0;
 }
-article.error404 .searchform,
-article.no-results .searchform {
-	margin: 34px 0 51px;
-}
-article.no-results .searchform {
-	margin-bottom: 12em;
+article.error404 .search-form, 
+article.no-results .search-form {
+	text-align: center
 }
 article.error404 input[type="search"],
 article.no-results input[type="search"] {
 	margin-bottom: 17px;
+	font-size: 1.2rem;
+	font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
 	width: 92%;
 }
 article.error404 .widget {
@@ -1354,40 +1382,7 @@ entry-meta, .entry-meta a {
 }
 
 /*--------------------------------------------------------------
-10.2 Asides
---------------------------------------------------------------*/
-
-.format-aside .entry-title {
-	font-size: 2.4rem;
-	font-weight: 400;
-	line-height: 1.4782608695;
-	margin-bottom: 3.4em;
-}
-.format-aside .entry-title a,
-.single .format-aside .entry-title  {
-	opacity: 0.5;
-}
-.format-aside .entry-title a:hover {
-	opacity: 1;
-}
-
-/* Make sure embeds and iframes fit their containers */
-embed,
-iframe,
-object,
-video {
-	max-width: 100%;
-}
-p > embed,
-p > iframe,
-p > object,
-span > embed,
-span > iframe,
-span > object {
-	margin-bottom: 0;
-}
-/*--------------------------------------------------------------
-10.3 Post Format
+10.2 Post Formats
 --------------------------------------------------------------*/
 
 /* Standard */
@@ -1400,7 +1395,6 @@ span > object {
 }
 
 /* Image */
-
 .format-image .entry-content {
 	margin-top: 0;
 	max-width: 2048px;
@@ -1411,29 +1405,49 @@ span > object {
 }
 
 /* Quote */
-.format-quote .entry-format-badge:after {
-	content: "Citation needed";
-}
-.format-quote .entry-title {
-	font-size: 2.4rem;
+.format-quote .entry-content {
+	font-size: 2.4em;
 	font-weight: 400;
 	line-height: 1.4782608695;
 	margin-bottom: 34px;
 }
-.format-quote .entry-title a,
-.single .format-quote .entry-title {
-	color: #808080;
+
+/* Asides */
+.format-aside .entry-content {
+	font-size: 1.2em;
+	font-weight: 400;
+	line-height: 1.4782608695;
+	margin-bottom: 3.4em;
 }
-.format-quote .entry-title a:hover {
-	opacity: 1;
+/* Make sure embeds and iframes fit their containers */
+embed,
+iframe,
+object,
+video {
+	margin-bottom: 34px;
+	max-width: 100%;
+}
+p > embed,
+p > iframe,
+p > object,
+span > embed,
+span > iframe,
+span > object {
+	margin-bottom: 0;
 }
 
 /* link */
 .format-link  {
-	margin-left: 2px;
+	background-color: #eeeae6;
 	margin: 0 auto;
-  max-width: 696px;
+	padding: 1.2em 0;
+	position: relative;
+	font-size: 2.4rem;
 	text-align: left;
+	font-family: monospace;	 
+}
+.format-link .entry-content a {
+	color: tomato; 
 }
 
 /* Gallery */
@@ -1447,13 +1461,25 @@ span > object {
 
 /* Video */
 .format-video {
-	margin-top: 1.6em;
 	position: relative;
 }
 .format-video .band {
 	display: none;
 }
 
+/* Chat */
+.format-chat  {
+	background-color: #f0fafb;
+	margin: 0 auto;
+	padding: 1.2em 0;
+	position: relative;
+	font-size: 2.4rem;
+	text-align: left;
+	font-family: monospace; 
+}
+.format-chat .entry-content a {
+	color: tomato; 
+}
 /* =Media
 ----------------------------------------------- */
 
@@ -1654,6 +1680,7 @@ img.aligncenter {
 	line-height: 2;
 	padding: 0 0 2em;
     }
+    
 [class*="navigation"] .meta-nav {
 	border-radius: 3px; /* square shaped is 0px */
 	color: white;
@@ -1662,13 +1689,16 @@ img.aligncenter {
 	padding: 4px;
 	width: 4.8em;
 }
+
 [class*="navigation"] a:hover .meta-nav {
 	background-color: #ff6666;
 }
+
 .navigation-image .text-nav {
 	display: block;
 	text-align: center
 } 
+
 .navigation-image .nav-previous,
 .navigation-image .previous {
 	float: left;
@@ -1705,7 +1735,7 @@ img.aligncenter {
 }
 
 /*--------------------------------------------------------------
-10.4 Comics
+10.3 Comics
 --------------------------------------------------------------*/
 .comic .entry-title {
 	font: 400 2.4rem/1.2 Futura, "Trebuchet MS", Arial, sans-serif;
@@ -1840,8 +1870,10 @@ img.aligncenter {
 	text-align: center;
 }
 .taxonomy-description a {
+	font: 400 24px/1 Futura, "Trebuchet MS", Arial, sans-serif;
 	color: black;
-  background-color: #ffee00;
+	text-transform: uppercase;
+	background-color: #ffee00;
 	}
 /* pagination */
 
@@ -1913,11 +1945,11 @@ img.aligncenter {
 }
 /* enables viewing if user has disabled javascript */
 .royalSlider > .rsContent {
-    visibility: visible;
+	visibility: visible;
 }
 
 /*--------------------------------------------------------------
-10.5.1 Hide Comments
+10.4.1 Hide Comments
 --------------------------------------------------------------*/
 button.toggle-comments {
     border-width: 3px;
@@ -1934,12 +1966,12 @@ button.toggle-comments {
     background-color: transparent;
 }
 #toggle-comments-container .toggle-comments {
-display: block;
-margin: auto;
-  margin-bottom: 4.8em;
+	display: block;
+	margin: auto;
+	margin-bottom: 4.8em;
 }
 /*--------------------------------------------------------------
-10.5.2 Comments
+10.4.2 Comments
 --------------------------------------------------------------*/
 .comment-author .author-cite {
   color: darkgrey;
@@ -1992,18 +2024,18 @@ margin: auto;
 }
 .comment-author .avatar {
 	border-radius: 50%;
-  vertical-align: middle;
+	vertical-align: middle;
 }
 .comments-area {
-  width: 90%;
-  max-width: 696px;
-  font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
-  font-size: 1.2rem;
-  margin: 2.4em auto;
-  padding-bottom: 2em;
+	width: 90%;
+	max-width: 696px;
+	font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+	font-size: 1.2rem;
+	margin: 2.4em auto;
+	padding-bottom: 2em;
 }
 .comments-title {
-  font: italic 400 2.4rem/1; 
+	font: italic 400 2.4rem/1; 
 	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
 	margin-bottom: 48px;
 	text-align: center;
@@ -2013,7 +2045,7 @@ margin: auto;
 	width:92%;
 	font-family: monospace;
 	font-size: 1.2rem;
-  text-align: left;
+	text-align: left;
 	color: #FF7369;
 	margin: 0 auto;
 	padding-bottom: 2rem;
@@ -2031,10 +2063,10 @@ margin: auto;
 	color: tomato;
 }
 /*--------------------------------------------------------------
-10.6 Footer
+10.5 Footer
 --------------------------------------------------------------*/
 .site-footer {
-	background-color: #fcf6f6;
+	background-color: #fdf8f8;
 	border-top: 3px solid black;
 	clear: both;
 	position: relative;
@@ -2144,9 +2176,10 @@ margin: auto;
 		content: "";
 	}
 	.entry-meta {
-  float: right;
-	width: 120px;
-	text-align: right;
+		float: right;
+		width: 120px;
+		text-align: right;
+		
 	}
 	.entry-meta span {
 		display: block;
@@ -2163,7 +2196,7 @@ margin: auto;
 		float: none;
 	}
 	.format-video .band {
-		background-color: tomato;
+		background-color: #290404;
 		display: block;
 		position: absolute;
 		top: 1em;
@@ -2172,43 +2205,54 @@ margin: auto;
 		height: 554px; /* Custom Height*/
 		z-index: -1;
 	}
+	.format-video .entry-title,
+	.format-video .entry-title a {
+		float: right;
+		font-size: 1.8rem;
+		colour: snow;
+	}
 	.format-video .entry-info {
-	float: right;
-	margin-top: 96px;
-	max-width: 120px;
-	}
-  	.format-video .entry-meta {
-    font-size: 1.1rem;
-		line-height: 2.4;
-		max-width: 120px;
-	}
-  .format-video .entry-title a {
-    font-size: 2.1rem;
-    line-height: 1.2;
-    text-align: right;
-  }
-	.format-video .categories-links {
+		float: right;
+		margin-top: 96px;
+		width: 96px;
+		}
+	.format-video .categories-links,
+	.format-video .tags-links {	
 		font-size: 1.1rem;
-    line-height: 1.6;
+		line-height: 1.6;
 		font-weight: 400;
-    text-align: right;
+		max-width: 96px;
+		text-align: right;
+		display: inline-block;
+	}
+	.format-video .entry-meta {
+		position: relative;
+    	font-size: 1.1rem;
+    	font-weight: 400;
+		line-height: 1.6em;
+		float: right;
+		max-width: 120px;
+		-ms-word-wrap: break-word;
+		word-wrap: break-word;
+		text-align: right;
 	}
 	.format-video .entry-meta span {
 		border-bottom: 0;
 		padding: 0;
 	}
 	.format-video .entry-meta span.entry-format {
-		display: none;
+		display: inline-block;
 	}
-  .format-video .entry-meta,
+    .format-video .entry-meta,
 	.format-video .entry-meta a,
-	.format-video .entry-info a {
-    color: snow;
+	.format-video .entry-info a,
+	.format-video .entry-title {
+    	color: snow;
 	}
 	.format-video .entry-content {
 		background-color: transparent;
 		margin-top: 0 auto;
-		max-width: 552px;
+		max-width: 504px;
 	}
 }
 @media screen and (min-width: 1032px) {
@@ -2261,7 +2305,7 @@ margin: auto;
 		max-width: 984px;
 	}
 	.comic .wrap {
-	max-width: 1848px;
+		max-width: 1848px;
 	}
 }
 @media screen and (min-width: 2048px) {
@@ -2275,9 +2319,9 @@ margin: auto;
 	.entry-comic .navigation-comic .nav-title,
 	.entry-comic .navigation-comic .nav-first a,
 	.entry-comic .navigation-comic .nav-last a {
-	font-size: 1.2rem;
-	letter-spacing: normal;
-	width: -moz-max-content;
+		font-size: 1.2rem;
+		letter-spacing: normal;
+		width: -moz-max-content;
 	}
 }
 @media screen and (max-width: 600px) {
@@ -2289,16 +2333,23 @@ margin: auto;
 		font-size: 12px;
 		line-height: 1.4;		
 	}
+	.home .site-branding {
+		padding: 2.4em 0;
+	}
+	.site-title {
+		font-size: 0.9em;
+		border: 4px solid #424242; 
+	}
 	#masthead .logo {
 		width: 60px;
 		height: 30px;
     } 
     .main-navigation {
-	font-size: 1.2rem;
-  line-height: 1.4;
+		font-size: 1.2rem;
+		line-height: 1.4;
     }
     .site-description {
-    display: none;
+    	display: none;
     }
 	blockquote p {
 		font-size: 16px;
@@ -2337,7 +2388,6 @@ margin: auto;
 		margin-bottom: 34px;
 	}
 	.comment-content blockquote p {
-
     font-size: 1.2rem;
 		line-height: 1.6;
 	}
