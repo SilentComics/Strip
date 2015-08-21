@@ -21,8 +21,8 @@ function silentcomics_custom_header_setup() {
 		'header-text'  			 => true,
 		'default-text-color'     => '000',
 		'flex-width'   			 => true,
-		'width'                  => 1992,
-		'height'                 => 498,
+		'width'                  => 1920,
+		'height'                 => 204,
 		'flex-height'            => true,
 		'wp-head-callback'       => 'silentcomics_header_style',
 		'admin-head-callback'    => 'silentcomics_admin_header_style',
@@ -34,10 +34,9 @@ add_action( 'after_setup_theme', 'silentcomics_custom_header_setup' );
 if ( ! function_exists( 'silentcomics_header_style' ) ) :
 
 /**
-* Register default header image
+* Register default header image, if you don't you won't be able to use it
 *
 */
-
 register_default_headers( array(
     'DefaultHeader' => array(
     'url'   => get_template_directory_uri() . '/library/images/Default-header.png',
@@ -103,7 +102,7 @@ function silentcomics_admin_header_style() {
 		#desc {
 		}
 	#headimg h1 {
-		font: 700 2.4rem/1.4166666666 Futura, "Trebuchet MS", Arial, sans-serif;
+		font: 400 2.4rem/1.4166666666 Futura, "Trebuchet MS", Arial, sans-serif;
 		text-align: center;
 		text-transform: uppercase;
 	}
