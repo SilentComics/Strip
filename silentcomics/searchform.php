@@ -1,6 +1,6 @@
 <?php
 /**
- * The template for displaying search forms in SilentComics
+ * The template for displaying search forms
  *
  * @package SilentComics
  */

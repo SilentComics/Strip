@@ -1,35 +1,23 @@
 <?php
 /**
- * The Sidebar containing the main widget areas.
- *
- * @package SilentComics
- */
+* The Sidebar containing the main widget areas.
+*
+* @package SilentComics
+*/
 ?>
-<div class="wrap">
-	<div id="primary" class="sidebar" role="complementary">
-		
-		<?php if ( is_active_sidebar( 'sidebar' ) ) : ?>
+<div id="primary" class="widget-area" role="complementary">
+<div class="entry-wrap wrap clear">
 
-			<aside id="search" class="widget widget_search">
-				<?php get_search_form(); ?>
-			</aside>
-
-			<aside id="archives" class="widget">
-				<h1 class="widget-title"><?php esc_html_e( 'Archives', 'silentcomics' ); ?></h1>
-				<ul>
-					<?php wp_get_archives( array( 'type' => 'monthly' ) ); ?>
-				</ul>
-			</aside>
-
-			<aside id="meta" class="widget">
-				<h1 class="widget-title"><?php esc_html_e( 'Meta', 'silentcomics' ); ?></h1>
-				<ul>
-					<?php wp_register(); ?>
-					<li><?php wp_loginout(); ?></li>
-					<?php wp_meta(); ?>
-				</ul>
-			</aside>
-
+	<?php //<nav id="site-navigation" class="main-navigation" role="navigation">
+	//<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'silentcomics' ); </a>
+	//wp_nav_menu( array( 'theme_location' => 'primary' ) ); 
+	// </nav><!-- #site-navigation .main-navigation --> 
+	?>
+	
+		<?php if ( is_active_sidebar( 'Sidebar' ) ) : ?>
+			<div class="widget-area">
+				<?php dynamic_sidebar( 'Sidebar' ); ?>
 		<?php endif; // end sidebar widget area ?>
-	</div><!-- #secondary -->
+	</div><!-- .widgets-area -->
 </div><!-- .entry-wrap -->
+</div><!-- #primary -->

@@ -80,11 +80,11 @@ $story_slug = $story[0]->slug;
 $thisindex = array_search($post->ID, $ids); ?>
 		
 				<div class="navigation-comic">
-				<nav class="nav-first"><a href="<?php echo esc_url( first_comic_link()); ?>"><?php esc_html_e( '&#124;&#10094; First', 'First Episode', 'silentcomics' ); ?></a></nav>
+				<nav class="nav-first"><a href="<?php echo esc_url( first_comic_link()); ?>"><?php esc_html_e( '&#124;&#10094; First', 'silentcomics' ); ?></a></nav>
 				<nav class="nav-previous"><?php if ( $thisindex != 0 ) { $previd = $ids[$thisindex-1]; echo '<a rel="prev" href="' . get_permalink($previd). '" rel="nofollow">previous</a>'; }?></nav>
 				<nav class="nav-title"><?php the_title( '<h6 class="comic-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h6>' ); ?></nav>
 				<nav class="nav-next"><?php if ( $thisindex != count($ids)-1 ) { $nextid = $ids[$thisindex+1]; echo '<a rel="next" href="' . get_permalink($nextid). '" rel="nofollow">next</a>'; } ?></nav>
-				<nav class="nav-last"><a href="<?php echo esc_url( last_comic_link()); ?>"><?php esc_html_e( 'Latest &#10095;&#124;', 'Latest Episode', 'silentcomics' ); ?></a></nav>
+				<nav class="nav-last"><a href="<?php echo esc_url( last_comic_link()); ?>"><?php esc_html_e( 'Latest &#10095;&#124;', 'silentcomics' ); ?></a></nav>
 			</div>
 
 			<?php elseif ( is_single() ) : // navigation links for single posts ?>
@@ -141,7 +141,7 @@ function silentcomics_comment( $comment, $args, $depth ) {
 			
 			<div class="comment-content">
 				<?php comment_text(); ?>
-				<?php if ( $comment->comment_approved == '0' ) : ?>
+				<?php if ( $comment->comment_approved === '0' ) : ?>
 					<p><em><?php _e( 'Your comment is awaiting moderation.', 'silentcomics' ); ?></em></p>
 				<?php endif; ?>
 			</div>
@@ -191,7 +191,7 @@ function silentcomics_the_attached_image() {
 	// If there is more than 1 attachment in a gallery...
 	if ( count( $attachment_ids ) > 1 ) {
 		foreach ( $attachment_ids as $attachment_id ) {
-			if ( $attachment_id == $post->ID ) {
+			if ( $attachment_id === $post->ID ) {
 				$next_id = current( $attachment_ids );
 				break;
 			}
@@ -225,7 +225,7 @@ function silentcomics_entry_meta() {
 			esc_attr( get_the_time() )
 		);
 
-	if ( 'post' == get_post_type() ) {
+	if ( 'post' === get_post_type() ) {
 		printf( __( '<span class="entry-date"><a href="%1$s" title="%2$s" rel="bookmark"><time datetime="%3$s">%4$s</time></a></span><span class="author vcard"><a class="url fn n" href="%5$s" title="%6$s" rel="author">%7$s</a></span>', 'silentcomics' ),
 			esc_url( get_permalink() ),
 			esc_attr( get_the_time() ),
@@ -284,21 +284,15 @@ add_action( 'save_post',     'silentcomics_category_transient_flusher' );
  * @param array $args
  */
  
-function first_comic_link( $args = array() ) {
-	$first = get_comic_boundary_post( TRUE, '', TRUE, 'story' );
+ function first_comic_link( $args = array() ) {
+	$first = get_comic_boundary_post( TRUE, '', TRUE );
     apply_filters( 'the_title', $first[0]->post_title ); 
 
 $query = new WP_Query( $args );
     
 if ( $query->have_posts() )
 	$query->the_post(); 
-	echo post_permalink( $first[0]->ID );
-
-// TO DO: Fix "UNDEFINED OFFSET: 0" error when "comic" post has no taxonomy set
-//if ( $first != 0 ) {
-//   $firstid = $first[0];
-//   echo get_permalink($firstid);
-//	}		
+	echo get_permalink( $first[0]->ID );	
 }  
 
 wp_reset_postdata();
@@ -309,15 +303,15 @@ wp_reset_postdata();
  * @param array $args
  */
  
- function last_comic_link( $args = array() ) {  
-	$last = get_comic_boundary_post( TRUE, '', FALSE, 'story' );
+function last_comic_link( $args = array() ) {  
+	$last = get_comic_boundary_post( TRUE, '', FALSE );
     apply_filters( 'the_title', $last[0]->post_title );
 	 
 $query = new WP_Query( $args );    
      
 if ( $query->have_posts() )
 	$query->the_post(); 
-	echo post_permalink( $last[0]->ID );
+	echo get_permalink( $last[0]->ID );
 } 
 
 wp_reset_postdata();

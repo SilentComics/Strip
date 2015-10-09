@@ -5,11 +5,8 @@
  * @package SilentComics
  */
 
-/**
- * Set the content width based on the theme's design and stylesheet.
- */
 if ( ! isset( $content_width ) )
-	$content_width = 2040; /* pixels */
+	$content_width = 1920; /* pixels */
 
 if ( ! function_exists( 'silentcomics_setup' ) ) :
 /**
@@ -34,7 +31,16 @@ function silentcomics_setup() {
 	 * to change 'silentcomics' to the name of your theme in all the template files
 	 */
 	load_theme_textdomain( 'silentcomics', get_template_directory() . '/languages' );
-	
+
+	/**
+	* Functions for RICG-responsive-images
+	* https://github.com/ResponsiveImagesCG/wp-tevko-responsive-images/tree/dev#advanced-image-compression
+	*/
+	function custom_theme_setup() {
+    add_theme_support( 'advanced-image-compression' );
+}
+add_action( 'after_setup_theme', 'custom_theme_setup' );
+
 	/**
 	* Add EditorStyle
 	*/
@@ -72,7 +78,16 @@ add_action( 'after_setup_theme', 'silentcomics_add_editor_styles' );
 	/**
 	 * Enable support for Post Formats
 	 */
-	add_theme_support( 'post-formats', array( 'aside', 'image', 'video', 'quote', 'link', 'gallery','audio', 'chat') );
+	add_theme_support( 'post-formats', array(
+		'aside',
+		'image',
+		'video',
+		'quote',
+		'link',
+		'gallery',
+		'audio',
+		'chat',
+	) );
 
 	/**
 	 * Setup the WordPress core custom background feature.
@@ -92,28 +107,6 @@ add_action( 'after_setup_theme', 'silentcomics_add_editor_styles' );
 }
 endif; // silentcomics_setup
 add_action( 'after_setup_theme', 'silentcomics_setup' );
-
-/**
- * Add theme support for Aesop Story Engine
- */
- 
-// add_theme_support("aesop-component-styles", array("parallax", "image", "quote", "gallery", "content", "video", "audio", "collection", "chapter", "document", "character", "map", "timeline" ) );
-
-/**
- * Implementation for excerpts (TO DO)
- */
-function wpse_allowedtags() {
-// Add custom tags to this string
-    return '<script>,<style>,<br>,<em>,<i>,<ul>,<ol>,<li>,<a>,<p>,<img>,<video>,<audio>'; 
-}
-
-/**
- * Add read more link to exerpts
- */
-function new_excerpt_more( $more ) {
-    return ' <a class="read-more" href="'. get_permalink( get_the_ID() ) . '">' . __('Read More', 'your-text-domain') . '</a>';
-}
-add_filter( 'excerpt_more', 'new_excerpt_more' );
 
 /**
  * Register widgetized area and update sidebar with default widgets
@@ -151,9 +144,37 @@ function silentcomics_widgets_init() {
 		'after_widget'  => '</aside>',
 		'before_title'  => '<h3 class="widget-title">',
 		'after_title'   => '</h3>',
-		));
+	) );
+	register_sidebar( array(
+		'name'          => __( 'Footer Sidebar 4', 'silentcomics' ),
+		'id'            => 'footer-sidebar-4',
+		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</aside>',
+		'before_title'  => '<h3 class="widget-title">',
+		'after_title'   => '</h3>',
+	) );
 }
 add_action( 'widgets_init', 'silentcomics_widgets_init' );
+
+/** Remove widget queries when no widget is used
+* Unregister all Default Widgets
+*/
+
+//function unregister_default_wp_widgets() {
+//    unregister_widget('WP_Widget_Pages');
+//    unregister_widget('WP_Widget_Calendar');
+//    unregister_widget('WP_Widget_Archives');
+//    unregister_widget('WP_Widget_Links');
+//    unregister_widget('WP_Widget_Meta');
+//    unregister_widget('WP_Widget_Search');
+//    unregister_widget('WP_Widget_Text');
+//    unregister_widget('WP_Widget_Categories');
+//    unregister_widget('WP_Widget_Recent_Posts');
+//    unregister_widget('WP_Widget_Recent_Comments');
+//    unregister_widget('WP_Widget_RSS');
+//    unregister_widget('WP_Widget_Tag_Cloud');
+//}
+//add_action('widgets_init', 'unregister_default_wp_widgets', 1);
 
 /**
 * add ie conditional html5 shim to header
@@ -176,7 +197,7 @@ function theme_slug_fonts_url() {
     * supported by Fenix, translate this to 'off'. Do not translate
     * into your own language.
     */
-    $fenix = _x( 'on', 'Fenix font: on or off', 'theme-slug' );
+    $fenix = _x( 'on', 'Fenix font: on or off', 'silentcomics' );
  
     if ( 'off' !== $fenix ) {
         $font_families = array();
@@ -199,7 +220,7 @@ function theme_slug_fonts_url() {
 * Now enqueue the custom font to the front end (see function above)
 */
 function theme_slug_scripts_styles() {
-    wp_enqueue_style( 'theme-slug-fonts', theme_slug_fonts_url(), array(), null );
+    wp_enqueue_style( 'silentcomics-fonts', get_stylesheet_directory_uri() . '/style.css', array(), null );
 }
 add_action( 'wp_enqueue_scripts', 'theme_slug_scripts_styles' );
 
@@ -219,13 +240,14 @@ if ( has_nav_menu( 'primary' ) )
 	
 // toggle comments js	
 	wp_enqueue_script( 'silentcomics-toggle-comments', get_template_directory_uri() . '/js/toggle-comments.js', array(), '1.0.0', true );
+	
 
 if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
-	}
-
-	if ( is_singular() && wp_attachment_is_image() ) {
+	
+if ( is_singular() && wp_attachment_is_image() ) {
 		wp_enqueue_script( 'silentcomics-keyboard-image-navigation', get_template_directory_uri() . '/js/keyboard-image-navigation.js', array( 'jquery' ), '20120202' );
+		}
 	}
 }
 add_action( 'wp_enqueue_scripts', 'silentcomics_scripts' );
@@ -256,7 +278,14 @@ require get_template_directory() . '/inc/customizer.php';
 require get_template_directory() . '/inc/jetpack.php';
 
 /**
-* This is the new registration code for CTP generated by the CPT UI plugin with adaptation
+* remove the  WordPress function
+*/
+// remove_shortcode('gallery', 'gallery_shortcode');
+// add our own replacement function
+
+
+/**
+* This is the new registration code for CPT generated by the CPT UI plugin with adaptation
 *
 */
 
@@ -264,25 +293,25 @@ require get_template_directory() . '/inc/jetpack.php';
 function comic_post_type() {
 
 	$labels = array(
-		'name'                => _x( 'Comics', 'Post Type General Name', 'text_domain' ),
-		'singular_name'       => _x( 'Comic', 'Post Type Singular Name', 'text_domain' ),
-		'menu_name'           => __( 'Comics', 'text_domain' ),
-		'name_admin_bar'      => __( 'Comic', 'text_domain' ),
-		'parent_item_colon'   => __( 'Parent Comic:', 'text_domain' ),
-		'all_items'           => __( 'All Comics', 'text_domain' ),
-		'add_new_item'        => __( 'Add New Comic', 'text_domain' ),
-		'add_new'             => __( 'Add New Comic', 'text_domain' ),
-		'new_item'            => __( 'New Comic', 'text_domain' ),
-		'edit_item'           => __( 'Edit Comic', 'text_domain' ),
-		'update_item'         => __( 'Update Comic', 'text_domain' ),
-		'view_item'           => __( 'View Comic', 'text_domain' ),
-		'search_items'        => __( 'Search Item', 'text_domain' ),
-		'not_found'           => __( 'Not Comics found', 'text_domain' ),
-		'not_found_in_trash'  => __( 'Not Comics found in Trash', 'text_domain' ),
+		'name'                => _x( 'Comics', 'Post Type General Name', 'silentcomics' ),
+		'singular_name'       => _x( 'Comic', 'Post Type Singular Name', 'silentcomics' ),
+		'menu_name'           => __( 'Comics', 'silentcomics' ),
+		'name_admin_bar'      => __( 'Comic', 'silentcomics' ),
+		'parent_item_colon'   => __( 'Parent Comic:', 'silentcomics' ),
+		'all_items'           => __( 'All Comics', 'silentcomics' ),
+		'add_new_item'        => __( 'Add New Comic', 'silentcomics' ),
+		'add_new'             => __( 'Add New Comic', 'silentcomics' ),
+		'new_item'            => __( 'New Comic', 'silentcomics' ),
+		'edit_item'           => __( 'Edit Comic', 'silentcomics' ),
+		'update_item'         => __( 'Update Comic', 'silentcomics' ),
+		'view_item'           => __( 'View Comic', 'silentcomics' ),
+		'search_items'        => __( 'Search Item', 'silentcomics' ),
+		'not_found'           => __( 'Not Comics found', 'silentcomics' ),
+		'not_found_in_trash'  => __( 'Not Comics found in Trash', 'silentcomics' ),
 	);
 	$args = array(
-		'label'               => __( 'Comic', 'text_domain' ),
-		'description'         => __( 'Publish Comics and Webcomics', 'text_domain' ),
+		'label'               => __( 'Comic', 'silentcomics' ),
+		'description'         => __( 'Publish Comics and Webcomics', 'silentcomics' ),
 		'labels'              => $labels,
 		'supports'            => array( 'title', 'editor', 'excerpt', 'trackbacks', 'custom-fields', 'comments', 'revisions', 'thumbnail', 'author'),
 		'taxonomies'          => array( 'story', 'story_term', 'draft' ),
@@ -326,23 +355,23 @@ add_action( 'after_switch_theme', 'my_rewrite_flush' );
 function comic_story_taxonomy() {
 
 	$labels = array(
-		'name'                       => _x( 'Story', 'Taxonomy General Name', 'text_domain' ),
-		'singular_name'              => _x( 'Story', 'Taxonomy Singular Name', 'text_domain' ),
-		'menu_name'                  => __( 'Stories', 'text_domain' ),
-		'all_items'                  => __( 'All Stories', 'text_domain' ),
-		'parent_item'                => __( 'Parent Story', 'text_domain' ),
-		'parent_item_colon'          => __( 'Parent Story:', 'text_domain' ),
-		'new_item_name'              => __( 'New Comic Story', 'text_domain' ),
-		'add_new_item'               => __( 'Add New Story', 'text_domain' ),
-		'edit_item'                  => __( 'Edit Story', 'text_domain' ),
-		'update_item'                => __( 'Update Story', 'text_domain' ),
-		'view_item'                  => __( 'View Item', 'text_domain' ),
-		'separate_items_with_commas' => __( 'Separate stories with commas', 'text_domain' ),
-		'add_or_remove_items'        => __( 'Add or remove stories', 'text_domain' ),
-		'choose_from_most_used'      => __( 'Choose from the most used stories', 'text_domain' ),
-		'popular_items'              => __( 'Popular Items', 'text_domain' ),
-		'search_items'               => __( 'Search stories', 'text_domain' ),
-		'not_found'                  => __( 'Not Found', 'text_domain' ),
+		'name'                       => _x( 'Story', 'Taxonomy General Name', 'silentcomics' ),
+		'singular_name'              => _x( 'Story', 'Taxonomy Singular Name', 'silentcomics' ),
+		'menu_name'                  => __( 'Stories', 'silentcomics' ),
+		'all_items'                  => __( 'All Stories', 'silentcomics' ),
+		'parent_item'                => __( 'Parent Story', 'silentcomics' ),
+		'parent_item_colon'          => __( 'Parent Story:', 'silentcomics' ),
+		'new_item_name'              => __( 'New Comic Story', 'silentcomics' ),
+		'add_new_item'               => __( 'Add New Story', 'silentcomics' ),
+		'edit_item'                  => __( 'Edit Story', 'silentcomics' ),
+		'update_item'                => __( 'Update Story', 'silentcomics' ),
+		'view_item'                  => __( 'View Item', 'silentcomics' ),
+		'separate_items_with_commas' => __( 'Separate stories with commas', 'silentcomics' ),
+		'add_or_remove_items'        => __( 'Add or remove stories', 'silentcomics' ),
+		'choose_from_most_used'      => __( 'Choose from the most used stories', 'silentcomics' ),
+		'popular_items'              => __( 'Popular Items', 'silentcomics' ),
+		'search_items'               => __( 'Search stories', 'silentcomics' ),
+		'not_found'                  => __( 'Not Found', 'silentcomics' ),
 	);
 	$args = array(
 		'labels'                     => $labels,
@@ -363,22 +392,22 @@ add_action( 'init', 'comic_story_taxonomy', 0 );
 
 // Add new taxonomy, NOT hierarchical (like tags)
 	$labels = array(
-		'name'                       => _x( 'Prints', 'taxonomy general name' ),
-		'singular_name'              => _x( 'Print', 'taxonomy singular name' ),
-		'search_items'               => __( 'Search Prints' ),
-		'popular_items'              => __( 'Popular Prints' ),
-		'all_items'                  => __( 'All Prints' ),
+		'name'                       => _x( 'Prints', 'taxonomy general name', 'silentcomics' ),
+		'singular_name'              => _x( 'Print', 'taxonomy singular name', 'silentcomics' ),
+		'search_items'               => __( 'Search Prints', 'silentcomics' ),
+		'popular_items'              => __( 'Popular Prints', 'silentcomics' ),
+		'all_items'                  => __( 'All Prints', 'silentcomics' ),
 		'parent_item'                => null,
 		'parent_item_colon'          => null,
-		'edit_item'                  => __( 'Edit Print' ),
-		'update_item'                => __( 'Update Print' ),
-		'add_new_item'               => __( 'Add New Print' ),
-		'new_item_name'              => __( 'New Author Name' ),
-		'separate_items_with_commas' => __( 'Separate prints with commas' ),
-		'add_or_remove_items'        => __( 'Add or remove prints' ),
-		'choose_from_most_used'      => __( 'Choose from the most used prints' ),
-		'not_found'                  => __( 'No prints found.' ),
-		'menu_name'                  => __( 'Prints' ),
+		'edit_item'                  => __( 'Edit Print', 'silentcomics' ),
+		'update_item'                => __( 'Update Print', 'silentcomics' ),
+		'add_new_item'               => __( 'Add New Print', 'silentcomics' ),
+		'new_item_name'              => __( 'New Author Name', 'silentcomics' ),
+		'separate_items_with_commas' => __( 'Separate prints with commas', 'silentcomics' ),
+		'add_or_remove_items'        => __( 'Add or remove prints', 'silentcomics' ),
+		'choose_from_most_used'      => __( 'Choose from the most used prints', 'silentcomics' ),
+		'not_found'                  => __( 'No prints found.', 'silentcomics' ),
+		'menu_name'                  => __( 'Prints', 'silentcomics' ),
 	);
 
 	$args = array(

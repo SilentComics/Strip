@@ -31,6 +31,11 @@
 					<?php dynamic_sidebar( 'footer-sidebar-3' ); ?>
 				</div>
 			<?php endif; ?>
+			<?php if ( is_active_sidebar( 'footer-sidebar-4' ) ) : ?>
+				<div class="sidebar-2">
+					<?php dynamic_sidebar( 'footer-sidebar-4' ); ?>
+				</div>
+			<?php endif; ?>
 		</div><!-- .widget-area-wrapper -->
 	</div><!-- #secondary -->
 <?php endif; //is_active_sidebar ?>

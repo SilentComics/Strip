@@ -10,13 +10,13 @@
 	<div class="entry-wrap wrap clear">
 		<?php
 			if ( '' != get_the_post_thumbnail() ) :
-				the_post_thumbnail( 'SilentComics-featured-thumbnail' );
+				the_post_thumbnail( 'silentcomics-featured-thumbnail' );
 			endif;
 		?>
 		<header class="entry-header">
 			<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 			<div class="entry-meta">
-				<?php edit_post_link( __( 'Edit', 'SilentComics' ), '<span class="edit-link">', '</span>' ); ?>
+				<?php edit_post_link( __( 'Edit', 'silentcomics' ), '<span class="edit-link">', '</span>' ); ?>
 			</div><!-- .entry-meta -->
 		</header><!-- .entry-header -->
 

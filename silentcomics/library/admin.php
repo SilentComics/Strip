@@ -1,10 +1,9 @@
 <?php
 /*
 This file handles the admin area and functions.
-You can use this file to make changes to the
+You can use it to make changes to the
 dashboard. Updates to this page are coming soon.
-It's turned off by default, but you can call it
-via the functions file.
+The file is called by functions.php.
 
 Developed by: Eddie Machado
 URL: http://themble.com/bones/
@@ -131,7 +130,7 @@ you like.
 
 // Custom Backend Footer
 function silentcomics_custom_admin_footer() {
-	_e('<span id="footer-thankyou">Developed by and for <a href="http://silent-comics.com" target="_blank">Silent Comics</a></span>. Custom admin area thanks to <a href="" target="_blank">Themble</a>.', 'silentcomics');
+	_e('<span id="footer-thankyou">Developed by <a href="http://silent-comics.com" target="_blank">Silent Comics</a></span>. Custom admin area thanks to <a href="http://themble.com/bones" target="_blank">Themble</a>.', 'silentcomics');
 }
 
 // adding it to the admin area

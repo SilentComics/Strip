@@ -1,13 +1,12 @@
 /*
 Theme Name: SilentComics
 Theme URI: https://github.com/SilentComics/Wordpress-Theme-for-Silent-Comics/
-Author: Silent Comics
+Author: SILENT COMICS
 Author URI: http://silent-comics.com
 Description: A simple theme for comics & web-comics
-Version: Pre release WIP 2.4.4 (16/08/2015) — Improve 
-Code Review: Found a bug, want to help improving the theme? Please contact @silentcomics or mail hoa // at // silent-comics.com
+Version: 2.4.6.2 (October 2015) — Rebuild from lost 2.4.6.1
 License: GNU General Public License v3 or later
-License URI: http://www.gnu.org/licenses/gpl.html
+License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Text Domain: silentcomics
 Domain Path: /languages/
 Tags: black, white, light, one-column, fixed-layout, responsive-layout, custom-background, custom-colors, custom-header, custom-menu, featured-images, flexible-header, post-formats, editor-style, rtl-language-support, sticky-post, translation-ready
@@ -721,9 +720,19 @@ textarea {
 #search-wrapper input .search-field [type="submit"] {
 	display: none;
 }
+/* CSS form MailChimp 4 WP form */
 #mc4wp-form-1 [type="submit"] {
 	display: none;
+}
+.mc4wp-form input[type="date"], 
+.mc4wp-form input[type="email"], 
+.mc4wp-form input[type="tel"], 
+.mc4wp-form input[type="text"], 
+.mc4wp-form input[type="url"], 
+.mc4wp-form select, 
+.mc4wp-form textarea {
 	font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+ font-size: 1em;
 }
 
 /*--------------------------------------------------------------
@@ -1039,7 +1048,14 @@ body {
 --------------------------------------------------------------*/
 #primary.sidebar {
 	margin: 0 auto;
-	max-width: 696px;
+	max-width: 120px;
+	padding-top: 2.4em;
+}
+#primary .widget-area .widget_search {
+ display: none;
+ margin: 0 auto;
+	max-width: 300px;
+ padding-bottom: 2em;
 }
 .widget-area-wrapper {
 	margin: 0 auto;
@@ -1047,12 +1063,13 @@ body {
 }
 .sidebar-1,
 .sidebar-2,
-.sidebar-3 {
+.sidebar-3,
+.sidebar-4 {
 	float: left;
 	margin: 0;
-	width: 33.3%;
+	width: 25%;
 }
-.sidebar-3 {
+.sidebar-4 {
 	margin-right: 0;
 }
 .widget {
@@ -1276,7 +1293,7 @@ display: block;
 }
 .entry-title, .entry-title a{
 	text-decoration:none;
-	font-size:32px;
+	font-size:1.2em;
 	color:#241212;
 	line-height: inherit;
 	text-transform:uppercase;
@@ -1483,7 +1500,7 @@ span > object {
 /* =Media
 ----------------------------------------------- */
 
-.attachment-SilentComics-featured-thumbnail,
+.attachment-silentcomics-featured-thumbnail,
 .site-header img,
 .entry-content img,
 .entry-summary img,
@@ -1492,7 +1509,7 @@ span > object {
 	max-width: 100%;
 	vertical-align: middle;
 }
-.attachment-SilentComics-featured-thumbnail,
+.attachment-silentcomics-featured-thumbnail,
 .site-header img,
 .entry-content img,
 .entry-summary img,
@@ -1979,6 +1996,13 @@ button.toggle-comments {
 	font-size: 1.4rem;
   text-transform: uppercase;
 }
+.bypostauthor > article .comment-author > cite:after {
+	font-size: 16px;
+	content: "wa";
+	position: absolute;
+		top: -10px;
+		right: -16px;
+}
 .comment-author .says {
 	color: lightgrey;
 	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
@@ -2196,14 +2220,15 @@ button.toggle-comments {
 		float: none;
 	}
 	.format-video .band {
-		background-color: #290404;
+		background-color: black;
 		display: block;
 		position: absolute;
-		top: 1em;
+		top: 0;
 		left: 0;
 		width: 100%;
-		height: 554px; /* Custom Height*/
+		height: 90%; /* Custom Height*/
 		z-index: -1;
+		padding-bottom: 1em;
 	}
 	.format-video .entry-title,
 	.format-video .entry-title a {

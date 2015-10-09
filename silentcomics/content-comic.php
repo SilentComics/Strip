@@ -1,9 +1,9 @@
 <?php
 /**
- * @package silentcomics
+ * @package SilentComics
  */
 ?>
-<article id="comic-<?php the_id(); ?>" <?php post_class('clear'); ?>>
+<article id="comic-<?php the_ID(); ?>" <?php post_class('clear'); ?>>
 	<div class="entry-wrap wrap clear">
 		
 		<footer class="entry-meta">
@@ -20,11 +20,11 @@
 		
 		<?php if ( '' != get_the_post_thumbnail() ) : ?>
 			<?php if ( ! is_single() ) : ?>
-			<a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'SilentComics' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="<?php the_ID(); ?>" class="SilentComics-featured-thumbnail">
-				<?php the_post_thumbnail( 'SilentComics-featured-thumbnail' ); ?>
+			<a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'silentcomics' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="<?php the_ID(); ?>" class="silentcomics-featured-thumbnail">
+				<?php the_post_thumbnail( 'silentcomics-featured-thumbnail' ); ?>
 			</a>
 			<?php else : ?>
-				<?php the_post_thumbnail( 'SilentComics-featured-thumbnail' ); ?>
+				<?php the_post_thumbnail( 'silentcomics-featured-thumbnail' ); ?>
 			<?php endif; ?>
 		<?php endif; ?>
 
