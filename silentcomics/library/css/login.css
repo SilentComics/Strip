@@ -39,26 +39,26 @@ body.login {
 .no-svg login h1 a {
   background-image: url('../images/login-logo.png');
 }  
-form {
+#loginform {
   margin-left: 8px;
   padding: 26px 24px 46px;
   font-weight: normal;
-  background:  white;
-  border: 1px solid #e7e7e7;
+  background:  transparent;
+  border: 0px solid #e7e7e7;
   border-radius: 3px;
   box-shadow: none; 
 }
-form .input {
-  font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
-
-  font-size: 12px;
-  width: 97%;
+#loginform .input {
+  font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+  color: black;
+  font-size: 24px;
+  width: 100%;
   padding: 3px;
   margin-top: 2px;
   margin-right: 6px;
   margin-bottom: 16px;
   border: 1px solid #e7e7e7;
-  background: #ffcccc;
+  background: white;
   outline: none;
   box-shadow: inset 1px 1px 2px rgba(200, 200, 200, 0.2);
 }
@@ -73,8 +73,8 @@ html input[type="button"],
 input[type="reset"],
 input[type="submit"] {
 	border: 0;
-	background-color: teal;
-	color: #fff;
+	background-color: black;
+	color: white;
 	cursor: pointer;
 	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
 	font-size: 12px;
@@ -84,5 +84,5 @@ input[type="submit"] {
 }
 /* background*/
 body {
-	background-color: #00ffaa;
+	background-color: #00ffcc;
 }
