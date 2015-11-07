@@ -32,3 +32,22 @@
 			container.className += ' toggled';
 	};
 } )(); 
+
+// Better focus for hidden submenu items for accessibility.
+( function( $ ) {
+	$( '.main-navigation' ).find( 'a' ).on( 'focus.silentcomics blur.silentcomics', function() {
+		$( this ).parents( '.menu-item, .page_item' ).toggleClass( 'focus' );
+	} );
+
+  if ( 'ontouchstart' in window ) {
+    $('body').on( 'touchstart.silentcomics',  '.menu-item-has-children > a, .page_item_has_children > a', function( e ) {
+      var el = $( this ).parent( 'li' );
+
+      if ( ! el.hasClass( 'focus' ) ) {
+        e.preventDefault();
+        el.toggleClass( 'focus' );
+        el.siblings( '.focus').removeClass( 'focus' );
+      }
+    } );
+  }
+} )( jQuery );

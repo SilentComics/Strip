@@ -6,7 +6,7 @@
 */
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class( 'clear' ); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<div class="entry-wrap wrap clear">
 		<?php if ( '' != get_the_post_thumbnail() ) : ?>
 			<?php if ( ! is_single() ) : ?>
@@ -32,8 +32,6 @@
 			?>
 		</header><!-- .entry-header -->
 		
-		<?php //silentcomics_excerpt(); ?>
-
 		<footer class="entry-meta">
 			<?php silentcomics_entry_meta(); ?>
 							

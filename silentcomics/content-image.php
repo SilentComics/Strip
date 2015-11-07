@@ -12,12 +12,6 @@ if ( isset( $GLOBALS['content_width'] ) )
 
 	<div class="entry-wrap wrap clear">
 		<div class="entry-content clear">	
-			
-	<?php
-			if ( '' != get_the_post_thumbnail() ) :
-				the_post_thumbnail( 'silentcomics-featured-thumbnail' );
-			endif;
-		?>
 		
 		<header class="entry-header">
 			<?php
@@ -33,8 +27,7 @@ if ( isset( $GLOBALS['content_width'] ) )
 			?>
 			</header><!-- .entry-header -->
 			
-			
-<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'silentcomics' ) ); ?>
+					<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'silentcomics' ) ); ?>
 			<?php
 				wp_link_pages( array(
 					'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'silentcomics' ) . '</span>',
@@ -44,13 +37,6 @@ if ( isset( $GLOBALS['content_width'] ) )
 				) );
 			?>
 		</div><!-- .entry-content -->
-		<?php if ( has_excerpt() ) : ?>
-		<div class="entry-summary">
-			<?php do_action( 'silentcomics_formatted_posts_excerpt_before' ); ?>
-			<?php the_excerpt(); ?>
-			<?php do_action( 'silentcomics_formatted_posts_excerpt_after' ); ?>
-		</div><!-- .entry-caption -->
-		<?php endif; ?>
 		
 		<footer class="entry-meta">
 			<?php silentcomics_entry_meta(); ?>
@@ -63,7 +49,14 @@ if ( isset( $GLOBALS['content_width'] ) )
 
 			<?php edit_post_link( __( 'Edit', 'silentcomics' ), '<span class="edit-link">', '</span>' ); ?>
 		</footer><!-- .entry-meta -->
+		
+				<?php if ( has_excerpt() ) : ?>
+		<div class="entry-summary">
+			<?php do_action( 'silentcomics_formatted_posts_excerpt_before' ); ?>
+			<?php the_excerpt(); ?>
+			<?php do_action( 'silentcomics_formatted_posts_excerpt_after' ); ?>
+		</div><!-- .entry-caption -->
+		<?php endif; ?>
 
 	</div><!-- .entry-wrap -->
-		
 </article><!-- #post-## -->

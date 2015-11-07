@@ -108,89 +108,115 @@ add_action( 'after_setup_theme', 'silentcomics_add_editor_styles' );
 endif; // silentcomics_setup
 add_action( 'after_setup_theme', 'silentcomics_setup' );
 
+/* 
+* WooCommerce Hooks
+*
+*/
+
+remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10);
+remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10);
+
+add_action('woocommerce_before_main_content', 'silentcomics_wrapper_start', 10);
+add_action('woocommerce_after_main_content', 'silentcomics_wrapper_end', 10);
+
+
+function silentcomics_wrapper_start() {
+  echo '<div id="content" class="woocommerce-content" role="main"><div class="entry-wrap wrap clear">';
+}
+
+function silentcomics_wrapper_end() {
+  echo '</div>';
+}
+/** 
+* Add WooCommerce support 
+* https://docs.woothemes.com/document/third-party-custom-theme-compatibility/
+*
+*/
+add_action( 'after_setup_theme', 'woocommerce_support' );
+function woocommerce_support() {
+    add_theme_support( 'woocommerce' );
+}
+
+/**
+*
+*
+*/
+
+function wp_enqueue_woocommerce_style(){
+    wp_register_style( 'woocommerce', get_template_directory_uri() . '/library/css/woocommerce.css' );
+    if ( class_exists( 'woocommerce' ) ) {
+        wp_enqueue_style( 'woocommerce' );
+    }
+}
+add_action( 'wp_enqueue_scripts', 'wp_enqueue_woocommerce_style' );
+
+
 /**
  * Register widgetized area and update sidebar with default widgets
  */
 function silentcomics_widgets_init() {
 	register_sidebar( array(
-		'name'          => __( 'Primary Sidebar', 'silentcomics' ),
+		'name'          => __( 'Main Sidebar', 'silentcomics' ),
 		'id'            => 'sidebar',
+		'description'   => __( 'The main body widget area', 'silentcomics' ),
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</aside>',
 		'before_title'  => '<h1 class="widget-title">',
 		'after_title'   => '</h1>',
 	) );
 
-	register_sidebar( array(
-		'name'          => __( 'Footer Sidebar 1', 'silentcomics' ),
-		'id'            => 'footer-sidebar-1',
-		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+    // First footer widget area, located in the footer. Empty by default.
+    register_sidebar( array(
+        'name' 			=> __( 'First Footer Widget', 'silentcomics' ),
+        'id' 			=> 'first-footer-widget',
+        'description'   => __( 'The first footer widget', 'silentcomics' ),
+        'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</aside>',
 		'before_title'  => '<h3 class="widget-title">',
 		'after_title'   => '</h3>',
-	) );
-	register_sidebar( array(
-		'name'          => __( 'Footer Sidebar 2', 'silentcomics' ),
-		'id'            => 'footer-sidebar-2',
-		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+    ) );
+ 
+    // Second Footer Widget Area, located in the footer. Empty by default.
+    register_sidebar( array(
+        'name' 			=> __( 'Second Footer Widget', 'silentcomics' ),
+        'id' 			=> 'second-footer-widget',
+        'description'   => __( 'The second footer widget', 'silentcomics' ),
+        'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</aside>',
 		'before_title'  => '<h3 class="widget-title">',
 		'after_title'   => '</h3>',
-	) );
-	register_sidebar( array(
-		'name'          => __( 'Footer Sidebar 3', 'silentcomics' ),
-		'id'            => 'footer-sidebar-3',
-		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+    ) );
+ 
+    // Third Footer Widget Area, located in the footer. Empty by default.
+    register_sidebar( array(
+        'name' 			=> __( 'Third Footer Widget', 'silentcomics' ),
+        'id' 			=> 'third-footer-widget',
+        'description' 	=> __( 'The third footer widget', 'silentcomics' ),
+        'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</aside>',
 		'before_title'  => '<h3 class="widget-title">',
 		'after_title'   => '</h3>',
-	) );
-	register_sidebar( array(
-		'name'          => __( 'Footer Sidebar 4', 'silentcomics' ),
-		'id'            => 'footer-sidebar-4',
-		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+    ) );
+ 
+    // Fourth Footer Widget Area, located in the footer. Empty by default.
+    register_sidebar( array(
+        'name' 			=> __( 'Fourth Footer Widget', 'silentcomics' ),
+        'id' 			=> 'fourth-footer-widget',
+        'description' 	=> __( 'The fourth footer widget', 'silentcomics' ),
+        'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</aside>',
 		'before_title'  => '<h3 class="widget-title">',
 		'after_title'   => '</h3>',
-	) );
+    ) );
+         
 }
 add_action( 'widgets_init', 'silentcomics_widgets_init' );
-
-/** Remove widget queries when no widget is used
-* Unregister all Default Widgets
-*/
-
-//function unregister_default_wp_widgets() {
-//    unregister_widget('WP_Widget_Pages');
-//    unregister_widget('WP_Widget_Calendar');
-//    unregister_widget('WP_Widget_Archives');
-//    unregister_widget('WP_Widget_Links');
-//    unregister_widget('WP_Widget_Meta');
-//    unregister_widget('WP_Widget_Search');
-//    unregister_widget('WP_Widget_Text');
-//    unregister_widget('WP_Widget_Categories');
-//    unregister_widget('WP_Widget_Recent_Posts');
-//    unregister_widget('WP_Widget_Recent_Comments');
-//    unregister_widget('WP_Widget_RSS');
-//    unregister_widget('WP_Widget_Tag_Cloud');
-//}
-//add_action('widgets_init', 'unregister_default_wp_widgets', 1);
-
-/**
-* add ie conditional html5 shim to header
- */
-function add_ie_html5_shim () {
-    echo '<!--[if lt IE 9]>';
-    echo '<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>';
-    echo '<![endif]-->';
-}
-add_action('wp_head', 'add_ie_html5_shim');
 
 /**
 * Webfonts 
 * Font URLs function http://themeshaper.com/2014/08/13/how-to-add-google-fonts-to-wordpress-themes/
 */
-function theme_slug_fonts_url() {
+function silentcomics_fonts_url() {
     $fonts_url = '';
  
     /* Translators: If there are characters in your language that are not
@@ -219,10 +245,11 @@ function theme_slug_fonts_url() {
 /**
 * Now enqueue the custom font to the front end (see function above)
 */
-function theme_slug_scripts_styles() {
-    wp_enqueue_style( 'silentcomics-fonts', get_stylesheet_directory_uri() . '/style.css', array(), null );
+function silentcomics_scripts_styles() {
+    wp_enqueue_style( 'silentcomics-fonts', silentcomics_fonts_url(), array(), null );
 }
-add_action( 'wp_enqueue_scripts', 'theme_slug_scripts_styles' );
+add_action( 'wp_enqueue_scripts', 'silentcomics_scripts_styles' );
+
 
 /**
  * Enqueue scripts and styles
@@ -235,6 +262,10 @@ function silentcomics_scripts() {
 	
 if ( has_nav_menu( 'primary' ) )
 	wp_enqueue_script( 'silentcomics-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
+	
+		// Load the html5 shiv.
+	wp_enqueue_script( 'silentcomics-html5', get_template_directory_uri() . '/js/html5.js', array(), '3.7.3' );
+	wp_script_add_data( 'silentcomics-html5', 'conditional', 'lt IE 9' );
 
 	wp_enqueue_script( 'silentcomics-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
 	
@@ -276,12 +307,6 @@ require get_template_directory() . '/inc/customizer.php';
  * Load Jetpack compatibility file.
  */
 require get_template_directory() . '/inc/jetpack.php';
-
-/**
-* remove the  WordPress function
-*/
-// remove_shortcode('gallery', 'gallery_shortcode');
-// add our own replacement function
 
 
 /**
@@ -329,7 +354,7 @@ function comic_post_type() {
 		'exclude_from_search' => false,
 		'rewrite' 			  => array( 'slug' => 'stories', 'with_front' => true ),
 		'publicly_queryable'  => true,
-		'capability_type'     => 'post',
+		'capability_type'     => 'post', 'page',
 		
 	);
 	register_post_type( 'comic', $args );
@@ -467,19 +492,6 @@ function query_post_type($query) {
     add_action( 'save_post', 'set_default_object_terms', 0, 2 );
 
 /**
-* Append the query string for the custom post type 'my_custom_post_type' permalink URLs: http://codex.wordpress.org/Plugin_API/Filter_Reference/post_type_link
-* (uses add_query_arg and get_post_type)
-*
-*/
-
-//function append_query_string( $url, $post ) {
-//   if ( 'comic' == get_post_type( $post ) ) {
-//   return add_query_arg( $_GET, $url );
-//   }
-//return $url;
-//}
-
-/**
 * Get the first and last custom type post using get_boundary_post() 
 * See https://core.trac.wordpress.org/ticket/27094](https://core.trac.wordpress.org/ticket/27094
 *
@@ -528,4 +540,16 @@ function get_comic_boundary_post( $in_same_term = false, $excluded_terms = '', $
 
     return get_posts( $query_args );
 }
+
+/*
+* Create a function to delete our transient when a comic post is saved
+* http://wordpress.stackexchange.com/questions/88991/option-to-feature-custom-post-type-on-home-page
+*
+*/
+    function save_post_delete_story_transient( $post_id ) {
+       if ( 'comic' == get_post_type( $post_id ) )
+        delete_transient( 'comic', 'story' );
+    }
+    // Add the function to the save_post hook so it runs when posts are saved
+    add_action( 'save_post', 'save_post_delete_story_transient' );
 ?>

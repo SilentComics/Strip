@@ -8,6 +8,9 @@
 <?php get_header(); ?>
 	<div id="primary" class="content-area">
         <div class="wrap" class="entry-comic" role="main">
+	        
+	        <br>
+	        <h3 class="taxonomy-description"><a href="<?php echo get_post_type_archive_link( 'comic' ); ?>">Comics Archive</a></h3>
   
 		<?php	
 			$args = array( 
@@ -25,7 +28,9 @@
 			echo '</div>';
 			endwhile; ?>
 
-			<?php wp_reset_query();  // Restore global post data stomped by the_post(). ?>
+  <?php get_template_part('pagination'); ?>
+  
+			<?php wp_reset_postdata(); // Restore global post data stomped by the_post(). ?>
             </div><!-- #content -->
         </div><!-- #primary -->
 

@@ -22,7 +22,7 @@ function silentcomics_custom_header_setup() {
 		'default-text-color'     => '000',
 		'flex-width'   			 => true,
 		'width'                  => 1992,
-		'height'                 => 498,
+		'height'                 => 249,
 		'flex-height'            => true,
 		'wp-head-callback'       => 'silentcomics_header_style',
 		'admin-head-callback'    => 'silentcomics_admin_header_style',
@@ -37,7 +37,6 @@ if ( ! function_exists( 'silentcomics_header_style' ) ) :
 * Register default header image
 *
 */
-
 register_default_headers( array(
     'DefaultHeader' => array(
     'url'   => get_template_directory_uri() . '/library/images/Default-header.png',

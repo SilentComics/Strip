@@ -2,7 +2,7 @@
 /**
  * Custom template tags for this theme.
  *
- * Eventually, some of the functionality here could be replaced by core features — Version 2015 06 17 Note — it "works" but it is a mess — please streamline and improve
+ * Eventually, some of the functionality here could be replaced by core features — please streamline and improve to reduce queries
  *
  * @package SilentComics
  */
@@ -40,10 +40,9 @@ function silentcomics_content_nav( $nav_id ) {
 		
 		$nav_class = ( is_single() ) ? 'post-navigation' : 'paging-navigation';
 	
-			
 		// Add a class when both navigation items are there.
-	if ( ( get_previous_posts_link() && get_next_posts_link() ) || ( is_single() && ( $next && $previous ) ) )
-		$nav_class .= ' double';
+	//if ( ( get_previous_posts_link() && get_next_posts_link() ) || ( is_single() && ( $next && $previous ) ) )
+	//	$nav_class .= ' double';
 	?>
 
 	<nav role="navigation" id="<?php echo esc_attr( $nav_id ); ?>" class="<?php echo $nav_class; ?> clear">
@@ -52,38 +51,11 @@ function silentcomics_content_nav( $nav_id ) {
 		<?php if ( 'comic' === get_post_type() && ( is_single() ||  is_front_page() ) ) : //comics navigation links 
 		$nav_class .= ' navigation-comic'; ?>
 		
-		<?php    // get_posts (comics) in same custom taxonomy
-$story = wp_get_post_terms( $post->ID, 'story' );
-$story_slug = $story[0]->slug;
-
-     $story_args = array(
-    'posts_per_page'  => -1,
-    'orderby'         => 'menu_order title',
-    'order'           => 'ASC',
-    'post_type'       => 'comic',
-    'tax_query' => array(
-	'relation' => 'AND',
-	array(
-	'taxonomy' => 'story',
-	'field' => 'slug',
-	'terms' => $story_slug ) ) )
-    ; 
-     $story_args = get_posts( $story_args );
-
-    // get ids of posts retrieved from get_posts
-    $ids = array();
-    foreach ($story_args as $thepost) {
-     $ids[] = $thepost->ID;
-     }
-
-    // get and echo previous and next post in the same taxonomy           
-$thisindex = array_search($post->ID, $ids); ?>
-		
 				<div class="navigation-comic">
 				<nav class="nav-first"><a href="<?php echo esc_url( first_comic_link()); ?>"><?php esc_html_e( '&#124;&#10094; First', 'silentcomics' ); ?></a></nav>
-				<nav class="nav-previous"><?php if ( $thisindex != 0 ) { $previd = $ids[$thisindex-1]; echo '<a rel="prev" href="' . get_permalink($previd). '" rel="nofollow">previous</a>'; }?></nav>
+				<nav class="nav-previous"><?php previous_post_link('%link', 'Previous', true, '', 'story'); ?></nav>
 				<nav class="nav-title"><?php the_title( '<h6 class="comic-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h6>' ); ?></nav>
-				<nav class="nav-next"><?php if ( $thisindex != count($ids)-1 ) { $nextid = $ids[$thisindex+1]; echo '<a rel="next" href="' . get_permalink($nextid). '" rel="nofollow">next</a>'; } ?></nav>
+				<nav class="nav-next"><?php next_post_link('%link', 'Next', $in_same_term = true, $excluded_terms = '', $taxonomy = 'story'); ?></nav> 
 				<nav class="nav-last"><a href="<?php echo esc_url( last_comic_link()); ?>"><?php esc_html_e( 'Latest &#10095;&#124;', 'silentcomics' ); ?></a></nav>
 			</div>
 
@@ -96,11 +68,11 @@ $thisindex = array_search($post->ID, $ids); ?>
 	<?php elseif ( $wp_query->max_num_pages > 1 && ( is_home() || is_archive() || is_search() ) ) : // navigation links for home, archive, and search pages ?>
 
 		<?php if ( get_next_posts_link() ) : ?>
-		<div class="nav-previous"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'silentcomics' ) ); ?></div>
+		<div class="nav-previous-page"><?php next_posts_link( __( 'Older posts', 'silentcomics' ) ); ?></div>
 		<?php endif; ?>
 
 		<?php if ( get_previous_posts_link() ) : ?>
-		<div class="nav-next"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'silentcomics' ) ); ?></div>
+		<div class="nav-next-page"><?php previous_posts_link( __( 'Newer posts', 'silentcomics' ) ); ?></div>
 			<?php endif; ?>
 
 		<?php endif; ?>
@@ -162,57 +134,6 @@ function silentcomics_comment( $comment, $args, $depth ) {
 }
 endif; // ends check for silentcomics_comment()
 
-if ( ! function_exists( 'silentcomics_the_attached_image' ) ) :
-/**
- * Prints the attached image with a link to the next attached image.
- */
-function silentcomics_the_attached_image() {
-	$post                = get_post();
-	$attachment_size     = apply_filters( 'silentcomics_attachment_size', array( 1272, 1272 ) );
-	$next_attachment_url = wp_get_attachment_url();
-
-	/**
-	 * Grab the IDs of all the image attachments in a gallery so we can get the
-	 * URL of the next adjacent image in a gallery, or the first image (if
-	 * we're looking at the last image in a gallery), or, in a gallery of one,
-	 * just the link to that image file.
-	 */
-	$attachment_ids = get_posts( array(
-		'post_parent'    => $post->post_parent,
-		'fields'         => 'ids',
-		'numberposts'    => -1,
-		'post_status'    => 'inherit',
-		'post_type'      => 'attachment',
-		'post_mime_type' => 'image',
-		'order'          => 'ASC',
-		'orderby'        => 'menu_order ID'
-	) );
-
-	// If there is more than 1 attachment in a gallery...
-	if ( count( $attachment_ids ) > 1 ) {
-		foreach ( $attachment_ids as $attachment_id ) {
-			if ( $attachment_id === $post->ID ) {
-				$next_id = current( $attachment_ids );
-				break;
-			}
-		}
-
-		// get the URL of the next image attachment...
-		if ( $next_id )
-			$next_attachment_url = get_attachment_link( $next_id );
-
-		// or get the URL of the first image attachment.
-		else
-			$next_attachment_url = get_attachment_link( array_shift( $attachment_ids ) );
-	}
-
-	printf( '<a href="%1$s" title="%2$s" rel="attachment">%3$s</a>',
-		esc_url( $next_attachment_url ),
-		the_title_attribute( array( 'echo' => false ) ),
-		wp_get_attachment_image( $post->ID, $attachment_size )
-	);
-}
-endif;
 
 if ( ! function_exists( 'silentcomics_entry_meta' ) ) :
 /**
@@ -244,36 +165,43 @@ function silentcomics_entry_meta() {
 endif;
 
 /**
- * Returns true if a blog has more than 1 category
+ * Returns true if a blog has more than 1 category.
+ *
+ * @return bool
  */
 function silentcomics_categorized_blog() {
 	if ( false === ( $all_the_cool_cats = get_transient( 'silentcomics_categories' ) ) ) {
-		// Create an array of all the categories that are attached to posts
+		// Create an array of all the categories that are attached to posts.
 		$all_the_cool_cats = get_categories( array(
-			'hide_empty' => 1,
+			'fields'     => 'ids',
+			// We only need to know if there is more than one category.
+			'number'     => 2,
 		) );
 
-		// Count the number of categories that are attached to the posts
+		// Count the number of categories that are attached to the posts.
 		$all_the_cool_cats = count( $all_the_cool_cats );
 
-		set_transient( 'all_the_cool_cats', $all_the_cool_cats );
+		set_transient( 'silentcomics_categories', $all_the_cool_cats );
 	}
 
-	if ( '1' != $all_the_cool_cats ) {
-		// This blog has more than 1 category so silentcomics_categorized_blog should return true
+	if ( $all_the_cool_cats > 1 ) {
+		// This blog has more than 1 category so silentcomics_categorized_blog should return true.
 		return true;
 	} else {
-		// This blog has only 1 category so silentcomics_categorized_blog should return false
+		// This blog has only 1 category so silentcomics_categorized_blog should return false.
 		return false;
 	}
 }
 
 /**
- * Flush out the transients used in silentcomics_categorized_blog
+ * Flushes out the transients used in silentcomics_categorized_blog.
  */
 function silentcomics_category_transient_flusher() {
+	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+		return;
+	}
 	// Like, beat it. Dig?
-	delete_transient( 'all_the_cool_cats' );
+	delete_transient( 'silentcomics_categories' );
 }
 add_action( 'edit_category', 'silentcomics_category_transient_flusher' );
 add_action( 'save_post',     'silentcomics_category_transient_flusher' );
@@ -285,7 +213,7 @@ add_action( 'save_post',     'silentcomics_category_transient_flusher' );
  */
  
  function first_comic_link( $args = array() ) {
-	$first = get_comic_boundary_post( TRUE, '', TRUE );
+	$first = get_comic_boundary_post( TRUE, '', TRUE, 'story' );
     apply_filters( 'the_title', $first[0]->post_title ); 
 
 $query = new WP_Query( $args );
@@ -304,7 +232,7 @@ wp_reset_postdata();
  */
  
 function last_comic_link( $args = array() ) {  
-	$last = get_comic_boundary_post( TRUE, '', FALSE );
+	$last = get_comic_boundary_post( TRUE, '', FALSE, 'story' );
     apply_filters( 'the_title', $last[0]->post_title );
 	 
 $query = new WP_Query( $args );    

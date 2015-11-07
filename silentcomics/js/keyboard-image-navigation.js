@@ -1,14 +1,26 @@
-jQuery( document ).ready( function( $ ) {
-	$( document ).keydown( function( e ) {
+/**
+ * Silent Comics keyboard support for image navigation.
+ */
+ 
+( function( $ ) {
+	$( document ).on( 'keydown.silentcomics', function( e ) {
 		var url = false;
-		if ( e.which === 37 ) {  // Left arrow key code
-			url = $( '.previous-image a' ).attr( 'href' );
+
+		// Left arrow key code.
+		if ( 37 === e.which ) {
+			url = $( '.previous a' ).attr( 'href' );
+
+		// Right arrow key code.
+		} else if ( 39 === e.which ) {
+			url = $( '.next a' ).attr( 'href' );
+
+		// Other key code.
+		} else {
+			return;
 		}
-		else if ( e.which === 39 ) {  // Right arrow key code
-			url = $( '.entry-attachment a' ).attr( 'href' );
-		}
-		if ( url && ( !$( 'textarea, input' ).is( ':focus' ) ) ) {
+
+		if ( url && ! $( 'textarea, input' ).is( ':focus' ) ) {
 			window.location = url;
 		}
 	} );
-} );
+} )( jQuery );

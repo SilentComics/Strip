@@ -12,28 +12,28 @@
 	<footer id="colophon" class="site-footer" role="contentinfo">
 
 <div class="entry-wrap wrap clear">
-			<?php if ( is_active_sidebar( 'footer-sidebar-1' ) || is_active_sidebar( 'footer-sidebar-2' ) || is_active_sidebar( 'footer-sidebar-3' ) ) : ?>
+			<?php if ( is_active_sidebar( 'first-footer-widget' ) || is_active_sidebar( 'second-footer-widget' ) || is_active_sidebar( 'third-footer-widget' ) || is_active_sidebar( 'fourth-footer-widget' ) ) : ?>
 	<div id="secondary" class="widget-area clear" role="complementary">
 		<div class="widget-area-wrapper">
 			<?php do_action( 'before_sidebar' ); ?>
-			<?php if ( is_active_sidebar( 'footer-sidebar-1' ) ) : ?>
-				<div class="sidebar-1">
-					<?php dynamic_sidebar( 'footer-sidebar-1' ); ?>
+			<?php if ( is_active_sidebar( 'first-footer-widget' ) ) : ?>
+				<div class="footer-widget-1">
+					<?php dynamic_sidebar( 'first-footer-widget' ); ?>
 				</div>
 			<?php endif; ?>
-			<?php if ( is_active_sidebar( 'footer-sidebar-2' ) ) : ?>
-				<div class="sidebar-2">
-					<?php dynamic_sidebar( 'footer-sidebar-2' ); ?>
+			<?php if ( is_active_sidebar( 'second-footer-widget' ) ) : ?>
+				<div class="footer-widget-2">
+					<?php dynamic_sidebar( 'second-footer-widget' ); ?>
 				</div>
 			<?php endif; ?>
-			<?php if ( is_active_sidebar( 'footer-sidebar-3' ) ) : ?>
-				<div class="sidebar-3">
-					<?php dynamic_sidebar( 'footer-sidebar-3' ); ?>
+			<?php if ( is_active_sidebar( 'third-footer-widget' ) ) : ?>
+				<div class="footer-widget-3">
+					<?php dynamic_sidebar( 'third-footer-widget' ); ?>
 				</div>
 			<?php endif; ?>
-			<?php if ( is_active_sidebar( 'footer-sidebar-4' ) ) : ?>
-				<div class="sidebar-2">
-					<?php dynamic_sidebar( 'footer-sidebar-4' ); ?>
+			<?php if ( is_active_sidebar( 'fourth-footer-widget' ) ) : ?>
+				<div class="footer-widget-4">
+					<?php dynamic_sidebar( 'fourth-footer-widget' ); ?>
 				</div>
 			<?php endif; ?>
 		</div><!-- .widget-area-wrapper -->
@@ -47,7 +47,7 @@
   $thisYear = (int)date('Y'); 
   echo $fromYear . (($fromYear != $thisYear) ? '-' . $thisYear : '');?> SILENT COMICS
 			<span class="sep"> | </span>
-			<?php printf( __( 'Theme: %1$s by %2$s.', 'silentcomics' ), 'silentcomics', '<a href="" rel="designer">Silent Comics</a>' ); ?>
+			<?php printf( __( 'Theme: %1$s by %2$s.', 'silentcomics' ), 'silentcomics', '<a href="http://silent-comics.com" rel="designer">Silent Comics</a>' ); ?>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->
@@ -56,3 +56,12 @@
 
 </body>
 </html>
+
+<?php //save queries for anlysis http://codex.wordpress.org/Editing_wp-config.php#Save_queries_for_analysis remove this when in production 
+//if ( current_user_can( 'administrator' ) ) {
+//    global $wpdb;
+//    echo "<pre>";
+//    print_r( $wpdb->queries );
+//    echo "</pre>";
+//}
+?>

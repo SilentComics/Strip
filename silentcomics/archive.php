@@ -59,7 +59,7 @@ get_header(); ?>
 								_e( 'Videos', 'silentcomics' );
 
 							elseif ( is_tax( 'post_format', 'post-format-quote' ) ) :
-								_e( 'Quotes', 'SilentComics' );
+								_e( 'Quotes', 'silentcomics' );
 
 							elseif ( is_tax( 'post_format', 'post-format-link' ) ) :
 								_e( 'Links', 'silentcomics' );

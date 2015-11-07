@@ -1,6 +1,6 @@
 <?php
 /**
- * The Header for our theme.
+ * The Header for comics
  *
  * Displays all of the <head> section and everything up till <main id="main">
  *
@@ -23,11 +23,6 @@
 <body <?php body_class(); ?>>
 <div id="page" class="hfeed site">
 	<header id="masthead" class="site-header" role="banner">
-			
-	<div class="site-branding">
-		<?php get_template_part('library/inline', 'logo.svg'); ?>				
-		<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1> <h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
-	</div><!-- .site-branding -->
 		
 		<?php if ( has_nav_menu( 'primary' ) ) : ?>
 		<nav id="site-navigation" class="main-navigation clear" role="navigation">
