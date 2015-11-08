@@ -1,11 +1,11 @@
-WIP Wordpress-Theme-for-Silent-Comics
+WIP WordPress-Theme-for-Silent-Comics
 =================================
 
 Still rough — Working on it — Feel free to download the ZIP file and test the theme.
 
 ![screenshot](http://silentcomics.com/images/screenshot.png)
 
-# Silent Comics Wordpress Theme
+# Silent Comics WordPress Theme
 
 This is SilentComics — a simple Wordpress theme, designed for the upcoming [SILENT COMICS site](http://silent-comics.com). The theme, still in development, is released under the GNU General Public License.
 
