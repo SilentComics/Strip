@@ -23,7 +23,7 @@ get_header(); ?>
 					</h1>
 				
 				<h3 class="page-title"> 
-				Watch and follow 3
+				Watch 3
 					</h3>
 					<h2 class="taxonomy-description">
 	<a href="<?php echo esc_url( home_url( '/stories/' ) ); ?>">Series</a></h2>
@@ -56,11 +56,11 @@ wp_list_pages( $args );
 <?php // Create and run first loop in reverse order
     $comic = new WP_Query();
     $comic = new WP_Query( array(
-					'post_type' => 'comic',
-					'showposts' => -1, 
-					'paged'		=> $paged,
-					'orderby'   => 'title',
-					'order'   	=> 'ASC',)
+					'post_type' 		=> 'comic',
+					'posts_per_page' 	=> 7,
+					'paged'				=> $paged,
+					'orderby'   		=> 'title',
+					'order'   			=> 'ASC',)
 					);
     while ($comic->have_posts()) : $comic->the_post();   
 				
@@ -69,6 +69,8 @@ wp_list_pages( $args );
 
 						<?php endwhile;
 						wp_reset_postdata(); ?>
+						
+						<?php silentcomics_content_nav( 'nav-below' ); ?>
 
 		<?php else : ?>
 
@@ -78,8 +80,8 @@ wp_list_pages( $args );
 			wp_reset_postdata();
 		?>
 
-		</main><!-- #main -->
+		</div><!-- #content -->
 	</section><!-- #primary -->
-	
+
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>

@@ -26,7 +26,7 @@ function silentcomics_content_nav( $nav_id ) {
 	global $wp_query, $post;
 
 	// Don't print empty markup on single pages if there's nowhere to navigate.
-	if ( is_single() ) {
+	if ( is_singular() ) {
 		$previous = ( is_attachment() ) ? get_post( $post->post_parent ) : get_adjacent_post( false, '', true );
 		$next = get_adjacent_post( false, '', false );
 
@@ -39,23 +39,20 @@ function silentcomics_content_nav( $nav_id ) {
 		return;
 		
 		$nav_class = ( is_single() ) ? 'post-navigation' : 'paging-navigation';
-	
-		// Add a class when both navigation items are there.
-	//if ( ( get_previous_posts_link() && get_next_posts_link() ) || ( is_single() && ( $next && $previous ) ) )
-	//	$nav_class .= ' double';
+
 	?>
 
 	<nav role="navigation" id="<?php echo esc_attr( $nav_id ); ?>" class="<?php echo $nav_class; ?> clear">
 		<h1 class="screen-reader-text"><?php esc_html_e( 'Post navigation', 'silentcomics' ); ?></h1>
 		
-		<?php if ( 'comic' === get_post_type() && ( is_single() ||  is_front_page() ) ) : //comics navigation links 
+		<?php if ( 'comic' == get_post_type() && ( is_single() ||  is_front_page() ) ) : //comics navigation links 
 		$nav_class .= ' navigation-comic'; ?>
 		
 				<div class="navigation-comic">
 				<nav class="nav-first"><a href="<?php echo esc_url( first_comic_link()); ?>"><?php esc_html_e( '&#124;&#10094; First', 'silentcomics' ); ?></a></nav>
-				<nav class="nav-previous"><?php previous_post_link('%link', 'Previous', true, '', 'story'); ?></nav>
+				<nav class="nav-previous"><?php esc_html_e(previous_post_link('%link', 'Previous', $in_same_term = true, $excluded_terms = '', $taxonomy = 'story') ); ?></nav>
 				<nav class="nav-title"><?php the_title( '<h6 class="comic-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h6>' ); ?></nav>
-				<nav class="nav-next"><?php next_post_link('%link', 'Next', $in_same_term = true, $excluded_terms = '', $taxonomy = 'story'); ?></nav> 
+				<nav class="nav-next"><?php esc_html_e(next_post_link('%link', 'Next', $in_same_term = true, $excluded_terms = '', $taxonomy = 'story') ); ?></nav> 
 				<nav class="nav-last"><a href="<?php echo esc_url( last_comic_link()); ?>"><?php esc_html_e( 'Latest &#10095;&#124;', 'silentcomics' ); ?></a></nav>
 			</div>
 

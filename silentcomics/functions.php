@@ -56,25 +56,37 @@ add_action( 'after_setup_theme', 'silentcomics_add_editor_styles' );
 	add_theme_support( 'automatic-feed-links' );
 
 	/**
+	 * Enable support for title-tag. Allows themes to add document title tag to HTML <head> (since version 4.1.).
+	 */
+	add_theme_support( 'title-tag' );
+	
+		/**
 	 * Enable support for Post Thumbnails on posts and pages
 	 *
 	 * @link http://codex.wordpress.org/Function_Reference/add_theme_support#Post_Thumbnails
 	 */
 	add_theme_support( 'post-thumbnails' );
-	add_image_size( 'featured-image', 1272, 0 );
-	
-	/**
-	 * Enable support for title-tag. Allows themes to add document title tag to HTML <head> (since version 4.1.).
-	 */
-	add_theme_support( 'title-tag' );
+	add_image_size( 'featured-image', 1920, 0 );
 
 	/**
 	 * This theme uses wp_nav_menu() in one location.
 	 */
 	register_nav_menus( array(
-		'primary' => __( 'Primary Menu', 'silentcomics' ),
+		'primary' => esc_html__( 'Primary Menu', 'silentcomics' ),
 	) );
 
+	/*
+	 * Switch default core markup for search form, comment form, and comments
+	 * to output valid HTML5.
+	 */
+	add_theme_support( 'html5', array(
+		'search-form',
+		'comment-form',
+		'comment-list',
+		'gallery',
+		'caption',
+	) );
+	
 	/**
 	 * Enable support for Post Formats
 	 */
@@ -85,25 +97,17 @@ add_action( 'after_setup_theme', 'silentcomics_add_editor_styles' );
 		'quote',
 		'link',
 		'gallery',
+		'status',
 		'audio',
 		'chat',
 	) );
+	
+		// Setup the WordPress core custom background feature.
 
-	/**
-	 * Setup the WordPress core custom background feature.
-	 */
 	add_theme_support( 'custom-background', apply_filters( 'silentcomics_custom_background_args', array(
 		'default-color' => 'fff',
 		'default-image' => '',
 	) ) );
-
-	// Enable support for HTML5 markup.
-	add_theme_support( 'html5', array(
-		'comment-list',
-		'search-form',
-		'comment-form',
-		'gallery',
-	) );
 }
 endif; // silentcomics_setup
 add_action( 'after_setup_theme', 'silentcomics_setup' );
@@ -331,8 +335,11 @@ function comic_post_type() {
 		'update_item'         => __( 'Update Comic', 'silentcomics' ),
 		'view_item'           => __( 'View Comic', 'silentcomics' ),
 		'search_items'        => __( 'Search Item', 'silentcomics' ),
-		'not_found'           => __( 'Not Comics found', 'silentcomics' ),
-		'not_found_in_trash'  => __( 'Not Comics found in Trash', 'silentcomics' ),
+		'not_found'           => __( 'No Comics found', 'silentcomics' ),
+		'not_found_in_trash'  => __( 'No Comics found in Trash', 'silentcomics' ),
+		'items_list'          => __( 'Comics list', 'silentcomics' ),
+		'items_list_navigation' => __( 'Comics list navigation', 'silentcomics' ),
+		'filter_items_list'     => __( 'Filter Comics list', 'silentcomics' ),
 	);
 	$args = array(
 		'label'               => __( 'Comic', 'silentcomics' ),
@@ -354,7 +361,7 @@ function comic_post_type() {
 		'exclude_from_search' => false,
 		'rewrite' 			  => array( 'slug' => 'stories', 'with_front' => true ),
 		'publicly_queryable'  => true,
-		'capability_type'     => 'post', 'page',
+		'capability_type'     => 'post',
 		
 	);
 	register_post_type( 'comic', $args );
@@ -370,10 +377,11 @@ function comic_post_type() {
 // Hook into the 'init' action
 add_action( 'init', 'comic_post_type', 0 );// End of register_cpt_comic()
 
-function my_rewrite_flush() {
+function silentcomics_rewrite_rules() {
     flush_rewrite_rules();
 }
-add_action( 'after_switch_theme', 'my_rewrite_flush' );
+/* Flush rewrite rules for custom post types. */
+add_action( 'after_switch_theme', 'silentcomics_rewrite_rules' );
 
 
 // Register Custom Taxonomy 'story'
@@ -397,6 +405,8 @@ function comic_story_taxonomy() {
 		'popular_items'              => __( 'Popular Items', 'silentcomics' ),
 		'search_items'               => __( 'Search stories', 'silentcomics' ),
 		'not_found'                  => __( 'Not Found', 'silentcomics' ),
+		'items_list'                 => __( 'Stories list', 'silentcomics' ),
+		'items_list_navigation'      => __( 'Stories list navigation', 'silentcomics' ),
 	);
 	$args = array(
 		'labels'                     => $labels,

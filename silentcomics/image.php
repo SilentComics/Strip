@@ -36,18 +36,6 @@ get_header( 'simple' );
 								?>
 
 						</div><!-- .entry-attachment -->
-						
-						<?php
-							the_content();
-							wp_link_pages( array(
-								'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'silentcomics' ) . '</span>',
-								'after'       => '</div>',
-								'link_before' => '<span>',
-								'link_after'  => '</span>',
-								'pagelink'    => '<span class="screen-reader-text">' . __( 'Page', 'silentcomics' ) . ' </span>%',
-								'separator'   => '<span class="screen-reader-text">, </span>',
-							) );
-						?>
 
 					<?php // image navigation. ?>
 <nav role="navigation" id="image-navigation" class="image-navigation  clear double">
@@ -55,7 +43,7 @@ get_header( 'simple' );
 				<div class="previous"><?php previous_image_link( false, __( '<div class="previous"><span class="meta-nav">&larr;</span> <span class="text-nav">Previous</span></div>', 'silentcomics' ) ); ?></div>
 				<div class="next"><?php next_image_link( false, __( '<div class="next"><span class="meta-nav">&rarr;</span> <span class="text-nav">Next</span></div>', 'silentcomics' ) ); ?></div>
 				
-				<nav class="navigation-comic"><br><?php echo "<a href='" . get_permalink($post->post_parent). "'>Back to ". get_the_title($post->post_parent) ."</a>"; ?></nav>
+				<nav class="post-title"><br><?php echo "<a href='" . get_permalink($post->post_parent). "'>Back to ". get_the_title($post->post_parent) ."</a>"; ?></nav>
 			</nav><!-- #image-navigation -->
 			
 					<?php if ( has_excerpt() ) : ?>
@@ -66,14 +54,6 @@ get_header( 'simple' );
 					
 					<?php
 							the_content();
-							wp_link_pages( array(
-								'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'silentcomics' ) . '</span>',
-								'after'       => '</div>',
-								'link_before' => '<span>',
-								'link_after'  => '</span>',
-								'pagelink'    => '<span class="screen-reader-text">' . __( 'Page', 'silentcomics' ) . ' </span>%',
-								'separator'   => '<span class="screen-reader-text">, </span>',
-							) );
 						?>
 					</div><!-- .entry-content -->
 				</div><!-- .entry-wrap -->

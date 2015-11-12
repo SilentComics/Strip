@@ -4,7 +4,7 @@ Theme URI: https://github.com/SilentComics/Wordpress-Theme-for-Silent-Comics/
 Author: Anh Hoa Si
 Author URI: http://silent-comics.com
 Description: A simple theme for comics & web-comics
-Version: 2.5 (November 2015) — streamline
+Version: 2.5.1 (November 2015) — streamline
 License: GNU General Public License v3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Text Domain: silentcomics
@@ -266,12 +266,12 @@ th {
 --------------------------------------------------------------*/
 @font-face {
     font-family: 'fenix';
-    src: url('tipotype_-_fenix-webfont.eot');
-    src: url('tipotype_-_fenix-webfont.eot?#iefix') format('embedded-opentype'),
-         url('tipotype_-_fenix-webfont.woff2') format('woff2'),
-         url('tipotype_-_fenix-webfont.woff') format('woff'),
-         url('tipotype_-_fenix-webfont.ttf') format('truetype'),
-         url('tipotype_-_fenix-webfont.svg#fenixregular') format('svg');
+    src: url('fonts/tipotype_-_fenix-webfont.eot');
+    src: url('fonts/tipotype_-_fenix-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/tipotype_-_fenix-webfont.woff2') format('woff2'),
+         url('fonts/tipotype_-_fenix-webfont.woff') format('woff'),
+         url('fonts/tipotype_-_fenix-webfont.ttf') format('truetype'),
+         url('fonts/tipotype_-_fenix-webfont.svg#fenixregular') format('svg');
     font-weight: normal;
     font-style: normal;
 
@@ -287,7 +287,7 @@ span.amp {
 
 html { font-size: 62.5%; } 
 body { font-size: 24px; font-size: 2.4rem; } /* =24px */
-h1   { font-size: 36px; font-size: 3.6rem; } /* =36px */
+h1   { font-size: 36px; font-size: 3.6rem; line-height: 1; } /* =36px */
 
 body,
 button,
@@ -300,23 +300,19 @@ textarea {
 	line-height: 1.2;
 }
 
-h1, h2, h3 {
+h2, h3 {
 	clear: both;
 	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
 	font-weight: 700;
+	line-height: 1;
 }
 h4, h5, h6 {
 	clear: both;
 	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
 	font-weight: 300; 
 }
-h1 {
-	font-size: 3.6rem;
-	line-height: 1;
-}
 h2 {
 	font-size: 3.2rem;
-	line-height: 1;
 }
 h3 {
 	font-size: 2.4rem;
@@ -438,9 +434,10 @@ input {
 	overflow: visible;  /* Corrects inner spacing displayed oddly in IE6/7 */
 }
 button,
-html input[type="button"],
+.button,
 input[type="reset"],
-input[type="submit"] {
+input[type="submit"],
+input[type="button"] {
 	border: 0;
 	background: #000;
 	color: #fff;
@@ -452,14 +449,15 @@ input[type="submit"] {
 	text-transform: uppercase;
 }
 button:hover,
-html input[type="button"]:hover,
-input[type="reset"]:hover,
-input[type="submit"]:hover,
 button:focus,
-html input[type="button"]:focus,
+.button:hover,
+.button:focus,
+input[type="reset"]:hover,
 input[type="reset"]:focus,
-input[type="submit"]:focus{
-	background-color: #00ffaa;
+input[type="submit"]:hover,
+input[type="submit"]:focus,
+input[type="button"]:hover,
+input[type="button"]:focus {	background-color: #00ffaa;
 }
 button:active,
 html input[type="button"]:active,
@@ -599,7 +597,7 @@ a.logo: after {
 .site-description {
 	font-family:'Fenix', Georgia, serif;
 	font-size: 0.6em;
-	color: dark; 
+	color: #424242; 
 	text-align: center;
 	margin-bottom: 0.1em;
 }
@@ -673,12 +671,6 @@ a.logo: after {
 	margin: 0.1em;
 	white-space: nowrap;
 	max-width: 264px;
-}
-.main-navigation ul ul li {
-}
-.main-navigation li:hover > a {
-}
-.main-navigation ul ul :hover > a {
 }
 .main-navigation ul ul a:hover {
 	background-color: black;
@@ -797,7 +789,7 @@ body {
 #page {
 	border-top: 0.3em solid transparent;
 }
-#colophon {
+.site-footer {
 	padding: 1em 0;
 }
 
@@ -946,10 +938,10 @@ article.attachment .entry-content {
 	max-width: 1272px;
 	text-align: center;
 }
-article.attachment  .attachment {
+article.attachment .attachment {
 	margin-bottom: 24px;
 }
-article.attachment  .entry-caption {
+article.attachment .entry-caption {
 	margin-top: 24px;
 	max-width: 696px;
 }
@@ -975,7 +967,7 @@ article.no-results {
 .error404 .entry-content,
 .no-results .entry-content {
 	float: none;
-	margin: 34px auto 0;
+	margin: 24px auto 0px auto;
 }
 article.error404 .search-form, 
 article.no-results .search-form {
@@ -1073,11 +1065,11 @@ display: block;
 }
 .attachment-silentcomics-featured-thumbnail {
 	display: block;
-	margin: 1em auto 0px auto;
+	margin: 0 auto;
 	vertical-align: middle;
 }
 .entry-title {
-	font: 400 14px/2 Futura, "Trebuchet MS", Arial, sans-serif;
+	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
 	margin: 0 auto;
 	max-width: 696px;
 	/* support non-breaking text for edge cases  */
@@ -1086,7 +1078,7 @@ display: block;
 }
 .entry-title, .entry-title a{
 	text-decoration:none;
-	font-size:1.2em;
+	font-size: 1.2em;
 	color:#241212;
 	line-height: inherit;
 	text-transform:uppercase;
@@ -1137,7 +1129,7 @@ entry-meta, .entry-meta a {
 }
 .entry-content,
 .entry-summary {
-	margin: 24px 0px 19px 0px;
+	margin: 0px 0px 24px 0px;
 	max-width: 696px;
 	width: 100%;
 }
@@ -1145,10 +1137,6 @@ entry-meta, .entry-meta a {
 .taxonomy-description {
 	margin: 0 auto;
 	max-width: 696px;
-}
-.page-links {
-	
-	margin: 0 0 1.5em;
 }
 .single-thumbnail{
 	margin:20px 0;
@@ -1256,7 +1244,7 @@ span > object {
 	font-family: monospace;	 
 }
 .format-link .entry-content a {
-	color: tomato; 
+	color: #ff6666; 
 }
 
 /* Gallery */
@@ -1295,50 +1283,13 @@ span > object {
 /* =Media
 ----------------------------------------------- */
 
-.attachment-silentcomics-featured-thumbnail,
-.site-header img,
-.entry-content img,
-.entry-summary img,
-.comment-content img,
-.widget img {
-	max-width: 100%;
-	vertical-align: middle;
-}
-.attachment-silentcomics-featured-thumbnail,
-.site-header img,
-.entry-content img,
-.entry-summary img,
-.comment-content img[height],
-img[class*="align"],
-img[class*="wp-image-"],
-.wp-caption img {
-	height: auto;
-}
-.entry-summary img.wp-smiley,
-.entry-content img.wp-smiley,
-.comment-content img.wp-smiley {
-	border: none;
-	margin-bottom: 0;
-	margin-top: 0;
-	padding: 0;
-}
-img.alignleft {
-	margin: 7px 34px 7px 0;
-}
-img.alignright {
-	margin: 7px 0 7px 34px;
-}
-img.aligncenter {
-	margin-top: 7px;
-	margin-bottom: 7px;
-}
 
 /* Gallery Settings */
 .gallery-item {
     float: left;
-    margin: 0px 6px 9px 0px;
+    margin: 0px 6px 0px 0px;
     overflow: hidden;
-    position: inherit;
+    position: relative;
 }
 
 .gallery-columns-1 .gallery-item {
@@ -1412,8 +1363,7 @@ img.aligncenter {
     font-size: 12px;
     font-style: italic;
     line-height: 1.5;
-    margin: 0px;
-    padding: 0px 0px 0px 4px;
+    margin: 0;
     max-height: 50%;
     opacity: 0;
     padding: 6px 8px;
@@ -1549,31 +1499,29 @@ img.aligncenter {
 /*--------------------------------------------------------------
 10.3 Comics
 --------------------------------------------------------------*/
-/* remove branding on single comics and images TODO for images too */
-/*.single-comic .site-branding {
-	display: none;
-} */
-
 .comic .entry-title {
-	font: 400 2.4rem/1.2 Futura, "Trebuchet MS", Arial, sans-serif;
+	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+	font-size: 2.4rem;
+	font-weight: 400; 
+	line-height: 1.2;  
 	text-decoration:none;
 	color: #f3e7e7;
-	text-transform:uppercase;
+	text-transform: uppercase;
 	text-align:center;
-	max-width: 1272px;
+	max-width: 696px;
 }
 .comic .categories-links a {
 	display: inline-block;
 	color: #422424;
 }
 .comic .post-edit-link {
-    padding: 1em;
+    padding: 12px 10px 10px 10px;
     font-family: Futura, "Trebuchet MS", Arial, sans-serif;
     font-size: 1rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     color: black;
-    background-color: yellow;
+    background-color: #ffff00;
 }
 .comic .entry-meta {
 	float: right;
@@ -1586,18 +1534,17 @@ img.aligncenter {
 .story .post-edit-link {
 	float: left;
 }
+.comic .hentry {
+	padding: 0px 0px 42px 0px;
+}
 .comic .comments-link { 
-	display: none;
+  display: none;
 }
-.comic .comic-content {
+.comic .entry-content {
+	padding-top: 1.2em;
 	margin: 0 auto;
-	max-width: 1920px;
+	max-width: 2048px;
 	text-align: left;
-	font-size: 1.4rem;
-	line-height: 1.2;
-}
-.comic .comic-content a:hover{
-	color: lightpink;
 }
 
 [class*="navigation"] a {
@@ -1639,7 +1586,7 @@ img.aligncenter {
 	text-transform: uppercase;
 }
 .entry-comic .navigation-comic .nav-title a {
-	color: black;
+  color: black;
 }
 .entry-comic .navigation-comic .nav-title a:hover{
   color: #ff6666;
@@ -1662,20 +1609,19 @@ img.aligncenter {
 .entry-comic .navigation-comic .nav-next a:hover,
 .entry-comic .navigation-comic .nav-first a:hover,
 .entry-comic .navigation-comic .nav-last a:hover {
-	background: #ff6666;
+	background: #FF7369;
 	color: #fff;
 }
-.comic-title, .comic-title a {
+.comic-title .comic-title a {
 	margin: auto;
 	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
 	text-align: center;
 	color: black;
 	font-size: 1.2rem;
-	line-height: 1.76em;
 	letter-spacing: 0.1em;
 	text-transform: uppercase;
 }
-.comic-episode, .comic-episode a {
+.comic-episode, .comic-episode a{
 	margin: auto;
 	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
 	text-align: center;
@@ -1683,8 +1629,9 @@ img.aligncenter {
 	line-height: 1.76em;
 	letter-spacing: 0.1em;
 	text-transform: uppercase;
-	color: #ff6666; 
+  color: #ffcc00; 
 }
+
 /*  the comic page title */
 .page-title, .taxonomy-description {
 	font: italic 400 24px/1 Futura, "Trebuchet MS", Arial, sans-serif;
@@ -1698,54 +1645,10 @@ img.aligncenter {
 	background-color: #f3e7e7;
 	padding: 4px;
 	line-height: inherit;
-	}
+}
 /* pagination */
 
-.page-links {
-	clear: both;
-	font: 400 1.4rem/1 Futura, "Trebuchet MS", Arial, sans-serif;
-	letter-spacing: 0.1em;
-	margin: 0 auto;
-	text-transform: uppercase;
-	text-align: center;
-}
-.page-links > span {
-	border: 2px solid #000;
-	border-radius: 50%;
-	display: inline-block;
-	text-align: -moz-center;
-	width: 24px;
-	height: 24px;
-}
-.page-links a {
-	background-color: #000;
-	border: 2px solid #000;
-	border-radius: 50%;
-	color: #fff;
-	display: inline-block;
-	text-align: -moz-center;
-	text-decoration: none;
-	width: 24px;
-	height: 24px;
-}
-.entry-summary .page-links a,
-.entry-content .page-links a {
-	border-bottom: 0;
-}
-.entry-summary .page-links a:hover,
-.entry-content .page-links a:hover {
-	background: #333;
-	border: 2px solid #333;
-	border-bottom: 0;
-	color: white;
-}
-.page-links > span.page-links-title {
-	border: none;
-	padding-right: 9px;
-	width: auto;
-	height: auto;
-}
-/*  the comic blurb */
+/*  comics blurb */
 .comicbook-blurb {
 	margin: auto;
 	max-width: 696px;
@@ -1762,7 +1665,7 @@ img.aligncenter {
 --------------------------------------------------------------*/
 
 /* CSS form MailChimp 4 WP form */
-#mc4wp-form-1 [type="submit"] {
+.mc4wp-form [type="submit"] {
 	display: inline-block;
 	width: 100%;	
 }
@@ -1798,19 +1701,19 @@ button.toggle-comments {
     font-size: 1rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: lightpink;
+    color: #ffbbbb;
     background-color: transparent;
 }
-#toggle-comments-container .toggle-comments {
+.toggle-comments {
 	display: block;
-	margin: auto;
+	margin: 0 auto;
 	margin-bottom: 4.8em;
 }
 /*--------------------------------------------------------------
 10.5.2 Comments
 --------------------------------------------------------------*/
 .comment-author .author-cite {
-  color: darkgrey;
+  color: #999999;
 	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
 	font-size: 1.4rem;
   text-transform: uppercase;
@@ -1823,21 +1726,21 @@ button.toggle-comments {
 		right: -16px;
 }
 .comment-author .says {
-	color: lightgrey;
+	color: #cecece;
 	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
 	font-size: 1.4rem;
 	font-style: italic;
 }
 .comment-meta,
 .comment-meta a {
-	color: snow;
+	color: #fff9f9;
 	overflow: hidden;
 	margin: 0;
 	background-color: none;
 	font-size: 1.2rem;
 }
 .comment-meta .comment-reply-link {
-  background-color: lightpink;
+  background-color: #ffbbbb;
   padding: 3px;
   color: #fff;
 }
@@ -1903,7 +1806,7 @@ button.toggle-comments {
     color: #000;
 }
 .required {
-	color: tomato;
+	color: #ff6666;
 }
 /*--------------------------------------------------------------
 10.6 Footer
@@ -1925,13 +1828,13 @@ button.toggle-comments {
 	text-align: center;
 	}
 .site-info a {
-	color: #f3e7e7;
+	color: #421212;
 	
 }
 .site-info a:hover {
 	color: #ff6666;
 }
-.colophon-wrapper {
+.site-footer-wrapper {
 	margin: 1.6em auto;
 	max-width: 696px;
 }
@@ -1954,14 +1857,13 @@ button.toggle-comments {
 12.0 Media queries
 --------------------------------------------------------------*/
 @media screen and (min-width: 312px) {
-	.wrap,
-	#search-wrapper .search form {
+	.wrap {
 		max-width: 264px;
 	}
 }
 @media screen and (min-width: 456px) {
 	.wrap,
-	#search-wrapper .searchform {
+	{
 		max-width: 408px;
 	}
 	[class*="navigation"] .text-nav {
@@ -2022,9 +1924,6 @@ button.toggle-comments {
 		content: "";
 	}
 	.entry-meta {
-	/*	position: absolute; */
-	/*	float: right; */
-
 		float: right;
 		overflow:  hidden;
 		width: 120px;
@@ -2040,11 +1939,6 @@ button.toggle-comments {
 	article.attachment .entry-caption {
 		margin: auto;
 	}
-	.format-image .entry-content,
-	.format-gallery .entry-content,
-	article.attachment .entry-content {
-		float: none;
-	}
 	.format-video .band {
 		background-color: black;
 		display: block;
@@ -2059,7 +1953,7 @@ button.toggle-comments {
 	.format-video .entry-title a {
 		float: right;
 		font-size: 1.8rem;
-		colour: snow;
+		colour: #fff9f9;
 	}
 	.format-video .entry-info {
 		float: right;
@@ -2095,7 +1989,7 @@ button.toggle-comments {
 	.format-video .entry-meta a,
 	.format-video .entry-info a,
 	.format-video .entry-title {
-    	color: snow;
+    	color: #fff9f9;
 	}
 	.format-video .entry-content {
 		background-color: transparent;
@@ -2180,9 +2074,6 @@ button.toggle-comments {
 		font-size: 12px;
 		line-height: 1.4;		
 	}
-	.home .site-branding {
-		padding: 2.4em 0;
-	}
 	.site-title {
 		font-size: 0.9em;
 		border: 4px solid #424242; 
@@ -2205,11 +2096,6 @@ button.toggle-comments {
 	}
 	.entry-title {
 		font-size: 2.4rem;
-	}
-	/* too much space between title & content due to entry meta
-		 check this should be resolved in template    */
-	.page .entry-meta {
-		display: none;
 	}
 	.entry-content,
 	.entry-summary {
@@ -2279,7 +2165,6 @@ button.toggle-comments {
 	.footer-widget-3,
 	.footer-widget-4 {
 		clear: both;
-		float: none;
 		margin-right: 0;
 		margin-left: 0;
 		width: auto;

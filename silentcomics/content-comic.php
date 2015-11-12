@@ -4,7 +4,7 @@
  */
  
 ?>
-<article id="comic-<?php the_ID(); ?>" <?php post_class(); ?>>
+<comic id="story-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<div class="entry-wrap wrap clear">
 		<?php if ( '' != get_the_post_thumbnail() ) : ?>
 			
@@ -47,16 +47,9 @@ if ( ! empty( $story_terms ) ) {
 			
 		<?php else : ?>
 			
-	<div class="comic-content">
+	<div class="entry-comic">
 		<?php the_content(); ?>
-			<?php
-				wp_link_pages( array(
-					'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'silentcomics' ) . '</span>',
-					'after'       => '</div>',
-					'link_before' => '<span>',
-					'link_after'  => '</span>',
-				) );
-			?>
+		
 			<?php endif; ?>
 		</div><!-- .entry-content -->		
 	</div><!-- .entry-wrap -->

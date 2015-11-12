@@ -8,15 +8,10 @@
  */
 ?>
 
-<article id="post-0" class="post no-results not-found">
+<article id="post-0" class="no-results">
 	<div class="entry-wrap wrap clear">
 		<header class="page-header">
-			<h1 class="page-title">
-				<?php
-					printf( __( 'Nothing Found %s', 'silentcomics' ), '<span>' .
-					single_cat_title( '', false ) . '</span>' );
-					?>
-					</h1>
+		<h1 class="page-title"><?php _e( 'Nothing Found', 'silentcomics' ); ?></h1>
 	</header><!-- .page-header -->
 
 	<div class="page-content">
@@ -26,12 +21,11 @@
 
 		<?php elseif ( is_search() ) : ?>
 
-			<p><?php _e( '&mdash;Bummer, I cannot find what you are looking for. <br>Nothing matched your search terms.<br>&mdash;...<br>&mdash;Would you like to look in the', 'silentcomics' ); ?>
+			<p><?php _e( 'Bummer, I cannot find what you are looking for.<br>Have you seen the', 'silentcomics' ); ?>
 			
-			<a href="<?php echo get_post_type_archive_link( 'comic' ); ?>">Comics Archive</a></p>
+			<a href="<?php echo get_post_type_archive_link( 'comic' ); ?>">Comics Archive</a>?</p>
   
-			<p><?php
-echo nl2br("&mdash;Nah, thanks, I feel like searchin'\r\n&mdash;OK then. Try again with different keywords. See you.", false); ?></p>
+			<p><?php _e('Or would you like to try again with different keywords?', 'silentcomics'); ?></p>
 
 			<?php get_search_form(); ?>
 
