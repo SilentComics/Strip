@@ -7,15 +7,15 @@ Still rough — Working on it — Feel free to download the ZIP file and test th
 
 # Silent Comics WordPress Theme
 
-This is SilentComics — a simple Wordpress theme, designed for the upcoming [SILENT COMICS site](http://silent-comics.com). The theme, still in development, is released under the GNU General Public License.
+*SilentComics* is a simple Wordpress theme, designed for the upcoming [SILENT COMICS site](http://silent-comics.com). The theme, still in development, is released under the GNU General Public License.
 
 # Theme Wiki
 [Theme pre-release wiki](https://github.com/SilentComics/Silent-Comics-Wordpress-Theme/wiki/SilentComic-WordPress-Theme-wiki)
 
 ## Code review needed
-Coding is the *learning by doing* side of the project for me. This still needs work. 
+Coding is the *learning by doing* side of the project for me. I'm by no means a WordPress developer and there are countless improvements yet to be made. 
 
 Do you know how this theme can be improved? Please send your findings and suggestions over to hoa // @ // silent-comics.com
 
 ## How you can help
-Aside from doing a theme review, there are ways you can [support this project ♥](http://silentcomics.com/subscribe/). *Thank you!*
+Aside from doing a theme review, and if you like comics, there are ways you can [support this project ♥](http://silentcomics.com/subscribe/). *Thank you!*
