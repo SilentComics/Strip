@@ -4,7 +4,7 @@ Theme URI: https://github.com/SilentComics/Wordpress-Theme-for-Silent-Comics/
 Author: Anh Hoa Si
 Author URI: http://silent-comics.com
 Description: A simple theme for comics & web-comics
-Version: 2.5.1 (November 2015) — streamline
+Version: 2.5.2 (November 2015) — code review / TODO reduce style.CSS to 2000 lines or less
 License: GNU General Public License v3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Text Domain: silentcomics
@@ -169,98 +169,6 @@ samp {
 	font-size: 1em;
 }
 
-button,
-input,
-optgroup,
-select,
-textarea {
-	color: inherit;
-	font: inherit;
-	margin: 0;
-}
-
-button {
-	overflow: visible;
-}
-
-button,
-select {
-	text-transform: none;
-}
-
-button,
-html input[type="button"],
-input[type="reset"],
-input[type="submit"] {
-	-webkit-appearance: button;
-	cursor: pointer;
-}
-
-button[disabled],
-html input[disabled] {
-	cursor: default;
-}
-
-button::-moz-focus-inner,
-input::-moz-focus-inner {
-	border: 0;
-	padding: 0;
-}
-
-input {
-	line-height: normal;
-}
-
-input[type="checkbox"],
-input[type="radio"] {
-	box-sizing: border-box;
-	padding: 0;
-}
-
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
-	height: auto;
-}
-
-input[type="search"] {
-	-webkit-appearance: textfield;
-	box-sizing: content-box;
-}
-
-input[type="search"]::-webkit-search-cancel-button,
-input[type="search"]::-webkit-search-decoration {
-	-webkit-appearance: none;
-}
-
-fieldset {
-	border: 1px solid #c0c0c0;
-	margin: 0 2px;
-	padding: 0.35em 0.625em 0.75em;
-}
-
-legend {
-	border: 0;
-	padding: 0;
-}
-
-textarea {
-	overflow: auto;
-}
-
-optgroup {
-	font-weight: bold;
-}
-
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
-}
-
-td,
-th {
-	padding: 0;
-}
-
 /*--------------------------------------------------------------
 2.0 Typography
 --------------------------------------------------------------*/
@@ -320,63 +228,25 @@ h5 {
 h6 {
 	font-size: 1.2rem;
 }
-
-/* Selection */
-::-selection{background:#ff6666;color:#ffffff;}
-::-moz-selection{background:#ff6666;color:#ffffff;}
-img selection{background:transparent;}
-img -moz-selection{background:transparent;	
+p {
+	margin-bottom: 1.5em;
 }
 
-/*--------------------------------------------------------------
-3.0 Elements
---------------------------------------------------------------*/
-ul {
-	list-style: decimal-leading-zero;
+dfn,
+cite,
+em,
+i {
+	font-style: italic;
 }
-ol {
-	list-style: none;
+
+blockquote {
+	margin: 0 1.5em;
 }
-li > ul,
-li > ol {
-	margin-bottom: 0;
+
+address {
+	margin: 0 0 1.5em;
 }
-blockquote, blockquote em, blockquote i, blockquote cite {
-  font-style: italic;
-}
-blockquote p {
-	background-color: #fff;
-    font-size: 2.4rem;
-    line-height: 1.2;
-    color: #996666;
-    padding: 0.6em;
-    width: 100%;
-}
-blockquote cite,
-.quote-caption {
-	color: black;
-	letter-spacing: 0.16em;
-	padding-left: 1.2em;
-	position: relative;
-	text-transform: uppercase;
-}
-.quote-caption {
-	display: inline;
-}
-blockquote cite a,
-.quote-caption a {
-    color: black;	
-}
-blockquote cite:before,
-.quote-caption:before {
-	content: "";
-	background: black;
-	width: 1em;
-	height: 2px;
-	position: absolute;
-	top: 0.6em;
-	left: 0;
-}
+
 pre {
 	background: #ff6666;
 	font-family: Inconsolata, monospace;
@@ -395,43 +265,132 @@ pre {
 	outline: 0;
 }
 
-code, kbd, tt, var {
+code, 
+kbd, 
+tt, 
+var {
 	font: 1.2rem Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
 }
-abbr, acronym {
+
+abbr, 
+acronym {
 	border-bottom: 1px dotted #666;
 	cursor: help;
 }
-mark, ins {
+
+mark, 
+ins {
 	background: #ffee00;
 	text-decoration: none;
 }
+
+big {
+	font-size: 125%;
+}
+
+/* Selection */
+::-selection{background:#ff6666;color:#ffffff;}
+::-moz-selection{background:#ff6666;color:#ffffff;}
+img selection{background:transparent;}
+img -moz-selection{background:transparent;	
+}
+
+/*--------------------------------------------------------------
+3.0 Elements
+--------------------------------------------------------------*/
+html {
+	box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after { /* Inherit box-sizing to make it easier to change the property for components that leverage other behavior; see http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
+	box-sizing: inherit;
+}
+
+body {
+	background: #fff; /* Fallback for when there is no custom background color defined. */
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+	content: "";
+}
+
+blockquote,
+q {
+	quotes: "" "";
+}
+
+hr {
+	background-color: #ccc;
+	border: 0;
+	height: 1px;
+	margin-bottom: 1.5em;
+}
+
+ul,
+ol {
+	margin: 0 0 1.5em 3em;
+}
+
+ul {
+	list-style: disc;
+}
+
+ol {
+	list-style: decimal;
+}
+
+li > ul,
+li > ol {
+	margin-bottom: 0;
+	margin-left: 1.5em;
+}
+
+dt {
+	font-weight: bold;
+}
+
+dd {
+	margin: 0 1.5em 1.5em;
+}
+
 img {
 	height: auto; /* Make sure images are scaled correctly. */
 	max-width: 100%; /* Adhere to container width. */
 }
+
+table {
+	margin: 0 0 1.5em;
+	width: 100%;
+}
+
 /*--------------------------------------------------------------
 4.0 Forms
 --------------------------------------------------------------*/
 
 button,
-button.alt,
 input,
-select {
-	font-size: 100%; /* Corrects font size not being inherited in all browsers */
-	margin: 0; /* Addresses margins set differently in IE6/7, F3/4, S5, Chrome */
-	vertical-align: top;
+optgroup,
+select,
+textarea {
+    color: inherit; 
+    font: inherit; 
+    margin: 0; 
 }
-button,
-input {
+
+button {
 	line-height: normal; /* Addresses FF3/4 setting line-height using !important in the UA stylesheet */
 	overflow: visible;  /* Corrects inner spacing displayed oddly in IE6/7 */
 }
 button,
-.button,
+html input[type="button"]
 input[type="reset"],
-input[type="submit"],
-input[type="button"] {
+input[type="submit"] {
+	-webkit-appearance: button;
 	border: 0;
 	background: #000;
 	color: #fff;
@@ -441,6 +400,7 @@ input[type="button"] {
 	letter-spacing: 0.1em;
 	padding: 10px;
 	text-transform: uppercase;
+	width: auto;
 }
 button:hover,
 button:focus,
@@ -460,43 +420,25 @@ input[type="reset"]:active,
 input[type="submit"]:active {
 	background-color: #ffcc00;
 }
-input[type="text"],
-input[type="email"],
-input[type="password"],
-input[type="search"],
+input,
 textarea {
-	-moz-box-sizing: border-box;
-	box-sizing:      border-box;
+	-webkit-appearance: textfield; /* 1 */
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box; /* 2 */
+    box-sizing: content-box;
 	border-radius: 0;
-	font-size: 1.6rem;
+	font-size: 1.2rem;
 	padding: 0.4em;
 	color: #ff6666;
 	border: 1px solid rgba(0, 0, 0, 0.1);
+	width: 96%;
 }
-input[type="text"]:focus,
-input[type="email"]:focus,
-input[type="password"]:focus,
-input[type="search"]:focus,
-textarea:focus {
-	outline: none;
-	color: #111;
-}
-textarea {
-	overflow: auto; /* Removes default vertical scrollbar in IE6/7/8/9 */
-	vertical-align: top; /* Improves readability and alignment in all browsers */
-	width: 98%;
-	font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
-	color: #676767;
-}
+
 .comment-form-author,
 .comment-form-email,
 .comment-form-url {
-	display: inline-block;
-	width: 100%;
-}
-.comment-form-author #author,
-.comment-form-email #email,
-.comment-form-url #url{
+	display: block;
+	width: auto;
 	font-size: 1.2rem;
 	font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
 }
@@ -508,7 +450,7 @@ textarea {
 	width: 100%;
 }
 #search-wrapper input .search-field [type="submit"] {
-	display: none;
+	display: block;
 }
 
 /*--------------------------------------------------------------
@@ -519,11 +461,11 @@ textarea {
 --------------------------------------------------------------*/
 a:link {
 	color: #ff6666;
-	text-decoration: none !important;
+	text-decoration: none;
 }
 a:visited {
 	color: #996666;
-	text-decoration: none !important;
+	text-decoration: none;
 }
 a:hover,
 a:focus,
@@ -610,6 +552,8 @@ a.logo: after {
 	letter-spacing: 0.24em;
 	text-transform: uppercase;
 	width: 100%;
+	position: relative;
+	z-index: 5;
 }
 .main-navigation .menu {
 	max-width: 1272px;
@@ -620,6 +564,8 @@ a.logo: after {
 	margin: 0;
 	padding-left: 0;
 	text-align: center;
+	position: relative;
+	z-index: 5;
 }
 .main-navigation li {
 	display: inline-block;
@@ -649,7 +595,7 @@ a.logo: after {
 	box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.2);
 	display: none;
 	float: left;
-	position: relative;
+	position: absolute;
 }
 .main-navigation ul ul ul {
 	left: 100%;
@@ -662,7 +608,7 @@ a.logo: after {
 	padding: 0.4em;
 	margin: 0.1em;
 	white-space: nowrap;
-	max-width: 264px;
+	width: 196px;
 }
 .main-navigation ul ul a:hover {
 	background-color: black;
@@ -726,11 +672,6 @@ a.logo: after {
 	top: 5px;
 	width: auto;
 	z-index: 100000; /* Above WP toolbar */
-}
-
-/* Avoiding a horizontal scrool bar */
-.entry-format-badge .screen-reader-text {
-	right: 0;
 }
 
 /*--------------------------------------------------------------
@@ -868,67 +809,43 @@ body {
 }
 
 /* Calendar widget */
-.widget_calendar #wp-calendar a {
+.widget_calendar a {
 	display: block;
 }
-.widget_calendar #wp-calendar tbody a {
-	background-color: rgba(255, 255, 255, 0.1);
-	color: #fff;
-	display: block;
-}
-.widget_calendar #wp-calendar tbody a:hover {
+.widget_calendar tbody a,
+.widget_calendar tbody a:hover {
 	background-color: rgba(255, 255, 255, 0.2);
 }
-.widget_calendar #wp-calendar {
+.widget_calendar,
+.widget_calendar a {
 	border: 1px solid rgba(255, 255, 255, 0.2);
 	border-width: 1px 0 1px 1px;
 	line-height: 2.52;
 	margin: 0;
 }
-.widget_calendar #wp-calendar caption {
+.widget_calendar caption {
 	color: #fff;
 	letter-spacing: 0.1em;
 	line-height: 1.2142857142;
-	margin-bottom: 17px;
+	margin-bottom: 12px;
 	text-align: left;
 	text-transform: uppercase;
 }
-.widget_calendar #wp-calendar thead th,
-.widget_calendar #wp-calendar tbody td {
+.widget_calendar thead th,
+.widget_calendar tbody td {
 	border: 1px solid rgba(255, 255, 255, 0.2);
 	border-width: 0 1px 1px 0;
 	text-align: center;
 }
-.widget_calendar #wp-calendar tfoot td#prev {
-	padding-left: 5px;
-}
-.widget_calendar #wp-calendar tfoot td#next {
-	border-right: 1px solid rgba(255, 255, 255, 0.2);
-	padding-right: 5px;
-	text-align: right;
-}
-
 /* Check & fix this */
 
-label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td {
-	border: 0;
-	font-family: inherit;
-	font-size: 100%;
-	font-style: inherit;
-	font-weight: inherit;
-	margin: 0;
-	outline: 0;
-	padding: 0;
-	vertical-align: middle;
-}
 
 /* =Attachment page
 ----------------------------------------------- */
 
 article.attachment .entry-content {
 	margin-top: 0;
-	max-width: 1272px;
+	max-width: 1920px;
 	text-align: center;
 }
 article.attachment .attachment {
@@ -939,7 +856,7 @@ article.attachment .entry-caption {
 	max-width: 696px;
 }
 article.attachment  .entry-meta {
-	margin-bottom: 24px;
+	margin-bottom: 0px;
 }
 
 /* =404 Page / No search result
@@ -959,7 +876,7 @@ article.no-results {
 }
 .error404 .entry-content,
 .no-results .entry-content {
-	float: none;
+	
 	margin: 24px auto 0px auto;
 }
 article.error404 .search-form, 
@@ -1004,26 +921,26 @@ article.error404 .widget_calendar  {
 article.error404 .widget_calendar {
 	clear: both;
 }
-article.error404 .widget_calendar #wp-calendar {
+article.error404 .widget_calendar {
 	border: 1px solid rgba(0, 0, 0, 0.1);
 	border-width: 1px 0 1px 1px;
 	line-height: 2;
 }
-article.error404 .widget_calendar #wp-calendar caption {
+article.error404 .widget_calendar caption {
 	color: #000;
 }
-article.error404 .widget_calendar #wp-calendar thead th,
-article.error404 .widget_calendar #wp-calendar tbody td {
+article.error404 .widget_calendar thead th,
+article.error404 .widget_calendar tbody td {
 	border: 1px solid rgba(0, 0, 0, 0.1);
 	border-width: 0 1px 1px 0;
 	padding: 0;
 }
-article.error404 .widget_calendar #wp-calendar tfoot td {
+article.error404 .widget_calendar tfoot td {
 	border: 0;
 	padding: 0;
 }
-article.error404 .widget_calendar #wp-calendar tfoot td#prev {
-	padding: 0 0 0 5px;
+article.error404 .widget_calendar tfoot td#prev {
+	padding: 0 0 0 6px;
 }
 article.error404 .widget_calendar #wp-calendar tfoot td#next {
 	border-right: 1px solid rgba(0, 0, 0, 0.1);
@@ -1051,7 +968,7 @@ display: block;
 }
 .entry-wrap {
 	margin: 0 auto;
-	max-width: 1272px;
+	max-width: 1920px;
 }
 .hentry {
 	padding: 24px 0px 42px 0px;
@@ -1182,17 +1099,13 @@ entry-meta, .entry-meta a {
 	margin: 0 auto;
 }
 .entry-meta {
-	margin-bottom: 2em;
+	margin-bottom: 0em;
 }
 
 /* Image */
 .format-image .entry-content {
-	margin-top: 0;
 	max-width: 1920px;
 	text-align: left;
-}
-.format-image .entry-meta {
-	margin-bottom: 34px;
 }
 
 /* Quote */
@@ -1232,8 +1145,6 @@ span > object {
 	background-color: #f9f6f2;
 	margin: 0 auto;
 	padding: 1.2em 0;
-	font-size: 2.4rem;
-	text-align: left;
 	font-family: monospace;	 
 }
 .format-link .entry-content a {
@@ -1544,7 +1455,7 @@ span > object {
 	float: left;
 }
 .comic .hentry {
-	padding: 0px 0px 42px 0px;
+	padding: 24px 0px 42px 0px;
 }
 .comic .comments-link { 
   display: none;
@@ -1622,7 +1533,7 @@ span > object {
 	background: #FF7369;
 	color: #fff;
 }
-.comic .series-title .series-title a,
+.series-title, .series-title a,
 .comic-episode, .comic-episode a {
 	margin: auto;
 	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
@@ -1925,8 +1836,8 @@ button.toggle-comments {
 	}
 	.entry-meta {
 		float: right;
-		overflow:  hidden;
-		width: 120px;
+		overflow: hidden;
+		width: 96px;
 		text-align: right;
 	}
 	.entry-meta span {
@@ -2078,9 +1989,9 @@ button.toggle-comments {
 		font-size: 0.9em;
 		border: 4px solid #424242; 
 	}
-	#masthead .logo {
-		width: 60px;
-		height: 30px;
+	.site-branding .logo {
+		width: 62px;
+		height: 31px;
     } 
     .site-description {
     	display: none;
@@ -2156,7 +2067,7 @@ button.toggle-comments {
 	font-size: 0.9rem;
 	padding: 0.3em;
 	}
-  .widget-area {
+	.widget-area {
 	margin: 0 auto;
 	overflow: hidden;
 	}
