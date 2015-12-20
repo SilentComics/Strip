@@ -3,13 +3,13 @@ Theme Name: SilentComics
 Theme URI: https://github.com/SilentComics/Wordpress-Theme-for-Silent-Comics/
 Author: Anh Hoa Si
 Author URI: http://silent-comics.com
-Description: A simple theme for comics & web-comics
-Version: 2.5.3 (December 2015) — implementing / TO DO: reduce style.CSS to 2000 lines or less
+Description: A theme for comics
+Version: 2.5.4 (December 2015) — implementing / reducing style.CSS to 2000 lines or less
 License: GNU General Public License v3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Text Domain: silentcomics
 Domain Path: /languages/
-Tags: black, white, light, one-column, fixed-layout, responsive-layout, custom-background, custom-colors, custom-header, custom-menu, featured-images, flexible-header, post-formats, editor-style, rtl-language-support, sticky-post, translation-ready
+Tags: white, light, one-column, fixed-layout, responsive-layout, custom-background, custom-colors, custom-header, custom-menu, featured-images, flexible-header, post-formats, editor-style, rtl-language-support, sticky-post, translation-ready
 
 SilentComics is distributed under the terms of the GNU GPL.
 
@@ -171,17 +171,6 @@ samp {
 /*--------------------------------------------------------------
 2.0 Typography
 --------------------------------------------------------------*/
-@font-face {
-    font-family: 'fenix';
-    src: url('fonts/tipotype_-_fenix-webfont.eot');
-    src: url('fonts/tipotype_-_fenix-webfont.eot?#iefix') format('embedded-opentype'),
-         url('fonts/tipotype_-_fenix-webfont.woff2') format('woff2'),
-         url('fonts/tipotype_-_fenix-webfont.woff') format('woff'),
-         url('fonts/tipotype_-_fenix-webfont.ttf') format('truetype'),
-         url('fonts/tipotype_-_fenix-webfont.svg#fenixregular') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
 
 /* =Global */
 
@@ -352,7 +341,6 @@ table {
 /*--------------------------------------------------------------
 4.0 Forms
 --------------------------------------------------------------*/
-
 button,
 input,
 optgroup,
@@ -373,7 +361,7 @@ input[type="reset"],
 input[type="submit"] {
 	-webkit-appearance: button;
 	border: 0;
-	background: #000;
+	background: #00ffaa;
 	color: #fff;
 	cursor: pointer;
 	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
@@ -393,7 +381,7 @@ input[type="submit"]:hover,
 input[type="submit"]:focus,
 input[type="button"]:hover,
 input[type="button"]:focus {	
-	background-color: #00ffaa;
+	background-color: #000;
 }
 button:active,
 html input[type="button"]:active,
@@ -410,8 +398,9 @@ textarea {
 	border-radius: 0;
 	font-size: 1.2rem;
 	padding: 0.4em;
-	color: #ff6666;
+	color: #868686;
 	border: 1px solid #eeeae6;
+	width: 100%;
 }
 
 .comment-form-author,
@@ -427,16 +416,18 @@ textarea {
 	font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
 	border: 1px solid rgba(255, 255, 255, 0.2);
 	color: #fff;
-	width: 100%;
+	width: 50%;
 }
 #search-wrapper input .search-field [type="submit"] {
-	display: block;
+	display: inline-block;
 }
 
 /*--------------------------------------------------------------
 5.0 Navigation
 --------------------------------------------------------------*/
-
+/*--------------------------------------------------------------
+5.1 Links
+--------------------------------------------------------------*/
 a:link {
 	color: #ff6666;
 	text-decoration: none;
@@ -491,7 +482,6 @@ a.logo: after {
 .site-title {
 	border: 6px solid #420084;
 	display: table;
-	/* font-size: 1.6rem !important; */
 	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
 	line-height: 1.2;
 	letter-spacing: 0.1em;
@@ -570,9 +560,8 @@ a.logo: after {
 	padding: 10px 6px 6px 10px;
 }
 .main-navigation ul ul {
-	box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.2);
+	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
 	display: none;
-	float: left;
 	position: absolute;
 }
 .main-navigation ul ul ul a {
@@ -602,7 +591,7 @@ a.logo: after {
 	cursor: pointer;
 	font: 400 1.4rem/1.2 Futura, "Trebuchet MS", Arial, sans-serif;
 	margin: 0;
-	padding: 6px 0px;
+	padding: 6px 0;
 	text-align: center;
 	text-transform: uppercase;
 }
@@ -629,7 +618,7 @@ a.logo: after {
 .screen-reader-text {
 	clip: rect(1px, 1px, 1px, 1px);
  	overflow: hidden;
-	position: absolute !important;
+	position: absolute;
 }
 .screen-reader-text:hover,
 .screen-reader-text:active,
@@ -637,7 +626,7 @@ a.logo: after {
 	background-color: #f1f1f1;
 	border-radius: 3px;
 	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
-	clip: auto !important;
+	clip: auto;
 	color: #20759c;
 	display: block;
 	font-size: 14px;
@@ -817,14 +806,13 @@ body {
 /* =Attachment page
 ----------------------------------------------- */
 
-article.attachment .entry-content {
+article.attachment .entry-content,
+article.attachment .attachment {
 	margin-top: 0;
 	max-width: 1920px;
 	text-align: center;
 }
-article.attachment .attachment {
-	margin-bottom: 0;
-}
+
 article.attachment .entry-caption {
 	margin-top: 24px;
 	max-width: 696px;
@@ -850,8 +838,7 @@ article.no-results {
 }
 .error404 .entry-content,
 .no-results .entry-content {
-	
-	margin: 24px auto 0px auto;
+	margin: 24px auto 0 auto;
 }
 article.error404 .search-form, 
 article.no-results .search-form {
@@ -862,7 +849,7 @@ article.no-results input[type="search"] {
 	margin-bottom: 17px;
 	font-size: 1.2rem;
 	font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
-	width: 100%;
+	text-align: center;
 }
 article.error404 .widget {
 	-moz-box-sizing: border-box;
@@ -886,7 +873,7 @@ article.error404 .widget ul {
 	margin: 0;
 }
 article.error404 .widget li {
-	border-top: 1px solid rgba(0, 0, 0, 0.1);
+	border-top: 1px solid #ffeeee;
 }
 article.error404 .widget_archive p,
 article.error404 .widget_calendar  {
@@ -896,29 +883,26 @@ article.error404 .widget_calendar {
 	clear: both;
 }
 article.error404 .widget_calendar {
-	border: 1px solid rgba(0, 0, 0, 0.1);
-	border-width: 1px 0 1px 1px;
-	line-height: 2;
+	border: none;
 }
 article.error404 .widget_calendar caption {
 	color: #000;
 }
 article.error404 .widget_calendar thead th,
 article.error404 .widget_calendar tbody td {
-	border: 1px solid rgba(0, 0, 0, 0.1);
+	border: 1px dotted rgba(0, 0, 0, 0.1);
 	border-width: 0 1px 1px 0;
 	padding: 0;
 }
 article.error404 .widget_calendar tfoot td {
-	border: 0;
+	border: none;
 	padding: 0;
 }
-article.error404 .widget_calendar tfoot td#prev {
-	padding: 0 0 0 6px;
+article.error404 .widget_calendar tfoot #prev {
+	padding: 0 0 0 12px;
 }
-article.error404 .widget_calendar #wp-calendar tfoot td#next {
-	border-right: 1px solid rgba(0, 0, 0, 0.1);
-	padding: 0 5px 0 0;
+article.error404 .widget_calendar #wp-calendar tfoot #next {
+	padding: 0 12px 0 0;
 }
 article.error404 .widget_calendar #wp-calendar tbody a {
 	background-color: #ff6666;
@@ -945,12 +929,11 @@ article.error404 .widget_calendar #wp-calendar tbody a:hover {
 	max-width: 1920px;
 }
 .hentry {
-	padding: 24px 0px 42px 0px;
+	padding: 24px 0 42px 0;
 }
 .attachment-silentcomics-featured-thumbnail {
 	display: block;
 	margin: 0 auto;
-	vertical-align: middle;
 	margin-top: 24px;
 }
 .entry-title {
@@ -979,7 +962,7 @@ article.error404 .widget_calendar #wp-calendar tbody a:hover {
 	font: 400 10px/1 Futura, "Trebuchet MS", Arial, sans-serif;
 	letter-spacing: 0.1em;
 	max-width: 696px;
-	padding: 8px 0px 9px 0px;
+	padding: 8px 0 9px 0;
 	text-transform: uppercase;
 }
 .entry-meta {
@@ -1002,7 +985,7 @@ entry-meta, .entry-meta a {
 	text-decoration:none;
 	color:#ba9e9e;
 }
-.sep{
+.sep {
 	color:#ff6666;
 }
 .byline {
@@ -1014,17 +997,12 @@ entry-meta, .entry-meta a {
 }
 .entry-content,
 .entry-summary {
-	margin: 0px 0px 24px 0px;
+	margin: 0 0 24px 0;
 	max-width: 696px;
 	width: 100%;
 }
-/*check */
-.taxonomy-description {
-	margin: 0 auto;
-	max-width: 696px;
-}
-.single-thumbnail{
-	margin:20px 0;
+.single-thumbnail {
+	margin: 20px 0;
 }
 .single-thumbnail img:hover{
 	filter:alpha(opacity=90);
@@ -1035,7 +1013,7 @@ entry-meta, .entry-meta a {
 .entry-content table,
 .entry-summary table,
 .comment-body table {
-	border: 1px solid rgba(0, 0, 0, 0.1);
+	border: 1px solid rgba(0, 0, 0, 0.1); /* Check */
 	border-width: 1px 0 0 1px;
 	margin-bottom: 34px;
 	width: 100%;
@@ -1043,7 +1021,7 @@ entry-meta, .entry-meta a {
 .entry-content th,
 .entry-summary th,
 .comment-body th {
-	border: 1px solid rgba(0, 0, 0, 0.1);
+	border: 1px solid rgba(0, 0, 0, 0.1); /* Check */
 	border-width: 0 1px 1px 0;
 	font-size: 1.6rem;
 	font-weight: normal;
@@ -1054,7 +1032,7 @@ entry-meta, .entry-meta a {
 .entry-content td,
 .entry-summary td,
 .comment-body td {
-	border: 1px solid rgba(0, 0, 0, 0.1);
+	border: 1px solid rgba(0, 0, 0, 0.1); /* Check */
 	border-width: 0 1px 1px 0;
 	padding: 8px 8px 9px 8px;
 }
@@ -1161,7 +1139,6 @@ span > object {
 }
 /* =Media
 ----------------------------------------------- */
-
 
 /* Gallery Settings */
 .gallery-item {
@@ -1273,7 +1250,6 @@ span > object {
     display: none;
 }
 /* Captions settings */
-
 .wp-caption {
 	margin-bottom: 34px;
 	max-width: 100%;
@@ -1306,7 +1282,6 @@ span > object {
 
 /* =Navigation
 ----------------------------------------------- */
-
 .site-content .comment-navigation,
 .site-content .paging-navigation,
 .site-content .post-navigation
@@ -1331,16 +1306,16 @@ span > object {
 .post-navigation a:hover .meta-nav {
 	background-color: #ff6666;
 }
-.paging-navigation .nav-previous-page,
-.paging-navigation .nav-next-page {
+/* pagination */
+.nav-previous-page,
+.nav-next-page {
 	display: block;
 	text-align: center; 
 }
-.paging-navigation .nav-previous-page a,
-.paging-navigation .nav-next-page a {
+.nav-previous-page a,
+.nav-next-page a {
 	text-align: center;
-	
-	padding: 12px 10px 10px 10px;
+	padding: 12px 10px;
     font-family: Futura, "Trebuchet MS", Arial, sans-serif;
     font-size: 1rem;
     text-transform: uppercase;
@@ -1352,19 +1327,16 @@ span > object {
 	display: block;
 	text-align: center
 } 
-
 .image-navigation .nav-previous,
 .image-navigation .previous {
 	float: left;
 	text-align: left;
 } 
- 
 .image-navigation .nav-next,
 .image-navigation .next {
 	float: right;
 	text-align: right;
-}  
-  
+}   
 .image-navigation .meta-nav {
 	border-radius: 3px; /* square shaped is 0px */
 	font-size: 2.4rem;
@@ -1380,7 +1352,6 @@ span > object {
     float: left;
     text-align: left;
 }
-
 .comment-navigation .nav-next,
 .paging-navigation .nav-next,
 .post-navigation .nav-next {
@@ -1391,6 +1362,9 @@ span > object {
 /*--------------------------------------------------------------
 10.3 Comics
 --------------------------------------------------------------*/
+.comic .entry-comic {
+	padding: 6px 0 24px 0;
+}
 .comic .entry-title {
 	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
 	font-size: 2.4rem;
@@ -1414,52 +1388,35 @@ span > object {
     letter-spacing: 0.1em;
     color: black;
     background-color: #ffff00;
+    text-align: left;
 }
 .comic .entry-meta {
-	float: right;
-	max-width: 120px;
+	text-align: right;
 }
 .single-comic .entry-meta {
 	display: none;
-}
-.comic .post-edit-link,
-.story .post-edit-link {
-	float: left;
-}
-.comic .hentry {
-	padding: 24px 0 42px 0;
-}
-.comic .comments-link { 
-  display: none;
-}
-.comic .entry-content {
-	padding: 24px 0px 42px 0px;
-	margin: 0 auto;
-	text-align: left;
 }
 .comic-navigation a {
 	text-decoration: none;
 }
 .comic-navigation .nav-previous {
-	float: left;
+	/* float: left; /* can you remove this line? */
 	text-align: left;
 	width: 50%;
 }
 .comic-navigation .nav-next {
-	float: right;
+	/* float: right; /* can you remove this line? */
 	text-align: right;
 	width: 50%;
 }
 .entry-comic .navigation-comic {
-	font-style: normal;
 	margin: 0 auto;
 	text-align: center;
-	width: 100%;
 }
 .entry-comic .navigation-comic [class*="nav-"] {
-	float: none;
+	float: none; /* WTF with this float? */
 	display: inline-block;
-	width: 18.5%;
+	width: 18.5%; /* not aligned with images */
 }
 .entry-comic .navigation-comic .nav-first {
 	text-align: left;
@@ -1476,7 +1433,7 @@ span > object {
 	text-transform: uppercase;
 }
 .entry-comic .navigation-comic .nav-title a {
-  color: black;
+	color: black;
 }
 .entry-comic .navigation-comic .nav-title a:hover,
 .comic-episode, .comic-episode a:hover {
@@ -1514,7 +1471,6 @@ span > object {
 	letter-spacing: 0.1em;
 	text-transform: uppercase;
 }
-
 /*  the comic page title */
 .page-title, .taxonomy-description {
 	font: italic 400 24px/1 Futura, "Trebuchet MS", Arial, sans-serif;
@@ -1529,8 +1485,6 @@ span > object {
 	padding: 4px;
 	line-height: inherit;
 }
-/* pagination */
-
 /*  comics blurb */
 .comic-blurb {
 	margin: auto;
@@ -1595,14 +1549,13 @@ button.toggle-comments {
 10.5.2 Comments
 --------------------------------------------------------------*/
 .comment-author .author-cite {
-  color: #999999;
+	color: #999999;
 	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
 	font-size: 1.4rem;
-  text-transform: uppercase;
+	text-transform: uppercase;
 }
 .bypostauthor > article .comment-author > cite:after {
 	font-size: 16px;
-	content: "wa";
 	position: absolute;
 	top: -10px;
 	right: -16px;
@@ -1655,11 +1608,11 @@ button.toggle-comments {
 	vertical-align: middle;
 }
 .comments-area {
-	width: 90%;
+	width: 80%;
 	max-width: 696px;
 	font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
 	font-size: 1.2rem;
-	margin: 2.4em auto;
+	margin: 0 auto;
 	padding-bottom: 2em;
 }
 .comments-title {
@@ -1704,12 +1657,11 @@ button.toggle-comments {
 	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
 	font-size: 1rem;
 	line-height: 1.2;
-	padding: 8px 0px 9px 0px;
+	padding: 8px 0 9px 0;
 	text-align: center;
 	}
 .site-info a {
 	color: #421212;
-	
 }
 .site-info a:hover {
 	color: #ff6666;
@@ -1722,7 +1674,6 @@ button.toggle-comments {
 /*--------------------------------------------------------------
 11.0 Infinite scroll
 --------------------------------------------------------------*/
-
 /* Globally hidden elements when Infinite Scroll is supported and in use. */
 .infinite-scroll .paging-navigation, /* Older / Newer Posts Navigation (always hidden) */
 .infinite-scroll.neverending .site-footer { /* Theme Footer (when set to scrolling) */
@@ -1938,7 +1889,7 @@ button.toggle-comments {
 	.entry-comic .navigation-comic .nav-first a,
 	.entry-comic .navigation-comic .nav-last a {
 		font-size: 1.2rem;
-		letter-spacing: normal;
+		letter-spacing: normal; /* Check if line needed */
 		width: -moz-max-content;
 	}
 }
@@ -1947,7 +1898,6 @@ button.toggle-comments {
 		font-size: 1.6rem;
 		line-height: 1.4166666667;
 		}
-	
 	button, input, select {
 		font-size: 12px;
 		line-height: 1.4;		
@@ -2001,9 +1951,9 @@ button.toggle-comments {
 		line-height: 1.6;
 	}
 	.comments-title {
-	font: italic 400 16px/1 "Futura", sans-serif;
-	margin-bottom: 48px;
-	text-align: center;
+		font: italic 400 16px/1 "Futura", sans-serif;
+		margin-bottom: 48px;
+		text-align: center;
 	}
 	.site-content .navigation-comment {
 		padding: 0;
@@ -2024,19 +1974,19 @@ button.toggle-comments {
 		margin: 34px auto;
 	}
 	.comic .entry-title {
-	font-size: 1.6rem;
+		font-size: 1.6rem;
 }
 	.entry-comic .navigation-comic .nav-previous a,
 	.entry-comic .navigation-comic .nav-next a,
 	.entry-comic .navigation-comic .nav-title a,
 	.entry-comic .navigation-comic .nav-first a,
 	.entry-comic .navigation-comic .nav-last a {
-	font-size: 0.9rem;
-	padding: 0.3em;
+		font-size: 0.9rem;
+		padding: 0.3em;
 	}
 	.widget-area {
-	margin: 0 auto;
-	overflow: hidden;
+		margin: 0 auto;
+		overflow: hidden;
 	}
 	.footer-widget-1,
 	.footer-widget-2,
