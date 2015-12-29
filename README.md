@@ -1,3 +1,5 @@
+[![ghit.me](https://ghit.me/badge.svg?repo=SilentComics/Silent-Comics-Wordpress-Theme)](https://ghit.me/repo/SilentComics/Silent-Comics-Wordpress-Theme)
+
 WIP WordPress-Theme-for-Silent-Comics
 =================================
 
