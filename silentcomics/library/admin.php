@@ -107,6 +107,10 @@ function silentcomics_login_css() {
 	wp_enqueue_style( 'silentcomics_login_css', get_template_directory_uri() . '/library/css/login.css', false );
 }
 
+// function silentcomics_login_js() {
+//	wp_enqueue_script( 'silentcomics_login.js', get_template_directory_uri() . '/library/login.js', array(), '20151112', true );
+//	}
+
 // changing the logo link from wordpress.org to your site
 function silentcomics_login_url() {  return home_url(); }
 
@@ -115,6 +119,7 @@ function silentcomics_login_title() { return get_option('blogname'); }
 
 // calling it only on the login page
 add_action( 'login_enqueue_scripts', 'silentcomics_login_css', 10 );
+add_action( 'login_enqueue_scripts', 'silentcomics_login_js' );
 add_filter('login_headerurl', 'silentcomics_login_url');
 add_filter('login_headertitle', 'silentcomics_login_title');
 
@@ -130,8 +135,11 @@ you like.
 
 // Custom Backend Footer
 function silentcomics_custom_admin_footer() {
-	_e('<span id="footer-thankyou">Developed by <a href="http://silent-comics.com" target="_blank">Silent Comics</a></span>. Custom admin area thanks to <a href="http://themble.com/bones" target="_blank">Themble</a>.', 'silentcomics');
-}
+	?>
+	<span id="footer-thankyou"><a href="<?php echo esc_url( __( 'https://github.com/SilentComics/Silent-Comics-Wordpress-Theme/tree/master/silentcomics/', 'silentcomics' ) ); ?>"><?php printf( esc_html__( 'Developed by %s', 'silentcomics' ), 'Hoa Si' ); ?></a>
+			<span class="sep"> | </span>
+			<a href="<?php echo esc_url( __( 'http://themble.com/bones', 'silentcomics' ) ); ?>"><?php printf( esc_html__( 'Custom admin area thanks to %s', 'silentcomics' ), 'Themble' ); ?></a>
+<?php }
 
 // adding it to the admin area
 add_filter('admin_footer_text', 'silentcomics_custom_admin_footer');

@@ -6,9 +6,9 @@
  */
  
 
-if ( post_type_exists( $post_type )  && is_singular() ) {
+if ( post_type_exists( $post_type )  && is_single() ) {
     
-    get_header( 'simple' );
+    get_header( 'lite' );
 }
 else
 {
@@ -32,7 +32,7 @@ else
 						
 			</div><!-- #entry-comic -->
 			
-			<?php  endif; ?>
+			<?php  endif; wp_reset_query(); ?>
 				<?php
 				// If comments are open or we have at least one comment, load up the comment template
 				if ( comments_open() || '0' != get_comments_number() )

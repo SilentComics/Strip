@@ -17,26 +17,10 @@
 			<a href="<?php the_permalink(); ?>"><?php echo get_the_date(); ?></a>
 		</footer><!-- .entry-meta -->
 		
-		<header class="entry-header">
+		<header class="entry-header"></br>
 			
-			<?php // calls each series by get_the_terms, custom taxonomy "story" replacing WP native "category" (see if the new term meta enables further improvement)
-			
-			$terms = get_the_terms( $post->ID, 'story' );
-
-foreach ( $terms as $term ) {
-
-    // The $term is an object, so we don't need to specify the $taxonomy.
-    $term_link = get_term_link( $term );
-   
-    // If there was an error, continue to the next term.
-    if ( is_wp_error( $term_link ) ) {
-        continue;
-    }
-
-    // We successfully got a link. Print it out.
-    echo '<span class="categories-links"><a href="' . esc_url( $term_link ) . '">' . $term->name . '</a></span>';
-}
-				edit_post_link( __( 'Edit Comic', 'silentcomics' ), '<span class="edit-link">', '</span>' ); 
+			<?php 
+			edit_post_link( __( 'Edit Comic', 'silentcomics' ), '<span class="edit-link">', '</span>' ); 
 				
 				if ( ! is_single() ) :
 					the_title( '<h1 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h1>' );
@@ -55,9 +39,9 @@ foreach ( $terms as $term ) {
 		<?php else : ?>
 			
 	<div class="entry-comic">
-		<?php the_content( __( 'Continue watching <span class="meta-nav">&rarr;</span>', 'silentcomics' ) ); ?>
+		<?php the_content(); ?>
 		
 			<?php endif; ?>
 		</div><!-- .entry-content -->		
 	</div><!-- .entry-wrap -->
-</comic>
+</article>

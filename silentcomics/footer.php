@@ -42,12 +42,15 @@
 		</div>
 		
 		<div class="site-info">
-			&copy; <?php 
+			&copy; SILENT COMICS <?php 
   $fromYear = 2013; 
   $thisYear = (int)date('Y'); 
-  echo $fromYear . (($fromYear != $thisYear) ? '-' . $thisYear : '');?> SILENT COMICS
+  echo $fromYear . (($fromYear != $thisYear) ? '-' . $thisYear : '');?> 
 			<span class="sep"> | </span>
-			<?php printf( __( 'Theme: %1$s by %2$s.', 'silentcomics' ), 'silentcomics', '<a href="http://silent-comics.com" rel="designer">Silent Comics</a>' ); ?>
+			<?php do_action( 'silentcomics_credits' );
+				?>
+				<span class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></span>
+				<a href="<?php echo esc_url( __( 'http://silent-comics.com/', 'silentcomics' ) ); ?>"><?php printf( esc_html__( 'Theme: %1$s by %2$s.', 'silentcomics' ), 'silentcomics', 'Hoa' ); ?><rel="designer"></a>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->

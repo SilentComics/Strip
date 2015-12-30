@@ -27,22 +27,7 @@
 
 		<div class="entry-content clear">
 			<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'silentcomics' ) ); ?>
-			<?php
-				wp_link_pages( array(
-					'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'silentcomics' ) . '</span>',
-					'after'       => '</div>',
-					'link_before' => '<span>',
-					'link_after'  => '</span>',
-				) );
-				?>
-			<?php //
-
-				// if ( ! is_single() ) :
-				//	the_title( '<h1 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h1>' );
-				// else :
-				//	the_title( '<h1 class="entry-title">', '</h1>' );
-				// endif;
-			?>
+			
 		</div><!-- .entry-content -->
 		</div><!-- .entry-wrap -->
 </article><!-- #post-## -->

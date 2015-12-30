@@ -5,7 +5,7 @@
 
 // Access global variable directly to set content_width
 if ( isset( $GLOBALS['content_width'] ) )
-	$GLOBALS['content_width'] = 1272;
+	$GLOBALS['content_width'] = 1920;
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -28,14 +28,7 @@ if ( isset( $GLOBALS['content_width'] ) )
 			</header><!-- .entry-header -->
 			
 					<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'silentcomics' ) ); ?>
-			<?php
-				wp_link_pages( array(
-					'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'silentcomics' ) . '</span>',
-					'after'       => '</div>',
-					'link_before' => '<span>',
-					'link_after'  => '</span>',
-				) );
-			?>
+			
 		</div><!-- .entry-content -->
 		
 		<footer class="entry-meta">

@@ -13,18 +13,13 @@ http://codex.wordpress.org/Creating_Admin_Themes
 
 ******************************************************************/
 /* the form box */
-body.login {
-  /*
-	This is the Wordpress logo in the admin area.
-	You'll have to load your own images and mess
-	with the width and height.
-	*/
-}
-/* body.login h1 a {
-  background: url(../images/login-logo.png) no-repeat top center;
-  */
- 
-.login h1,
+/*
+* This is the Wordpress logo in the admin area.
+* You'll have to load your own images and mess
+* with the width and height.
+*
+*/
+
 .login h1 a {
   background: url('../images/login-logo.svg') no-repeat top center;
 /* make sure to replace this! */
@@ -35,20 +30,21 @@ body.login {
   padding-bottom: 15px;
   display: block;
 }
-.no-svg login h1,
+
 .no-svg login h1 a {
   background-image: url('../images/login-logo.png');
 }  
+
 #loginform {
   margin-left: 8px;
   padding: 26px 24px 46px;
   font-weight: normal;
-  background:  transparent;
-  border: 0px solid #e7e7e7;
+  background: transparent;
+  border: none;
   border-radius: 3px;
   box-shadow: none; 
 }
-#loginform .input {
+body form .input {
   font-family: Inconsolata, monospace;
   color: #424242;
   font-size: 24px;
@@ -72,8 +68,9 @@ body.login {
 .forgetmenot {
 	display: none;
 }
+
 /* login button*/
-#wp-submit,
+
 .button.button-primary.button-large,
 html input[type="button"],
 input[type="reset"],
@@ -85,12 +82,40 @@ input[type="submit"] {
 	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
 	font-size: 1em;
 	letter-spacing: 0.24em;
-
 	text-transform: uppercase;
     width: 100%;
 }
 
 /* background #00ffcc #ff6666 */
-body {
-	background-color: #ffcc00;
+
+.body .theme_1{
+    background: #cccccc;
 }
+body .theme_2{
+    background: #eeeeee;
+}
+body .theme_3{
+    background: #ff6666;
+}
+body .theme_4{
+    background: #00ffcc;
+}
+body .theme_5{
+    background: #ffcc00;
+}
+body .theme_6{
+    background: #ffeeee;
+}
+body .theme_7{
+    background: #bbbbbb;
+}
+body .theme_8{
+    background: #ccccff;
+}
+body .theme_9{
+    background: #ff00ee;
+}
+body .theme_10{
+    background: #eebbcc;
+}
+

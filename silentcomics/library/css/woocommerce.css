@@ -4,7 +4,8 @@ Author: Anh Hoa	Si
 
 Stylesheet: WooCommerce Stylesheet
 
-This stylesheet overwrites some WooCommerce CSS rules to better match the theme.
+This stylesheet overwrites some WooCommerce CSS rules to better match the theme. 
+There are a lot of fixes to do on this one, no the least being that the plugin breaks the main blog layout
 
 For more info, check out:
 https://docs.woothemes.com/documentation/plugins/woocommerce/
@@ -15,8 +16,9 @@ https://docs.woothemes.com/documentation/plugins/woocommerce/
 >>> WooCommerce							
 --------------------------------------------------------------*/
 .woocommerce-content .entry-wrap {
+	clear: both;
 	margin: 0 auto;
-	max-width: 816px;
+	max-width: 840px;
 }
 #product {
 	padding-top: 2.4em;
@@ -55,11 +57,11 @@ h1   { font-size: 24px; font-size: 2.4rem; } /* =36px */
 	font-size: 2.4rem;
 	line-height: 1;
 }
-.woocommerce-content h3,
-.woocommerce-content h3 a {
-	font-size: 1.4rem;
-	line-height: 1;
-	color: orange;
+.woocommerce h3,
+.woocommerce .product h3 a {
+	font-size: inherit;
+	line-height: inherit;
+	color: pink;
 	text-transform: uppercase;
 	letter-spacing: 0.1em;
 }
@@ -114,7 +116,7 @@ input[type="submit"] {
 .woocommerce .cart .button:hover,
 html input[type="button"]:active,
 input[type="submit"]:active {
-		background-color: #00ffaa;
+	background-color: #00ffaa;
 }
 
 
@@ -147,11 +149,31 @@ input[type="submit"]:active {
 }
 
 /* WooCommerce custom media queries */
+@media screen and (min-width: 312px) {
+	.woocommerce-content .entry-wrap {
+		max-width: 264px;
+	}
+}
+@media screen and (min-width: 456px) {
+	.woocommerce-content .entry-wrap {
+		max-width: 408px;
+	}
+}
+@media screen and (min-width: 600px) {
+	.woocommerce-content .entry-wrap {
+		max-width: 552px;
+	}
+}
 
-@media screen and (max-width: 816px) {
+@media screen and (min-width: 744px) {
+	.woocommerce-content .entry-wrap {
+		max-width: 696px;
+	}
+}
+@media screen and (min-width: 888px) {
 	.woocommerce-content .entry-wrap {
 		margin: 0 auto;
-		max-width: 504px;
+		max-width: 840px;
 	}
 }
 

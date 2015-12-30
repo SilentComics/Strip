@@ -4,7 +4,7 @@ Theme URI: https://github.com/SilentComics/Wordpress-Theme-for-Silent-Comics/
 Author: Anh Hoa Si
 Author URI: http://silent-comics.com
 Description: A theme for comics
-Version: 2.5.4 (December 2015) — implementing / reducing style.CSS to 2000 lines or less
+Version: 2.5.5 (December 2015) — streamline before redoing SASS Version
 License: GNU General Public License v3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Text Domain: silentcomics
@@ -433,7 +433,7 @@ a:link {
 	text-decoration: none;
 }
 a:visited {
-	color: #996666;
+	color: #ffdada;
 	text-decoration: none;
 }
 a:hover,
@@ -686,7 +686,7 @@ body {
 }
 .site-header  {
 	/* border-top: 0.3em solid transparent; */
-	border-top: 6px solid #000000;
+	border-top: 3px solid #000000;
 }
 .site-footer {
 	padding: 1em 0;
@@ -936,22 +936,16 @@ article.error404 .widget_calendar #wp-calendar tbody a:hover {
 	margin: 0 auto;
 	margin-top: 24px;
 }
-.entry-title {
+.entry-title, .entry-title a {
 	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
 	margin: 0 auto;
 	max-width: 696px;
 	/* support non-breaking text for edge cases  */
 	-ms-word-wrap: break-word;
 	word-wrap: break-word;
-}
-.entry-title, .entry-title a{
-	text-decoration:none;
-	font-size: 1.2em;
 	color:#241212;
-	line-height: inherit;
 	text-transform:uppercase;
 	text-align:center;
-	margin-bottom: 12px;
 }
 .entry-title a:hover{
 	text-decoration:none;
@@ -1204,10 +1198,10 @@ span > object {
     margin-right: 0;
 }
 
-.gallery-columns-1.gallery-size-medium figure.gallery-item:nth-of-type(1n+1),
-.gallery-columns-1.gallery-size-thumbnail figure.gallery-item:nth-of-type(1n+1),
-.gallery-columns-2.gallery-size-thumbnail figure.gallery-item:nth-of-type(2n+1),
-.gallery-columns-3.gallery-size-thumbnail figure.gallery-item:nth-of-type(3n+1) {
+.gallery-columns-1 .gallery-size-medium figure.gallery-item:nth-of-type(1n+1),
+.gallery-columns-1 .gallery-size-thumbnail figure.gallery-item:nth-of-type(1n+1),
+.gallery-columns-2 .gallery-size-thumbnail figure.gallery-item:nth-of-type(2n+1),
+.gallery-columns-3 .gallery-size-thumbnail figure.gallery-item:nth-of-type(3n+1) {
     clear: left;
 }
 
@@ -1329,12 +1323,12 @@ span > object {
 } 
 .image-navigation .nav-previous,
 .image-navigation .previous {
-	float: left;
+	float: left; /* can you remove this line? */
 	text-align: left;
 } 
 .image-navigation .nav-next,
 .image-navigation .next {
-	float: right;
+	float: right; /* can you remove this line? */
 	text-align: right;
 }   
 .image-navigation .meta-nav {
@@ -1344,7 +1338,13 @@ span > object {
 	background-color: transparent;
 	text-align: center;
 	padding: 4px;
-  }
+}
+.page-numbers,
+.prev page-numbers,
+.next page-numbers {
+	display: inline;
+	text-align: center;
+}
 /* Comment navigation specific */
 .comment-navigation .nav-previous,
 .paging-navigation .nav-previous,
@@ -1366,18 +1366,17 @@ span > object {
 	padding: 6px 0 24px 0;
 }
 .comic .entry-title {
-	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
-	font-size: 2.4rem;
-	font-weight: 400; 
-	line-height: 1.2;  
+	font: 400 2.4rem/1.2 Futura, "Trebuchet MS", Arial, sans-serif;
 	text-decoration:none;
 	color: #f3e7e7;
-	text-transform: uppercase;
+	text-transform:uppercase;
 	text-align:center;
 	max-width: 696px;
 }
-.comic .categories-links a {
-	display: inline-block;
+.comic .categories-links a,
+.comic-archive .categories-links a {
+	
+	display: block;
 	color: #422424;
 }
 .comic .post-edit-link {
@@ -1400,23 +1399,23 @@ span > object {
 	text-decoration: none;
 }
 .comic-navigation .nav-previous {
-	/* float: left; /* can you remove this line? */
+	/*float: left; /* can you remove this line? */
 	text-align: left;
 	width: 50%;
 }
 .comic-navigation .nav-next {
-	/* float: right; /* can you remove this line? */
+	/*float: right; /* can you remove this line? */
 	text-align: right;
 	width: 50%;
 }
 .entry-comic .navigation-comic {
-	margin: 0 auto;
 	text-align: center;
+	width: 100%;
 }
 .entry-comic .navigation-comic [class*="nav-"] {
 	float: none; /* WTF with this float? */
 	display: inline-block;
-	width: 18.5%; /* not aligned with images */
+	width: 18.5%; /* not aligned with images, "auto" centers everything */
 }
 .entry-comic .navigation-comic .nav-first {
 	text-align: left;
@@ -1424,16 +1423,14 @@ span > object {
 .entry-comic .navigation-comic .nav-last {
 	text-align: right;
 }
-.entry-comic .navigation-comic .nav-title {
-	margin: 0 auto;
+.entry-comic .navigation-comic .nav-title,
+.entry-comic .navigation-comic .nav-title a {
 	text-align: center;
+	color: black;
 	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
 	font-size: 1.2rem;
 	letter-spacing: 0.1em;
 	text-transform: uppercase;
-}
-.entry-comic .navigation-comic .nav-title a {
-	color: black;
 }
 .entry-comic .navigation-comic .nav-title a:hover,
 .comic-episode, .comic-episode a:hover {
@@ -1462,17 +1459,16 @@ span > object {
 }
 .series-title, .series-title a,
 .comic-episode, .comic-episode a {
-	margin: auto;
 	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
 	text-align: center;
 	color: black;
 	font-size: 1.2rem;
-	line-height: 1.76em;
 	letter-spacing: 0.1em;
 	text-transform: uppercase;
 }
 /*  the comic page title */
-.page-title, .taxonomy-description {
+.page-title, 
+.taxonomy-description {
 	font: italic 400 24px/1 Futura, "Trebuchet MS", Arial, sans-serif;
 	margin-bottom: 0.6em;
 	text-align: center;
@@ -1483,7 +1479,6 @@ span > object {
 	text-transform: uppercase;
 	background-color: #f3e7e7;
 	padding: 4px;
-	line-height: inherit;
 }
 /*  comics blurb */
 .comic-blurb {
@@ -1648,7 +1643,7 @@ button.toggle-comments {
 --------------------------------------------------------------*/
 .site-footer {
 	background-color: #f9f6f2;
-	border-bottom: 6px solid #000000;
+	border-bottom: 3px solid #000000;
 	vertical-align: top;
 }
 .site-info {
@@ -1662,14 +1657,14 @@ button.toggle-comments {
 	}
 .site-info a {
 	color: #421212;
-}
+	}
 .site-info a:hover {
 	color: #ff6666;
-}
+	}
 .site-footer-wrapper {
 	margin: 1.6em auto;
 	max-width: 696px;
-}
+	}
 
 /*--------------------------------------------------------------
 11.0 Infinite scroll
@@ -1975,7 +1970,7 @@ button.toggle-comments {
 	}
 	.comic .entry-title {
 		font-size: 1.6rem;
-}
+	}
 	.entry-comic .navigation-comic .nav-previous a,
 	.entry-comic .navigation-comic .nav-next a,
 	.entry-comic .navigation-comic .nav-title a,

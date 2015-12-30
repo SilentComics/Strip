@@ -26,56 +26,51 @@ function silentcomics_content_nav( $nav_id ) {
 	global $wp_query, $post;
 
 	// Don't print empty markup on single pages if there's nowhere to navigate.
-	if ( is_singular() ) {
-		$previous = ( is_attachment() ) ? get_post( $post->post_parent ) : get_adjacent_post( false, '', true );
-		$next = get_adjacent_post( false, '', false );
-
-		if ( ! $next && ! $previous )
-			return;
-	}
+	
 	
 // Don't print empty markup in archives if there's only one page.
 	if ( $wp_query->max_num_pages < 2 && ( is_home() || is_archive() || is_search() ) )
 		return;
 		
-		$nav_class = ( is_single() ) ? 'post-navigation' : 'paging-navigation';
+		$nav_class = ( is_single() || is_tax('story') ) ? 'post-navigation' : 'paging-navigation';
 
-	?>
+	?> 
 
 	<nav role="navigation" id="<?php echo esc_attr( $nav_id ); ?>" class="<?php echo $nav_class; ?> clear">
-		<h1 class="screen-reader-text"><?php esc_html_e( 'Post navigation', 'silentcomics' ); ?></h1>
+		<h1 class="screen-reader-text"><?php _e( 'Post navigation', 'silentcomics' ); ?></h1>
 		
 		<?php if ( 'comic' == get_post_type() && ( is_single() ||  is_front_page() ) ) : //comics navigation links 
 		$nav_class .= ' navigation-comic'; ?>
 		
 				<div class="navigation-comic">
 				<nav class="nav-first"><a href="<?php echo esc_url( first_comic_link()); ?>"><?php esc_html_e( '&#124;&#10094; First', 'silentcomics' ); ?></a></nav>
-				<nav class="nav-previous"><?php esc_html_e(previous_post_link('%link', 'Previous', $in_same_term = true, $excluded_terms = '', $taxonomy = 'story') ); ?></nav>
-				<nav class="nav-title"><?php the_title( '<h6 class="comic-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h6>' ); ?></nav>
-				<nav class="nav-next"><?php esc_html_e(next_post_link('%link', 'Next', $in_same_term = true, $excluded_terms = '', $taxonomy = 'story') ); ?></nav> 
+				<nav class="nav-previous"><?php previous_post_link('%link',  __( 'Previous', 'silentcomics' ), $in_same_term = true, $excluded_terms = '', $taxonomy = 'story' ); ?></nav>
+				<nav class="nav-title"><?php the_title( '<h4 class=".series-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h4>' ); ?></nav>
+				<nav class="nav-next"><?php next_post_link( '%link', __('Next', 'silentcomics' ), true, '', 'story' ); ?></nav>  
 				<nav class="nav-last"><a href="<?php echo esc_url( last_comic_link()); ?>"><?php esc_html_e( 'Latest &#10095;&#124;', 'silentcomics' ); ?></a></nav>
 			</div>
 
 			<?php elseif ( is_single() ) : // navigation links for single posts ?>
-			<div class="wrap clear">
-				
+			
+				<div class="wrap clear">
+					
 		<?php previous_post_link( '<div class="nav-previous">%link</div>', '<span class="meta-nav">' . _x( '&#8592;', 'Previous post link', 'silentcomics' ) . '</span> %title' ); ?>
 		<?php next_post_link( '<div class="nav-next">%link</div>', '%title <span class="meta-nav">' . _x( '&#8594;', 'Next post link', 'silentcomics' ) . '</span>' ); ?>
 
-	<?php elseif ( $wp_query->max_num_pages > 1 && ( is_home() || is_archive() || is_search() ) ) : // navigation links for home, archive, and search pages ?>
+	<?php elseif ( $wp_query->max_num_pages > 1 && ( is_home() || is_archive() || is_search() ) ) : // navigation links for front, archive, and search pages ?>
 
 		<?php if ( get_next_posts_link() ) : ?>
 		<div class="nav-previous-page"><?php next_posts_link( __( 'Older posts', 'silentcomics' ) ); ?></div>
 		<?php endif; ?>
 
 		<?php if ( get_previous_posts_link() ) : ?>
-		<div class="nav-next-page"><?php previous_posts_link( __( 'Newer posts', 'silentcomics' ) ); ?></div>
+		<div class="nav-next-page"><?php previous_posts_link( __( 'Recent posts', 'silentcomics' ) ); ?></div>
 			<?php endif; ?>
 
 		<?php endif; ?>
 
 		</div>
-	</nav><!-- #<?php echo esc_html( $nav_id ); ?> -->
+	</nav><!-- #<?php echo ( $nav_id ); ?> -->
 	<?php
 }
 endif; // silentcomics_content_nav
@@ -148,14 +143,14 @@ function silentcomics_entry_meta() {
 			esc_url( get_permalink() ),
 			esc_attr( get_the_time() ),
 			esc_attr( get_the_date( 'c' ) ),
-			esc_html( get_the_date() ),
+			get_the_date(),
 			esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
 			esc_attr( sprintf( __( 'View all posts by %s', 'silentcomics' ), get_the_author() ) ),
 			get_the_author()
 		);
 	}
 
-	$tags_list = get_the_tag_list( '', __( ', ', 'silentcomics' ) );
+	$tags_list = get_the_tag_list( '', _x( ', ', 'Used between list items, there is a space after the comma.', 'silentcomics' ) );
 	if ( $tags_list )
 		echo '<span class="tags-links">' . $tags_list . '</span>';
 }
@@ -202,6 +197,57 @@ function silentcomics_category_transient_flusher() {
 }
 add_action( 'edit_category', 'silentcomics_category_transient_flusher' );
 add_action( 'save_post',     'silentcomics_category_transient_flusher' );
+
+/**
+* Get the first and last custom type post using get_boundary_post() 
+* See https://core.trac.wordpress.org/ticket/27094](https://core.trac.wordpress.org/ticket/27094
+*
+*/
+function get_comic_boundary_post( $in_same_term = false, $excluded_terms = '', $start = true, $taxonomy = 'category' ) {
+    $post = get_post();
+    if ( ! $post || ! is_single() || is_attachment() ||  ! taxonomy_exists( $taxonomy ) )
+        return null;
+
+    $query_args = array(
+        'post_type' => 'comic',
+        'posts_per_page' => 1,
+        'order' => $start ? 'ASC' : 'DESC',
+        'no_found_rows' => true,
+        'update_post_term_cache' => false,
+        'update_post_meta_cache' => false
+    );
+
+    $term_array = array();
+
+    if ( ! is_array( $excluded_terms ) ) {
+        if ( ! empty( $excluded_terms ) )
+            $excluded_terms = explode( ',', $excluded_terms );
+        else
+            $excluded_terms = array();
+    }
+
+    if ( $in_same_term || ! empty( $excluded_terms ) ) {
+        if ( $in_same_term )
+            $term_array = wp_get_object_terms( $post->ID, $taxonomy, array( 'fields' => 'ids' ) );
+
+        if ( ! empty( $excluded_terms ) ) {
+            $excluded_terms = array_map( 'intval', $excluded_terms );
+            $excluded_terms = array_diff( $excluded_terms, $term_array );
+
+            $inverse_terms = array();
+            foreach ( $excluded_terms as $excluded_term )
+                $inverse_terms[] = $excluded_term * -1;
+            $excluded_terms = $inverse_terms;
+        }
+
+        $query_args[ 'tax_query' ] = array( array(
+            'taxonomy' => $taxonomy,
+            'terms' => array_merge( $term_array, $excluded_terms )
+        ) );
+    }
+
+    return get_posts( $query_args );
+}
 
 /**
  * Link to the first comic post in same term

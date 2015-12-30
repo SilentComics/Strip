@@ -26,7 +26,7 @@
 		
 		<?php if ( has_nav_menu( 'primary' ) ) : ?>
 		<nav id="site-navigation" class="main-navigation clear" role="navigation">
-			<h1 class="menu-toggle"><?php esc_html_e( 'discover', 'silentcomics' ); ?></h1>
+			<h1 class="menu-toggle"><?php _e( 'discover', 'silentcomics' ); ?></h1>
 			<div><a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'silentcomics' ); ?></a></div>
 
 			<?php wp_nav_menu( array( 'theme_location' => 'primary', 'container_class' => 'wrap'  ) ); ?>

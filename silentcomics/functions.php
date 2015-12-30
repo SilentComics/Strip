@@ -67,12 +67,22 @@ add_action( 'after_setup_theme', 'silentcomics_add_editor_styles' );
 	 */
 	add_theme_support( 'post-thumbnails' );
 	add_image_size( 'featured-image', 1920, 0 );
+	
+/**
+* Remove Paragraph Tags From Around Images (fixes layout discrepancy between post with image attachement and galleries)
+* See https://css-tricks.com/snippets/wordpress/remove-paragraph-tags-from-around-images/
+*/
+
+function filter_ptags_on_images($content){
+	return preg_replace('/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $content);
+   }
+add_filter('the_content', 'filter_ptags_on_images');
 
 	/**
 	 * This theme uses wp_nav_menu() in one location.
 	 */
 	register_nav_menus( array(
-		'primary' => esc_html__( 'Primary Menu', 'silentcomics' ),
+		'primary' => __( 'Primary Menu', 'silentcomics' ),
 	) );
 
 	/*
@@ -277,10 +287,10 @@ if ( has_nav_menu( 'primary' ) )
 	wp_enqueue_script( 'silentcomics-toggle-comments', get_template_directory_uri() . '/js/toggle-comments.js', array(), '1.0.0', true );
 	
 
-if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
+if ( is_single() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	
-if ( is_singular() && wp_attachment_is_image() ) {
+if ( is_single() && wp_attachment_is_image() ) {
 		wp_enqueue_script( 'silentcomics-keyboard-image-navigation', get_template_directory_uri() . '/js/keyboard-image-navigation.js', array( 'jquery' ), '20120202' );
 		}
 	}
@@ -419,7 +429,7 @@ function comic_story_taxonomy() {
 		'query_var'       			 => true,
 		'rewrite'          			 => array( 'slug' => 'story' ),
 	);
-	register_taxonomy( 'story', array( 'comic' ), $args );
+	register_taxonomy( 'taxonomy', array( 'post' ), $args );
 }
 
 // Hook into the 'init' action
@@ -474,11 +484,32 @@ function query_post_type($query) {
 	if($post_type)
 	    $post_type = $post_type;
 	else
-	    $post_type = array( 'comic','nav_menu_item');
+	    $post_type = array( 'comic', 'story', 'nav_menu_item');
     $query->set('post_type',$post_type);
 	return $query;
     }
 }
+
+/**
+* Fixes 404 error on pagination due to CTP conflicting with 
+* see http://wordpress.stackexchange.com/questions/30757/change-posts-per-page-count/30763#30763
+*/
+add_action( 'pre_get_posts',  'set_posts_per_page'  );
+function set_posts_per_page( $query ) {
+
+  global $wp_the_query;
+
+  if ( ( ! is_admin() ) && ( $query === $wp_the_query ) && ( $query->is_search() ) ) {
+    $query->set( 'posts_per_page', 10 );
+  }
+  elseif ( ( ! is_admin() ) && ( $query === $wp_the_query ) && ( $query->is_archive() ) ) {
+    $query->set( 'posts_per_page', 6 );
+  }
+  // Etc..
+
+  return $query;
+}
+
 
 /**
 * Add an automatic default custom taxonomy for custom post type.
@@ -500,55 +531,31 @@ function query_post_type($query) {
         }
     }
     add_action( 'save_post', 'set_default_object_terms', 0, 2 );
-
+  
 /**
-* Get the first and last custom type post using get_boundary_post() 
-* See https://core.trac.wordpress.org/ticket/27094](https://core.trac.wordpress.org/ticket/27094
-*
+* filter
+* Reducing postmeta queries with update_meta_cache()
+* see http://hitchhackerguide.com/2011/11/01/reducing-postmeta-queries-with-update_meta_cache/
+* it doesn't do anything that WordPress doesn't handle already
 */
-function get_comic_boundary_post( $in_same_term = false, $excluded_terms = '', $start = true, $taxonomy = 'story' ) {
-    $post = get_post();
-    if ( ! $post || ! is_single() || is_attachment() ||  ! taxonomy_exists( $taxonomy ) )
-        return null;
 
-    $query_args = array(
-        'post_type' => 'comic',
-        'posts_per_page' => 1,
-        'order' => $start ? 'ASC' : 'DESC',
-        'update_post_term_cache' => false,
-        'update_post_meta_cache' => false
-    );
-
-    $term_array = array();
-
-    if ( ! is_array( $excluded_terms ) ) {
-        if ( ! empty( $excluded_terms ) )
-            $excluded_terms = explode( ',', $excluded_terms );
-        else
-            $excluded_terms = array();
-    }
-
-    if ( $in_same_term || ! empty( $excluded_terms ) ) {
-        if ( $in_same_term )
-            $term_array = wp_get_object_terms( $post->ID, $taxonomy, array( 'fields' => 'ids' ) );
-
-        if ( ! empty( $excluded_terms ) ) {
-            $excluded_terms = array_map( 'intval', $excluded_terms );
-            $excluded_terms = array_diff( $excluded_terms, $term_array );
-
-            $inverse_terms = array();
-            foreach ( $excluded_terms as $excluded_term )
-                $inverse_terms[] = $excluded_term * -1;
-            $excluded_terms = $inverse_terms;
-        }
-
-        $query_args[ 'tax_query' ] = array( array(
-            'taxonomy' => $taxonomy,
-            'terms' => array_merge( $term_array, $excluded_terms )
-        ) );
-    }
-
-    return get_posts( $query_args );
+add_filter( 'posts_results', 'cache_meta_data', 9999, 2 );
+function cache_meta_data( $posts, $object ) {
+	$posts_to_cache = array();
+	// this usually makes only sense when we have a bunch of posts
+	if ( empty( $posts ) || is_wp_error( $posts ) || is_single() || is_page() || count( $posts ) < 3 )
+	return $posts;
+	foreach( $posts as $post ) {
+		if ( isset( $post->ID ) && isset( $post->post_type ) ) {
+			$posts_to_cache[$post->ID] = 1;
+		}
+}
+	if ( empty( $posts_to_cache ) )
+	
+	return $posts;
+	update_meta_cache( 'post', array_keys( $posts_to_cache ) );
+	unset( $posts_to_cache );
+	return $posts;
 }
 
 /*

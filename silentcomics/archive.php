@@ -67,8 +67,11 @@ get_header(); ?>
 								elseif ( is_tax( 'post_format', 'post-format-audio' ) ) :
 							_e( 'Audios', 'silentcomics' );
 
-						elseif ( is_tax( 'post_format', 'post-format-chat' ) ) :
+							elseif ( is_tax( 'post_format', 'post-format-chat' ) ) :
 							_e( 'Chats', 'silentcomics' );
+							
+							elseif ( is_tax( 'story', 'comic' ) ) :
+							_e( 'Stories', 'silentcomics' );
 						
 						elseif ( !'comic' == get_post_type() ):
 							_e( 'Comics', 'silentcomics' );

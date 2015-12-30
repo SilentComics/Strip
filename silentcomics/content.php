@@ -6,7 +6,7 @@
 */
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class('clear'); ?>>
 	<div class="entry-wrap wrap clear">
 		<?php if ( '' != get_the_post_thumbnail() ) : ?>
 			<?php if ( ! is_single() ) : ?>
@@ -48,15 +48,23 @@
 		</div><!-- .entry-summary -->
 		<?php else : ?>
 		<div class="entry-content clear">
-			<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'silentcomics' ) ); ?>
 			<?php
-				wp_link_pages( array(
-					'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'silentcomics' ) . '</span>',
-					'after'       => '</div>',
-					'link_before' => '<span>',
-					'link_after'  => '</span>',
-				) );
-			?>
+			/* translators: %s: Name of current post */
+			the_content( sprintf(
+				__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'silentcomics' ),
+				get_the_title()
+			) );
+			
+			wp_link_pages( array(
+				'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'silentcomics' ) . '</span>',
+				'after'       => '</div>',
+				'link_before' => '<span>',
+				'link_after'  => '</span>',
+				'pagelink'    => '<span class="screen-reader-text">' . __( 'Page', 'silentcomics' ) . ' </span>%',
+				'separator'   => '<span class="screen-reader-text">, </span>',
+			) );
+		?>
+		
 		</div><!-- .entry-content -->
 		<?php endif; ?>
 		
