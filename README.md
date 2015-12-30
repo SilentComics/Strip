@@ -17,7 +17,7 @@ Not ready for production yet, but you can download the ZIP file to test the them
 ## Code review needed
 Coding is the *learning by doing* side of the project for me. I'm by no means a WordPress developer and there are countless improvements to be made. 
 
-Do you know how this theme can be improved? Please send your findings and suggestions over to hoa // @ // silent-comics.com
+Do you know how to improve this theme? Please send your findings and suggestions over to hoa // @ // silent-comics.com
 
 ## How you can help
 Aside from doing a theme review, and if you like comics, there are ways you can [support this project ♥](http://silentcomics.com/subscribe/). *Thank you!*
