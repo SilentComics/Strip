@@ -200,7 +200,7 @@ add_action( 'save_post',     'silentcomics_category_transient_flusher' );
 
 /**
 * Get the first and last custom type post using get_boundary_post() 
-* See https://core.trac.wordpress.org/ticket/27094](https://core.trac.wordpress.org/ticket/27094
+* See https://core.trac.wordpress.org/ticket/27094
 *
 */
 function get_comic_boundary_post( $in_same_term = false, $excluded_terms = '', $start = true, $taxonomy = 'category' ) {
