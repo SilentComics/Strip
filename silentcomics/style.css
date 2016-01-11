@@ -4,7 +4,7 @@ Theme URI: https://github.com/SilentComics/Wordpress-Theme-for-Silent-Comics/
 Author: Anh Hoa Si
 Author URI: http://silent-comics.com
 Description: A theme for comics
-Version: 2.5.6 (January 2016) — RESTART
+Version: 2.5.6.1 (January 2016) — RESTART
 License: GNU General Public License v3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Text Domain: silentcomics
@@ -303,8 +303,7 @@ hr {
 
 ul,
 ol {
-	margin: 0;
-	list-style: none;
+	list-style:  none;
 }
 
 li > ul,
@@ -335,18 +334,31 @@ table {
 4.0 Forms
 --------------------------------------------------------------*/
 button,
+button.alt,
 input,
 optgroup,
 select,
 textarea {
     color: inherit; 
     font: inherit; 
-    margin: 0; 
+    margin: 0 auto; 
 }
-
+button,
+input,
+select,
+textarea {
+	font-size: 100%; /* Corrects font size not being inherited in all browsers */
+	margin: 0; /* Addresses margins set differently in IE6/7, F3/4, S5, Chrome */
+	vertical-align: top;
+}
 button {
 	line-height: normal; /* Addresses FF3/4 setting line-height using !important in the UA stylesheet */
 	overflow: visible;  /* Corrects inner spacing displayed oddly in IE6/7 */
+}
+
+input,
+textarea {
+	background-image: -webkit-linear-gradient(hsla(0,0%,100%,0), hsla(0,0%,100%,0)); /* Removing the inner shadow, rounded corners on iOS inputs */
 }
 
 button,
@@ -386,21 +398,6 @@ input[type="submit"]:active {
 	background-color: #ffcc00;
 }
 
-input,
-textarea {
-	-webkit-appearance: textfield; /* 1 */
-    -moz-box-sizing: content-box;
-    -webkit-box-sizing: content-box; /* 2 */
-    box-sizing: content-box;
-	border-radius: 0;
-	font-size: 1.2rem;
-	padding: 0.4em;
-	color: #868686;
-	border: 1px solid #eeeae6;
-	width: 100%;
-	/* margin: 0 1.5em 1.5em; */
-}
-
 .comment-form-author,
 .comment-form-email,
 .comment-form-url {
@@ -418,6 +415,12 @@ textarea {
 }
 #search-wrapper input .search-field [type="submit"] {
 	display: inline-block;
+}
+textarea {
+	overflow: auto; /* Removes default vertical scrollbar in IE6/7/8/9 */
+	padding: 7px 7px 8px 7px;
+	vertical-align: top; /* Improves readability and alignment in all browsers */
+	width: 100%;
 }
 
 /*--------------------------------------------------------------
@@ -1578,10 +1581,12 @@ button.toggle-comments {
 .comment-awaiting-moderation {
 	color: #ffbb00;
 }
-.comment-content {
-	margin: 0 ;
+.comments,
+.comment-respond {
+	margin: 0 auto;
+	max-width: 696px;
+	margin: 0 1.5em 1.5em;
 }
-
 .comment-author .avatar {
 	border-radius: 50%;
 	vertical-align: middle;
@@ -1866,13 +1871,13 @@ button.toggle-comments {
 	}
 }
 @media screen and (max-width: 600px) {
-	body, textarea {
+	body {
 		font-size: 1.6rem;
 		line-height: 1.4166666667;
-		}
-	button, input, select {
-		font-size: 12px;
-		line-height: 1.4;		
+	}
+	textarea, button, input, select {
+		font-size: 1.2rem;
+		line-height: 1.4;	
 	}
 	.site-title {
 		font-size: 0.9em;
@@ -1904,7 +1909,6 @@ button.toggle-comments {
 	.site-content [class*="navigation"] {
 		padding: 0;
 	}
-	
 	.comment-author .avatar  {
 		width: 48px;
 		height: 48px;
@@ -1915,26 +1919,25 @@ button.toggle-comments {
 		margin-bottom: 17px;
 		padding-top: 17px;
 	}
-	.comments-title {
-		margin-bottom: 34px;
-	}
-		.comment-area {
-  text-align: center;
+	.comments-area,
+	.comment-meta a {
+		font-size: 1rem;
 	}
 	.comment-content blockquote p {
-    font-size: 1.2rem;
+		font-size: 1.2rem;
 		line-height: 1.6;
 	}
 	.comments-title {
+		/* display: none; */
 		font: italic 400 16px/1 "Futura", sans-serif;
-		margin-bottom: 48px;
+		margin-bottom: 24px;
 		text-align: center;
 	}
 	.site-content .navigation-comment {
 		padding: 0;
 	}
 	.comment-list {
-		margin-bottom: 34px;
+		margin-bottom: 48px;
 	}
 	.comment-nav-below {
 		padding-bottom: 34px;
@@ -1967,9 +1970,8 @@ button.toggle-comments {
 	.footer-widget-2,
 	.footer-widget-3,
 	.footer-widget-4 {
-		clear: both;
-		margin-right: 0;
-		margin-left: 0;
-		width: auto;
+		margin-right: 2.4em;
+		margin-left: 1.2em;
+		width: 0 auto;
 	}
 }
