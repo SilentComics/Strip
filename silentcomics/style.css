@@ -4,7 +4,7 @@ Theme URI: https://github.com/SilentComics/Wordpress-Theme-for-Silent-Comics/
 Author: Anh Hoa Si
 Author URI: http://silent-comics.com
 Description: A theme for comics
-Version: 2.5.5 (December 2015) — streamline before redoing SASS Version
+Version: 2.5.6 (January 2016) — RESTART
 License: GNU General Public License v3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Text Domain: silentcomics
@@ -303,21 +303,14 @@ hr {
 
 ul,
 ol {
-	margin: 0 0 1.5em 3em;
-}
-
-ul {
-	list-style:  none;
-}
-
-ol {
+	margin: 0;
 	list-style: none;
 }
 
 li > ul,
 li > ol {
 	margin-bottom: 0;
-	margin-left: 1.5em;
+	margin-left: 0;
 }
 
 dt {
@@ -355,6 +348,7 @@ button {
 	line-height: normal; /* Addresses FF3/4 setting line-height using !important in the UA stylesheet */
 	overflow: visible;  /* Corrects inner spacing displayed oddly in IE6/7 */
 }
+
 button,
 html input[type="button"]
 input[type="reset"],
@@ -371,6 +365,7 @@ input[type="submit"] {
 	text-transform: uppercase;
 	width: auto;
 }
+
 button:hover,
 button:focus,
 .button:hover,
@@ -383,12 +378,14 @@ input[type="button"]:hover,
 input[type="button"]:focus {	
 	background-color: #000;
 }
+
 button:active,
 html input[type="button"]:active,
 input[type="reset"]:active,
 input[type="submit"]:active {
 	background-color: #ffcc00;
 }
+
 input,
 textarea {
 	-webkit-appearance: textfield; /* 1 */
@@ -401,6 +398,7 @@ textarea {
 	color: #868686;
 	border: 1px solid #eeeae6;
 	width: 100%;
+	/* margin: 0 1.5em 1.5em; */
 }
 
 .comment-form-author,
@@ -524,7 +522,7 @@ a.logo: after {
 	z-index: 5;
 }
 .main-navigation .menu {
-	max-width: 1272px;
+	max-width: 1920px;
 	margin: 0 auto;
 }
 .main-navigation ul {
@@ -1369,13 +1367,12 @@ span > object {
 	font: 400 2.4rem/1.2 Futura, "Trebuchet MS", Arial, sans-serif;
 	text-decoration:none;
 	color: #f3e7e7;
-	text-transform:uppercase;
+	text-transform:uppercase;	
 	text-align:center;
 	max-width: 696px;
 }
 .comic .categories-links a,
 .comic-archive .categories-links a {
-	
 	display: block;
 	color: #422424;
 }
@@ -1543,19 +1540,15 @@ button.toggle-comments {
 /*--------------------------------------------------------------
 10.5.2 Comments
 --------------------------------------------------------------*/
-.comment-author .author-cite {
+.comment-author .author-cite, 
+.comment-author .author-cite a {
 	color: #999999;
 	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
 	font-size: 1.4rem;
 	text-transform: uppercase;
 }
-.bypostauthor > article .comment-author > cite:after {
-	font-size: 16px;
-	position: absolute;
-	top: -10px;
-	right: -16px;
-}
 .comment-author .says {
+	display: none;
 	color: #cecece;
 	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
 	font-size: 1.4rem;
@@ -1563,11 +1556,11 @@ button.toggle-comments {
 }
 .comment-meta,
 .comment-meta a {
-	color: #fff9f9;
+	color: #ffcccc;
 	overflow: hidden;
-	margin: 0;
 	background-color: none;
 	font-size: 1.2rem;
+	margin-bottom: 2em;
 }
 .comment-meta .comment-reply-link {
   background-color: #ffbbbb;
@@ -1585,25 +1578,16 @@ button.toggle-comments {
 .comment-awaiting-moderation {
 	color: #ffbb00;
 }
-.comment-content a {
-    word-wrap: break-word;
+.comment-content {
+	margin: 0 ;
 }
-.comment-content ul,
-.comment-content ol  {
-	margin: 0 0 0.3em;
-}
-.comment-content ul ul,
-.comment-content ol ol,
-.comment-content ul ol,
-.comment-content ol ul {
-	margin: 0;
-}
+
 .comment-author .avatar {
 	border-radius: 50%;
 	vertical-align: middle;
 }
-.comments-area {
-	width: 80%;
+.comments-area,
+.comments .notes {
 	max-width: 696px;
 	font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
 	font-size: 1.2rem;
@@ -1616,15 +1600,9 @@ button.toggle-comments {
 	margin-bottom: 48px;
 	text-align: center;
 	}
-.form-allowed-tags, .form-allowed-tags code {
-	display: none;   
-	width:92%;
-	font-family: monospace;
-	font-size: 1.2rem;
-	text-align: left;
-	color: #ff6666;
-	margin: 0 auto;
-	padding-bottom: 2rem;
+.form-allowed-tags, 
+.form-allowed-tags code {
+	display: inline-block;   
 }
 .form-submit #submit{ 
     background: none;
@@ -1650,7 +1628,7 @@ button.toggle-comments {
 	color: #424242;
 	background-color: white;
 	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
-	font-size: 1rem;
+	font-size: 0.9rem;
 	line-height: 1.2;
 	padding: 8px 0 9px 0;
 	text-align: center;
@@ -1710,10 +1688,10 @@ button.toggle-comments {
 		height: 96px;
 	}
 	.comment-content {
-		padding: 0 0 0 2.4em;
+		padding: 0;
 	}
 	.comment-meta {
-		padding: 0 0 0 2.4em;
+		padding: 0;
 	}
 	article.error404 .widget {
 		float: left;
@@ -1747,11 +1725,10 @@ button.toggle-comments {
 	.entry-meta span + span:before {
 		content: "";
 	}
-	.entry-meta {
+	.entry-meta,
+	.comic .entry-meta {
 		float: right;
-		overflow: hidden;
-		width: 96px;
-		text-align: right;
+		max-width: 120px;
 	}
 	.entry-meta span {
 		display: block;
@@ -1792,8 +1769,8 @@ button.toggle-comments {
 		text-align: right;	
 	}
 	.format-video .entry-meta {
-    	font-size: 1.1rem;
-    	font-weight: 400;
+    font-size: 1.1rem;
+    font-weight: 400;
 		line-height: 1.6em;
 		float: right;
 		max-width: 120px;
@@ -1808,7 +1785,7 @@ button.toggle-comments {
 	.format-video .entry-meta span.entry-format {
 		display: inline-block;
 	}
-    .format-video .entry-meta,
+  .format-video .entry-meta,
 	.format-video .entry-meta a,
 	.format-video .entry-info a,
 	.format-video .entry-title {
@@ -1924,10 +1901,10 @@ button.toggle-comments {
 	.entry-summary {
 		margin-top: 0;
 	}
-	.site-content [class*="navigation"],
-	#comments {
+	.site-content [class*="navigation"] {
 		padding: 0;
 	}
+	
 	.comment-author .avatar  {
 		width: 48px;
 		height: 48px;
@@ -1940,6 +1917,9 @@ button.toggle-comments {
 	}
 	.comments-title {
 		margin-bottom: 34px;
+	}
+		.comment-area {
+  text-align: center;
 	}
 	.comment-content blockquote p {
     font-size: 1.2rem;

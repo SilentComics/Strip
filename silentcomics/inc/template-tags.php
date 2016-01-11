@@ -27,6 +27,12 @@ function silentcomics_content_nav( $nav_id ) {
 
 	// Don't print empty markup on single pages if there's nowhere to navigate.
 	
+/**
+* Fast next & previous links 
+* see http://wordpress.stackexchange.com/questions/101435/get-adjacent-post-alternative-on-a-very-large-db
+*/
+//do_action( 'fast_prev_post_link' );
+//do_action( 'fast_next_post_link' );
 	
 // Don't print empty markup in archives if there's only one page.
 	if ( $wp_query->max_num_pages < 2 && ( is_home() || is_archive() || is_search() ) )
@@ -34,7 +40,7 @@ function silentcomics_content_nav( $nav_id ) {
 		
 		$nav_class = ( is_single() || is_tax('story') ) ? 'post-navigation' : 'paging-navigation';
 
-	?> 
+	?>
 
 	<nav role="navigation" id="<?php echo esc_attr( $nav_id ); ?>" class="<?php echo $nav_class; ?> clear">
 		<h1 class="screen-reader-text"><?php _e( 'Post navigation', 'silentcomics' ); ?></h1>
@@ -51,9 +57,8 @@ function silentcomics_content_nav( $nav_id ) {
 			</div>
 
 			<?php elseif ( is_single() ) : // navigation links for single posts ?>
-			
-				<div class="wrap clear">
-					
+			<div class="wrap clear">
+				
 		<?php previous_post_link( '<div class="nav-previous">%link</div>', '<span class="meta-nav">' . _x( '&#8592;', 'Previous post link', 'silentcomics' ) . '</span> %title' ); ?>
 		<?php next_post_link( '<div class="nav-next">%link</div>', '%title <span class="meta-nav">' . _x( '&#8594;', 'Next post link', 'silentcomics' ) . '</span>' ); ?>
 
@@ -200,7 +205,7 @@ add_action( 'save_post',     'silentcomics_category_transient_flusher' );
 
 /**
 * Get the first and last custom type post using get_boundary_post() 
-* See https://core.trac.wordpress.org/ticket/27094
+* See https://core.trac.wordpress.org/ticket/27094](https://core.trac.wordpress.org/ticket/27094
 *
 */
 function get_comic_boundary_post( $in_same_term = false, $excluded_terms = '', $start = true, $taxonomy = 'category' ) {

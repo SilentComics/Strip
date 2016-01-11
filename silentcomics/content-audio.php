@@ -8,7 +8,7 @@ if ( isset( $GLOBALS['content_width'] ) )
 	$GLOBALS['content_width'] = 696;
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class( 'clear' ); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 	<div class="entry-wrap wrap clear">
 		<div class="entry-info">

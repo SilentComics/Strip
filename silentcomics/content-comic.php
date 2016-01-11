@@ -19,7 +19,7 @@
 		
 		<header class="entry-header">
 			
-			<?php // calls each series by get_the_terms, custom taxonomy "story" replacing WP native "category" (see if the new term meta enables further improvement)
+			<?php // calls each series by get_the_terms, custom taxonomy "story" replacing WP native "category" (4.4 term meta might enable further improvement)
 			
 			$terms = get_the_terms( $post->ID, 'story' );
 
@@ -56,7 +56,7 @@ foreach ( $terms as $term ) {
 			
 	<div class="entry-comic">
 		<?php the_content( __( 'Continue watching <span class="meta-nav">&rarr;</span>', 'silentcomics' ) ); ?>
-		
+				
 			<?php endif; ?>
 		</div><!-- .entry-content -->		
 	</div><!-- .entry-wrap -->

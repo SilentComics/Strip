@@ -2,7 +2,7 @@
 /**
  * Template Name: Archive series
  * The template for displaying comic Archives pages. 
- * This template provides a paginated overview to peruse all comic stories 
+ * This template provides an overview to peruse all stories — it also has links to custom comic posts in a second loop 
  * TO DO: Display all the comics excerpts on a grid
  * Selectable from a dropdown menu on the edit page screen. 
  *
@@ -14,9 +14,7 @@
 <?php get_header(); ?>
 	<div id="primary" class="content-area">
         <div class="wrap" class="site-content" role="main">
-	        
-	        
-	        
+     
 	        <br>
 	        <h3 class="taxonomy-description"><a href="<?php echo get_post_type_archive_link( 'comic' ); ?>">Comics Archive</a></h3>
   
@@ -33,7 +31,7 @@ else {
 }
 $loop = new WP_Query( array( 
 			'post_type'			=> 'comic',
-			'story' 			=> 'story',
+			'story' 			=> 'exile',
 			'posts_per_page' 	=> 6, 
 			'paged'	 			=> $paged,
 			'orderby' 			=> 'title', 

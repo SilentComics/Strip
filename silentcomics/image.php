@@ -8,14 +8,14 @@
 get_header( 'lite' );
 $content_width = 1920;
 ?>
-	<div id="primary" class="content-area">
+	<div id="primary" class="content-area image-attachment">
 		<div id="content" class="site-content" role="main">
 
 			<?php
 				// Start the loop.
 				while ( have_posts() ) : the_post(); ?>
 
-			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+			<article id="post-<?php the_ID(); ?>" <?php post_class('clear'); ?>>
 				<div class="entry-wrap wrap clear">
 					<div class="entry-content">
 						
@@ -58,7 +58,7 @@ $content_width = 1920;
 			
 			<?php
 				/** If comments are open or we have at least one comment, load up the comment template 
-				 *(activate this function to enable comments on single images)  */
+				 * On single images, comments are disabled by default  */
 			//	if ( comments_open() || '0' != get_comments_number() )
 			//		comments_template();
 					

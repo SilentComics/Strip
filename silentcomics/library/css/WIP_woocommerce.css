@@ -15,11 +15,17 @@ https://docs.woothemes.com/documentation/plugins/woocommerce/
 /*--------------------------------------------------------------
 >>> WooCommerce							
 --------------------------------------------------------------*/
-.woocommerce .entry-wrap {
-	clear: both; /* is this needed? */ 
+.woocommerce-content .entry-wrap {
+	/* clear: both; /* is this needed? */ 
 	margin: 0 auto;
-	max-width: 696px;
+	max-width: 840px;
 }
+
+.woocommerce-content html { font-size: 62.5%; } 
+body { font-size: 16px; font-size: 1.6rem; } /* =24px */
+h1   { font-size: 24px; font-size: 2.4rem; } /* =36px */
+
+
 
 .woocommerce-content .product a {
 	padding-top: 2.4em;
@@ -54,9 +60,9 @@ input[type="submit"] {
 	background: black;
 	cursor: pointer;
 	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
-	font-size: 0.7rem;
+	font-size: 1rem;
 	letter-spacing: 0.1em;
-	padding: 9px;
+	padding: 16px;
 	text-transform: uppercase;
 }
 .woocommerce .cart .single_add_to_cart_button:hover,
@@ -127,7 +133,7 @@ input[type="submit"]:active {
 	}
 }
 @media screen and (max-width: 816px) {
-	.woocommerce-content .product a {
+	.woocommerce-content a  {
 		margin: 0 auto;
 		font-size: 1.2rem;
 		word-wrap: break-word;

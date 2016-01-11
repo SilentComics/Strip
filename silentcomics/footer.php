@@ -49,8 +49,8 @@
 			<span class="sep"> | </span>
 			<?php do_action( 'silentcomics_credits' );
 				?>
-				<span class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></span>
-				<a href="<?php echo esc_url( __( 'http://silent-comics.com/', 'silentcomics' ) ); ?>"><?php printf( esc_html__( 'Theme: %1$s by %2$s.', 'silentcomics' ), 'silentcomics', 'Hoa' ); ?><rel="designer"></a>
+				<span class="site-name"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></span>
+				<a href="<?php echo esc_url( __( 'https://github.com/SilentComics/Silent-Comics-Wordpress-Theme', 'silentcomics' ) ); ?>"><?php printf( esc_html__( 'Theme: %1$s by %2$s.', 'silentcomics' ), 'silentcomics', 'Hoa' ); ?><rel="designer"></a>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->

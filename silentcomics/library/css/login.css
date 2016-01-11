@@ -88,34 +88,86 @@ input[type="submit"] {
 
 /* background #00ffcc #ff6666 */
 
-.body .theme_1{
-    background: #cccccc;
+/*body {
+	background-color: #00ffcc;
+} */
+
+/* body {
+    background-color: #00ffcc;
+    -webkit-transition: background-color 1000ms linear;
+    -moz-transition: background-color 1000ms linear;
+    -o-transition: background-color 1000ms linear;
+    -ms-transition: background-color 1000ms linear;
+    transition: background-color 1000ms linear;
+} */
+
+/*
+body .silentcomics_1 {
+   background: #cc00ff;
 }
-body .theme_2{
+body.silentcomics_2 {
     background: #eeeeee;
 }
-body .theme_3{
+.silentcomics_3 {
     background: #ff6666;
 }
-body .theme_4{
+body .silentcomics_4 {
     background: #00ffcc;
 }
-body .theme_5{
+body .silentcomics_5 {
     background: #ffcc00;
 }
-body .theme_6{
+body .silentcomics_6 {
     background: #ffeeee;
 }
-body .theme_7{
+body .silentcomics_7 {
     background: #bbbbbb;
 }
-body .theme_8{
+body .silentcomics_8 {
     background: #ccccff;
 }
-body .theme_9{
+body .silentcomics_9 {
     background: #ff00ee;
 }
-body .theme_10{
+body .silentcomics_10 {
     background: #eebbcc;
 }
+/*
 
+/*body {
+	background-color: #00ffcc;
+} */
+
+/* body {
+    background-color: #00ffcc;
+    -webkit-transition: background-color 1000ms linear;
+    -moz-transition: background-color 1000ms linear;
+    -o-transition: background-color 1000ms linear;
+    -ms-transition: background-color 1000ms linear;
+    transition: background-color 1000ms linear;
+} */
+
+
+/* body {
+  transition: background-color 0.5s ease;
+  background-color: red;
+}
+body:hover {
+  background-color: green;
+} */
+
+/* body {
+	background-color: #00ffcc;
+	-webkit-transition: background-color 500ms ease-out 1s;
+    -moz-transition: background-color 500ms ease-out 1s;
+    -o-transition: background-color 500ms ease-out 1s;
+    transition: background-color 500ms ease-out 1s;
+    } */
+    
+body {
+  transition: background-color 0.5s ease;
+  background-color: black;
+}
+body:hover {
+  background-color: #ffcc00;
+} 
