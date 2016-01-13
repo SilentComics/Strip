@@ -4,7 +4,7 @@ Theme URI: https://github.com/SilentComics/Wordpress-Theme-for-Silent-Comics/
 Author: Anh Hoa Si
 Author URI: http://silent-comics.com
 Description: A theme for comics
-Version: 2.5.6.1 (January 2016) — RESTART
+Version: 2.5.6.2 (January 2016) — RESTART
 License: GNU General Public License v3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Text Domain: silentcomics
@@ -1110,8 +1110,6 @@ span > object {
 
 /* Video */
 .format-video {
-	height: 0;
-	padding-bottom: 56.25%; /* 16:9 */
 	position: relative;
 }
 .format-video .band {
@@ -1671,6 +1669,7 @@ button.toggle-comments {
 	}
 }
 @media screen and (min-width: 456px) {
+	.footer-widget .wrap,
 	.wrap {
 		max-width: 408px;
 	}
@@ -1747,12 +1746,13 @@ button.toggle-comments {
 	.format-video .band {
 		background-color: black;
 		display: block;
-		top: 0;
+		position: absolute;
+		top: 2em;
 		left: 0;
 		width: 100%;
-		height: 90%; /* Custom Height*/
+		height: 554px; /* Custom Height*/
 		z-index: -1;
-		padding-bottom: 1em;
+		/* padding-bottom: 1em; */
 	}
 	.format-video .entry-title,
 	.format-video .entry-title a {
@@ -1766,29 +1766,30 @@ button.toggle-comments {
 		width: 96px;
 		}
 	.format-video .categories-links,
+	.format-video .comments-link,
 	.format-video .tags-links {	
 		font-size: 1.1rem;
 		line-height: 1.6;
 		font-weight: 400;
 		max-width: 96px;
-		text-align: right;	
+		/* text-align: right; */	
 	}
 	.format-video .entry-meta {
-    font-size: 1.1rem;
-    font-weight: 400;
+    	font-size: 1.1rem;
+		font-weight: 400;
 		line-height: 1.6em;
 		float: right;
-		max-width: 120px;
+		/* max-width: 120px; */
 		-ms-word-wrap: break-word;
 		word-wrap: break-word;
-		text-align: right;
+		/* text-align: right; */
 	}
 	.format-video .entry-meta span {
 		border-bottom: 0;
 		padding: 0;
 	}
 	.format-video .entry-meta span.entry-format {
-		display: inline-block;
+		display: inline;
 	}
   .format-video .entry-meta,
 	.format-video .entry-meta a,
@@ -1798,7 +1799,7 @@ button.toggle-comments {
 	}
 	.format-video .entry-content {
 		background-color: transparent;
-		margin-top: 0;
+		margin-top: 0 auto;
 		max-width: 504px;
 	}
 }
@@ -1971,7 +1972,7 @@ button.toggle-comments {
 	.footer-widget-3,
 	.footer-widget-4 {
 		margin-right: 2.4em;
-		margin-left: 1.2em;
+		margin-left: 2.4em;
 		width: 0 auto;
 	}
 }
