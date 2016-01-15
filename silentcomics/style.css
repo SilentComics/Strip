@@ -4,16 +4,14 @@ Theme URI: https://github.com/SilentComics/Wordpress-Theme-for-Silent-Comics/
 Author: Anh Hoa Si
 Author URI: http://silent-comics.com
 Description: A theme for comics
-Version: 2.5.6.2 (January 2016) — RESTART
+Version: 2.5.6.3 (January 2016) — RESTART
 License: GNU General Public License v3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Text Domain: silentcomics
 Domain Path: /languages/
-Tags: white, light, one-column, fixed-layout, responsive-layout, custom-background, custom-colors, custom-header, custom-menu, featured-images, flexible-header, post-formats, editor-style, rtl-language-support, sticky-post, translation-ready
+Tags: white, light, one-column, responsive-layout, custom-background, custom-colors, custom-header, custom-menu, featured-images, flexible-header, post-formats, editor-style, rtl-language-support, sticky-post, translation-ready
 
-SilentComics is distributed under the terms of the GNU GPL.
-
-SilentComics is based on Underscores http://underscores.me/, (C) 2012-2015 Automattic, Inc.
+This theme is licensed under the GPL, and is based on Underscores http://underscores.me/, (C) 2012-2015 Automattic, Inc.
 */
 
 /*--------------------------------------------------------------
@@ -303,11 +301,14 @@ hr {
 
 ul,
 ol {
-	list-style:  none;
+	list-style: none;
+	margin: 0 1.5em;
+	padding: 0;
 }
 
 li > ul,
 li > ol {
+ text-align: left;
 	margin-bottom: 0;
 	margin-left: 0;
 }
@@ -326,8 +327,7 @@ img {
 }
 
 table {
-	margin: 0 0 1.5em;
-	width: 100%;
+	width: 30%;
 }
 
 /*--------------------------------------------------------------
@@ -952,21 +952,15 @@ article.error404 .widget_calendar #wp-calendar tbody a:hover {
 	text-decoration:none;
 	color:#ff6666;
 }
-.categories-links {
-	display: block;
-	font: 400 10px/1 Futura, "Trebuchet MS", Arial, sans-serif;
-	letter-spacing: 0.1em;
-	max-width: 696px;
-	padding: 8px 0 9px 0;
-	text-transform: uppercase;
-}
+.categories-links,
 .entry-meta {
 	display: block;
-	font: 400 12px/2 Futura, "Trebuchet MS", Arial, sans-serif;
+	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
 	font-size: 1rem;
-    letter-spacing: 0.1em;
-	margin-top: 0;
-	padding: 8px 0 9px;
+  letter-spacing: 0.1em;
+	line-height: 1.4;
+	max-width: 696px;
+	padding: 8px 0 9px 0;
 	text-transform: uppercase;
 }
 .entry-meta span + span:before {
@@ -976,7 +970,8 @@ article.error404 .widget_calendar #wp-calendar tbody a:hover {
 .entry-meta:hover {
   opacity: 1;
 }
-entry-meta, .entry-meta a {
+.entry-meta, 
+.entry-meta a {
 	text-decoration:none;
 	color:#ba9e9e;
 }
@@ -1010,15 +1005,15 @@ entry-meta, .entry-meta a {
 .comment-body table {
 	border: 1px solid rgba(0, 0, 0, 0.1); /* Check */
 	border-width: 1px 0 0 1px;
-	margin-bottom: 34px;
 	width: 100%;
 }
 .entry-content th,
 .entry-summary th,
 .comment-body th {
+	font-family: Futura, "Trebuchet MS", Arial, sans-serif; /* might want to change that */
 	border: 1px solid rgba(0, 0, 0, 0.1); /* Check */
 	border-width: 0 1px 1px 0;
-	font-size: 1.6rem;
+	font-size: 1.2rem;
 	font-weight: normal;
 	letter-spacing: 0.1em;
 	padding: 8px 8px 9px 8px;
@@ -1076,7 +1071,7 @@ embed,
 iframe,
 object,
 video {
-	margin-bottom: 34px;
+	margin-bottom: 24px;
 	max-width: 100%;
 }
 p > embed,
@@ -1109,11 +1104,38 @@ span > object {
 }
 
 /* Video */
-.format-video {
-	position: relative;
+.format-video .entry-content {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px; height: 0; overflow: hidden;
+    margin-bottom: 2em;
 }
-.format-video .band {
-	display: none;
+
+.format-video iframe,
+.format-video object,
+.format-video embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.tab--preview {
+  	display: block;
+	position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px; height: 0; overflow: hidden;
+}
+
+.tab--preview iframe,
+.tab--preview object,
+.tab--preview embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
 
 /* Chat */
@@ -1374,7 +1396,6 @@ span > object {
 }
 .comic .categories-links a,
 .comic-archive .categories-links a {
-	display: block;
 	color: #422424;
 }
 .comic .post-edit-link {
@@ -1389,6 +1410,7 @@ span > object {
 }
 .comic .entry-meta {
 	text-align: right;
+	height: 0;
 }
 .single-comic .entry-meta {
 	display: none;
@@ -1397,12 +1419,12 @@ span > object {
 	text-decoration: none;
 }
 .comic-navigation .nav-previous {
-	/*float: left; /* can you remove this line? */
+	/*float: left; /* remove this line? */
 	text-align: left;
 	width: 50%;
 }
 .comic-navigation .nav-next {
-	/*float: right; /* can you remove this line? */
+	/*float: right; /* remove this line? */
 	text-align: right;
 	width: 50%;
 }
@@ -1411,7 +1433,7 @@ span > object {
 	width: 100%;
 }
 .entry-comic .navigation-comic [class*="nav-"] {
-	float: none; /* WTF with this float? */
+	float: none; /* can't do without */
 	display: inline-block;
 	width: 18.5%; /* not aligned with images, "auto" centers everything */
 }
@@ -1555,10 +1577,16 @@ button.toggle-comments {
 	font-size: 1.4rem;
 	font-style: italic;
 }
+/* Highlighting post author for Theme Check, good enough for now */
+.bypostauthor .comment-content {
+  color: blue;
+	background: yellow;
+	padding: 1px;
+}
 .comment-meta,
 .comment-meta a {
 	color: #ffcccc;
-	overflow: hidden;
+	height: 0;
 	background-color: none;
 	font-size: 1.2rem;
 	margin-bottom: 2em;
@@ -1581,21 +1609,18 @@ button.toggle-comments {
 }
 .comments,
 .comment-respond {
-	margin: 0 auto;
 	max-width: 696px;
-	margin: 0 1.5em 1.5em;
+	margin: 0 1.5em;
 }
 .comment-author .avatar {
 	border-radius: 50%;
 	vertical-align: middle;
 }
-.comments-area,
-.comments .notes {
+.comments-area {
 	max-width: 696px;
 	font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
 	font-size: 1.2rem;
-	margin: 0 auto;
-	padding-bottom: 2em;
+	margin: 0 1.5em;
 }
 .comments-title {
 	font: italic 400 2.4rem/1; 
@@ -1711,9 +1736,6 @@ button.toggle-comments {
 	.wrap {
 		max-width: 696px;
 	}
-	.format-video .band {
-		display: none;
-	}
 	article.error404 input[type="search"],
 	article.no-results input[type="search"] {
 		width: 100%;
@@ -1742,65 +1764,6 @@ button.toggle-comments {
 	.entry-summary,
 	article.attachment .entry-caption {
 		margin: auto;
-	}
-	.format-video .band {
-		background-color: black;
-		display: block;
-		position: absolute;
-		top: 2em;
-		left: 0;
-		width: 100%;
-		height: 554px; /* Custom Height*/
-		z-index: -1;
-		/* padding-bottom: 1em; */
-	}
-	.format-video .entry-title,
-	.format-video .entry-title a {
-		float: right;
-		font-size: 1.8rem;
-		color: #fff9f9;
-	}
-	.format-video .entry-info {
-		float: right;
-		margin-top: 96px;
-		width: 96px;
-		}
-	.format-video .categories-links,
-	.format-video .comments-link,
-	.format-video .tags-links {	
-		font-size: 1.1rem;
-		line-height: 1.6;
-		font-weight: 400;
-		max-width: 96px;
-		/* text-align: right; */	
-	}
-	.format-video .entry-meta {
-    	font-size: 1.1rem;
-		font-weight: 400;
-		line-height: 1.6em;
-		float: right;
-		/* max-width: 120px; */
-		-ms-word-wrap: break-word;
-		word-wrap: break-word;
-		/* text-align: right; */
-	}
-	.format-video .entry-meta span {
-		border-bottom: 0;
-		padding: 0;
-	}
-	.format-video .entry-meta span.entry-format {
-		display: inline;
-	}
-  .format-video .entry-meta,
-	.format-video .entry-meta a,
-	.format-video .entry-info a,
-	.format-video .entry-title {
-    	color: #fff9f9;
-	}
-	.format-video .entry-content {
-		background-color: transparent;
-		margin-top: 0 auto;
-		max-width: 504px;
 	}
 }
 @media screen and (min-width: 1032px) {
@@ -1941,7 +1904,7 @@ button.toggle-comments {
 		margin-bottom: 48px;
 	}
 	.comment-nav-below {
-		padding-bottom: 34px;
+		padding-bottom: 24px;
 	}
 	#infinite-handle {
 		margin-top: 34px;
@@ -1971,8 +1934,6 @@ button.toggle-comments {
 	.footer-widget-2,
 	.footer-widget-3,
 	.footer-widget-4 {
-		margin-right: 2.4em;
-		margin-left: 2.4em;
-		width: 0 auto;
+		width: 120px;
 	}
 }

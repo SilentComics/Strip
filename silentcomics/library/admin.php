@@ -58,7 +58,7 @@ http://digwp.com/2010/10/customize-wordpress-dashboard/
 function silentcomics_rss_dashboard_widget() {
 	if(function_exists('fetch_feed')) {
 		get_template_part(ABSPATH . WPINC . '/feed.php');               // include the required file
-		$feed = fetch_feed('http://silent-comics.tumblr.com/rss/');        // specify the source feed
+		$feed = fetch_feed('feed://silent-comics.tumblr.com/rss/');        // specify the source feed
 		if (is_wp_error($feed)) {
 			$limit = 0;
 			$items = 0;
