@@ -5,14 +5,12 @@
 
 // Access global variable directly to set content_width
 if ( isset( $GLOBALS['content_width'] ) )
-	$GLOBALS['content_width'] = 984;
+	$GLOBALS['content_width'] = 1920;
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class( 'clear' ); ?>>
-	<div class="band"></div>
-
+<article id="post-<?php the_ID(); ?>" <?php post_class('clear'); ?>>
 	<div class="entry-wrap wrap clear">
-		<div class="entry-info">
+		
 			<header class="entry-header">
 				<?php
 					$categories_list = get_the_category_list( __( ', ', 'silentcomics' ) );
@@ -26,7 +24,7 @@ if ( isset( $GLOBALS['content_width'] ) )
 					endif;
 				?>
 			</header><!-- .entry-header -->
-
+			
 			<footer class="entry-meta">
 				<?php silentcomics_entry_meta(); ?>
 				
@@ -38,12 +36,10 @@ if ( isset( $GLOBALS['content_width'] ) )
 
 				<?php edit_post_link( __( 'Edit', 'silentcomics' ), '<span class="edit-link">', '</span>' ); ?>
 			</footer><!-- .entry-meta -->
-
-		</div><!-- .entry-info -->
-
-		<div class="entry-content clear">
-			<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'silentcomics' ) ); ?>
 			
-		</div><!-- .entry-content -->
+			<div class="entry-content">	
+			<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'silentcomics' ) ); ?>
+			</div><!-- .entry-content -->
+
 	</div><!-- .entry-wrap -->
 </article><!-- #post-## -->
