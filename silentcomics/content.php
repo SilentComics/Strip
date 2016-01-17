@@ -6,7 +6,7 @@
 */
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class('clear'); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<div class="entry-wrap wrap clear">
 		<?php if ( '' != get_the_post_thumbnail() ) : ?>
 			<?php if ( ! is_single() ) : ?>
@@ -47,7 +47,7 @@
 			<?php the_excerpt(); ?>
 		</div><!-- .entry-summary -->
 		<?php else : ?>
-		<div class="entry-content clear">
+		<div class="entry-content">
 			<?php
 			/* translators: %s: Name of current post */
 			the_content( sprintf(

@@ -2,7 +2,8 @@
 /**
  * Custom template tags for this theme.
  *
- * Eventually, some of the functionality here could be replaced by core features — please streamline and improve to reduce queries
+ * Eventually, some of the functionality here could be replaced by core features.
+ * TO DO: streamline to reduce queries
  *
  * @package SilentComics
  */
@@ -41,7 +42,7 @@ function silentcomics_content_nav( $nav_id ) {
 		$nav_class = ( is_single() || is_tax('story') ) ? 'post-navigation' : 'paging-navigation';
 
 	?>
-
+	
 	<nav role="navigation" id="<?php echo esc_attr( $nav_id ); ?>" class="<?php echo $nav_class; ?> clear">
 		<h1 class="screen-reader-text"><?php _e( 'Post navigation', 'silentcomics' ); ?></h1>
 		
@@ -130,7 +131,6 @@ function silentcomics_comment( $comment, $args, $depth ) {
 	endswitch;
 }
 endif; // ends check for silentcomics_comment()
-
 
 if ( ! function_exists( 'silentcomics_entry_meta' ) ) :
 /**
@@ -258,8 +258,7 @@ function get_comic_boundary_post( $in_same_term = false, $excluded_terms = '', $
  * Link to the first comic post in same term
  * @param string $format
  * @param array $args
- */
- 
+ */ 
  function first_comic_link( $args = array() ) {
 	$first = get_comic_boundary_post( TRUE, '', TRUE, 'story' );
     apply_filters( 'the_title', $first[0]->post_title ); 
@@ -277,8 +276,7 @@ wp_reset_postdata();
  * Link to the last comic post in same term
  * @param string $format
  * @param array $args
- */
- 
+ */ 
 function last_comic_link( $args = array() ) {  
 	$last = get_comic_boundary_post( TRUE, '', FALSE, 'story' );
     apply_filters( 'the_title', $last[0]->post_title );

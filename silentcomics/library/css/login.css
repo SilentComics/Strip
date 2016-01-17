@@ -75,7 +75,7 @@ body form .input {
 html input[type="button"],
 input[type="reset"],
 input[type="submit"] {
-	border: 0;
+	border: 4px double white;
 	background-color: black;
 	color: white;
 	cursor: pointer;
@@ -84,6 +84,7 @@ input[type="submit"] {
 	letter-spacing: 0.24em;
 	text-transform: uppercase;
     width: 100%;
+    margin-top: 2em;
 }
 
 /* background #00ffcc #ff6666 */

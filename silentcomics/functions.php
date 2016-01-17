@@ -520,7 +520,6 @@ function set_posts_per_page( $query ) {
   return $query;
 }
 
-
 /**
 * Add an automatic default custom taxonomy for custom post type.
 * If no story (taxonomy) is set, the comic post will be sorted as “draft” and won’t return an offset error
@@ -541,7 +540,6 @@ function set_posts_per_page( $query ) {
         }
     }
     add_action( 'save_post', 'set_default_object_terms', 0, 2 );
-
 
 /**
 * filter
@@ -583,4 +581,3 @@ function cache_meta_data( $posts, $object ) {
     }
     // Add the function to the save_post hook so it runs when posts are saved
     add_action( 'save_post', 'save_post_delete_story_transient' );
-?>

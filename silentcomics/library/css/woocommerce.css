@@ -5,7 +5,7 @@ Author: Anh Hoa	Si
 Stylesheet: WooCommerce Stylesheet
 
 This stylesheet overwrites some WooCommerce CSS rules to better match the theme. 
-There are a lot of fixes to do on this one, no the least being that the plugin breaks the main blog layout
+There are a lot of fixes to do on this one, the idea is keeping the custom css as lean as possible
 
 For more info, check out:
 https://docs.woothemes.com/documentation/plugins/woocommerce/
@@ -15,10 +15,21 @@ https://docs.woothemes.com/documentation/plugins/woocommerce/
 /*--------------------------------------------------------------
 >>> WooCommerce							
 --------------------------------------------------------------*/
-.woocommerce .entry-wrap {
+.woocommerce .widget-area {
 	clear: both; /* is this needed? */ 
 	margin: 0 auto;
-	max-width: 696px;
+	max-width: 888px;
+}
+
+.woocommerce .widget-area-wrapper {
+		overflow: hidden;
+	}
+	.footer-widget-1,
+	.footer-widget-2,
+	.footer-widget-3,
+	.footer-widget-4 {
+
+	}
 }
 
 .woocommerce-content .product a {
@@ -28,30 +39,37 @@ https://docs.woothemes.com/documentation/plugins/woocommerce/
 	text-transform: uppercase;
 	letter-spacing: 0.1em;
 }
-.woocommerce-content hr {
+
+.woocommerce-content {
+	margin-top: 1em;
 }
+
 .woocommerce-content .woocommerce-breadcrumb {
-	display: block; /* Chose blocks if you want to show this */
+	display: none; /* Chose blocks if you want to show this */
 	font: italic 400 24px/1 Futura, "Trebuchet MS", Arial, sans-serif;
 	margin-bottom: 1.2em;
 	text-align: center;
 }
+
 .woocommerce-content .woocommerce-description {
 	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
 	font-size: 1rem;
 }
+
 .woocommerce .cart .single_add_to_cart_button,
 .woocommerce .cart .wc-proceed-to-checkout, 
 .woocommerce .cart .single_add_to_cart_button.button.alt,
 .woocommerce-content .button.add_to_cart_button.product_type_simple,
 .woocommerce .wc-proceed-to-checkout.checkout-button.button.alt.wc-forward,
 .woocommerce .cart .button,
+.woocommerce .form-row.place-order .button.alt,
+.woocommerce .button.wc-backward,
 .woocommerce .button .wc-forward,
 .woocommerce .woocommerce-checkout-payment .button.alt,
 html input[type="button"],
 input[type="submit"] {
 	color: #fff;
-	background: black;
+	background: #ff6666;
 	cursor: pointer;
 	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
 	font-size: 0.7rem;
@@ -59,12 +77,19 @@ input[type="submit"] {
 	padding: 9px;
 	text-transform: uppercase;
 }
+
+.woocommerce .cart_totals .checkout-button.button.alt.wc-forward {
+	color: #fff;
+	background: #0ddb85;
+}
+
 .woocommerce .cart .single_add_to_cart_button:hover,
 .woocommerce .cart .wc-proceed-to-checkout:hover, 
 .woocommerce .cart .single_add_to_cart_button.button.alt:hover,
 .woocommerce-content .button.add_to_cart_button.product_type_simple:hover,
-.woocommerce .button.wc-forward:hover,
 .woocommerce .cart .button:hover,
+.woocommerce .button.wc-backward:hover,
+.woocommerce .button.wc-forward:hover,
 html input[type="button"]:active,
 input[type="submit"]:active {
 	background-color: #00ffaa;
@@ -100,29 +125,29 @@ input[type="submit"]:active {
 
 /* WooCommerce custom media queries */
 @media screen and (min-width: 312px) {
-	.woocommerce-content .entry-wrap {
+	.woocommerce-content .wrap,
+	.woocommerce-content .widget-area .wrap {
 		max-width: 264px;
 	}
 }
 @media screen and (min-width: 456px) {
-	.woocommerce-content .entry-wrap {
+	.woocommerce-content .wrap {
 		max-width: 408px;
 	}
 }
 @media screen and (min-width: 600px) {
-	.woocommerce-content .entry-wrap {
+	.woocommerce-content .wrap {
 		max-width: 552px;
 	}
 }
 
 @media screen and (min-width: 744px) {
-	.woocommerce-content .entry-wrap {
+	.woocommerce-content .wrap {
 		max-width: 696px;
 	}
 }
 @media screen and (min-width: 888px) {
-	.woocommerce-content .entry-wrap {
-		margin: 0 auto;
+	.woocommerce-content .wrap {
 		max-width: 840px;
 	}
 }
@@ -133,5 +158,17 @@ input[type="submit"]:active {
 		word-wrap: break-word;
 		letter-spacing: normal; /* Check if line needed */
 		width: -moz-max-content;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.woocommerce-content .product a,
+	.woocommerce .widget-area-wrapper {
+		margin: auto;
+		font-size: 1.2rem;
+		word-wrap: break-word;
+		letter-spacing: normal; /* Check if line needed */
+		width: -moz-max-content;
+		overflow: hidden;
 	}
 }

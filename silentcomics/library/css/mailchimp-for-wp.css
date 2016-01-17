@@ -1,0 +1,37 @@
+/*
+Site Name: SILENT COMICS
+Author: Anh Hoa	Si
+
+Stylesheet: mc4wp
+
+This stylesheet overwrites some MailChimp 4 WP CSS rules to better match the theme. 
+
+For more info, check out:
+*/
+
+/* CSS form MailChimp 4 WP form */
+
+.mc4wp-form label {
+	display: none;
+	 font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+
+.mc4wp-form input[type="date"], 
+.mc4wp-form input[type="email"], 
+.mc4wp-form input[type="tel"], 
+.mc4wp-form input[type="text"], 
+.mc4wp-form input[type="url"], 
+.mc4wp-form select, 
+.mc4wp-form textarea {
+	font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+	font-size: 1rem;
+	text-align: center;
+	width: 100%;
+}
+
+.mc4wp-form [type="submit"] {
+	display: inline-block;
+	width: 100%;	
+}

@@ -57,13 +57,13 @@ http://digwp.com/2010/10/customize-wordpress-dashboard/
 // RSS Dashboard Widget
 function silentcomics_rss_dashboard_widget() {
 	if(function_exists('fetch_feed')) {
-		get_template_part(ABSPATH . WPINC . '/feed.php');               // include the required file
+		// include_once( ABSPATH . WPINC . '/feed.php' );              // include the required file
 		$feed = fetch_feed('feed://silent-comics.tumblr.com/rss/');        // specify the source feed
 		if (is_wp_error($feed)) {
 			$limit = 0;
 			$items = 0;
 		} else {
-			$limit = $feed->get_item_quantity(6);                        // specify number of items
+			$limit = $feed->get_item_quantity(3);                        // specify number of items, do not use 6 as it conflicts with the theme page numbering versus WP defaults
 			$items = $feed->get_items(0, $limit);                        // create an array of items
 		}
 	}
@@ -90,7 +90,6 @@ function silentcomics_custom_dashboard_widgets() {
 	*/
 }
 
-
 // removing the dashboard widgets
 add_action('admin_menu', 'disable_default_dashboard_widgets');
 // adding any custom widgets
@@ -107,9 +106,9 @@ function silentcomics_login_css() {
 	wp_enqueue_style( 'silentcomics_login_css', get_template_directory_uri() . '/library/css/login.css', false );
 }
 
-function silentcomics_login_js() {
-	wp_enqueue_script( 'silentcomics_login.js', get_template_directory_uri() . '/library/login.js', array(), '20151112', false );
-	}
+//function silentcomics_login_js() {
+//	wp_enqueue_script( 'silentcomics_login.js', get_template_directory_uri() . '/library/login.js', array(), '20151112', false );
+//	}
 
 // changing the logo link from wordpress.org to your site
 function silentcomics_login_url() {  return home_url(); }
@@ -119,9 +118,9 @@ function silentcomics_login_title() { return get_option('blogname'); }
 
 // calling it only on the login page
 add_action( 'login_enqueue_scripts', 'silentcomics_login_css', 10 );
-add_action( 'login_enqueue_scripts', 'silentcomics_login_js' );
-add_filter('login_headerurl', 'silentcomics_login_url');
-add_filter('login_headertitle', 'silentcomics_login_title');
+//add_action( 'login_enqueue_scripts', 'silentcomics_login_js' );
+add_filter('login_headerurl', 'silentcomics_login_url' );
+add_filter('login_headertitle', 'silentcomics_login_title' );
 
 
 /************* CUSTOMIZE ADMIN *******************/
@@ -135,10 +134,11 @@ you like.
 
 // Custom Backend Footer
 function silentcomics_custom_admin_footer() {
-	_e('<span id="footer-thankyou">Developed by <a href="http://silent-comics.com" target="_blank">Silent Comics</a></span>. Custom admin area thanks to <a href="http://themble.com/bones" target="_blank">Themble</a>.', 'silentcomics');
-}
-
+	?>
+	<span id="footer-thankyou"><a href="<?php echo esc_url( __( 'https://github.com/SilentComics/Silent-Comics-Wordpress-Theme/tree/master/silentcomics/', 'silentcomics' ) ); ?>"><?php printf( esc_html__( 'Developed by %s', 'silentcomics' ), 'Hoa Si' ); ?></a>
+			<span class="sep"> | </span>
+			<a href="<?php echo esc_url( __( 'http://themble.com/bones', 'silentcomics' ) ); ?>"><?php printf( esc_html__( 'Custom admin area thanks to %s', 'silentcomics' ), 'Themble' ); ?></a>
+<?php }
+	
 // adding it to the admin area
 add_filter('admin_footer_text', 'silentcomics_custom_admin_footer');
-
-?>

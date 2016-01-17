@@ -25,6 +25,10 @@ if ( isset( $GLOBALS['content_width'] ) )
 				?>
 			</header><!-- .entry-header -->
 			
+			<div class="entry-content">	
+			<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'silentcomics' ) ); ?>
+			</div><!-- .entry-content -->
+			
 			<footer class="entry-meta">
 				<?php silentcomics_entry_meta(); ?>
 				
@@ -36,10 +40,6 @@ if ( isset( $GLOBALS['content_width'] ) )
 
 				<?php edit_post_link( __( 'Edit', 'silentcomics' ), '<span class="edit-link">', '</span>' ); ?>
 			</footer><!-- .entry-meta -->
-			
-			<div class="entry-content">	
-			<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'silentcomics' ) ); ?>
-			</div><!-- .entry-content -->
 
 	</div><!-- .entry-wrap -->
 </article><!-- #post-## -->
