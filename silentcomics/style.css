@@ -4,7 +4,7 @@ Theme URI: https://github.com/SilentComics/Wordpress-Theme-for-Silent-Comics/
 Author: Anh Hoa Si
 Author URI: http://silent-comics.com
 Description: A theme for comics
-Version: 2.5.6.4 (January 2016) — RESTART
+Version: 2.5.6.5 (January 2016) — RESTART
 License: GNU General Public License v3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Text Domain: silentcomics
@@ -1798,6 +1798,9 @@ button.toggle-comments {
 	article.attachment .entry-caption {
 		margin: auto;
 	}
+.format-video .entry-content {
+		max-width: 840px;
+	}
 }
 @media screen and (min-width: 1032px) {
 	.wrap {
@@ -1814,7 +1817,7 @@ button.toggle-comments {
 		display: block;
 	}
 	.format-video .entry-content {
-		max-width: 720px;
+		max-width: 984px;
 	}
 }
 @media screen and (min-width: 1176px) {
@@ -1829,7 +1832,7 @@ button.toggle-comments {
 		width: 240px;
 	}
 	.format-video .entry-content {
-		max-width: 840px;
+		max-width: 1128px;
 	}
 }
 @media screen and (min-width: 1320px) {
@@ -1837,7 +1840,7 @@ button.toggle-comments {
 		max-width: 1272px;
 	}
 	.format-video .entry-content {
-		max-width: 984px;
+		max-width: 1272px;
 	}
 }
 @media screen and (min-width: 1680px) {
@@ -1845,7 +1848,7 @@ button.toggle-comments {
 		max-width: 1272px;
 	}
 	.format-video .entry-content {
-		max-width: 984px;
+		max-width: 1652px;
 	}
 	.entry-comic .wrap {
 		max-width: 1652px;
