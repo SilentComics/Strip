@@ -4,7 +4,7 @@
  */
  
 ?>
-<comic id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<div class="entry-wrap wrap clear">
 		<?php if ( '' != get_the_post_thumbnail() ) : ?>
 			
@@ -49,7 +49,8 @@ foreach ( $terms as $term ) {
 	<?php if ( is_search() ) : // Only display Excerpts for Search — implement search for custom taxonomies ?>
 
 		<div class="entry-summary">
-			<?php the_excerpt(); ?>
+			
+			<?php the_post_thumbnail(); the_excerpt(); ?>
 		</div><!-- .entry-summary -->
 			
 		<?php else : ?>
@@ -60,4 +61,4 @@ foreach ( $terms as $term ) {
 			<?php endif; ?>
 		</div><!-- .entry-content -->		
 	</div><!-- .entry-wrap -->
-</comic>
+</article>

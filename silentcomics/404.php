@@ -17,7 +17,7 @@ get_header(); ?>
 					</header><!-- .entry-header -->
 					
 					<div class="entry-content clear">
-						<p><?php _e( 'Nothing was found at this location. Maybe try one of the links below or a search?', 'silentcomics' ); ?></p>
+						<p><?php _e( 'Nothing was found here. Maybe try one of the links below or a search?', 'silentcomics' ); ?></p>
 
 						<?php get_search_form(); ?>
 

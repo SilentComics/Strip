@@ -39,15 +39,16 @@ else {
     	$args = array(
 	    	
 			'post_type'		 => 'comic',
-			'posts_per_page' => 6, // change this if you want more than six episode per page archive
+			'posts_per_page' => 6, // must always reflect the number set in function.php line 639 so pagination won't break
 			'story'			 => 'name',
 			'orderby'  		 => 'date',
 			'paged' 		 => $paged,
-			'order'  		 => 'ASC' // sort stories by DESC to revert order
+			'order'  		 => 'ASC'
 		);
 		
 		$loop = new WP_Query( $args );
 			// Start the loop
+			if ( $loop->have_posts() ) : 
     while ($loop->have_posts()) : $loop->the_post();   
 				
 		get_template_part( 'content-series' ); ?>
@@ -58,7 +59,7 @@ else {
 global $wp_query;
 
 $big = 999999999; // need an unlikely integer
-$translated = __( 'Page', 'silentcomics' ); // Supply translatable string
+$translated = __( 'Page', 'silentcomics' ); // supply translatable string
 
 echo paginate_links( array(
 	'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
@@ -67,14 +68,11 @@ echo paginate_links( array(
 	'total' => $loop->max_num_pages,
     'before_page_number' => '<span class="screen-reader-text">'.$translated.' </span>'
 ) );
-?>
-		<?php else : ?>
 
-			<?php get_template_part( 'no-results', 'archive-comic' ); ?>
-
-		<?php endif; ?>
+		else :
+			get_template_part( 'no-results', 'archive-comic' ); 
+		endif; ?>
 
 		</div><!-- #content -->
 	</div><!-- #primary -->
-
 <?php get_footer(); ?>

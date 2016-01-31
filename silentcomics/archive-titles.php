@@ -13,20 +13,21 @@
  	<section id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
 			
-						</header><!-- .page-header -->
+						<header class="page-header">
+				<div class="wrap">
 
 			<?php  // call the series by title and list them ?>
 <title_ol=<h2 class="series-title">
 <?php $args = array(
   'post_type'=> 'comic',
   'story' => 'story',
-  'title_ol'=> __('Episodes', 'silentcomics')
+  'title_li'=> __('Episodes', 'silentcomics')
 );
 wp_list_pages( $args ); 
 
 ?> </h2>
 
-</main><!-- #main -->
+		</div><!-- #content -->
 	</section><!-- #primary -->
 
 <?php get_sidebar(); ?>	

@@ -58,7 +58,7 @@ $content_width = 1920;
 			
 			<?php
 				/** If comments are open or we have at least one comment, load up the comment template 
-				 * On single images, comments are disabled by default  */
+				 * Disabled by default on single images */
 			//	if ( comments_open() || '0' != get_comments_number() )
 			//		comments_template();
 					

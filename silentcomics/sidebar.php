@@ -12,7 +12,7 @@ if ( ! is_active_sidebar( 'sidebar' ) ) {
 
 <div id="secondary" class="widget-area" role="complementary">
 	
-	<div class="widget-wrap wrap clear">
+	<div class="widget-wrap">
 		
 		<div class="main-sidebar">
 		

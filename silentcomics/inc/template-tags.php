@@ -3,7 +3,7 @@
  * Custom template tags for this theme.
  *
  * Eventually, some of the functionality here could be replaced by core features.
- * TO DO: streamline to reduce queries
+ * TO DO: trim the sleaze
  *
  * @package SilentComics
  */
@@ -39,31 +39,31 @@ function silentcomics_content_nav( $nav_id ) {
 	if ( $wp_query->max_num_pages < 2 && ( is_home() || is_archive() || is_search() ) )
 		return;
 		
-		$nav_class = ( is_single() || is_tax('story') ) ? 'post-navigation' : 'paging-navigation';
+		$nav_class = ( is_single() || is_tax('story') ) ? 'post-navigation' : 'paging-navigation' ;
 
-	?>
+	?> <div class="wrap clear">
 	
 	<nav role="navigation" id="<?php echo esc_attr( $nav_id ); ?>" class="<?php echo $nav_class; ?> clear">
 		<h1 class="screen-reader-text"><?php _e( 'Post navigation', 'silentcomics' ); ?></h1>
 		
-		<?php if ( 'comic' == get_post_type() && ( is_single() ||  is_front_page() ) ) : //comics navigation links 
-		$nav_class .= ' navigation-comic'; ?>
+		<?php  if ( 'comic' == get_post_type() && ( is_single() ||  is_front_page() ) ) : //comics navigation links 
+			
+		$nav_class .= ' navigation-comic'; ?> 
 		
 				<div class="navigation-comic">
-				<nav class="nav-first"><a href="<?php echo esc_url( first_comic_link()); ?>"><?php esc_html_e( '&#124;&#10094; First', 'silentcomics' ); ?></a></nav>
+				<nav class="nav-first"><a href="<?php echo esc_url( first_comic_link()); ?>"><?php esc_html_e( '&#124;&#10094; Start', 'silentcomics' ); ?></a></nav>
 				<nav class="nav-previous"><?php previous_post_link('%link',  __( 'Previous', 'silentcomics' ), $in_same_term = true, $excluded_terms = '', $taxonomy = 'story' ); ?></nav>
 				<nav class="nav-title"><?php the_title( '<h4 class=".series-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h4>' ); ?></nav>
 				<nav class="nav-next"><?php next_post_link( '%link', __('Next', 'silentcomics' ), true, '', 'story' ); ?></nav>  
-				<nav class="nav-last"><a href="<?php echo esc_url( last_comic_link()); ?>"><?php esc_html_e( 'Latest &#10095;&#124;', 'silentcomics' ); ?></a></nav>
+				<nav class="nav-last"><a href="<?php echo esc_url( last_comic_link()); ?>"><?php esc_html_e( 'Last &#10095;&#124;', 'silentcomics' ); ?></a></nav>
 			</div>
 
 			<?php elseif ( is_single() ) : // navigation links for single posts ?>
-			<div class="wrap clear">
 				
 		<?php previous_post_link( '<div class="nav-previous">%link</div>', '<span class="meta-nav">' . _x( '&#8592;', 'Previous post link', 'silentcomics' ) . '</span> %title' ); ?>
 		<?php next_post_link( '<div class="nav-next">%link</div>', '%title <span class="meta-nav">' . _x( '&#8594;', 'Next post link', 'silentcomics' ) . '</span>' ); ?>
 
-	<?php elseif ( $wp_query->max_num_pages > 1 && ( is_home() || is_archive() || is_search() ) ) : // navigation links for front, archive, and search pages ?>
+	<?php elseif ( $wp_query->max_num_pages > 1 && ( is_home() || is_archive() || is_search() ) ) : // navigation links for blog, archive, and search pages ?>
 
 		<?php if ( get_next_posts_link() ) : ?>
 		<div class="nav-previous-page"><?php next_posts_link( __( 'Older posts', 'silentcomics' ) ); ?></div>

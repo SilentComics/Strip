@@ -23,16 +23,16 @@ get_header(); ?>
 					</h1>
 				
 				<h3 class="page-title"> 
-				Watch 3
+				Optional title
 					</h3>
 					<h2 class="taxonomy-description">
 	<a href="<?php echo esc_url( home_url( '/stories/' ) ); ?>">Series</a></h2>
 	
 				
 					<h4 class="series-title">
-					<a href="http://localhost:8888/shizukana/story/exile/">ExIle</a></h4>
+					<a href="http://yoursitelink/story/Series-name">Serie's NAME</a></h4>
 					<h4 class="series-title">
-					<a href="http://localhost:8888/shizukana/story/tofu/">Morning Tofu Chase</a></h4>
+					<a href="http://yoursitelink/story/name/">Name</a></h4>
 					<h3 class="series-title">
 					<a href="http://localhost:8888/shizukana/sentient-drone">Sentient Drone</a></h3>
 					
@@ -55,6 +55,7 @@ get_header(); ?>
 					'orderby'   		=> 'title',
 					'order'   			=> 'ASC',)
 					);
+					
     while ($comic->have_posts()) : $comic->the_post();   
 				
 				get_template_part( 'content-comic' );

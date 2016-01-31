@@ -11,6 +11,12 @@ if ( isset( $GLOBALS['content_width'] ) )
 <article id="post-<?php the_ID(); ?>" <?php post_class('clear'); ?>>
 	<div class="entry-wrap wrap clear">
 		
+		<?php
+			if ( '' != get_the_post_thumbnail() ) :
+				the_post_thumbnail( 'silentcomics-featured-thumbnail' );
+			endif;
+		?>
+		
 			<header class="entry-header">
 				<?php
 					$categories_list = get_the_category_list( __( ', ', 'silentcomics' ) );
@@ -40,6 +46,14 @@ if ( isset( $GLOBALS['content_width'] ) )
 
 				<?php edit_post_link( __( 'Edit', 'silentcomics' ), '<span class="edit-link">', '</span>' ); ?>
 			</footer><!-- .entry-meta -->
+			
+			<?php if ( has_excerpt() ) : ?>
+		<div class="entry-summary">
+			<?php do_action( 'silentcomics_formatted_posts_excerpt_before' ); ?>
+			<?php the_excerpt(); ?>
+			<?php do_action( 'silentcomics_formatted_posts_excerpt_after' ); ?>
+		</div><!-- .entry-caption -->
+		<?php endif; ?>
 
 	</div><!-- .entry-wrap -->
 </article><!-- #post-## -->

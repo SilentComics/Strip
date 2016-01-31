@@ -29,12 +29,14 @@ elseif ( get_query_var('page') ) {
 else {
    $paged = 1;
 }
+
+// Call and run loop in descending order
 $loop = new WP_Query( array( 
 			'post_type'			=> 'comic',
-			'story' 			=> 'exile',
+			'story' 			=> 'name',
 			'posts_per_page' 	=> 6, 
 			'paged'	 			=> $paged,
-			'orderby' 			=> 'title', 
+			'orderby' 			=> 'date', 
 			'order'				=> 'DESC')
 			);
 			
@@ -48,16 +50,22 @@ if ( $loop->have_posts() ) :
 endif; ?>
 
 <?php
-// get_next_posts_link() usage with max_num_pages 
-next_posts_link( 'Older Entries', $loop->max_num_pages );
-previous_posts_link( 'Newer Entries' );
-
-// clean up after the query and pagination
+// get_next_posts_link() usage with max_num_pages ?>
+<nav class="paging-navigation">
+<div class="nav-previous-page">
+<?php echo get_next_posts_link( 'Previous comics', $loop->max_num_pages ); ?>
+ </div>
+    <div class="nav-next-page">
+<?php echo get_previous_posts_link( 'Recent comics' ); ?>
+</div>
+</nav>
+<?php // clean up after the query and pagination
 wp_reset_postdata(); 
 ?>
-
+        </div>
 		</div><!-- #content -->
 	</section><!-- #primary -->
+<br>
 
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>
