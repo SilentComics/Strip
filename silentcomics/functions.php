@@ -35,39 +35,39 @@ function silentcomics_setup() {
 	 */
 	load_theme_textdomain( 'silentcomics', get_template_directory() . '/languages' );
 
-	/**
-	* Functions for RICG-responsive-images
-	* https://github.com/ResponsiveImagesCG/wp-tevko-responsive-images/tree/dev#advanced-image-compression
-	*/
+/**
+* Functions for RICG-responsive-images
+* https://github.com/ResponsiveImagesCG/wp-tevko-responsive-images/tree/dev#advanced-image-compression
+*/
 	function custom_theme_setup() {
-    add_theme_support( 'advanced-image-compression' );
+	add_theme_support( 'advanced-image-compression' );
 }
-add_action( 'after_setup_theme', 'custom_theme_setup' );
+	add_action( 'after_setup_theme', 'silentcomics_setup' );
 
-	/**
-	* Add EditorStyle
-	*/
+/**
+* Add EditorStyle
+*/
 
-function silentcomics_add_editor_styles() {
+	function silentcomics_add_editor_styles() {
     add_editor_style( 'custom-editor-style.css' );
 }
 add_action( 'after_setup_theme', 'silentcomics_add_editor_styles' );
 
-	/**
-	 * Add default posts and comments RSS feed links to head
-	 */
+/**
+* Add default posts and comments RSS feed links to head
+*/
 	add_theme_support( 'automatic-feed-links' );
 
-	/**
-	 * Enable support for title-tag. Allows themes to add document title tag to HTML <head> (since version 4.1.).
-	 */
+/**
+* Enable support for title-tag. Allows themes to add document title tag to HTML <head> (since version 4.1.).
+*/
 	add_theme_support( 'title-tag' );
 
-		/**
-	 * Enable support for Post Thumbnails on posts and pages
-	 *
-	 * @link http://codex.wordpress.org/Function_Reference/add_theme_support#Post_Thumbnails
-	 */
+/**
+* Enable support for Post Thumbnails on posts and pages
+*
+* @link http://codex.wordpress.org/Function_Reference/add_theme_support#Post_Thumbnails
+*/
 	add_theme_support( 'post-thumbnails' );
 	add_image_size( 'featured-image', 1920, 0 );
 
@@ -80,7 +80,31 @@ function filter_ptags_on_images($content){
 	}
 	add_filter('the_content', 'filter_ptags_on_images');
 
-
+/**
+* Enable support for site logo.
+*/
+	add_image_size( 'silentcomics-logo', 348, 174 );
+	add_theme_support( 'site-logo', array( 'size' => 'silentcomics-logo' ) );	
+	
+/**
+* Add custom image sizes attribute to enhance responsive image functionality
+* for site logo.
+*
+* @since SilentComics 2.5.6.9
+*
+* @param array $attr Attributes for the image markup.
+* @param int   $attachment Image attachment ID.
+* @param array $size Registered image size or flat array of height and width dimensions.
+* @return string A source size value for use in a post thumbnail 'sizes' attribute.
+*/
+	function silentcomics_logo_sizes_attr( $attr, $attachment, $size ) {
+	if ( 'silentcomics-logo' === $size ) {
+		$attr['sizes'] = '(max-width: 1920px) 1920px';
+	}
+		return $attr;
+}
+	add_filter( 'wp_get_attachment_image_attributes', 'silentcomics_logo_sizes_attr', 10 , 3 );	  	
+  
 	/**
 	 * This theme uses wp_nav_menu() in one location.
 	 */
@@ -124,6 +148,7 @@ function filter_ptags_on_images($content){
 }
 endif; // silentcomics_setup
 add_action( 'after_setup_theme', 'silentcomics_setup' );
+
 
 /**
  * Register widgetized area and update sidebar with default widgets
@@ -217,10 +242,7 @@ if( false === $args['echo'] ) {
 	echo $menu;
 }
 
-/*
-*
-*/
-
+// now delete the transient on update
 add_action( 'wp_update_nav_menu', 'silentcomics_update_menus' );
 function silentcomics_update_menus() {
 	global $wpdb;
@@ -231,49 +253,53 @@ function silentcomics_update_menus() {
 }
 
 /**
-* Webfonts
+* Google Webfonts 
 * Font URLs function http://themeshaper.com/2014/08/13/how-to-add-google-fonts-to-wordpress-themes/
 */
-function silentcomics_fonts_url() {
-    $fonts_url = '';
+//function silentcomics_fonts_url() {
+//    $fonts_url = '';
 
     /* Translators: If there are characters in your language that are not
     * supported by Fenix, translate this to 'off'. Do not translate
     * into your own language.
     */
-    $fenix = _x( 'on', 'Fenix font: on or off', 'silentcomics' );
+//    $fenix = _x( 'on', 'Fenix font: on or off', 'silentcomics' );
 
-    if ( 'off' !== $fenix ) {
-        $font_families = array();
+//    if ( 'off' !== $fenix ) {
+//        $font_families = array();
 
-        if ( 'off' !== $fenix ) {
-            $font_families[] = 'Fenix:400';
-        }
+//        if ( 'off' !== $fenix ) {
+//            $font_families[] = 'Fenix:400';
+//        }
 
-        $query_args = array(
-            'family' => urlencode( implode( '|', $font_families ) ),
-            'subset' => urlencode( 'latin' ),
-        );
+//        $query_args = array(
+//            'family' => urlencode( implode( '|', $font_families ) ),
+//            'subset' => urlencode( 'latin' ),
+//        );
 
-        $fonts_url = add_query_arg( $query_args, 'https://fonts.googleapis.com/css' );
-    }
+//        $fonts_url = add_query_arg( $query_args, 'https://fonts.googleapis.com/css' );
+//    }
 
-    return esc_url_raw( $fonts_url );
-}
+//    return esc_url_raw( $fonts_url );
+//}
 /**
 * Now enqueue the custom font to the front end (see function above)
 */
-function silentcomics_scripts_styles() {
-    wp_enqueue_style( 'silentcomics-fonts', silentcomics_fonts_url(), array(), null );
-}
-add_action( 'wp_enqueue_scripts', 'silentcomics_scripts_styles' );
+//function silentcomics_scripts_styles() {
+//    wp_enqueue_style( 'silentcomics-fonts', silentcomics_fonts_url(), array(), null );
+//}
+//add_action( 'wp_enqueue_scripts', 'silentcomics_scripts_styles' );
 
 
 /**
  * Enqueue scripts and styles
  */
-function silentcomics_scripts() {
+ 	function silentcomics_scripts() {
+	
 	// add custom font here if any
+	//wp_enqueue_style( 'fenix', get_template_directory_uri() . '/fonts/stylesheet.css', array(), null );
+		
+	// all the other scripts
 	wp_enqueue_style( 'silentcomics-style', get_stylesheet_uri() );
 
 	wp_enqueue_script('jquery');
@@ -286,7 +312,7 @@ if ( has_nav_menu( 'primary' ) )
 	wp_script_add_data( 'silentcomics-html5', 'conditional', 'lt IE 9' );
 
 	wp_enqueue_script( 'silentcomics-skip-link-focus-fix', get_template_directory_uri() . '/js/min/skip-link-focus-fix-min.js', array(), '20130115', true );
-
+	
 // toggle comments js
 	wp_enqueue_script( 'silentcomics-toggle-comments', get_template_directory_uri() . '/js/min/toggle-comments-min.js', array(), '1.0.0', true );
 
@@ -328,13 +354,17 @@ require get_template_directory() . '/inc/jetpack.php';
 
 /*
 * WooCommerce Hooks
-*
+* Layout
 */
-remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10);
-remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10);
+remove_action( 'woocommerce_before_main_content', 	'woocommerce_breadcrumb', 					20, 0 );
+remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 		10);
+remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 		10);
+remove_action( 'woocommerce_after_shop_loop', 		'woocommerce_pagination', 					10 );
+remove_action( 'woocommerce_before_shop_loop', 		'woocommerce_result_count', 				20 );
+remove_action( 'woocommerce_before_shop_loop', 		'woocommerce_catalog_ordering', 			30 );
 
-add_action('woocommerce_before_main_content', 'silentcomics_wrapper_start', 10);
-add_action('woocommerce_after_main_content', 'silentcomics_wrapper_end', 10);
+add_action('woocommerce_before_main_content', 'silentcomics_wrapper_start', 					10);
+add_action('woocommerce_after_main_content', 'silentcomics_wrapper_end', 						10);
 
 function silentcomics_wrapper_start() {
 	echo '<section id="content" class="woocommerce-content" role="main"><div class="entry-wrap wrap clear">';
@@ -353,7 +383,7 @@ function woocommerce_support() {
 	    add_theme_support( 'woocommerce' );
 	    }
 	    
-	    /**
+/**
 * Remove each WooCommerce style one by one, if needed
 * see https://docs.woothemes.com/document/disable-the-default-stylesheet/
 *
@@ -366,10 +396,10 @@ function woocommerce_support() {
 //	return $enqueue_styles;
 //}
 
- // Enqueue the theme's own style for Woo
+ // Enqueue the theme's own style for WooCommerce
  function wp_enqueue_woocommerce_style(){
 	
-	wp_register_style( 'silentcomics-woocommerce', get_template_directory_uri() . '/library/css/woocommerce.css' );
+	wp_register_style( 'silentcomics-woocommerce', get_template_directory_uri() . '/library/woocommerce-min.css' );
 	if ( class_exists( 'woocommerce' ) ) {
 	    wp_enqueue_style( 'silentcomics-woocommerce' );
 	}
@@ -377,22 +407,25 @@ function woocommerce_support() {
 
 add_action( 'wp_enqueue_scripts', 'wp_enqueue_woocommerce_style' );
 
-
 /**
-* Now stop WooCommerce queries on other pages 
-*
+* Optimize WooCommerce Scripts
+* Remove WooCommerce Generator tag, styles, and scripts from non WooCommerce pages.
 * see http://gregrickaby.com/remove-woocommerce-styles-and-scripts/
 * and: https://wordimpress.com/how-to-load-woocommerce-scripts-and-styles-only-in-shop/
 * and: https://gist.github.com/DevinWalker/7621777
- * Remove WooCommerce Generator tag, styles, and scripts from non WooCommerce pages.
- */
-function sc_woocommerce_script_cleaner() {
+*
+*/
+
+add_action( 'wp_enqueue_scripts', 'silentcomics_manage_woocommerce_styles', 99 );
+ 
+function silentcomics_manage_woocommerce_styles() {
 	//remove generator meta tag
 	remove_action( 'wp_head', array( $GLOBALS['woocommerce'], 'generator' ) );
-
-	// Unless we're in the store, remove all the cruft!
-	if ( ! is_woocommerce() && ! is_cart() && ! is_checkout() ) {
-		//dequeue scripts and styles
+	
+	//first check that woo exists to prevent fatal errors
+	if ( function_exists( 'is_woocommerce' ) ) {
+		//dequeue scripts and styles, unless we're in the store
+		if ( ! is_woocommerce() && ! is_cart() && ! is_checkout() ) {
 		wp_dequeue_style( 'woocommerce_frontend_styles' );
 		wp_dequeue_style( 'woocommerce-general');
 		wp_dequeue_style( 'woocommerce-layout' );
@@ -415,37 +448,47 @@ function sc_woocommerce_script_cleaner() {
 		wp_dequeue_script( 'wc-cart' );
 		wp_dequeue_script( 'wc-chosen' );
 		wp_dequeue_script( 'woocommerce' );
+		wp_dequeue_script( 'jquery-cookie' );
 		wp_dequeue_script( 'prettyPhoto' );
 		wp_dequeue_script( 'prettyPhoto-init' );
-		wp_dequeue_script( 'jquery-blockui' );
+		wp_dequeue_script( 'jquery-blockui');
 		wp_dequeue_script( 'jquery-placeholder' );
 		wp_dequeue_script( 'jquery-payment' );
 		wp_dequeue_script( 'fancybox' );
 		wp_dequeue_script( 'jqueryui' );
 		}
 	}
-	
-	add_action( 'wp_enqueue_styles', 'wp_enqueue_scripts', 'sc_woocommerce_script_cleaner');
-	
-/**
-* Get the first image in a post https://css-tricks.com/snippets/wordpress/get-the-first-image-from-a-post/		
-*
-*/	
-
-function catch_that_image() {
-  global $post, $posts;
-  $first_img = '';
-  ob_start();
-  ob_end_clean();
-  $output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $post->post_content, $matches);
-  $first_img = $matches[1][0];
-
-  if(empty($first_img)) {
-    $first_img = "/path/to/default.png";
-  }
-  return $first_img;
 }
+
+/**
+* woocommerce_package_rates is a 2.1+ hook
+*/
+add_filter( 'woocommerce_package_rates', 'hide_shipping_when_free_is_available', 10, 2 );
+
+/**
+* Hide shipping rates when free shipping is available
+*
+* @param array $rates Array of rates found for the package
+* @param array $package The package array/object being shipped
+* @return array of modified rates
+*/
+ function hide_shipping_when_free_is_available( $rates, $package ) {
+	 
+	// Only modify rates if free_shipping is present
+	if ( isset( $rates['free_shipping'] ) ) {
+	  	
+	  	// To unset a single rate/method, do the following. This example unsets flat_rate shipping
+	  	unset( $rates['flat_rate'] );
+  		
+  		// To unset all methods except for free_shipping, do the following
+  		$free_shipping          = $rates['free_shipping'];
+  		$rates                  = array();
+  		$rates['free_shipping'] = $free_shipping;
+  	}
 	
+	return $rates;
+}
+
 /**	
 * This is the new registration code for CPT generated by the CPT UI plugin with adaptation
 *
@@ -495,7 +538,6 @@ function comic_post_type() {
 		'rewrite' 			  => array( 'slug' => 'stories', 'with_front' => true ),
 		'publicly_queryable'  => true,
 		'capability_type'     => 'post',
-
 	);
 	register_post_type( 'comic', $args );
 	register_taxonomy_for_object_type( 'story', 'comic' );
@@ -596,8 +638,7 @@ add_action( 'init', 'comic_story_taxonomy', 0 );
 		);
 
 /**
-* Add custom post type tags/categories to archive pages
-* If you want custom post type comics to also appear on blog and home, see https://developer.wordpress.org/plugins/custom-post-types-and-taxonomies/working-with-custom-post-type-data/
+* pre_get_posts — this is a backburner only — remove in 2-5-7
 *
 */
 //add_filter('pre_get_posts', 'query_post_type');
@@ -607,44 +648,61 @@ add_action( 'init', 'comic_story_taxonomy', 0 );
 //	if($post_type)
 //	    $post_type = $post_type;
 //	else
-//	    $post_type = array( 'comic','nav_menu_item');
+//	    $post_type = array( 'comic', 'post');
 //    $query->set('post_type',$post_type);
 //	return $query;
 //   }
 //}  
 
-// elseif $query->is_attachment() || is_single() Keeping this as backburner — needs re write 
+/* If you want your custom post type posts to show up on standard archives 
+* or include them on your home page mixed up with other post types
+* see https://developer.wordpress.org/plugins/custom-post-types-and-taxonomies/working-with-custom-post-type-data/
+* https://wordpress.org/support/topic/custom-post-type-tagscategories-archive-page
+* 
+*/
+//add_action( 'pre_get_posts', 'add_comics_to_query' );
 
-// Show posts of 'post' and 'comic' post types on home page
-add_action( 'pre_get_posts', 'add_comics_to_query' );
-
-function add_comics_to_query( $query ) {
-	if ( is_home() && $query->is_main_query() )
-	$query->set( 'post_type', array( 'post', 'comic' ) );
-	return $query;
-}
+//function add_comics_to_query( $query ) {
+//	if ( is_home() && $query->is_main_query() )
+//	$query->set( 'post_type', array( 'post', 'comic' ) );
+//	return $query;
+//}
 /**
+* Set posts, WooCommerce products & comics number per archive page
 * Fixes 404 error on pagination due to CTP conflicting with WordPress default 10 posts per page
 * see http://wordpress.stackexchange.com/questions/30757/change-posts-per-page-count/30763#30763
 */
-add_action( 'pre_get_posts',  'set_posts_per_page'  );
-function set_posts_per_page( $query ) {
+add_action( 'pre_get_posts',  'silentcomics_set_posts_per_page'  );
+function silentcomics_set_posts_per_page( $query ) {
 
   global $wp_the_query;
 
-  if ( ( ! is_admin() ) && ( $query === $wp_the_query ) && ( $query->is_home() ) && ( $query->is_search() ) ) {
-    $query->set( 'posts_per_page', 12 );
+ if ( ( ! is_admin() ) && ( $query === $wp_the_query ) && ( $query->is_home() ) && ( $query->is_search() ) ) {
+   $query->set( 'posts_per_page', 12 );
+ }
+  if  ( ( ! is_admin() ) && ( $query === $wp_the_query ) && ( $query->is_post_type_archive('product') ) && (taxonomy_exists('category') ) ) {
+	$query->set( 'posts_per_page', 8);
   }
-  elseif ( ( ! is_admin() ) && ( $query === $wp_the_query ) && ( $query->is_archive() ) && taxonomy_exists('story') ) {
-    $query->set( 'posts_per_page', 6 );
+  elseif ( ( ! is_admin() ) && ( $query === $wp_the_query ) && ( $query->is_archive() )  && (is_tax('story') ) ) {
+    $query->set( 'posts_per_page', 3 );
   }
-
+  
   return $query;
 }
 
+/*
+* Enables Jetpack's Infinite Scroll in search pages, disables it in product archives
+* @return bool
+* https://wordpress.org/support/topic/suppress-infinite-blog-with-woocommerce
+*/
+function silentcomics_jetpack_infinite_scroll_supported() {
+	return current_theme_supports( 'infinite-scroll' ) && ( is_home() || is_archive() || is_search() ) && ! is_post_type_archive( 'product' );
+}
+add_filter( 'infinite_scroll_archive_supported', 'silentcomics_jetpack_infinite_scroll_supported' );
+
 /**
 * Add an automatic default custom taxonomy for custom post type.
-* If no story (taxonomy) is set, the comic post will be sorted as “draft” and won’t return an offset error
+* If no story (taxonomy) is set, a comic post will default to “draft” and won’t return an offset error
 *
 */
     function set_default_object_terms( $post_id, $post ) {
@@ -674,7 +732,7 @@ add_filter( 'posts_results', 'cache_meta_data', 9999, 2 );
 function cache_meta_data( $posts, $object ) {
     $posts_to_cache = array();
     // this usually makes only sense when we have a bunch of posts
-    if ( empty( $posts ) || is_wp_error( $posts ) || is_single() || is_page() || taxonomy_exists('comic') || count( $posts ) < 3 )
+    if ( empty( $posts ) || is_wp_error( $posts ) || is_single() || is_page() || is_archive() || taxonomy_exists('story') || count( $posts ) < 3 )
         return $posts;
 
     foreach( $posts as $post ) {
@@ -692,6 +750,11 @@ function cache_meta_data( $posts, $object ) {
     return $posts;
 }
 
+/**
+*
+*/
+set_transient( 'comic', 'story', 12 * HOUR_IN_SECONDS );
+
 /*
 * Create a function to delete our transient when a comic post is saved
 * http://wordpress.stackexchange.com/questions/88991/option-to-feature-custom-post-type-on-home-page
@@ -703,3 +766,25 @@ function cache_meta_data( $posts, $object ) {
     }
     // Add the function to the save_post hook so it runs when posts are saved
     add_action( 'save_post', 'save_post_delete_story_transient' );
+    
+    /**
+* Get the first image in a post https://css-tricks.com/snippets/wordpress/get-the-first-image-from-a-post/	
+*
+*/	
+
+function catch_first_image() {
+global $post, $posts;
+$first_img = '';
+ob_start();
+ob_end_clean();
+if(preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', do_shortcode($post->post_content), $matches)){
+$first_img = $matches [1][0];
+return $first_img;
+ 
+}
+
+elseif(empty($first_img)) {
+	$first_img = get_template_directory_uri() . '/library/images/empty.png'; // path to default image
+	}
+	return $first_img;
+}

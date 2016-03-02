@@ -32,7 +32,13 @@ if ( isset( $GLOBALS['content_width'] ) )
 			</header><!-- .entry-header -->
 			
 			<div class="entry-content">	
-			<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'silentcomics' ) ); ?>
+			<?php
+				/* translators: %s: Name of current post */
+			the_content( sprintf(
+				__( 'Continue reading %s <span class="meta-nav">&rarr;</span>', 'silentcomics' ),
+				the_title( '<span class="screen-reader-text">', '</span>', false )
+			) );
+		?>
 			</div><!-- .entry-content -->
 			
 			<footer class="entry-meta">

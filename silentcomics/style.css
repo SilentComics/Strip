@@ -4,7 +4,7 @@ Theme URI: https://github.com/SilentComics/Wordpress-Theme-for-Silent-Comics/
 Author: Anh Hoa Si
 Author URI: http://silent-comics.com
 Description: A theme for comics
-Version: 2.5.6.8 (26 January 2016) IMPLEMENT — Goal: reduce css to 1800 lines or less
+Version: 2.5.6.9 (February 2016) TEST — Goal: Keep styles under 2000 lines 
 License: GNU General Public License v3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Text Domain: silentcomics
@@ -149,16 +149,14 @@ samp {
 2.0 Typography
 --------------------------------------------------------------*/
 
+
+
 /* =Global */
 html { font-size: 62.5%; } 
 body { font-size: 24px; font-size: 2.4rem; } /* =24px */
 
-body,
-button,
-input,
-select,
-textarea {
-	color:  #422442;
+body {
+	color: #422442;
 	font-family:'Fenix', Georgia, serif;
 	line-height: 1.2;
 }
@@ -188,11 +186,11 @@ address {
 	margin: 0 0 1.5em;
 }
 pre {
-	background: #FF7369;
-	font-family: Inconsolata, monospace;
-	font-size: 1.6rem;
-	line-height: 1.6;
-	color: aliceblue;
+	background: #faf4f4;
+	font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+	font-size: small;
+	line-height: inherit;
+	color: #422442;
 	max-width: 100%;
 	overflow: auto;
 	padding: 1.76em;
@@ -208,7 +206,7 @@ code,
 kbd, 
 tt, 
 var {
-	font: 1.2rem Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+	font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
 }
 abbr, 
 acronym {
@@ -305,7 +303,7 @@ select,
 textarea {
 	font-size: 100%; /* Corrects font size not being inherited in all browsers */
 	margin: 0; /* Addresses margins set differently in IE6/7, F3/4, S5, Chrome */
-	vertical-align: top;
+	vertical-align: top; /* Improves readability and alignment in all browsers */
 }
 button {
 	line-height: normal; /* Addresses FF3/4 setting line-height using !important in the UA stylesheet */
@@ -313,10 +311,11 @@ button {
 }
 input,
 textarea {
-	background-image: -webkit-linear-gradient(hsla(0,0%,100%,0), hsla(0,0%,100%,0)); /* Removing the inner shadow, rounded corners on iOS inputs */
+	background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)); /* Removing the inner shadow, rounded corners on iOS inputs */
 }
 button,
-html input[type="button"]
+html input[type="button"],
+html input[type="button"],
 input[type="reset"],
 input[type="submit"] {
 	-moz-appearance: button;
@@ -327,7 +326,7 @@ input[type="submit"] {
 	cursor: pointer;
 	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
 	font-size: 0.8rem;
-	letter-spacing: 0.1em;
+	letter-spacing: 0.12em;
 	padding: 10px;
 	text-transform: uppercase;
 	width: auto;
@@ -351,25 +350,61 @@ input[type="reset"]:active,
 input[type="submit"]:active {
 	background-color: #00ffcc;
 }
+.comment-form-comment,
 .comment-form-author,
 .comment-form-email,
 .comment-form-url,
-.search-field input[type="Looking for smthg?"] {
-	display: block;
-	width: auto;
+input[type="search"] {
+	-moz-box-sizing: border-box;
+	box-sizing:      border-box;
+	border-radius:  2px;
+	padding: 0.4em;
 	font-size: 1.2rem;
-	font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+	font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;	
 }
-#search-wrapper input .search-field [type="submit"] {
-	display: inline-block;
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="password"],
+input[type="url"] {
+	background: #fafafa;
+	border: none;
+	font-size: medium;
 }
 textarea {
 	overflow: auto; /* Removes default vertical scrollbar in IE6/7/8/9 */
-	box-sizing: border-box;
-	padding: 0.42em 0.42em;
-	vertical-align: top; /* Improves readability and alignment in all browsers */
+	padding: 1em 1em;
 	width: 100%;
+	background: #fafafa;
+	border: none;
+	border-radius: 3px;
+	color: inherit;
+	
 }
+input[type="search"] {
+	background: #ffffff;
+	border: 1px solid #fafafa;
+	color:  #FF7369;
+}
+/**
+ * It's recommended that you don't attempt to style these elements.
+ * Firefox's implementation doesn't respect box-sizing, padding, or width.
+ *
+ * 1. Address box sizing set to `content-box` in IE 8/9/10.
+ * 2. Remove excess padding in IE 8/9/10.
+ */
+ 
+input[type="checkbox"],
+input[type="radio"] {
+    box-sizing: border-box; /* 1 */
+    padding: 0; /* 2 */
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
 
 /*--------------------------------------------------------------
 5.0 Navigation
@@ -394,17 +429,31 @@ a:active {
 /*--------------------------------------------------------------
 5.2 Menus
 --------------------------------------------------------------*/
+/*
+ * Site Logo support since WP 4.5
+ */
+.site-logo-link {
+	display: block;
+}
+.wp-site-logo .site-title {
+	margin-top: 0.608695652em;
+}	 
+.wp-site-logo .site-header-main {
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	align-items: center;
+}
 
-/* author's custom style
+/* author's custom style (svg logo)
 ----------------------------------------------- */
 .logo, a.logo {
 	width: 124px; /* required to center */
 	height: 62px;
 	position: relative;
-	margin-top: 48px;
+	margin: 24px 0 24px 0;
 	display: inline-block; 
 }
-a.logo: after {
+.logo:after, a.logo:after {
 	content: ""; 
 	position: fixed; 
 	top: 0; 
@@ -417,7 +466,6 @@ a.logo: after {
 	background-image: url('../images/silent-comics-logo.png');
 	background-repeat: no-repeat;
 }
-
 /* =Masthead
 ----------------------------------------------- */
 .site-branding {
@@ -436,11 +484,10 @@ a.logo: after {
 	line-height: 1.2;
 	letter-spacing: 0.1em;
 	margin: 0 auto;
-	max-width: 90%;
-	padding: 0 .24em;
+	max-width: 348px;
+	padding: 0.12em;
 	text-align: center;
 	text-transform: uppercase;
-	z-index: 0;
 }
 .site-title a {
 	text-decoration: none;
@@ -449,19 +496,18 @@ a.logo: after {
 .site-description {
 	font-family:'Fenix', Georgia, serif;
 	font-size: 0.6em;
-	color: #424242; 
+	color: #422442; 
 	text-align: center;
 	margin-bottom: 0.1em;
 }
 .header-image {
   width: 100%;
-	height: auto;
-	-ms-interpolation-mode: bicubic;
+  height: auto;
+  -ms-interpolation-mode: bicubic;
 }
 
 /* =Menu
 ----------------------------------------------- */
-
 .main-navigation {
 	clear: both;
 	display: block;
@@ -494,7 +540,7 @@ a.logo: after {
 	text-decoration: none;
 }
 .main-navigation a {
-	color: #424242;
+	color: #422442;
 	padding: 10px 6px 6px 10px;
 }
 .main-navigation a:hover {
@@ -507,7 +553,7 @@ a.logo: after {
 .main-navigation a:active {
 	background: #faf4f4;
 	color: white;
-	padding: 10px 6px 6px 10px;
+	/* padding: 10px 6px 6px 10px; /* can remove */ 
 }
 .main-navigation ul ul {
 	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
@@ -643,7 +689,7 @@ body {
 }
 .wrap {
 	margin: 0 auto;
-}
+ }
 .site-header  {
 	border-top: 3px solid #000000;
 }
@@ -675,6 +721,7 @@ display:  inline-block;
 .footer-widget-4 {
 	margin-right: 0;
 }
+.widget-title,
 .widget, 
 .widget a {
 	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
@@ -739,30 +786,31 @@ display:  inline-block;
 
 .widget_calendar,
 .widget_calendar a {
-	font-size: 1.6rem;
-	line-height: 1.76;
+	font-size: 1.6rem; /* optional font size needed here */
+	line-height: 2.4;
 }
 .widget_calendar caption {
-	color: #768499;
+	color: #769993;
 	letter-spacing: 0.2em;
 	line-height: 1.76;
-	margin-bottom: 12px;
 	text-align: left;
 	text-transform: uppercase;
 }
 .widget_calendar thead th,
 .widget_calendar tbody td {
-	border: 1px dotted #f0f0f0; /* fallback */
-	border: 1px dotted rgba(0, 0, 0, 0.1);
+	border: 1px solid rgba(255, 255, 255, 0.2);
 	border-width: 0 1px 1px 0;
-	width: inherit;
-	}
-.widget_calendar tbody a {
-	background-color: #ffcc00;
-	}
-.widget_calendar tbody a:hover {
+	text-align: center;
+	
+}
+.widget_calendar thead th a,
+.widget_calendar tbody td a {
+	background-color: #0ddb85;
+}
+.widget_calendar tbody td a:hover {
 	background-color: #00ffcc;
 	color: #fff;
+	
 }
 
 /* =Attachment page
@@ -775,8 +823,8 @@ article.attachment .attachment {
 	text-align: center;
 }
 article.attachment .entry-caption {
-	margin-top: 24px;
 	max-width: 696px;
+	font-size: small;
 }
 article.attachment  .entry-meta {
 	margin-bottom: 0;
@@ -795,20 +843,16 @@ article.no-results {
 }
 article.error404 .search-form, 
 article.no-results .search-form {
-	text-align: center
+	text-align: center;
 }
 article.error404 input[type="search"],
 article.no-results input[type="search"] {
-	margin-bottom: 17px;
-	font-size: 1.2rem;
-	font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
-	text-align: center;
+	margin-bottom: 12px;
 }
 article.error404 .widget {
 	-moz-box-sizing: border-box;
 	box-sizing:      border-box;
 	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
-	margin-bottom: 6.4em;
 }
 article.error404 .widget a {
 	border-bottom: 0;
@@ -834,7 +878,7 @@ article.error404 .widget_calendar  {
 	clear: both;
 }
 article.error404 .widget_calendar caption {
-	color: #768499;
+	color: #769993;
 }
 article.error404 .widget_calendar thead th,
 article.error404 .widget_calendar tbody td {
@@ -848,13 +892,13 @@ article.error404 .widget_calendar tfoot td {
 	padding: 0;
 }
 article.error404 .widget_calendar tfoot #prev {
-	padding: 0 0 0 12px;
+	padding: 0 0 0 24px;
 }
-article.error404 .widget_calendar  tfoot #next {
+article.error404 .widget_calendar tfoot #next {
 	padding: 0 12px 0 0;
 }
 article.error404 .widget_calendar tbody a {
-	background-color: #FF7369;
+	background-color: #0ddb85;
 	color: #fff;
 }
 article.error404 .widget_calendar tbody a:hover {
@@ -869,6 +913,10 @@ article.error404 .widget_calendar tbody a:hover {
 --------------------------------------------------------------*/
 .blog .entry-meta { 
 	display: block; 
+}
+.sticky {
+	color: white;
+	background-color: #00ffaa;
 }
 .sticky .entry-date {
 	display: none;
@@ -891,7 +939,7 @@ article.error404 .widget_calendar tbody a:hover {
 	max-width: 696px;
 	-ms-word-wrap: break-word; /* support non-breaking text for edge cases  */
 	word-wrap: break-word;
-	color:#241212;
+	color:#422442;
 	text-transform:uppercase;
 	text-align:center;
 }
@@ -948,34 +996,38 @@ article.error404 .widget_calendar tbody a:hover {
 	-khtml-opacity: 0.9;
 	opacity: 0.9;
 }
+
 .entry-content table,
-.entry-summary table,
-.comment-body table {
+.comment-content table {
 	font-size: medium;
-	border: 1px dotted #f0f0f0; /* fallback */
-	border: 1px solid rgba(0, 0, 0, 0.1); 
-	border-width: 1px 0 0 1px;
-	width: auto; /* was 100% */
 }
-.entry-content th,
-.entry-summary th,
-.comment-body th {
-	border: 1px dotted #f0f0f0; /* fallback */
-	border: 1px solid rgba(0, 0, 0, 0.1); 
-	border-width: 0 1px 1px 0;
-	font-size: 1.2rem;
-	font-weight: normal;
-	letter-spacing: 0.1em;
-	padding: 8px 8px 9px 8px;
-	text-transform: uppercase;
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+  border-width: 1px 0 0 1px;
+  margin: 0 0 10px 0;
+  width: 100%;
 }
-.entry-content td,
-.entry-summary td,
-.comment-body td {
-	border: 1px dotted #f0f0f0; /* fallback */
-	border: 1px solid rgba(0, 0, 0, 0.1); 
-	border-width: 0 1px 1px 0;
-	padding: 8px 8px 9px 8px;
+table,
+th,
+td {
+  border: 1px solid #fefefe;
+}
+caption,
+th,
+td {
+  font-weight: normal;
+  text-align: left;
+}
+th {
+  border-width: 1px;
+  font-weight: bold;
+  padding: 5px 10px;
+}
+
+td {
+  border-width: 1px;
+  padding: 5px 10px;
 }
 
 /*--------------------------------------------------------------
@@ -1000,21 +1052,18 @@ article.error404 .widget_calendar tbody a:hover {
 /* Quote */
 .format-quote .entry-content {
 	color: gray;
-	margin-bottom: 24px;
 }
 
 /* Asides */
 .format-aside .entry-content {
-	color:   #6e2424;
-	margin-bottom: 24px;
+	color: #ee2424;
 }
 /* Make sure embeds and iframes fit their containers */
 embed,
 iframe,
 object,
 video {
-	margin-bottom: 24px;
-	max-width: 100%;
+    max-width: 100%;
 }
 p > embed,
 p > iframe,
@@ -1022,7 +1071,7 @@ p > object,
 span > embed,
 span > iframe,
 span > object {
-	margin-bottom: 0;
+	margin-bottom: 0; 
 }
 
 /* link */
@@ -1046,9 +1095,11 @@ span > object {
 
 /* Video */
 .format-video .entry-content {
+	height: 0;   
     position: relative;
-    padding-bottom: 56.25%;
-    padding-top: 30px; height: 0; overflow: hidden;
+    padding-bottom: 56.25%; /* 16:9 */
+    padding-top: 30px; 
+    overflow: hidden;
     margin-bottom: 2em;
 }
 .format-video iframe,
@@ -1057,6 +1108,8 @@ span > object {
     position: absolute;
     top: 0;
     left: 0;
+    right: 0;
+    bottom: 0;
     width: 100%;
     height: 100%;
 }
@@ -1078,12 +1131,13 @@ span > object {
 
 /* Chat */
 .format-chat {
+	color: antiquewhite;
 	background-color: #FF7369;
 	margin: 0 auto;
 	padding: 1.2em 0;
 	font-size: 1.6rem;
 	text-align: left;
-	font-family: Inconsolata, monospace;
+	font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
 }
 .format-chat .entry-content a,
 .format-chat .entry-title a,
@@ -1109,11 +1163,11 @@ span > object {
 }
 .gallery-columns-2 .gallery-item {
     max-width: 48%;
-    max-width: calc(50% - 6px);
+    max-width: calc(50% - 4px);
 }
 .gallery-columns-3 .gallery-item {
     max-width: 32%;
-    max-width: calc(33.3% - 6px);
+    max-width: calc(33.3% - 4px);
 }
 .gallery-columns-4 .gallery-item {
     max-width: 23%;
@@ -1237,7 +1291,7 @@ span > object {
 	overflow: hidden;
 	font: 300 1.4rem/1 Futura, "Trebuchet MS", Arial, sans-serif;
 	line-height: 2;
-	padding: 0 0 1em;
+	/* padding: 0 0 1em; /* can remove */
     }   
 .post-navigation .meta-nav {
 	border-radius: 1px; /* square shaped is 0px */
@@ -1268,7 +1322,6 @@ span > object {
 .prev page-numbers,
 .next page-numbers {
 	display: inline-block;
-	margin: auto;
 }
 /* navigation specific */
 .nav-previous-page,
@@ -1305,7 +1358,7 @@ span > object {
 /*--------------------------------------------------------------
 10.3 Comics
 --------------------------------------------------------------*/
-.comic .entry-comic,
+.comic .hentry-comic,
 .gallery-item {
 	padding: 0 0 9px 0; /* aligns comic content images & galleries relative to comics navigation */
 }
@@ -1315,7 +1368,7 @@ span > object {
 	color: #f3e7e7;
 	text-transform:uppercase;	
 	text-align:center;
-	max-width: 696px;
+	max-width: 696px; /* might drop this */
 	margin-bottom: 12px;
 }
 .comic .categories-links a,
@@ -1323,7 +1376,7 @@ span > object {
 	color: #422424;
 }
 .comic .post-edit-link {
-    padding: 12px 9px 9px 9px;
+    padding: 9px 6px 6px 6px;
     font-family: Futura, "Trebuchet MS", Arial, sans-serif;
     font-size: 1rem;
     text-transform: uppercase;
@@ -1345,9 +1398,12 @@ span > object {
 	text-decoration: none;
 }
 .navigation-comic {
-	display: flexbox; /* Fallback for IE 10 */
 	display: box; /* Fallback for pre 2009 browsers syntax */
-	display: flex;
+	display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+	display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+	display: -ms-flexbox;      /* TWEENER - IE 10 */
+	display: -webkit-flex;     /* NEW - Chrome */         
+	display: flex; /* NEW, Spec - Opera 12.1, Firefox 20+ */
 	justify-content: space-between;
 	width: 100%;
 }
@@ -1364,11 +1420,11 @@ span > object {
 .navigation-comic .nav-title,
 .navigation-comic .nav-title a {
 	text-align: center;
-	margin: 0 auto;
-  color: black;
+  	color: black;
 	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
 	font-size: 1.2rem;
-	letter-spacing: 0.1em;
+	letter-spacing: 0.12em;
+	padding: 0;
 	text-transform: uppercase;
 }
 .entry-comic .navigation-comic .nav-title a:hover,
@@ -1385,8 +1441,10 @@ span > object {
 	display: inline-block;
 	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
 	font-size: 1.2rem;
-	letter-spacing: 0.1em;
-	padding: 0.9em;
+	letter-spacing: 0.12em;
+	text-align: center;
+	padding: 0.6em;
+	width: 96px;
 	text-transform: uppercase;
 	}
 .entry-comic .navigation-comic .nav-previous a:hover,
@@ -1398,14 +1456,14 @@ span > object {
 }
 .series-title, .series-title li, .series-title a,
 .comic-episode, .comic-episode a,
-.post-parent-title a {
+.post-parent-title, .post-parent-title a {
 	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
-	text-align: center;
 	color: black;
 	font-size: 1.2rem;
-	line-height: 2;
+	line-height: 1.2;
 	letter-spacing: 0.1em;
 	text-transform: uppercase;
+	text-align: center;
 }
 /* the comic page title */
 .page-title, 
@@ -1432,25 +1490,92 @@ span > object {
 	font-size: 1.6rem;
 	line-height: 1.2;
 }
+/* Four columns grid */
+.columns { margin: 1em 0;  }
+.columns:before, .columns:after { content: " "; display: table; }
+.columns:after { clear: both; }
+.column { float: left; margin: 0 1% 10px 0; width: 24%; }
+.column:nth-child(4n) { margin-right: 0; }
+.column:nth-child(4n+1) { margin-left: 0; clear: left; }
+.column img { max-width: 100%; height: auto; }
+h2.entry-title { font-size: 12px; font-weight: bold; line-height: 1.5; }
+
+
+@media screen and (max-width: 888px) {
+.column { margin: 0 1% 10px 0; width: 48.5%; }
+.column:nth-child(2n) { margin-right: 0; }
+.column:nth-child(2n+1) { margin-left: 0; clear: left; }
+}
+
+@media screen and (max-width: 456px) {
+.column { margin: 0; width: 100%; }
+.column:nth-child(1n) { margin-right: 0; }
+.column:nth-child(1n+1) { margin-left: 0; clear: left; }
+h2.entry-title { font-size: 10px; font-weight: bold; line-height: 1.5; }
+}
 
 /*--------------------------------------------------------------
-10.4 Plugin specific rules
+10.4 Plugin-specific rules
 --------------------------------------------------------------*/
 /* CSS form MailChimp 4 WP form */
-.mc4wp-form label {
+.mc4wp-form {
+	width: auto;
+	
+} /* the form element */
+.mc4wp-form p { 
+  display: none;
+} /* form paragraphs */
+
+.mc4wp-form label { 
 	display: none;
-}
-.mc4wp-form-fields,
-.mc4wp-form-fields input {
-	width: 96%;
+} /* labels */
+
+.mc4wp-form input { 
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	box-sizing:border-box;
+	border:1px solid #faf4f4;
+	padding: 6px 6px 5px;
+	margin:0 4px 0 0;
+	outline:0;
+	line-height:1;
+	height: auto;
+	display: block;
+    vertical-align: baseline;
 	font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
 	font-size: 1rem;
 	text-align: center;
-}
-.mc4wp-form-fields [type="submit"] {
-  font-family: Futura, "Trebuchet MS", Arial, sans-serif;
-	font-size: 0.8rem;
-}
+	width: 96%;
+} /* input fields */
+
+.mc4wp-form input[type="checkbox"] { 
+	
+} /* checkboxes */
+
+.mc4wp-form input[type="submit"] { 
+	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+	font-size: 0.9rem;
+	width: 96%
+} /* submit button */
+
+.mc4wp-alert { 
+
+} /* success & error messages */
+
+.mc4wp-success { 
+	color: #0ddb85;
+} /* success message */
+
+.mc4wp-error { 
+	color: #ff00cc;
+} /* error messages */
+
+@media screen and (max-width: 600px) {
+	.mc4wp-form input[type="submit"] {
+		font-size: 0.6rem;
+	}
+} /* for small screens */
+
 
 /* enables viewing if user has disabled javascript */
 .royalSlider > .rsContent {
@@ -1477,7 +1602,6 @@ button.toggle-comments {
 .toggle-comments {
 	display: block;
 	margin: 24px auto 24px;
-
 }
 /*--------------------------------------------------------------
 10.5.2 Comments
@@ -1494,10 +1618,11 @@ button.toggle-comments {
 	display: none;
 }
 .bypostauthor .comment-content {
-	background: #faf4f4; /* Highlighting post author for Theme Check, good enough for now */
-	padding: 2px 6px 1px 6px;
+	color: #422442;
+	background: #fffcfc; /* Highlighting post author for Theme Check */
+	padding: 2px 12px 1px 12px;
 	border-radius: 6px;
-}
+}	
 .comment-meta,
 .comment-meta a {
 	color: #C9A6AB;
@@ -1526,13 +1651,14 @@ button.toggle-comments {
 	max-width: 696px;
 }
 .comment-author .avatar {
-	border-radius: 50%;
+/*	border-radius: 50%; /* Circle placeholder */
 	vertical-align: middle;
 }
 .comments-area {
 	max-width: 696px;
-	font-family: Inconsolata, monospace;
-	font-size: 1.2rem;
+	font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+	font-size: 1.4rem;
+	line-height: 1.9rem;
 	margin: 0 auto;
 	padding: 0 1.5em;
 }
@@ -1561,11 +1687,11 @@ button.toggle-comments {
 10.6 Footer
 --------------------------------------------------------------*/
 .site-footer {
-	background-color: #Faf4f4; /* #EFE9EA or #faf4f4 or even #FF7369? */
+	background-color: #faf4f4; /* #EFE9EA or #faf4f4 or even #FF7369? */
 	border-bottom: 3px solid #000000;
 }
 .site-info {
-	color: #424242;
+	color: #421212;
 	background-color: white; /* white? */
 	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
 	font-size: 0.84rem;
@@ -1602,7 +1728,6 @@ button.toggle-comments {
 	}
 }
 @media screen and (min-width: 456px) {
-	/*.footer-widget .wrap, /* check — this doesn't seem to be needed */
 	.wrap {
 		max-width: 408px;
 	}
@@ -1649,22 +1774,8 @@ button.toggle-comments {
 }
 @media screen and (min-width: 888px) {
 	.wrap,
-	.categories-links,
-	.entry-title,
-	.entry-meta {
+	.categories-links {
 		max-width: 840px;
-	}
-	.entry-meta span + span:before {
-		content: "";
-	}
-	.entry-meta,
-	.comic .entry-meta {
-		float: right;
-		max-width: 120px;
-	}
-	.entry-meta span {
-		display: block;
-		padding: 2px 0;
 	}
 	.entry-content,
 	.entry-summary,
@@ -1679,13 +1790,21 @@ button.toggle-comments {
 	.wrap {
 		max-width: 984px;
 	}
-	.categories-links,
-	.entry-title {
+	.categories-links {
 		max-width: 912px;
 	}
-	.entry-meta {
-		margin-left: 48px;
-		width: 168px;	}
+.entry-meta span + span:before {
+		content: "";
+	}
+	.entry-meta,
+	.comic .entry-meta {
+		float: right;
+		max-width: 120px;
+	}
+	.entry-meta span {
+		display: block;
+		padding: 2px 0;
+	}
 	.entry-meta .entry-format {
 		display: block;
 	}
@@ -1697,8 +1816,7 @@ button.toggle-comments {
 	.wrap {
 		max-width: 1128px;
 	}
-	.categories-links,
-	.entry-title {
+	.categories-links {
 		max-width: 984px;
 	}
 	.entry-meta {
@@ -1731,12 +1849,20 @@ button.toggle-comments {
 @media screen and (max-width: 816px) {
 	.entry-comic .navigation-comic .nav-previous a,
 	.entry-comic .navigation-comic .nav-next a,
-	.entry-comic .navigation-comic .nav-title,
+	.entry-comic .navigation-comic .nav-title a,
 	.entry-comic .navigation-comic .nav-first a,
 	.entry-comic .navigation-comic .nav-last a {
-		font-size: 1.2rem;
-		letter-spacing: normal; /* Check if line needed */
-		width: -moz-max-content;
+		font-size: 1rem;
+		letter-spacing: normal; 
+	}
+	.post-parent-title, .post-parent-title a {
+	font-size: 1rem;
+	}
+	/* keep nav comic title aligned with navigation buttons */
+		.entry-comic .navigation-comic .nav-title { 
+		font-size: 0.8rem;
+		padding: 0.3em;	
+		width: 19.9%;
 	}
 }
 @media screen and (max-width: 600px) {
@@ -1764,10 +1890,6 @@ button.toggle-comments {
 		font-weight: 400;
 		line-height: 1;
 		margin-bottom: 24px;
-	}
-	.hentry,
-	.site-content [class*="navigation"] {
-		padding: 0;
 	}
 	.entry-title {
 		font-size: 2.4rem;
@@ -1806,24 +1928,22 @@ button.toggle-comments {
 	.comment-nav-below {
 		padding-bottom: 48px;
 	}
-	#infinite-handle {
-		margin-top: 34px;
-	}
-	.infinite-scroll #content {
-		margin-bottom: 34px;
-	}
-	.infinite-loader {
-		margin: 24px auto;
-	}
 	.comic .entry-title {
 		font-size: 1.6rem;
+	}
+	.entry-comic .navigation-comic .nav-title {
+		vertical-align: middle;
+	}
+	.post-parent-title, .post-parent-title a {
+		font-size: 0.8rem;
 	}
 	.entry-comic .navigation-comic .nav-previous a,
 	.entry-comic .navigation-comic .nav-next a,
 	.entry-comic .navigation-comic .nav-title a,
 	.entry-comic .navigation-comic .nav-first a,
 	.entry-comic .navigation-comic .nav-last a {
-		font-size: 0.9rem;
+		font-size: 0.8rem;
+		width: 48px;
 		padding: 0.6em;
 	}
 	.widget-area {
@@ -1836,4 +1956,13 @@ button.toggle-comments {
 		width: 120px;
 		margin: 0 6px;
 	}
+}
+/* Keep videos in a 16:9 ratio on small screens */
+@media screen and (max-width: 384px) {
+	embed,
+	iframe,
+	object,
+	video {
+    height : 100%;
+    }
 }

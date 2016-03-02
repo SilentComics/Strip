@@ -39,7 +39,7 @@ else {
     	$args = array(
 	    	
 			'post_type'		 => 'comic',
-			'posts_per_page' => 6, // must always reflect the number set in function.php line 639 so pagination won't break
+			'posts_per_page' => 3, // Always use the same number a set in function.php, line 686, to avoid breaking pagination
 			'story'			 => 'name',
 			'orderby'  		 => 'date',
 			'paged' 		 => $paged,

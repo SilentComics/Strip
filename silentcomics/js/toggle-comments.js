@@ -13,8 +13,8 @@ jQuery(document).ready(function() {
 	// Append a link to show/hide
 	jQuery('<button/>')
 		.attr('class', 'toggle-comments')
-		.attr('href', '#respond')
-		.text('Join the discussion')
+		.attr('href', '#')
+		.text('Join the Discussion')
 		.insertBefore(commentsDiv);
 
 	// Encase button in #toggle-comments-container div

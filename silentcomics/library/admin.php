@@ -57,14 +57,14 @@ http://digwp.com/2010/10/customize-wordpress-dashboard/
 // RSS Dashboard Widget
 function silentcomics_rss_dashboard_widget() {
 	if(function_exists('fetch_feed')) {
-		// include_once( ABSPATH . WPINC . '/feed.php' );              // include the required file
-		$feed = fetch_feed('feed://silent-comics.tumblr.com/rss/');        // specify the source feed
+		// include_once( ABSPATH . WPINC . '/feed.php' );            // include the required file
+		$feed = fetch_feed('feed://silent-comics.tumblr.com/rss/');  // specify the source feed
 		if (is_wp_error($feed)) {
 			$limit = 0;
 			$items = 0;
 		} else {
-			$limit = $feed->get_item_quantity(3);                        // specify number of items, do not use 6 as it conflicts with the theme page numbering versus WP defaults
-			$items = $feed->get_items(0, $limit);                        // create an array of items
+			$limit = $feed->get_item_quantity(5);                    // use a different posts_per_page number than the one set for comics in functions.php to avoid conflict with the theme and WP default numbering
+			$items = $feed->get_items(0, $limit);                    // create an array of items
 		}
 	}
 	if ($limit == 0) echo '<div>The RSS Feed is either empty or unavailable.</div>';   // fallback message

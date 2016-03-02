@@ -50,7 +50,7 @@ foreach ( $terms as $term ) {
 
 		<div class="entry-summary">
 			
-			<?php the_post_thumbnail(); the_excerpt(); ?>
+			<?php the_excerpt(); ?>
 		</div><!-- .entry-summary -->
 			
 		<?php else : ?>
