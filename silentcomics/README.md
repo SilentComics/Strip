@@ -40,14 +40,16 @@ Archive by terms -> see above
 
 Templates:
 `archive.php`
-This is the archive for your regular blog posts, unless you play with functions.php to change this behaviour, the comics won’t be archived in this page.
+This is the archive for your regular blog posts, unless you play with functions.php to change this behaviour, the comics won’t be archived in this page. 
 
 Comics specific archive templates:
 `archive-comic.php`
-This is where all your comics are archived in ascending order, by title. Pagination is set by default to 4 posts per page.
+This is where all your comics are archived in ascending order, by title. Pagination is set by default to the default posts per page set in WordPress dashboard > Settings > Reading `Blog pages show at most` number. You can change the `'posts_per_page'` number.
 
 `archive-story.php`
-This is, for now, a test template. Merge with archive-comic.php unless you can assign it a completely different (and useful) behaviour. Archived in descending order, by title.
+This is a template you can use to archive your comics in a four columns grids.
+Archived by title in descending order by default. You can add a story term (your story name) to `'story'`
+You can change `'posts_per_page'` number, use `-1` to retrieve all the comics. Change `'DESC'` to `'ASC'` if you want the comics to appear in chronological order, starting from the first.   
 
 `archive-titles.php`
 This template call all comics episodes but will only display their titles, in ascending order. It’s basically a single row of titles, grouped by stories. 
@@ -61,7 +63,7 @@ It’s a good reminder for your unpublished stories
 A sample template — replace “name” by your own story title and duplicate this template with new details for each new story
 
 ## A word about pagination.
-Pagination behaviour in WordPress is a fragile thing. Certain changes can result in unpredictable behaviour. I have tried to comment the templates to avoid unexpected results such as breaking pagination or not displaying admin dashboard as expected.
+Pagination behaviour in WordPress is a fragile thing. As in, some changes can result in unpredictable behaviour. I have tried to comment the templates to avoid unexpected results such as breaking pagination or not displaying admin dashboard as expected.
 
 == Copyright ==
 SilentComics WordPress Theme, Copyright 2013-2016 silent-comics.com
@@ -92,7 +94,6 @@ Source: http://www.ferfolio.com/about/
 
 
 == Notes ==
-This site looks best in the latest version of one of the following browsers; Safari, Firefox, Edge, Chrome, Opera, Vivaldi or Brave.
+This theme looks best in the latest version of one of the following browsers; Safari, Firefox, Edge, Chrome, Opera, Vivaldi or Brave.
 
 If you find a bug, please report it to hoa // at // silent-comics.com
-

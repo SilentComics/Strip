@@ -42,7 +42,7 @@ else {
 // Call and run loop in descending order
 $loop = new WP_Query( array( 
 			'post_type'			=> 'comic',
-			'story' 			=> '', // add story term here if you want this template to work for a specific story
+			'story' 			=> '', // add story term here if you want this template to only archive a specific story
 			'posts_per_page' 	=> 12, // unless stipulated, posts_per_page will default to Blog pages number set in dashboard, "reading settings"
 			'paged'	 			=> $paged,
 			'orderby' 			=> 'date', 
