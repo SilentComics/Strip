@@ -1,7 +1,7 @@
 === Silent Comics ===
 Contributors: Anh Hoa Si, SILENT COMICS
 Requires at least: WordPress 4.4
-Version; 2.5.6.9 TEST
+Version; 2.5.7
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Tags: white, light, one-column, flexible-header, responsive-layout, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images, post-formats, rtl-language-support, sticky-post, theme-options,  translation-ready
@@ -89,8 +89,6 @@ Source: https://github.com/aFarkas/html5shiv
 Fenix font, Copyright Fernando Díaz, TipoType, 2012
 Licence: EULA
 Source: http://www.ferfolio.com/about/
-
-
 
 
 == Notes ==

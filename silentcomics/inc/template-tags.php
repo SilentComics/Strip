@@ -28,13 +28,7 @@ function silentcomics_content_nav( $nav_id ) {
 	global $wp_query, $post;
 
 	// Don't print empty markup on single pages if there's nowhere to navigate.
-	
-/**
-* Fast next & previous links 
-* see http://wordpress.stackexchange.com/questions/101435/get-adjacent-post-alternative-on-a-very-large-db
-*/
-//do_action( 'fast_prev_post_link' );
-//do_action( 'fast_next_post_link' );
+
 	
 // Don't print empty markup in archives if there's only one page.
 	if ( $wp_query->max_num_pages < 2 && ( is_home() || is_archive() || is_search() ) )
@@ -204,19 +198,17 @@ function silentcomics_category_transient_flusher() {
 add_action( 'edit_category', 'silentcomics_category_transient_flusher' );
 add_action( 'save_post',     'silentcomics_category_transient_flusher' );
 
-if ( ! function_exists( 'silentcomics_the_site_logo' ) ) :
+if ( ! function_exists( 'silentcomics_the_custom_logo' ) ) :
 /**
- * Displays the optional site logo.
+ * Displays the optional custom logo.
  *
- * Returns early if the site logo is not available.
+ * Does nothing if the custom logo is not available.
  *
- * @since SilentComics 2.5.6.9
+ * @since SilentComics 2.5.7
  */
-function silentcomics_the_site_logo() {
-	if ( ! function_exists( 'the_site_logo' ) ) {
-		return;
-	} else {
-		the_site_logo();
+function silentcomics_the_custom_logo() {
+	if ( function_exists( 'the_custom_logo' ) ) {
+		the_custom_logo();
 	}
 }
 endif;
@@ -307,206 +299,3 @@ if ( $query->have_posts() )
 } 
 
 wp_reset_postdata();
-
-
-if ( ! function_exists( 'silentcomics_product_categories' ) ) {
-	/**
-	 * Display Product Categories
-	 * Hooked into the `homepage` action in the homepage template
-	 * @since  1.0.0
-	 * @return void
-	 */
-	function silentcomics_product_categories( $args ) {
-
-		if ( is_woocommerce_activated() ) {
-
-			$args = apply_filters( 'silentcomics_product_categories_args', array(
-				'limit' 			=> 8,
-				'columns' 			=> 8,
-				'child_categories' 	=> 0,
-				'orderby' 			=> 'name',
-				'title'				=> __( 'Product Categories', 'silentcomics' ),
-				) );
-
-			echo '<section class="silentcomics-product-section silentcomics-product-categories">';
-
-				do_action( 'silentcomics_homepage_before_product_categories' );
-
-				echo '<h2 class="section-title">' . wp_kses_post( $args['title'] ) . '</h2>';
-
-				do_action( 'silentcomics_homepage_after_product_categories_title' );
-
-				echo silentcomics_do_shortcode( 'product_categories',
-					array(
-						'number' 	=> intval( $args['limit'] ),
-						'columns'	=> intval( $args['columns'] ),
-						'orderby'	=> esc_attr( $args['orderby'] ),
-						'parent'	=> esc_attr( $args['child_categories'] ),
-						) );
-
-				do_action( 'silentcomics_homepage_after_product_categories' );
-
-			echo '</section>';
-
-		}
-	}
-}
-
-if ( ! function_exists( 'silentcomics_recent_products' ) ) {
-	/**
-	 * Display Recent Products
-	 * Hooked into the `homepage` action in the homepage template
-	 * @since  1.0.0
-	 * @return void
-	 */
-	function silentcomics_recent_products( $args ) {
-
-		if ( is_woocommerce_activated() ) {
-
-			$args = apply_filters( 'silentcomics_recent_products_args', array(
-				'limit' 			=> 4,
-				'columns' 			=> 4,
-				'title'				=> __( 'Recent Products', 'silentcomics' ),
-				) );
-
-			echo '<section class="silentcomics-product-section silentcomics-recent-products">';
-
-				do_action( 'silentcomics_homepage_before_recent_products' );
-
-				echo '<h2 class="section-title">' . wp_kses_post( $args['title'] ) . '</h2>';
-
-				do_action( 'silentcomics_homepage_after_recent_products_title' );
-
-				echo silentcomics_do_shortcode( 'recent_products',
-					array(
-						'per_page' 	=> intval( $args['limit'] ),
-						'columns'	=> intval( $args['columns'] ),
-						) );
-
-				do_action( 'silentcomics_homepage_after_recent_products' );
-
-			echo '</section>';
-		}
-	}
-}
-
-if ( ! function_exists( 'silentcomics_featured_products' ) ) {
-	/**
-	 * Display Featured Products
-	 * Hooked into the `homepage` action in the homepage template
-	 * @since  1.0.0
-	 * @return void
-	 */
-	function silentcomics_featured_products( $args ) {
-
-		if ( is_woocommerce_activated() ) {
-
-			$args = apply_filters( 'silentcomics_featured_products_args', array(
-				'limit' 			=> 4,
-				'columns' 			=> 4,
-				'orderby'			=> 'date',
-				'order'				=> 'desc',
-				'title'				=> __( 'Featured Products', 'silentcomics' ),
-				) );
-
-			echo '<section class="silentcomics-product-section silentcomics-featured-products">';
-
-				do_action( 'silentcomics_homepage_before_featured_products' );
-
-				echo '<h2 class="section-title">' . wp_kses_post( $args['title'] ) . '</h2>';
-
-				do_action( 'silentcomics_homepage_after_featured_products_title' );
-
-				echo silentcomics_do_shortcode( 'featured_products',
-					array(
-						'per_page' 	=> intval( $args['limit'] ),
-						'columns'	=> intval( $args['columns'] ),
-						'orderby'	=> esc_attr( $args['orderby'] ),
-						'order'		=> esc_attr( $args['order'] ),
-						) );
-
-				do_action( 'silentcomics_homepage_after_featured_products' );
-
-			echo '</section>';
-
-		}
-	}
-}
-
-if ( ! function_exists( 'silentcomics_popular_products' ) ) {
-	/**
-	 * Display Popular Products
-	 * Hooked into the `homepage` action in the homepage template
-	 * @since  1.0.0
-	 * @return void
-	 */
-	function silentcomics_popular_products( $args ) {
-
-		if ( is_woocommerce_activated() ) {
-
-			$args = apply_filters( 'silentcomics_popular_products_args', array(
-				'limit' 			=> 4,
-				'columns' 			=> 4,
-				'title'				=> __( 'Top Rated Products', 'silentcomics' ),
-				) );
-
-			echo '<section class="silentcomics-product-section silentcomics-popular-products">';
-
-				do_action( 'silentcomics_homepage_before_popular_products' );
-
-				echo '<h2 class="section-title">' . wp_kses_post( $args['title'] ) . '</h2>';
-
-				do_action( 'silentcomics_homepage_after_popular_products_title' );
-
-				echo silentcomics_do_shortcode( 'top_rated_products',
-					array(
-						'per_page' 	=> intval( $args['limit'] ),
-						'columns'	=> intval( $args['columns'] ),
-						) );
-
-				do_action( 'silentcomics_homepage_after_popular_products' );
-
-			echo '</section>';
-
-		}
-	}
-}
-
-if ( ! function_exists( 'silentcomics_on_sale_products' ) ) {
-	/**
-	 * Display On Sale Products
-	 * Hooked into the `homepage` action in the homepage template
-	 * @since  1.0.0
-	 * @return void
-	 */
-	function silentcomics_on_sale_products( $args ) {
-
-		if ( is_woocommerce_activated() ) {
-
-			$args = apply_filters( 'silentcomics_on_sale_products_args', array(
-				'limit' 			=> 4,
-				'columns' 			=> 4,
-				'title'				=> __( 'On Sale', 'silentcomics' ),
-				) );
-
-			echo '<section class="silentcomics-product-section silentcomics-on-sale-products">';
-
-				do_action( 'silentcomics_homepage_before_on_sale_products' );
-
-				echo '<h2 class="section-title">' . wp_kses_post( $args['title'] ) . '</h2>';
-
-				do_action( 'silentcomics_homepage_after_on_sale_products_title' );
-
-				echo silentcomics_do_shortcode( 'sale_products',
-					array(
-						'per_page' 	=> intval( $args['limit'] ),
-						'columns'	=> intval( $args['columns'] ),
-						) );
-
-				do_action( 'silentcomics_homepage_after_on_sale_products' );
-
-			echo '</section>';
-
-		}
-	}
-}

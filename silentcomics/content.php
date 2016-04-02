@@ -68,5 +68,6 @@
 		</div><!-- .entry-content -->
 		<?php endif; ?>
 		
-	</div><!-- .entry-wrap -->
+	
+	
 </article><!-- #post-## -->

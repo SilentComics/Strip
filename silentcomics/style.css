@@ -4,14 +4,14 @@ Theme URI: https://github.com/SilentComics/Wordpress-Theme-for-Silent-Comics/
 Author: Anh Hoa Si
 Author URI: http://silent-comics.com
 Description: A theme for comics
-Version: 2.5.6.9 (February 2016) TEST — Goal: Keep styles under 2000 lines 
+Version: 2.5.7 (March 2016) OPTIMIZE — Goal: Keep styles under 2000 lines — Cross Browsers Testing
 License: GNU General Public License v3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Text Domain: silentcomics
 Domain Path: /languages/
-Tags: white, light, one-column, flexible-header, responsive-layout, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images, post-formats, rtl-language-support, sticky-post, theme-options,  translation-ready
+Tags: white, light, one-column, flexible-header, responsive-layout, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images, post-formats, rtl-language-support, sticky-post, theme-options, translation-ready
 
-This theme is licensed under the GPL, and is based on Underscores http://underscores.me/, (C) 2012-2015 Automattic, Inc.
+This theme is licensed under the GPL, and is based on Underscores http://underscores.me/, (C) 2012-2016 Automattic, Inc.
 */
 
 /*--------------------------------------------------------------
@@ -148,18 +148,6 @@ samp {
 /*--------------------------------------------------------------
 2.0 Typography
 --------------------------------------------------------------*/
-@font-face {
-    font-family: 'fenix';
-    src: url('fonts/tipotype_-_fenix-webfont.eot');
-    src: url('fonts/tipotype_-_fenix-webfont.eot?#iefix') format('embedded-opentype'),
-         url('fonts/tipotype_-_fenix-webfont.woff2') format('woff2'),
-         url('fonts/tipotype_-_fenix-webfont.woff') format('woff'),
-         url('fonts/tipotype_-_fenix-webfont.ttf') format('truetype'),
-         url('fonts/tipotype_-_fenix-webfont.svg#fenixregular') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
-
 /* =Global */
 html { font-size: 62.5%; } 
 body { font-size: 24px; font-size: 2.4rem; } /* =24px */
@@ -169,6 +157,7 @@ body {
 	font-family:'Fenix', Georgia, serif;
 	line-height: 1.2;
 }
+
 h2,
 h3,
 h4,
@@ -359,61 +348,69 @@ input[type="reset"]:active,
 input[type="submit"]:active {
 	background-color: #00ffcc;
 }
-.comment-form-comment,
-.comment-form-author,
-.comment-form-email,
-.comment-form-url,
-input[type="search"] {
-	-moz-box-sizing: border-box;
-	box-sizing:      border-box;
-	border-radius:  2px;
-	padding: 0.4em;
-	font-size: 1.2rem;
-	font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;	
-}
 input[type="text"],
 input[type="email"],
-input[type="tel"],
+input[type="url"],
 input[type="password"],
-input[type="url"] {
-	background: #fafafa;
-	border: none;
-	font-size: medium;
-}
+input[type="search"],
+input[type="number"],
+input[type="tel"],
+input[type="range"],
+input[type="date"],
+input[type="month"],
+input[type="week"],
+input[type="time"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="color"],
 textarea {
-	overflow: auto; /* Removes default vertical scrollbar in IE6/7/8/9 */
-	padding: 1em 1em;
-	width: 100%;
-	background: #fafafa;
-	border: none;
-	border-radius: 3px;
-	color: inherit;
-	
+  color: #666;
+  border: 1px solid #ccc;
+  border-radius: 3px; }
+  input[type="text"]:focus,
+  input[type="email"]:focus,
+  input[type="url"]:focus,
+  input[type="password"]:focus,
+  input[type="search"]:focus,
+  input[type="number"]:focus,
+  input[type="tel"]:focus,
+  input[type="range"]:focus,
+  input[type="date"]:focus,
+  input[type="month"]:focus,
+  input[type="week"]:focus,
+  input[type="time"]:focus,
+  input[type="datetime"]:focus,
+  input[type="datetime-local"]:focus,
+  input[type="color"]:focus,
+  textarea:focus {
+  color: #111; 
+ }
+    
+select {
+	border: 1px solid #ccc; 
 }
-input[type="search"] {
-	background: #ffffff;
-	border: 1px solid #fafafa;
-	color:  #FF7369;
+  
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+input[type="number"],
+input[type="tel"],
+input[type="range"],
+input[type="date"],
+input[type="month"],
+input[type="week"],
+input[type="time"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="color"] {
+	padding: 3px; 
 }
-/**
- * It's recommended that you don't attempt to style these elements.
- * Firefox's implementation doesn't respect box-sizing, padding, or width.
- *
- * 1. Address box sizing set to `content-box` in IE 8/9/10.
- * 2. Remove excess padding in IE 8/9/10.
- */
- 
-input[type="checkbox"],
-input[type="radio"] {
-    box-sizing: border-box; /* 1 */
-    padding: 0; /* 2 */
+  
+  textarea {
+	width: 100%; 
 }
-
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
 
 /*--------------------------------------------------------------
 5.0 Navigation
@@ -441,13 +438,16 @@ a:active {
 /*
  * Site Logo support since WP 4.5
  */
-.site-logo-link {
+.custom-logo-link {
 	display: block;
 }
-.wp-site-logo .site-title {
-	margin-top: 0.608695652em;
-}	 
-.wp-site-logo .site-header-main {
+.wp-custom-logo  .site-title {
+	margin-top: 0.2em;
+}	
+.custom-logo {
+	max-width: 312px;
+} 
+.wp-custom-logo .site-header-main {
 	-webkit-align-items: center;
 	-ms-flex-align: center;
 	align-items: center;
@@ -459,7 +459,7 @@ a:active {
 	width: 124px; /* required to center */
 	height: 62px;
 	position: relative;
-	margin: 24px 0 24px 0;
+	margin: 12px 0 12px 0;
 	display: inline-block; 
 }
 .logo:after, a.logo:after {
@@ -485,6 +485,10 @@ a:active {
 	padding: 0;
 	position: relative;
 	text-align: center;
+	/* Avoid overflowing wide custom logo in small screens in Firefox and IEs */
+	max-width: 100%;
+ 	min-width: 0;
+ 	overflow: hidden;
 }
 .site-title {
 	border: 6px solid #420084;
@@ -494,7 +498,7 @@ a:active {
 	letter-spacing: 0.1em;
 	margin: 0 auto;
 	max-width: 348px;
-	padding: 0.12em;
+	padding: 3px 9px 4px 9px;
 	text-align: center;
 	text-transform: uppercase;
 }
@@ -507,6 +511,7 @@ a:active {
 	font-size: 0.6em;
 	color: #422442; 
 	text-align: center;
+	padding: 0 6px 6px 6px;
 	margin-bottom: 0.1em;
 }
 .header-image {
@@ -807,6 +812,7 @@ display:  inline-block;
 }
 .widget_calendar thead th,
 .widget_calendar tbody td {
+	border: 1px solid #f0f0f0; /* fallback */
 	border: 1px solid rgba(255, 255, 255, 0.2);
 	border-width: 0 1px 1px 0;
 	text-align: center;
@@ -818,12 +824,10 @@ display:  inline-block;
 }
 .widget_calendar tbody td a:hover {
 	background-color: #00ffcc;
-	color: #fff;
-	
+	color: #fff;	
 }
 
-/* =Attachment page
------------------------------------------------ */
+/* =Attachment page */
 
 article.attachment .entry-content,
 article.attachment .attachment {
@@ -839,8 +843,7 @@ article.attachment  .entry-meta {
 	margin-bottom: 0;
 }
 
-/* =404 Page / No search result
------------------------------------------------ */
+/* =404 Page / No search result */
 
 article.error404,
 article.no-results {
@@ -1269,22 +1272,22 @@ span > object {
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	box-sizing:      border-box;
-	font-size: 13px;
+	font-size: 12px;
 	font-style: italic;
 	line-height: 1.3076923076;
-	margin: 10px 0 7px;
+	margin: 10px 0px 7px 0;
 	padding: 0 10px 0 0; /* Avoid the caption to overflow the width of the image because wp-caption has 10px wider width */
-	text-align: left;
+	text-align: center;
 }
-.wp-caption.alignleft {
-	margin: 7px 24px 0 0;
-	display: none
+.wp-caption-text.alignleft {
+	margin: 7px 24px 0 24px;
+	
 }
 .wp-caption.alignright {
 	margin: 7px 0 0 34px;
 }
-.wp-caption.aligncenter {
-	margin-top: 7px;
+.wp-caption-text.aligncenter {
+	margin-top: 24px;
 }
 
 /* =Navigation
@@ -1507,8 +1510,6 @@ span > object {
 .column:nth-child(4n) { margin-right: 0; }
 .column:nth-child(4n+1) { margin-left: 0; clear: left; }
 .column img { max-width: 100%; height: auto; }
-h2.entry-title { font-size: 12px; font-weight: bold; line-height: 1.5; }
-
 
 @media screen and (max-width: 888px) {
 .column { margin: 0 1% 10px 0; width: 48.5%; }
@@ -1520,20 +1521,17 @@ h2.entry-title { font-size: 12px; font-weight: bold; line-height: 1.5; }
 .column { margin: 0; width: 100%; }
 .column:nth-child(1n) { margin-right: 0; }
 .column:nth-child(1n+1) { margin-left: 0; clear: left; }
-h2.entry-title { font-size: 10px; font-weight: bold; line-height: 1.5; }
+.series-title { font-size: 10px;  line-height: 1.2; }
 }
 
 /*--------------------------------------------------------------
 10.4 Plugin-specific rules
 --------------------------------------------------------------*/
+
 /* CSS form MailChimp 4 WP form */
 .mc4wp-form {
 	width: auto;
-	
 } /* the form element */
-.mc4wp-form p { 
-  display: none;
-} /* form paragraphs */
 
 .mc4wp-form label { 
 	display: none;
@@ -1546,20 +1544,18 @@ h2.entry-title { font-size: 10px; font-weight: bold; line-height: 1.5; }
 	border:1px solid #faf4f4;
 	padding: 6px 6px 5px;
 	margin:0 4px 0 0;
-	outline:0;
-	line-height:1;
-	height: auto;
+	line-height:1.2;
 	display: block;
-    vertical-align: baseline;
-	font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+    font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
 	font-size: 1rem;
 	text-align: center;
 	width: 96%;
 } /* input fields */
 
-.mc4wp-form input[type="checkbox"] { 
-	
-} /* checkboxes */
+.mc4wp-form input[type="email"],
+.mc4wp-form input[type="text"] {
+	background: #ffffff;
+}
 
 .mc4wp-form input[type="submit"] { 
 	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
@@ -1567,24 +1563,20 @@ h2.entry-title { font-size: 10px; font-weight: bold; line-height: 1.5; }
 	width: 96%
 } /* submit button */
 
-.mc4wp-alert { 
-
-} /* success & error messages */
-
 .mc4wp-success { 
 	color: #0ddb85;
 } /* success message */
 
+.mc4wp-alert,
 .mc4wp-error { 
 	color: #ff00cc;
-} /* error messages */
+	} /* error messages */
 
 @media screen and (max-width: 600px) {
 	.mc4wp-form input[type="submit"] {
 		font-size: 0.6rem;
 	}
 } /* for small screens */
-
 
 /* enables viewing if user has disabled javascript */
 .royalSlider > .rsContent {

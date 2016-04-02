@@ -30,11 +30,8 @@ get_header(); ?>
 	
 				
 					<h4 class="series-title">
-					<a href="http://localhost:8888/shizukana/story/exile/">ExIle</a></h4>
-					<h4 class="series-title">
-					<a href="http://localhost:8888/shizukana/story/tofu/">Morning Tofu Chase</a></h4>
-					<h3 class="series-title">
-					<a href="http://localhost:8888/shizukana/sentient-drone">Sentient Drone</a></h3>
+					<a href="http://url">Optional series link</a></h4>
+					
 					
 				<?php
 					// Show an optional term description.

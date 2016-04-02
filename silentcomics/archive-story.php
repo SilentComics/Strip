@@ -42,7 +42,7 @@ else {
 // Call and run loop in descending order
 $loop = new WP_Query( array( 
 			'post_type'			=> 'comic',
-			'story' 			=> '', // add story term here if you want this template to only archive a specific story
+			'story' 			=> 'name', // add story term here if you want this template to only archive a specific story
 			'posts_per_page' 	=> 12, // unless stipulated, posts_per_page will default to Blog pages number set in dashboard, "reading settings"
 			'paged'	 			=> $paged,
 			'orderby' 			=> 'date', 
@@ -67,16 +67,16 @@ if ( $loop->have_posts() ) :
 } 
 
 else {
-  
- echo '<a href="'; the_permalink(); echo '" class="thumbnail-wrapper">';
- echo '<img src="';
- echo catch_first_image();
- echo '" alt="" />';
- echo '</a>';
+
+echo '<a href="'; the_permalink(); echo '" class="thumbnail-wrapper">';
+echo '<img src="';
+echo catch_first_image();
+echo '" alt="" />';
+echo '</a>';
 
 } ?>  
 
-<h2 class="entry-title"><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php printf(_e('Permanent Link to %s', 'silentcomics'),the_title_attribute('echo=0')); ?>"><?php the_title(); ?></a></h2>
+<h2 class="series-title"><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php printf(_e('Permanent Link to %s', 'silentcomics'),the_title_attribute('echo=0')); ?>"><?php the_title(); ?></a></h2>
 				
 			</div><!-- .column -->
 			<?php endwhile; ?>

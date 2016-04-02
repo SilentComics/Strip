@@ -1,0 +1,105 @@
+/*
+Site Name: SILENT COMICS
+Author: Anh Hoa	Si
+
+Stylesheet: MailChimp for WordPress Stylesheet
+
+This stylesheet overwrites some MailChimp for WordPress Lite CSS rules to better match the theme. 
+
+
+For more info, check out: https://wordpress.org/plugins/mailchimp-for-wp/ and https://mc4wp.com/
+
+*/
+
+/*--------------------------------------------------------------
+>>> mailchimp-for-wp							
+--------------------------------------------------------------*/
+
+/* CSS form MailChimp 4 WP form */
+.mc4wp-form {
+	width: auto;
+	
+} /* the form element */
+.mc4wp-form p { 
+  display: block;
+} /* form paragraphs */
+
+.mc4wp-form label { 
+	display: none;
+} /* labels */
+
+.mc4wp-form input { 
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	box-sizing:border-box;
+	border:1px solid #faf4f4;
+	padding: 6px 6px 5px;
+	margin:0 4px 0 0;
+	outline:0;
+	line-height:1;
+	height: auto;
+	display: block;
+    vertical-align: baseline;
+	font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+	font-size: 1rem;
+	text-align: center;
+	width: 96%;
+} /* input fields */
+
+.mc4wp-form input[type="email"],
+.mc4wp-form input[type="text"] {
+	background: #ffffff;
+}
+
+.mc4wp-form input[type="checkbox"] { 
+	
+} /* checkboxes */
+
+.mc4wp-form input[type="submit"] { 
+	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+	font-size: 0.9rem;
+	width: 96%
+} /* submit button */
+
+.mc4wp-alert { 
+	/*position: absolute !important; */
+	/*display:block !important; */
+} /* success & error messages */
+
+.mc4wp-success { 
+	color: #0ddb85;
+
+} /* success message */
+
+.mc4wp-error { 
+	color: #ff00cc;
+} /* error messages */
+
+@media screen and (max-width: 600px) {
+	.mc4wp-form input[type="submit"] {
+		font-size: 0.6rem;
+	}
+} /* for small screens */
+
+
+/* optional style the placeholder */
+	
+	.mc4wp-form ::-webkit-input-placeholder { /* WebKit browsers */
+	color: black;
+	font-size: 12px;
+}
+
+.mc4wp-form :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+	color: black;
+	font-size: 12px;
+}
+
+.mc4wp-form ::-moz-placeholder { /* Mozilla Firefox 19+ */
+	color: black;
+	font-size: 12px;
+}
+
+.mc4wp-form :-ms-input-placeholder { /* Internet Explorer 10+ */
+	color: black;
+	font-size: 12px;
+} 

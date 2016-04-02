@@ -5,53 +5,39 @@
  * @package SilentComics
  */
 
-/**
-* Set the content width based on the theme's design and stylesheet.
-*/
+// Set the content width based on the theme's design and stylesheet.
 if ( ! isset( $content_width ) )
 	$content_width = 1920; /* pixels */
 
 if ( ! function_exists( 'silentcomics_setup' ) ) :
 /**
- * Sets up theme defaults and registers support for various WordPress features.
- *
- * Note that this function is hooked into the after_setup_theme hook, which runs
- * before the init hook. The init hook is too late for some features, such as indicating
- * support post thumbnails.
- */
-function silentcomics_setup() {
+* Sets up theme defaults and registers support for various WordPress features.
+*
+* Note that this function is hooked into the after_setup_theme hook, which runs
+* before the init hook. The init hook is too late for some features, such as indicating
+* support post thumbnails.
+*/
+	function silentcomics_setup() {
 /**
-	 * removing some default WordPress dashboard widgets
-	 * an example custom dashboard widget
-	 * adding custom login css
-	 * changing text in footer of admin
-	 */
-	 require_once('library/admin.php');
-	/**
-	 * Make theme available for translation
-	 * Translations can be filed in the /languages/ directory
-	 * If you're building a theme based on SilentComics, use a find and replace
-	 * to change 'silentcomics' to the name of your theme in all the template files
-	 */
+* remove some default WordPress dashboard widgets
+* an example custom dashboard widget
+* adding custom login css
+* changing text in footer of admin
+*/
+	require_once('library/admin.php');
+/**
+* Make theme available for translation
+* Translations can be filed in the /languages/ directory
+* If you're building a theme based on SilentComics, use a find and replace
+* to change 'silentcomics' to the name of your theme in all the template files
+*/
 	load_theme_textdomain( 'silentcomics', get_template_directory() . '/languages' );
 
 /**
 * Functions for RICG-responsive-images
 * https://github.com/ResponsiveImagesCG/wp-tevko-responsive-images/tree/dev#advanced-image-compression
 */
-	function custom_theme_setup() {
 	add_theme_support( 'advanced-image-compression' );
-}
-	add_action( 'after_setup_theme', 'silentcomics_setup' );
-
-/**
-* Add EditorStyle
-*/
-
-	function silentcomics_add_editor_styles() {
-    add_editor_style( 'custom-editor-style.css' );
-}
-add_action( 'after_setup_theme', 'silentcomics_add_editor_styles' );
 
 /**
 * Add default posts and comments RSS feed links to head
@@ -62,49 +48,37 @@ add_action( 'after_setup_theme', 'silentcomics_add_editor_styles' );
 * Enable support for title-tag. Allows themes to add document title tag to HTML <head> (since version 4.1.).
 */
 	add_theme_support( 'title-tag' );
+	
+/**
+* Enable support for custom logo.
+*
+* @since SilentComics 2.5.7
+*
+*/
+	add_theme_support( 'custom-logo', array(
+		'height'      => 156,
+		'width'       => 312,
+		'flex-height' => true,
+		'flex-width' => true,
+	) );
 
 /**
 * Enable support for Post Thumbnails on posts and pages
 *
-* @link http://codex.wordpress.org/Function_Reference/add_theme_support#Post_Thumbnails
+* @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
 */
 	add_theme_support( 'post-thumbnails' );
-	add_image_size( 'featured-image', 1920, 0 );
+	set_post_thumbnail_size( 'featured-image', 1920, 0 ); // was using add_image_size
 
 /**
 * Remove default WordPress paragraph tags from around images (fixes layout discrepancy between post with image attachement and galleries)
 * See https://css-tricks.com/snippets/wordpress/remove-paragraph-tags-from-around-images/
 */
-function filter_ptags_on_images($content){
+	function filter_ptags_on_images($content){
 	return preg_replace('/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $content);
 	}
-	add_filter('the_content', 'filter_ptags_on_images');
+	add_filter('the_content', 'filter_ptags_on_images');	 	
 
-/**
-* Enable support for site logo.
-*/
-	add_image_size( 'silentcomics-logo', 348, 174 );
-	add_theme_support( 'site-logo', array( 'size' => 'silentcomics-logo' ) );	
-	
-/**
-* Add custom image sizes attribute to enhance responsive image functionality
-* for site logo.
-*
-* @since SilentComics 2.5.6.9
-*
-* @param array $attr Attributes for the image markup.
-* @param int   $attachment Image attachment ID.
-* @param array $size Registered image size or flat array of height and width dimensions.
-* @return string A source size value for use in a post thumbnail 'sizes' attribute.
-*/
-	function silentcomics_logo_sizes_attr( $attr, $attachment, $size ) {
-	if ( 'silentcomics-logo' === $size ) {
-		$attr['sizes'] = '(max-width: 1920px) 1920px';
-	}
-		return $attr;
-}
-	add_filter( 'wp_get_attachment_image_attributes', 'silentcomics_logo_sizes_attr', 10 , 3 );	  	
-  
 	/**
 	 * This theme uses wp_nav_menu() in one location.
 	 */
@@ -139,13 +113,19 @@ function filter_ptags_on_images($content){
 		'chat',
 	) );
 
-		// Setup the WordPress core custom background feature.
-
+	// Setup the WordPress core custom background feature.
 	add_theme_support( 'custom-background', apply_filters( 'silentcomics_custom_background_args', array(
-		'default-color' => 'fff',
+		'default-color' => 'ffffff',
 		'default-image' => '',
 	) ) );
 }
+
+/**
+* This theme styles the visual editor to resemble the theme style,
+* specifically font, colors, icons, and column width.
+*/
+//    add_editor_style( array( 'css/editor-style.css', silentcomics_fonts_url() ) );
+
 endif; // silentcomics_setup
 add_action( 'after_setup_theme', 'silentcomics_setup' );
 
@@ -158,10 +138,11 @@ function silentcomics_widgets_init() {
 		'name'          => __( 'Main Sidebar', 'silentcomics' ),
 		'id'            => 'sidebar',
 		'description'   => __( 'The main body widget area', 'silentcomics' ),
+		'customize_selective_refresh' => true,
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</aside>',
-		'before_title'  => '<h1 class="widget-title">',
-		'after_title'   => '</h1>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
 	) );
 
     // First footer widget area, located in the footer. Empty by default.
@@ -169,6 +150,7 @@ function silentcomics_widgets_init() {
         'name' 			=> __( 'First Footer Widget', 'silentcomics' ),
         'id' 			=> 'first-footer-widget',
         'description'   => __( 'The first footer widget', 'silentcomics' ),
+        'customize_selective_refresh' => true,
         'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</aside>',
 		'before_title'  => '<h3 class="widget-title">',
@@ -180,6 +162,7 @@ function silentcomics_widgets_init() {
         'name' 			=> __( 'Second Footer Widget', 'silentcomics' ),
         'id' 			=> 'second-footer-widget',
         'description'   => __( 'The second footer widget', 'silentcomics' ),
+        'customize_selective_refresh' => true,
         'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</aside>',
 		'before_title'  => '<h3 class="widget-title">',
@@ -191,6 +174,7 @@ function silentcomics_widgets_init() {
         'name' 			=> __( 'Third Footer Widget', 'silentcomics' ),
         'id' 			=> 'third-footer-widget',
         'description' 	=> __( 'The third footer widget', 'silentcomics' ),
+        'customize_selective_refresh' => true,
         'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</aside>',
 		'before_title'  => '<h3 class="widget-title">',
@@ -202,6 +186,7 @@ function silentcomics_widgets_init() {
         'name' 			=> __( 'Fourth Footer Widget', 'silentcomics' ),
         'id' 			=> 'fourth-footer-widget',
         'description' 	=> __( 'The fourth footer widget', 'silentcomics' ),
+        'customize_selective_refresh' => true,
         'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</aside>',
 		'before_title'  => '<h3 class="widget-title">',
@@ -211,11 +196,16 @@ function silentcomics_widgets_init() {
 }
 add_action( 'widgets_init', 'silentcomics_widgets_init' );
 
+/*
+* Selective Refresh Support for Widgets
+* https://make.wordpress.org/core/2016/03/22/implementing-selective-refresh-support-for-widgets/ 
+*/
+add_theme_support( 'customize-selective-refresh-widgets' );
+
 /**
 * Transients for menu
 *
 */
-
 function silentcomics_transient_menu( $args = array() ) {
 	$defaults = array(
 	'menu' => '',
@@ -282,49 +272,45 @@ function silentcomics_update_menus() {
 
 //    return esc_url_raw( $fonts_url );
 //}
-/**
-* Now enqueue the custom font to the front end (see function above)
-*/
-//function silentcomics_scripts_styles() {
-//    wp_enqueue_style( 'silentcomics-fonts', silentcomics_fonts_url(), array(), null );
-//}
-//add_action( 'wp_enqueue_scripts', 'silentcomics_scripts_styles' );
-
 
 /**
  * Enqueue scripts and styles
  */
- 	function silentcomics_scripts() {
-	
+function silentcomics_scripts() {
 	// add custom font here if any
-	//wp_enqueue_style( 'fenix', get_template_directory_uri() . '/fonts/stylesheet.css', array(), null );
-		
-	// all the other scripts
+	wp_enqueue_style( 'fenix', get_template_directory_uri() . '/fonts/stylesheet.css', array(), null );
+
+	// Add custom fonts, used in the main stylesheet.
+    //wp_enqueue_style( 'silentcomics-fonts', silentcomics_fonts_url(), array(), null );
+    	
+	// Theme stylesheet
 	wp_enqueue_style( 'silentcomics-style', get_stylesheet_uri() );
+	
+	// Load the Internet Explorer specific stylesheet. Conditional stylesheet — tested and works with IE9 on Windows7
+	wp_enqueue_style( 'silentcomics-ie', get_template_directory_uri() . '/css/ie.css', array( 'silentcomics-style' ), '20160305' );
+	wp_style_add_data( 'silentcomics-ie', 'conditional', 'lt IE 10' );
 
-	wp_enqueue_script('jquery');
-
-if ( has_nav_menu( 'primary' ) )
+	if ( has_nav_menu( 'primary' ) )
 	wp_enqueue_script( 'silentcomics-navigation', get_template_directory_uri() . '/js/min/navigation-min.js', array(), '20120206', true );
 
-		// Load the html5 shiv.
+	// Load the html5 shiv.
 	wp_enqueue_script( 'silentcomics-html5', get_template_directory_uri() . '/js/min/html5-min.js', array(), '3.7.3' );
 	wp_script_add_data( 'silentcomics-html5', 'conditional', 'lt IE 9' );
 
 	wp_enqueue_script( 'silentcomics-skip-link-focus-fix', get_template_directory_uri() . '/js/min/skip-link-focus-fix-min.js', array(), '20130115', true );
 	
-// toggle comments js
-	wp_enqueue_script( 'silentcomics-toggle-comments', get_template_directory_uri() . '/js/min/toggle-comments-min.js', array(), '1.0.0', true );
+	// toggle comments js
+	wp_enqueue_script( 'silentcomics-toggle-comments', get_template_directory_uri() . '/js/min/toggle-comments-min.js', array( 'jquery' ), '20160401', false );
 
-
-if ( is_single() && comments_open() && get_option( 'thread_comments' ) ) {
+	if ( is_single() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 
-if ( is_single() && wp_attachment_is_image() ) {
+	if ( is_single() && wp_attachment_is_image() ) {
 		wp_enqueue_script( 'silentcomics-keyboard-image-navigation', get_template_directory_uri() . '/js/min/keyboard-image-navigation-min.js', array( 'jquery' ), '20120202' );
 		}
 	}
 }
+
 add_action( 'wp_enqueue_scripts', 'silentcomics_scripts' );
 
 /**
@@ -352,146 +338,55 @@ require get_template_directory() . '/inc/customizer.php';
  */
 require get_template_directory() . '/inc/jetpack.php';
 
-/*
-* WooCommerce Hooks
-* Layout
-*/
-remove_action( 'woocommerce_before_main_content', 	'woocommerce_breadcrumb', 					20, 0 );
-remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 		10);
-remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 		10);
-remove_action( 'woocommerce_after_shop_loop', 		'woocommerce_pagination', 					10 );
-remove_action( 'woocommerce_before_shop_loop', 		'woocommerce_result_count', 				20 );
-remove_action( 'woocommerce_before_shop_loop', 		'woocommerce_catalog_ordering', 			30 );
-
-add_action('woocommerce_before_main_content', 'silentcomics_wrapper_start', 					10);
-add_action('woocommerce_after_main_content', 'silentcomics_wrapper_end', 						10);
-
-function silentcomics_wrapper_start() {
-	echo '<section id="content" class="woocommerce-content" role="main"><div class="entry-wrap wrap clear">';
-}
-
-function silentcomics_wrapper_end() {
-	echo '</section>';
-	}
-
 /**
-* Add WooCommerce support
-* https://docs.woothemes.com/document/third-party-custom-theme-compatibility/*
-*/
-add_action( 'after_setup_theme', 'woocommerce_support' );
-function woocommerce_support() {
-	    add_theme_support( 'woocommerce' );
-	    }
-	    
-/**
-* Remove each WooCommerce style one by one, if needed
-* see https://docs.woothemes.com/document/disable-the-default-stylesheet/
-*
-*/
-//	add_filter( 'woocommerce_enqueue_styles', 'jk_dequeue_styles' );
-//	function jk_dequeue_styles( $enqueue_styles ) {
-	//unset( $enqueue_styles['woocommerce-general'] );	// Remove the gloss
-	//unset( $enqueue_styles['woocommerce-layout'] );		// Remove the layout
-	//unset( $enqueue_styles['woocommerce-smallscreen'] );	// Remove the smallscreen optimisation
-//	return $enqueue_styles;
-//}
+* Get the first image in a post 
+* See https://css-tricks.com/snippets/wordpress/get-the-first-image-from-a-post/
+*/	
 
- // Enqueue the theme's own style for WooCommerce
- function wp_enqueue_woocommerce_style(){
-	
-	wp_register_style( 'silentcomics-woocommerce', get_template_directory_uri() . '/library/woocommerce-min.css' );
-	if ( class_exists( 'woocommerce' ) ) {
-	    wp_enqueue_style( 'silentcomics-woocommerce' );
-	}
-}
-
-add_action( 'wp_enqueue_scripts', 'wp_enqueue_woocommerce_style' );
-
-/**
-* Optimize WooCommerce Scripts
-* Remove WooCommerce Generator tag, styles, and scripts from non WooCommerce pages.
-* see http://gregrickaby.com/remove-woocommerce-styles-and-scripts/
-* and: https://wordimpress.com/how-to-load-woocommerce-scripts-and-styles-only-in-shop/
-* and: https://gist.github.com/DevinWalker/7621777
-*
-*/
-
-add_action( 'wp_enqueue_scripts', 'silentcomics_manage_woocommerce_styles', 99 );
+function catch_first_image() {
+global $post, $posts;
+$first_img = '';
+ob_start();
+ob_end_clean();
+if(preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', do_shortcode($post->post_content, 'gallery'), $matches)){
+$first_img = $matches [1][0];
+return $first_img;
+ 	
+ 	// Only do this on singular items
+ //	if( ! is_singular() )
+ //		return $content;
  
-function silentcomics_manage_woocommerce_styles() {
-	//remove generator meta tag
-	remove_action( 'wp_head', array( $GLOBALS['woocommerce'], 'generator' ) );
-	
-	//first check that woo exists to prevent fatal errors
-	if ( function_exists( 'is_woocommerce' ) ) {
-		//dequeue scripts and styles, unless we're in the store
-		if ( ! is_woocommerce() && ! is_cart() && ! is_checkout() ) {
-		wp_dequeue_style( 'woocommerce_frontend_styles' );
-		wp_dequeue_style( 'woocommerce-general');
-		wp_dequeue_style( 'woocommerce-layout' );
-		wp_dequeue_style( 'woocommerce-smallscreen' );
-		wp_dequeue_style( 'woocommerce_fancybox_styles' );
-		wp_dequeue_style( 'woocommerce_chosen_styles' );
-		wp_dequeue_style( 'woocommerce_prettyPhoto_css' );
-		wp_dequeue_style( 'select2' );
-		wp_dequeue_style( 'silentcomics-woocommerce' ); // the theme's CSS overwrite
-		wp_dequeue_script( 'wc-add-payment-method' );
-		wp_dequeue_script( 'wc-lost-password' );
-		wp_dequeue_script( 'wc_price_slider' );
-		wp_dequeue_script( 'wc-single-product' );
-		wp_dequeue_script( 'wc-add-to-cart' );
-		wp_dequeue_script( 'wc-cart-fragments' );
-		wp_dequeue_script( 'wc-credit-card-form' );
-		wp_dequeue_script( 'wc-checkout' );
-		wp_dequeue_script( 'wc-add-to-cart-variation' );
-		wp_dequeue_script( 'wc-single-product' );
-		wp_dequeue_script( 'wc-cart' );
-		wp_dequeue_script( 'wc-chosen' );
-		wp_dequeue_script( 'woocommerce' );
-		wp_dequeue_script( 'jquery-cookie' );
-		wp_dequeue_script( 'prettyPhoto' );
-		wp_dequeue_script( 'prettyPhoto-init' );
-		wp_dequeue_script( 'jquery-blockui');
-		wp_dequeue_script( 'jquery-placeholder' );
-		wp_dequeue_script( 'jquery-payment' );
-		wp_dequeue_script( 'fancybox' );
-		wp_dequeue_script( 'jqueryui' );
+//	if( ! is_archive() && is_tax('story') ) 
+//		return $content;
+
+ // Make sure the post has a gallery in it
+    if( ! has_shortcode( $post->post_content, 'gallery') )
+        return $content;
+ 
+    // Retrieve the first gallery in the post
+    $galleries = get_post_galleries_images( $post = 0);
+
+				$ids = explode( ",", $gallery['ids'] );
+
+		foreach( $ids as $id ) {
+
+			$link   = wp_get_attachment_url( $id );
+
+			$first_img  = wp_get_attachment_image( $first_img[0]->ID, "thumbnail");
+
+			echo( "<div class='item'><a href='$link'>" . $first_img . "</a></div>" );
+
+			} 
 		}
+
+elseif(empty($first_img)) {
+	$first_img = get_template_directory_uri() . '/library/images/empty.png'; // path to default image
 	}
-}
-
-/**
-* woocommerce_package_rates is a 2.1+ hook
-*/
-add_filter( 'woocommerce_package_rates', 'hide_shipping_when_free_is_available', 10, 2 );
-
-/**
-* Hide shipping rates when free shipping is available
-*
-* @param array $rates Array of rates found for the package
-* @param array $package The package array/object being shipped
-* @return array of modified rates
-*/
- function hide_shipping_when_free_is_available( $rates, $package ) {
-	 
-	// Only modify rates if free_shipping is present
-	if ( isset( $rates['free_shipping'] ) ) {
-	  	
-	  	// To unset a single rate/method, do the following. This example unsets flat_rate shipping
-	  	unset( $rates['flat_rate'] );
-  		
-  		// To unset all methods except for free_shipping, do the following
-  		$free_shipping          = $rates['free_shipping'];
-  		$rates                  = array();
-  		$rates['free_shipping'] = $free_shipping;
-  	}
-	
-	return $rates;
+	return $first_img;
 }
 
 /**	
-* This is the new registration code for CPT generated by the CPT UI plugin with adaptation
-*
+* Register CPT code generated by the CPT UI plugin with adaptation
 */
 
 // Register Custom Post Type
@@ -637,39 +532,126 @@ add_action( 'init', 'comic_story_taxonomy', 0 );
 			)
 		);
 
+/*
+* WooCommerce Hooks
+* Layout
+*/
+remove_action( 'woocommerce_before_main_content', 	'woocommerce_breadcrumb', 					20, 0 );
+remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 		10);
+remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 		10);
+remove_action( 'woocommerce_after_shop_loop', 		'woocommerce_pagination', 					10 );
+remove_action( 'woocommerce_before_shop_loop', 		'woocommerce_result_count', 				20 );
+remove_action( 'woocommerce_before_shop_loop', 		'woocommerce_catalog_ordering', 			30 );
+
+add_action('woocommerce_before_main_content', 'silentcomics_wrapper_start', 					10);
+add_action('woocommerce_after_main_content', 'silentcomics_wrapper_end', 						10);
+
+function silentcomics_wrapper_start() {
+	echo '<section id="content" class="woocommerce-content" role="main"><div class="entry-wrap wrap clear">';
+}
+
+function silentcomics_wrapper_end() {
+	echo '</section>';
+	}
+
 /**
-* pre_get_posts — this is a backburner only — remove in 2-5-7
+* Add WooCommerce support
+* https://docs.woothemes.com/document/third-party-custom-theme-compatibility/*
+*/
+add_action( 'after_setup_theme', 'woocommerce_support' );
+function woocommerce_support() {
+	    add_theme_support( 'woocommerce' );
+	    }
+	    
+/**
+* Remove each WooCommerce style one by one, if needed
+* see https://docs.woothemes.com/document/disable-the-default-stylesheet/
 *
 */
-//add_filter('pre_get_posts', 'query_post_type');
-//function query_post_type($query) {
-//  if($query->is_main_query() && $query->is_post_type( 'comic' ) || $query->taxonomy_exists('story') && empty( $query->query_vars['suppress_filters'] ) ) {
-//    $post_type = get_query_var('post_type');
-//	if($post_type)
-//	    $post_type = $post_type;
-//	else
-//	    $post_type = array( 'comic', 'post');
-//    $query->set('post_type',$post_type);
-//	return $query;
-//   }
-//}  
-
-/* If you want your custom post type posts to show up on standard archives 
-* or include them on your home page mixed up with other post types
-* see https://developer.wordpress.org/plugins/custom-post-types-and-taxonomies/working-with-custom-post-type-data/
-* https://wordpress.org/support/topic/custom-post-type-tagscategories-archive-page
-* 
-*/
-//add_action( 'pre_get_posts', 'add_comics_to_query' );
-
-//function add_comics_to_query( $query ) {
-//	if ( is_home() && $query->is_main_query() )
-//	$query->set( 'post_type', array( 'post', 'comic' ) );
-//	return $query;
+//	add_filter( 'woocommerce_enqueue_styles', 'jk_dequeue_styles' );
+//	function jk_dequeue_styles( $enqueue_styles ) {
+	//unset( $enqueue_styles['woocommerce-general'] );	// Remove the gloss
+	//unset( $enqueue_styles['woocommerce-layout'] );		// Remove the layout
+	//unset( $enqueue_styles['woocommerce-smallscreen'] );	// Remove the smallscreen optimisation
+//	return $enqueue_styles;
 //}
+
+ // Enqueue the theme's own style for WooCommerce
+ function wp_enqueue_woocommerce_style(){
+	
+	wp_register_style( 'silentcomics-woocommerce', get_template_directory_uri() . '/library/woocommerce-min.css' );
+	if ( class_exists( 'woocommerce' ) ) {
+	    wp_enqueue_style( 'silentcomics-woocommerce' );
+	}
+}
+
+add_action( 'wp_enqueue_scripts', 'wp_enqueue_woocommerce_style' );
+
+/**
+* Optimize WooCommerce Scripts
+* Remove WooCommerce Generator tag, styles, and scripts from non WooCommerce pages.
+* see http://gregrickaby.com/remove-woocommerce-styles-and-scripts/
+* and: https://wordimpress.com/how-to-load-woocommerce-scripts-and-styles-only-in-shop/
+* and: https://gist.github.com/DevinWalker/7621777
+* also: http://dessky.com/blog/disable-woocommerce-scripts-and-styles/
+*/
+add_action( 'wp_enqueue_scripts', 'silentcomics_manage_woocommerce_styles', 99 );
+ 
+function silentcomics_manage_woocommerce_styles() {
+	//remove generator meta tag
+	//remove_action( 'wp_head', array( $GLOBALS['woocommerce'], 'generator' ) );
+	
+	//first check that woo exists to prevent fatal errors
+	if ( function_exists( 'is_woocommerce' ) ) {
+		//dequeue scripts and styles, unless we're in the store
+		if ( !is_woocommerce() && !is_page('store') && !is_shop() && !is_product_category() && !is_product() && !is_cart() && !is_checkout() ) {
+		wp_dequeue_style( 'woocommerce_frontend_styles' );
+		wp_dequeue_style( 'woocommerce-general');
+		wp_dequeue_style( 'woocommerce-layout' );
+		wp_dequeue_style( 'woocommerce-smallscreen' );
+		wp_dequeue_style( 'woocommerce_fancybox_styles' );
+		wp_dequeue_style( 'woocommerce_chosen_styles' );
+		wp_dequeue_style( 'woocommerce_prettyPhoto_css' );
+		wp_dequeue_style( 'select2' );
+		wp_dequeue_style( 'silentcomics-woocommerce' ); // the theme's CSS overwrite
+		wp_dequeue_script( 'wc-add-payment-method' );
+		wp_dequeue_script( 'wc-lost-password' );
+		wp_dequeue_script( 'wc_price_slider' );
+		wp_dequeue_script( 'wc-single-product' );
+		wp_dequeue_script( 'wc-add-to-cart' );
+		wp_dequeue_script( 'wc-cart-fragments' );
+		wp_dequeue_script( 'wc-credit-card-form' );
+		wp_dequeue_script( 'wc-checkout' );
+		wp_dequeue_script( 'wc-add-to-cart-variation' );
+		wp_dequeue_script( 'wc-single-product' );
+		wp_dequeue_script( 'wc-cart' );
+		wp_dequeue_script( 'wc-chosen' );
+		wp_dequeue_script( 'woocommerce' );
+		wp_dequeue_script( 'jquery-cookie' );
+		wp_dequeue_script( 'prettyPhoto' );
+		wp_dequeue_script( 'prettyPhoto-init' );
+		wp_dequeue_script( 'jquery-blockui');
+		wp_dequeue_script( 'jquery-placeholder' );
+		wp_dequeue_script( 'jquery-payment' );
+		wp_dequeue_script( 'fancybox' );
+		wp_dequeue_script( 'jqueryui' );
+		}
+	}
+}
+
+/*
+* Enables Jetpack's Infinite Scroll for home (blog), disables it in WooCommerce product archives 
+* @return bool
+* https://wordpress.org/support/topic/suppress-infinite-blog-with-woocommerce
+*/
+function silentcomics_jetpack_infinite_scroll_supported() {
+	return current_theme_supports( 'infinite-scroll' ) && ( is_admin() || is_home() || is_search()  && ! is_post_type_archive( 'product' ) );
+}
+add_filter( 'infinite_scroll_archive_supported', 'silentcomics_jetpack_infinite_scroll_supported' );
+
 /**
 * Set posts, WooCommerce products & comics number per archive page
-* Fixes 404 error on pagination due to CTP conflicting with WordPress default 10 posts per page
+* Fixes 404 error on pagination due to CTP conflicting with WordPress posts_per_page default 
 * see http://wordpress.stackexchange.com/questions/30757/change-posts-per-page-count/30763#30763
 */
 add_action( 'pre_get_posts',  'silentcomics_set_posts_per_page'  );
@@ -690,19 +672,9 @@ function silentcomics_set_posts_per_page( $query ) {
   return $query;
 }
 
-/*
-* Enables Jetpack's Infinite Scroll in search pages, disables it in product archives
-* @return bool
-* https://wordpress.org/support/topic/suppress-infinite-blog-with-woocommerce
-*/
-function silentcomics_jetpack_infinite_scroll_supported() {
-	return current_theme_supports( 'infinite-scroll' ) && ( is_home() || is_archive() || is_search() ) && ! is_post_type_archive( 'product' );
-}
-add_filter( 'infinite_scroll_archive_supported', 'silentcomics_jetpack_infinite_scroll_supported' );
-
 /**
 * Add an automatic default custom taxonomy for custom post type.
-* If no story (taxonomy) is set, a comic post will default to “draft” and won’t return an offset error
+* If no "story" (taxonomy) set, comic posts default to “draft”.
 *
 */
     function set_default_object_terms( $post_id, $post ) {
@@ -722,36 +694,7 @@ add_filter( 'infinite_scroll_archive_supported', 'silentcomics_jetpack_infinite_
     add_action( 'save_post', 'set_default_object_terms', 0, 2 );
 
 /**
-* filter
-* Reducing postmeta queries with update_meta_cache()
-* see http://hitchhackerguide.com/2011/11/01/reducing-postmeta-queries-with-update_meta_cache/
-* Seems WordPress handles all already
-*/
-
-add_filter( 'posts_results', 'cache_meta_data', 9999, 2 );
-function cache_meta_data( $posts, $object ) {
-    $posts_to_cache = array();
-    // this usually makes only sense when we have a bunch of posts
-    if ( empty( $posts ) || is_wp_error( $posts ) || is_single() || is_page() || is_archive() || taxonomy_exists('story') || count( $posts ) < 3 )
-        return $posts;
-
-    foreach( $posts as $post ) {
-        if ( isset( $post->ID ) && isset( $post->post_type ) ) {
-            $posts_to_cache[$post->ID] = 1;
-        }
-    }
-
-    if ( empty( $posts_to_cache ) )
-        return $posts;
-
-    update_meta_cache( 'post', 'comic', array_keys( $posts_to_cache ) );
-    unset( $posts_to_cache );
-
-    return $posts;
-}
-
-/**
-*
+* Transients (TO DO)
 */
 set_transient( 'comic', 'story', 12 * HOUR_IN_SECONDS );
 
@@ -766,25 +709,3 @@ set_transient( 'comic', 'story', 12 * HOUR_IN_SECONDS );
     }
     // Add the function to the save_post hook so it runs when posts are saved
     add_action( 'save_post', 'save_post_delete_story_transient' );
-    
-    /**
-* Get the first image in a post https://css-tricks.com/snippets/wordpress/get-the-first-image-from-a-post/	
-*
-*/	
-
-function catch_first_image() {
-global $post, $posts;
-$first_img = '';
-ob_start();
-ob_end_clean();
-if(preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', do_shortcode($post->post_content), $matches)){
-$first_img = $matches [1][0];
-return $first_img;
- 
-}
-
-elseif(empty($first_img)) {
-	$first_img = get_template_directory_uri() . '/library/images/empty.png'; // path to default image
-	}
-	return $first_img;
-}

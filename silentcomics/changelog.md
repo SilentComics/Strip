@@ -1,0 +1,87 @@
+changelog.txt
+
+[+] = Added
+[-] = Removed
+[^] = Moved
+[>] = Changes
+[=] = No Changes
+[x] = Deleted
+[*] = Further enhancement needed
+[!] = Bugs
+
+== changelog ==
+
+= (02/04/2016) - Version 2.5.7 =
+
+[+] Default-header.png
+[>] Replace `silentcomics_the_site_logo`by `silentcomics_the_custom_logo()` fixes issue with Jetpack 
+[>] Properly enqueue `silentcomics-toggle-comments`calling `jquery`
+[+] Added IE conditional stylesheet in CSS folder
+[+] Added selective refresh support for widgets
+[-] Disabled Jetpack's Infinite Scroll for comics  stories archives pages
+[-] Removed Google Fonts (you can still uncomment to use the code in functions.php)
+[!] PHP error notices on main dashboard page caused by comments attached to a post type (the theme’s own `comic` posts and with WooCommerce’s `product` post type).
+[!] call_user_func_array() expects parameter 1 to be a valid callback, non-static method WP_Feed_Cache::create() should not be called statically (core bug)
+
+= (02/03/2016) - Version 2.5.6.9 =
+
+[+] Added changelog.txt
+[+] Added logo support option since WP version 4.5
+[+] Changed README to readme.txt
+[+] Fine tuned WooCommerce integration, clean up and minified SilentComics WooCommerce custom styles
+[+] Fixed pagination for comics archives, products and is_home (blog)
+[+] Archive stories now display the first image of each comic post on a four columns grids  
+ 
+[*] html5 full screen Video obstructs text
+
+[!] Installing Jetpack breaks the customizer functionality, without triggering any php error.
+This behaviour happens with Twenty Sixteen as well. 
+Core and Jetpack developers are aware and working on compatibility.
+[!] Function `catch_first_image()` First image in post return empty when post is a RoyalSlider gallery
+
+[-] login.js (unused)
+
+**CSS changes**
+- Keep CSS styling under 2000 lines
+- Style sticky post 
+- Enhanced branding position
+- BASE64 SVG Logo consistent with theme colour
+- Changed ```.entry-meta``` to prevent content overflow on medium screens
+- Added a proper line height in comments
+- Improved comics navigation bar for small screens
+- search box & input boxes styling & consistency
+- Improved WooCommerce styling (review button, colours, Order Notes, style comments, etc.) 
+- Added @media queries for small screens for 4 columns grids to archive comics
+
+
+**PHP changes**
+- Improved pagination & fixed display of WooCommerce categories (no longer split with different pages~~) check if `is_tax()` is not deprecated it is not, `is_taxonomy()` is deprecated since WP 3.0.
+- `pre_get_post` change to exclude comics from is_home (blog pages)
+[+] Added logo support from WP version 4.5
+[+] Added function `catch_first_image()` First image in post click goes to post // use this to display archive in a grid 
+- Removed errors caused by `function catch_that_image()` (`Undefined offset 0` and `Undefined variable: post_id`)
+- Better WooCommerce integration (remove clutter on non e-commerce pages) 
+- Changed `set_posts_per_page` for WooCommerce pages
+- Monthly archive only diplays the last post in each month
+
+**JavaScript changes**
+[+] enqueue customizer.min.js
+
+
+= (01/02/2016) - Version 2.5.6.8 =
+
+**CSS changes:** 
+- Reduce CSS styles to 1800 lines or less —> got to around 1835 lines (but more lines will add up to complete styling…
+- Fixed horizontal space in between rows of gallery images
+- Comics navigation bar now aligns within .wrap
+- Dequeued a bunch of WooCommerce scripts and styles to unclog non ecommerce pages
+- Small title menu box colour is now consistent
+- Re-styled comments on pages
+- Styled pagination navigation
+
+**PHP changes:**
+- Changed `pre_get_post()` (not quite right)
+- Reduce queries, set transients for menu
+- Pagination on archives
+- Prevent scripts & styles from WooCommerce being loaded on other pages
+

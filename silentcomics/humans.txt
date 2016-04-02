@@ -77,7 +77,7 @@ Location: Earth.
 /* THANKS */
 
 							
-Name: Soraya Abbar, Yoshihiro Deguchi, Andre Torres, Pieter Goosen, <DRSK>, Susumu Toyama, WordPress.org
+Name: Soraya Abbar, Yoshihiro Deguchi, Andre Torres, Pieter Goosen, <DRSK>, Susumu Toyama, Dmitry Semenov, WordPress.org
 
 
 /* ABOUT */

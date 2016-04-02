@@ -1,0 +1,37 @@
+/*
+Theme Name: SilentComics
+Description: Global Styles for older IE versions (previous to IE10).
+*/
+
+.comic .entry-meta {
+	text-align: right;
+}
+.single-comic .entry-meta {
+	display: none;
+}
+.navigation-comic a {
+	text-decoration: none;
+}
+.navigation-comic .nav-previous {
+	text-align: left;
+	width: 50%;
+}
+.navigation-comic .nav-next {
+	text-align: right;
+	width: 50%;
+}
+.entry-comic .navigation-comic {
+	text-align: center;
+	width: 100%;
+}
+.entry-comic .navigation-comic [class*="nav-"] {
+	float: none; 
+	display: inline-block;
+	width: 18.5%; /* not aligned with images, "auto" centers everything */
+}
+.entry-comic .navigation-comic .nav-first {
+	text-align: left;
+}
+.entry-comic .navigation-comic .nav-last {
+	text-align: right;
+}
