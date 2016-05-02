@@ -18,11 +18,7 @@
 						if ( ! empty( $term_description ) ) :
 							printf( '<div class="taxonomy-description">%s</div>', $term_description );
 						endif; ?>
-			<h4 class="comic-blurb">You fucked up my planet. Don't do this again! 22nd century AD, planet Earth's atmosphere is turning toxic, forcing all living species into interplanetary exile. From a safe heaven orbiting the Moon, the wealthiest humans watch the poor sent in masse to colonise the galaxy, until hyperspace transportation is deemed safe...
-
-Fedor Fuct, Archdux of the Moon, accredited on Earth, becomes planet sick, and refuses to leave.
-
-The story encompasses human space immigration, identity, courage and loss, imposture and drug enhanced violent sports. Imagine you could rebuilt 3D visualisations of dolphin thoughts...</h4>
+			<h4 class="comic-blurb">This is a blurb — add your own blurb here.</h4>
 			</br>
 	</header><!-- .page-header -->
 	<?php
