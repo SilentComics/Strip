@@ -17,11 +17,12 @@ https://docs.woothemes.com/documentation/plugins/woocommerce/
 .woocommerce-content  {
 	clear: none; /* is this needed? */ 
 	margin: 0 auto;
-	max-width: 696px; /* could be 988px, or even 1272 if you want a larger product page display */
+	max-width: 988px; /* could be 988px, or even 1272 if you want a larger product page display */
 }
 
 .woocommerce .custom-logo,
-.woocommerce-cart .custom-logo {
+.woocommerce-cart .custom-logo,
+.woocommerce-checkout .custom-logo {
 	max-width: 192px;
 } 
 
@@ -112,8 +113,10 @@ p.demo_store{
 .woocommerce label,
 .woocommerce .orderby,
 .woocommerce .woocommerce-message,
+.woocommerce textarea,
 .woocommerce input[type="text"],
 .woocommerce input[type="email"],
+.woocommerce input[type="tel"],
 .woocommerce input[type="number"] {
 	font-family:'Fenix', Georgia, serif;
 	font-size: medium;
@@ -172,6 +175,29 @@ p.demo_store{
 .woocommerce .button input[type="submit"]:active {
 	background-color: #0ddb85;
 }
+
+/* MailChimp for WordPress style */
+.woocommerce .mc4wp-form input { 
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	box-sizing:border-box;
+	border:1px solid #faf4f4;
+	padding: 6px 6px 5px;
+	margin:0 4px 0 0;
+	line-height:1.2;
+	display: block;
+    font-family: Inconsolata, monospace;
+	font-size: 1rem;
+	text-align: center;
+	width: 100%;
+} /* input fields */
+
+.woocommerce .mc4wp-form input[type="submit"] { 
+	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+	font-size: 0.9rem;
+	width: 100%
+} /* submit button */
+
 
 .woocommerce .added_to_cart.wc-forward {
 	display: initial;

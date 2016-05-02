@@ -2,8 +2,7 @@
 /**
  * Custom template tags for this theme.
  *
- * Eventually, some of the functionality here could be replaced by core features.
- * TO DO: trim the sleaze
+ * Eventually, some of the functionality here could be replaced by core features. // TO DO: trim the sleaze
  *
  * @package SilentComics
  */
@@ -228,6 +227,7 @@ function get_comic_boundary_post( $in_same_term = false, $excluded_terms = '', $
         'posts_per_page' => 1,
         'order' => $start ? 'ASC' : 'DESC',
         'no_found_rows' => true,
+       // 'update_term_meta_cache' => true, // added
         'update_post_term_cache' => false,
         'update_post_meta_cache' => false
     );

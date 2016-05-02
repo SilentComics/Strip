@@ -1,7 +1,7 @@
 WIP WordPress-Theme-for-Silent-Comics
 =================================
 
-Not ready for production yet, but you can download the ZIP file to test the theme.
+Not ready for production yet, but you are welcome to test the theme.
 
 ![screenshot](http://silentcomics.com/images/screenshot.png)
 
@@ -13,8 +13,6 @@ Not ready for production yet, but you can download the ZIP file to test the them
 [Theme wiki](https://github.com/SilentComics/Silent-Comics-Wordpress-Theme/wiki/SilentComic-WordPress-Theme-wiki)
 
 ## Code review needed
-Coding is the *learning by doing* side of the project for me. I'm by no means a WordPress developer and there are countless improvements to be made. 
-
 Do you know how to improve this theme? Please send your findings and suggestions over to hoa // @ // silent-comics.com
 
 ## Other ways you can help:

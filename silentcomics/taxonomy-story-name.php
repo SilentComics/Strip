@@ -1,7 +1,6 @@
 <?php
 /**
- * The template for your own "Name" story pages archive, with page numbering
- * For this template to work, under "Comics", add a New Story and write a series title of your choice, replace "Name" by your own story name in this template and rename it taxonomy-story-{yourownname}.
+ * The template for the "ExIle" story pages
  *
  * @package SilentComics
  */
@@ -11,16 +10,19 @@
 	<div id="primary" class="content-area">
 		<div class="wrap" class="site-content" role="main">
 	
-	<?php if ( have_posts() ) : ?>
 	<header class="page-header">
-		</br>
+		
 			<?php
 						// Show an optional term description.
 						$term_description = term_description();
 						if ( ! empty( $term_description ) ) :
 							printf( '<div class="taxonomy-description">%s</div>', $term_description );
 						endif; ?>
-			<h4 class="comic-blurb">This is a series blurb, you can change or remove this line!</h4>
+			<h4 class="comic-blurb">You fucked up my planet. Don't do this again! 22nd century AD, planet Earth's atmosphere is turning toxic, forcing all living species into interplanetary exile. From a safe heaven orbiting the Moon, the wealthiest humans watch the poor sent in masse to colonise the galaxy, until hyperspace transportation is deemed safe...
+
+Fedor Fuct, Archdux of the Moon, accredited on Earth, becomes planet sick, and refuses to leave.
+
+The story encompasses human space immigration, identity, courage and loss, imposture and drug enhanced violent sports. Imagine you could rebuilt 3D visualisations of dolphin thoughts...</h4>
 			</br>
 	</header><!-- .page-header -->
 	<?php
@@ -36,15 +38,15 @@ else {
 }
 			
 // Call and run loop in ascending order
-    	$args = array(
+    $args = array(
 	    	
-			'post_type'		 => 'comic',
-			'posts_per_page' => 3, // Always use the same number a set in function.php, line 686, to avoid breaking pagination
-			'story'			 => 'name',
-			'orderby'  		 => 'date',
-			'paged' 		 => $paged,
-			'order'  		 => 'ASC'
-		);
+		'post_type'		 => 'comic',
+		'posts_per_page' => 3, // Must be = or > than number set in function.php, line 663, to avoid breaking pagination
+		'story'			 => 'name',
+		'orderby'  		 => 'title', // you can order by date if you so prefer
+		'paged' 		 => $paged,
+		'order'  		 => 'ASC'
+	);
 		
 		$loop = new WP_Query( $args );
 			// Start the loop

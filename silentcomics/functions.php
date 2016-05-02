@@ -124,11 +124,16 @@ if ( ! function_exists( 'silentcomics_setup' ) ) :
 * This theme styles the visual editor to resemble the theme style,
 * specifically font, colors, icons, and column width.
 */
-//    add_editor_style( array( 'css/editor-style.css', silentcomics_fonts_url() ) );
+    add_editor_style( array( 'css/editor-style.css' ) );
+    /** add silentcomics_fonts_url() if you use Google Webfonts:
+    * add_editor_style( array( 'css/editor-style.css', silentcomics_fonts_url() ) ); 
+    */
+
+	// Indicate widget sidebars can use selective refresh in the Customizer. https://make.wordpress.org/core/2016/03/22/implementing-selective-refresh-support-for-widgets/
+	add_theme_support( 'customize-selective-refresh-widgets' );
 
 endif; // silentcomics_setup
 add_action( 'after_setup_theme', 'silentcomics_setup' );
-
 
 /**
  * Register widgetized area and update sidebar with default widgets
@@ -138,7 +143,6 @@ function silentcomics_widgets_init() {
 		'name'          => __( 'Main Sidebar', 'silentcomics' ),
 		'id'            => 'sidebar',
 		'description'   => __( 'The main body widget area', 'silentcomics' ),
-		'customize_selective_refresh' => true,
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</aside>',
 		'before_title'  => '<h2 class="widget-title">',
@@ -150,7 +154,6 @@ function silentcomics_widgets_init() {
         'name' 			=> __( 'First Footer Widget', 'silentcomics' ),
         'id' 			=> 'first-footer-widget',
         'description'   => __( 'The first footer widget', 'silentcomics' ),
-        'customize_selective_refresh' => true,
         'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</aside>',
 		'before_title'  => '<h3 class="widget-title">',
@@ -162,7 +165,7 @@ function silentcomics_widgets_init() {
         'name' 			=> __( 'Second Footer Widget', 'silentcomics' ),
         'id' 			=> 'second-footer-widget',
         'description'   => __( 'The second footer widget', 'silentcomics' ),
-        'customize_selective_refresh' => true,
+        //'customize_selective_refresh' => true,
         'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</aside>',
 		'before_title'  => '<h3 class="widget-title">',
@@ -174,7 +177,6 @@ function silentcomics_widgets_init() {
         'name' 			=> __( 'Third Footer Widget', 'silentcomics' ),
         'id' 			=> 'third-footer-widget',
         'description' 	=> __( 'The third footer widget', 'silentcomics' ),
-        'customize_selective_refresh' => true,
         'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</aside>',
 		'before_title'  => '<h3 class="widget-title">',
@@ -186,7 +188,6 @@ function silentcomics_widgets_init() {
         'name' 			=> __( 'Fourth Footer Widget', 'silentcomics' ),
         'id' 			=> 'fourth-footer-widget',
         'description' 	=> __( 'The fourth footer widget', 'silentcomics' ),
-        'customize_selective_refresh' => true,
         'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</aside>',
 		'before_title'  => '<h3 class="widget-title">',
@@ -195,12 +196,6 @@ function silentcomics_widgets_init() {
 
 }
 add_action( 'widgets_init', 'silentcomics_widgets_init' );
-
-/*
-* Selective Refresh Support for Widgets
-* https://make.wordpress.org/core/2016/03/22/implementing-selective-refresh-support-for-widgets/ 
-*/
-add_theme_support( 'customize-selective-refresh-widgets' );
 
 /**
 * Transients for menu
@@ -339,57 +334,57 @@ require get_template_directory() . '/inc/customizer.php';
 require get_template_directory() . '/inc/jetpack.php';
 
 /**
+* Register RoyalSLider
+*/
+
+//register_new_royalslider_files(1); 
+
+/**
+* MailChimp for WordPress
+*/
+
+
+ function wp_enqueue_mc4wp_style(){
+	
+	wp_register_style( 'mc4wp', get_template_directory_uri() . '/library/css/mc4wp.css' );
+	if ( class_exists( 'mc4wp_form_css_classes' ) ) {
+	    wp_enqueue_style( 'mc4wp' );
+	}
+}
+
+add_action( 'wp_enqueue_scripts', 'wp_enqueue_mc4wp_style' );
+/**
 * Get the first image in a post 
 * See https://css-tricks.com/snippets/wordpress/get-the-first-image-from-a-post/
 */	
-
 function catch_first_image() {
 global $post, $posts;
 $first_img = '';
 ob_start();
 ob_end_clean();
+
+//$output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', do_shortcode($post->post_content), $matches);
 if(preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', do_shortcode($post->post_content, 'gallery'), $matches)){
 $first_img = $matches [1][0];
 return $first_img;
- 	
- 	// Only do this on singular items
- //	if( ! is_singular() )
- //		return $content;
- 
-//	if( ! is_archive() && is_tax('story') ) 
-//		return $content;
 
- // Make sure the post has a gallery in it
-    if( ! has_shortcode( $post->post_content, 'gallery') )
-        return $content;
- 
-    // Retrieve the first gallery in the post
-    $galleries = get_post_galleries_images( $post = 0);
-
-				$ids = explode( ",", $gallery['ids'] );
-
-		foreach( $ids as $id ) {
-
-			$link   = wp_get_attachment_url( $id );
-
-			$first_img  = wp_get_attachment_image( $first_img[0]->ID, "thumbnail");
-
-			echo( "<div class='item'><a href='$link'>" . $first_img . "</a></div>" );
-
-			} 
-		}
+}
 
 elseif(empty($first_img)) {
 	$first_img = get_template_directory_uri() . '/library/images/empty.png'; // path to default image
 	}
 	return $first_img;
 }
+add_filter ('first_img', 'catch_first_image');
 
-/**	
-* Register CPT code generated by the CPT UI plugin with adaptation
+/**
+* see if you can implement size for image galleries
+* http://stackoverflow.com/questions/19802157/change-wordpress-default-gallery-output
 */
 
-// Register Custom Post Type
+/**		
+* Register Custom Post Type — code generated by the CPT UI plugin with adaptation
+*/
 function comic_post_type() {
 
 	$labels = array(
@@ -579,7 +574,7 @@ function woocommerce_support() {
  // Enqueue the theme's own style for WooCommerce
  function wp_enqueue_woocommerce_style(){
 	
-	wp_register_style( 'silentcomics-woocommerce', get_template_directory_uri() . '/library/woocommerce-min.css' );
+	wp_register_style( 'silentcomics-woocommerce', get_template_directory_uri() . '/library/css/woocommerce-min.css' );
 	if ( class_exists( 'woocommerce' ) ) {
 	    wp_enqueue_style( 'silentcomics-woocommerce' );
 	}
@@ -677,26 +672,37 @@ function silentcomics_set_posts_per_page( $query ) {
 * If no "story" (taxonomy) set, comic posts default to “draft”.
 *
 */
-    function set_default_object_terms( $post_id, $post ) {
-        if ( 'publish' === $post->post_status && $post->post_type === 'comic' ) {
-            $defaults = array(
-                'story' => array( 'draft' )
-                );
-            $taxonomies = get_object_taxonomies( $post->post_type );
-            foreach ( (array) $taxonomies as $taxonomy ) {
-                $terms = wp_get_post_terms( $post_id, $taxonomy );
-                if ( empty( $terms ) && array_key_exists( $taxonomy, $defaults ) ) {
-                    wp_set_object_terms( $post_id, $defaults[$taxonomy], $taxonomy );
-                }
+function set_default_object_terms( $post_id, $post ) {
+    if ( 'publish' === $post->post_status && $post->post_type === 'comic' ) {
+        $defaults = array(
+            'story' => array( 'draft' )
+            );
+        $taxonomies = get_object_taxonomies( $post->post_type );
+        foreach ( (array) $taxonomies as $taxonomy ) {
+            $terms = wp_get_post_terms( $post_id, $taxonomy );
+            if ( empty( $terms ) && array_key_exists( $taxonomy, $defaults ) ) {
+            wp_set_object_terms( $post_id, $defaults[$taxonomy], $taxonomy );
             }
         }
     }
+}
     add_action( 'save_post', 'set_default_object_terms', 0, 2 );
 
 /**
 * Transients (TO DO)
 */
-set_transient( 'comic', 'story', 12 * HOUR_IN_SECONDS );
+function story_transient() {
+    $transient_name = 'story';
+    $post_type        = get_transient( $transient_name );
+
+    // done
+    if ( 'comic' == get_post_type( $post_id ) )
+        return $post_type;
+
+set_transient( 'story', $post_type, 12 * HOUR_IN_SECONDS );
+
+return $content;
+}
 
 /*
 * Create a function to delete our transient when a comic post is saved

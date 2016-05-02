@@ -57,10 +57,11 @@ http://digwp.com/2010/10/customize-wordpress-dashboard/
 function silentcomics_rss_dashboard_widget() {
 	if(function_exists('fetch_feed')) {
 		 
-		// include_once( ABSPATH . WPINC . '/feed.php' );            // include the required file
-		$feed = fetch_feed('https://silent-comics.tumblr.com/rss/');  // specify the source feed
-		$limit = $feed->get_item_quantity(7);                      // specify number of items
-		$items = $feed->get_items(0, $limit);                      // create an array of items
+		require_once( ABSPATH . WPINC . '/class-feed.php' );		// include the required file
+		$feed = fetch_feed('https://silent-comics.tumblr.com/rss/');// specify the source feed
+		$limit = $feed->get_item_quantity(7);                       // specify number of items
+		$items = $feed->get_items(0, $limit);                       // create an array of items
+		SimplePie_Cache::register( 'wp_transient', 'WP_Feed_Cache_Transient' ); // https://core.trac.wordpress.org/ticket/29204
 		$feed->set_cache_location( 'wp_transient://' . 'https://silent-comics.tumblr.com/rss/' );
 	}
 	if ($limit == 0) echo '<div>The RSS Feed is either empty or unavailable.</div>';   // fallback message

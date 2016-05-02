@@ -1,10 +1,11 @@
 === Silent Comics ===
 Contributors: Anh Hoa Si, SILENT COMICS
 Requires at least: WordPress 4.4
-Version; 2.5.7
+Version; 2.5.8
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
-Tags: white, light, one-column, flexible-header, responsive-layout, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images, post-formats, rtl-language-support, sticky-post, theme-options,  translation-ready
+Tags: white, light, one-column, flexible-header, responsive-layout, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images, post-formats, rtl-language-support, sticky-post, theme-options, translation-ready, blog
+
 SilentComics is a WordPress theme designed for the upcoming [SILENT COMICS site](http://silent-comics.com). The theme is still in development and released under the GNU General Public License.
 
 
@@ -14,9 +15,9 @@ SilentComic is a theme to showcase and manage online comics with WordPress. Easy
 Features:  
 Minimal look, custom posts format for comics, no sidebar, large images. Custom login page. 
 Large body text set in [Fenix](http://tipotype.com/fenix/), headings set in Futura.
-Light-weight theme, tested with the latest WordPress version (4.5-beta)
+Light-weight theme, tested with the latest WordPress version (4.5.1)
 
-For more information about SilentComics please go to https://***.
+For more information about Silent Comics please go to https://silentcomics.com/about.
 
 == Installation ==
 - 1 Download the WIP SilentComics Theme from GitHub
@@ -70,10 +71,7 @@ SilentComics WordPress Theme, Copyright 2013-2016 silent-comics.com
 
 SilentComics is distributed under the terms of the GNU GPL
 
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 2 of the License, or
-(at your option) any later version.
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 2 of the License, or (at your option) any later version.
 
 This program is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -94,4 +92,4 @@ Source: http://www.ferfolio.com/about/
 == Notes ==
 This theme looks best in the latest version of one of the following browsers; Safari, Firefox, Edge, Chrome, Opera, Vivaldi or Brave.
 
-If you find a bug, please report it to hoa // at // silent-comics.com
+If you find a bug, please report it to hoa // at // silent-comics.com 

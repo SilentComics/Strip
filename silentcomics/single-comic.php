@@ -25,9 +25,10 @@ if ( post_type_exists( $post_type )  && is_single() ) {
 				
 				<?php get_template_part( 'content-comic' ); ?>
 				
-				<?php silentcomics_content_nav( 'nav-below' ); ?>
+				<?php silentcomics_content_nav( 'nav-below' ); set_transient( 'story', $post_type );?>
 				
 			</div><!-- #entry-comic -->
+			
 			
 			<?php  endif; wp_reset_query(); ?>
 			

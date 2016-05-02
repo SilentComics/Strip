@@ -31,7 +31,7 @@
 		'post_type'		=> 'comic',
     	'showposts'		=> -1, 
 		'story'			=> 'draft',
-		'orderby'  		=> 'title',
+		'orderby'  		=> 'title', // or date
 		'order'  		=> 'DESC',)
 		);
 		

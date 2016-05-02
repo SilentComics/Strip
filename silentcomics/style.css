@@ -4,12 +4,12 @@ Theme URI: https://github.com/SilentComics/Wordpress-Theme-for-Silent-Comics/
 Author: Anh Hoa Si
 Author URI: http://silent-comics.com
 Description: A theme for comics
-Version: 2.5.7 (March 2016) OPTIMIZE — Goal: Keep styles under 2000 lines — Cross Browsers Testing
+Version: 2.5.8 (April 2016) FINE TUNE — Keep styles under 2000 lines — Cross Browsers Testing — Cleanup
 License: GNU General Public License v3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Text Domain: silentcomics
 Domain Path: /languages/
-Tags: white, light, one-column, flexible-header, responsive-layout, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images, post-formats, rtl-language-support, sticky-post, theme-options, translation-ready
+Tags: white, light, one-column, flexible-header, responsive-layout, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images, post-formats, rtl-language-support, sticky-post, theme-options, translation-ready, blog
 
 This theme is licensed under the GPL, and is based on Underscores http://underscores.me/, (C) 2012-2016 Automattic, Inc.
 */
@@ -145,6 +145,42 @@ samp {
 	font-size: 1em;
 }
 
+button,
+input,
+optgroup,
+select,
+textarea {
+  color: inherit;
+  font: inherit;
+  margin: 0; }
+
+button {
+  overflow: visible; }
+
+button,
+select {
+  text-transform: none; }
+
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button;
+  cursor: pointer; }
+
+button[disabled],
+html input[disabled] {
+  cursor: default; }
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0; }
+
+input[type="search"] {
+  -webkit-appearance: textfield;
+  box-sizing: content-box; }
+
 /*--------------------------------------------------------------
 2.0 Typography
 --------------------------------------------------------------*/
@@ -185,7 +221,7 @@ address {
 }
 pre {
 	background: #faf4f4;
-	font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+	font-family: Inconsolata, monospace;
 	font-size: small;
 	line-height: inherit;
 	color: #422442;
@@ -204,7 +240,7 @@ code,
 kbd, 
 tt, 
 var {
-	font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+	font-family: Inconsolata, monospace;
 }
 abbr, 
 acronym {
@@ -311,6 +347,7 @@ input,
 textarea {
 	background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)); /* Removing the inner shadow, rounded corners on iOS inputs */
 }
+  
 button,
 html input[type="button"],
 html input[type="button"],
@@ -319,7 +356,7 @@ input[type="submit"] {
 	-moz-appearance: button;
 	-webkit-appearance: button;
 	border: 0;
-	background: #FF7369;
+	background: #ff91ae; /* #FF7369; base pink #ff91ae pinker */
 	color: #fff;
 	cursor: pointer;
 	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
@@ -365,8 +402,10 @@ input[type="datetime-local"],
 input[type="color"],
 textarea {
   color: #666;
-  border: 1px solid #ccc;
-  border-radius: 3px; }
+  border: 1px solid #f4f4f4;
+  border-radius: 3px;
+  font-family: Inconsolata, monospace; 
+  }
   input[type="text"]:focus,
   input[type="email"]:focus,
   input[type="url"]:focus,
@@ -699,7 +738,7 @@ button.menu-toggle:hover {
 ----------------------------------------------- */
 
 body {
-	background-color: #fff; /* Fallback if no custom background color is defined. */
+	background-color: #fff; /* Fallback if no background color is defined. */
 }
 .wrap {
 	margin: 0 auto;
@@ -780,16 +819,20 @@ display:  inline-block;
 	max-width: 100%;
 }
 
-/* Search widget */
-.widget_search form {
-	position: relative;
+.widget-area-wrapper {
+	margin: 0 auto;
+	max-width: 988px;
 }
+/* Search widget */
+.error404 .search-field,
 .widget_search .search-field,
-.search .search-field {
-	font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
-	/* padding: 4px; /* using width with padding can sometimes make elements larger than you expect */
-	font-size: 1rem;
-	width: 96%;
+.search .search-field,
+.search .search-form,
+.widget_search .search-form {
+	font-family: Inconsolata, monospace;
+	color: #ff91ae;
+	
+	width: 100%;
 	text-align: center;
 }
 .widget_search .search-submit {
@@ -1091,7 +1134,7 @@ span > object {
 	background-color: #faf4f4;
 	margin: 0 auto;
 	padding: 1.2em 0;
-	font-family: monospace;	 
+	font-family: Inconsolata, monospace;	 
 }
 .format-link .entry-content a {
 	color: #FF7369; 
@@ -1149,7 +1192,7 @@ span > object {
 	padding: 1.2em 0;
 	font-size: 1.6rem;
 	text-align: left;
-	font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+	font-family: Inconsolata, monospace;
 }
 .format-chat .entry-content a,
 .format-chat .entry-title a,
@@ -1336,7 +1379,7 @@ span > object {
 	display: inline-block;
 }
 /* navigation specific */
-.nav-previous-page,
+.nav-previous-page, 
 .image-navigation .nav-previous,
 .image-navigation .previous,
 .comment-navigation .nav-previous,
@@ -1477,6 +1520,11 @@ span > object {
 	text-transform: uppercase;
 	text-align: center;
 }
+.post-parent-title {
+	display:  inline-block;
+    margin: 0 auto; /* text-align: center; to replace align: middle;*/
+    width: 100%;
+}
 /* the comic page title */
 .page-title, 
 .taxonomy-description {
@@ -1530,26 +1578,26 @@ span > object {
 
 /* CSS form MailChimp 4 WP form */
 .mc4wp-form {
-	width: auto;
+	width: 97%; /* doesn't align with the search widget when 100% (WTF?) */
 } /* the form element */
 
 .mc4wp-form label { 
 	display: none;
 } /* labels */
 
-.mc4wp-form input { 
-	-webkit-box-sizing:border-box;
-	-moz-box-sizing:border-box;
-	box-sizing:border-box;
+.mc4wp-form input {
+	-webkit-box-sizing:content-box;
+	-moz-box-sizing:content-box;
+	box-sizing:content-box;
 	border:1px solid #faf4f4;
 	padding: 6px 6px 5px;
 	margin:0 4px 0 0;
 	line-height:1.2;
 	display: block;
-    font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+    font-family: Inconsolata, monospace;
 	font-size: 1rem;
 	text-align: center;
-	width: 96%;
+	width: 100%;
 } /* input fields */
 
 .mc4wp-form input[type="email"],
@@ -1560,14 +1608,13 @@ span > object {
 .mc4wp-form input[type="submit"] { 
 	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
 	font-size: 0.9rem;
-	width: 96%
+	width: 100%
 } /* submit button */
 
 .mc4wp-success { 
 	color: #0ddb85;
 } /* success message */
 
-.mc4wp-alert,
 .mc4wp-error { 
 	color: #ff00cc;
 	} /* error messages */
@@ -1591,13 +1638,13 @@ button.toggle-comments {
     border-width: 3px;
     background: none;
     padding: 1em;
-    border: #ffaaaa 2px solid;
+    border: #ff91ae 2px solid; /* new pink — VS #ffaaaa */
     text-decoration: none;
     transition: border ease 0.3s;
     font-size: 1rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: #ffaaaa;
+    color: #ff91ae; /* new pink — VS #ffaaaa */
     background-color: transparent;
 }
 .toggle-comments {
@@ -1620,7 +1667,7 @@ button.toggle-comments {
 }
 .bypostauthor .comment-content {
 	color: #422442;
-	background: #fffcfc; /* Highlighting post author for Theme Check */
+	background: #fffcfc; /* Highlight post author for Theme Check */
 	padding: 2px 12px 1px 12px;
 	border-radius: 6px;
 }	
@@ -1652,12 +1699,12 @@ button.toggle-comments {
 	max-width: 696px;
 }
 .comment-author .avatar {
-/*	border-radius: 50%; /* Circle placeholder */
+	border-radius: 6px; /* 50% = Circle placeholder */
 	vertical-align: middle;
 }
 .comments-area {
 	max-width: 696px;
-	font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+	font-family: Inconsolata, monospace;
 	font-size: 1.4rem;
 	line-height: 1.9rem;
 	margin: 0 auto;
@@ -1723,9 +1770,14 @@ button.toggle-comments {
 /*--------------------------------------------------------------
 12.0 Media queries
 --------------------------------------------------------------*/
-@media screen and (min-width: 312px) {
+@media screen and (min-width: 288px) {
 	.wrap {
 		max-width: 264px;
+	}
+}
+@media screen and (min-width: 312px) {
+	.wrap {
+		max-width: 288px;
 	}
 }
 @media screen and (min-width: 456px) {
@@ -1835,7 +1887,7 @@ button.toggle-comments {
 }
 @media screen and (min-width: 1680px) {
 	.wrap {
-		max-width: 1272px;
+		max-width: 1608px;
 	}
 	.format-video .entry-content,
 	.entry-comic .wrap {
@@ -1857,10 +1909,10 @@ button.toggle-comments {
 		letter-spacing: normal; 
 	}
 	.post-parent-title, .post-parent-title a {
-	font-size: 1rem;
+		font-size: 1rem;
 	}
 	/* keep nav comic title aligned with navigation buttons */
-		.entry-comic .navigation-comic .nav-title { 
+	.entry-comic .navigation-comic .nav-title { 
 		font-size: 0.8rem;
 		padding: 0.3em;	
 		width: 19.9%;
@@ -1906,8 +1958,8 @@ button.toggle-comments {
 	.comments-area article,
 	.comment-list .trackback,
 	.comment-list .pingback {
-		margin-bottom: 17px;
-		padding-top: 17px;
+		margin-bottom: 18px;
+		padding-top: 18px;
 	}
 	.comments-area,
 	.comment-meta a {
@@ -1945,7 +1997,7 @@ button.toggle-comments {
 	.entry-comic .navigation-comic .nav-last a {
 		font-size: 0.8rem;
 		width: 48px;
-		padding: 0.6em;
+		padding: 0.4em;
 	}
 	.widget-area {
 		overflow: hidden;
@@ -1958,12 +2010,12 @@ button.toggle-comments {
 		margin: 0 6px;
 	}
 }
-/* Keep videos in a 16:9 ratio on small screens */
-@media screen and (max-width: 384px) {
+/* Keep videos in 16:9 ratio on small screens */
+@media screen and (max-width: 312px) {
 	embed,
 	iframe,
 	object,
 	video {
-    height : 100%;
+    	height : 100%;
     }
 }
