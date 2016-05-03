@@ -4,7 +4,7 @@ Theme URI: https://github.com/SilentComics/Wordpress-Theme-for-Silent-Comics/
 Author: Anh Hoa Si
 Author URI: http://silent-comics.com
 Description: A theme for comics
-Version: 2.5.8 (April 2016) FINE TUNE — Keep styles under 2000 lines — Cross Browsers Testing — Cleanup
+Version: 2.5.8.1 (April 2016) FINE TUNE — Keep styles under 2000 lines — Cross Browsers Testing — Cleanup
 License: GNU General Public License v3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Text Domain: silentcomics
@@ -468,7 +468,7 @@ a:visited {
 a:hover,
 a:focus,
 a:active {
-	color: #ff1200;
+	color: #76ddff;  /* #ff1200 */
 	border: none;
 }
 /*--------------------------------------------------------------
@@ -824,6 +824,7 @@ display:  inline-block;
 	max-width: 988px;
 }
 /* Search widget */
+.no-results .search-field,
 .error404 .search-field,
 .widget_search .search-field,
 .search .search-field,
@@ -831,7 +832,6 @@ display:  inline-block;
 .widget_search .search-form {
 	font-family: Inconsolata, monospace;
 	color: #ff91ae;
-	
 	width: 100%;
 	text-align: center;
 }
@@ -1010,7 +1010,7 @@ article.error404 .widget_calendar tbody a:hover {
     letter-spacing: 0.1em;
 	line-height: 1.4;
 	max-width: 696px;
-	padding: 0; /* previously 8px 0 9px 0 */
+	padding: 6px 0; /* previously 8px 0 9px 0 */
 	text-transform: uppercase;
 }
 .entry-meta span + span:before {
