@@ -1,7 +1,7 @@
 === Silent Comics ===
 Contributors: Anh Hoa Si, SILENT COMICS
 Requires at least: WordPress 4.4
-Version; 2.5.8
+Version; 2.5.8.2
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Tags: white, light, one-column, flexible-header, responsive-layout, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images, post-formats, rtl-language-support, sticky-post, theme-options, translation-ready, blog
