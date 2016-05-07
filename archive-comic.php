@@ -1,6 +1,7 @@
 <?php
 /**
  * Template Name: Archive all comics
+ *
  * The template for displaying comic Archives pages. 
  * This template provides an overview to peruse all stories — it also has links to custom comic posts in a second loop 
  *
@@ -27,12 +28,10 @@ get_header(); ?>
 					</h3>
 					<h2 class="taxonomy-description">
 	<a href="<?php echo esc_url( home_url( '/series/' ) ); ?>">Series</a></h2>
-	
-				
+					
 					<h4 class="series-title">
 					<a href="http://url">Optional series link</a></h4>
-					
-					
+									
 				<?php
 					// Show an optional term description.
 					$term_description = term_description();
@@ -41,24 +40,23 @@ get_header(); ?>
 					endif;
 				?>
 			</header><!-- .page-header -->
-			
-			
-<?php // Create and run first loop in reverse order
+						
+<?php 
+	// Create and run first loop in reverse order
     $comic = new WP_Query();
     $comic = new WP_Query( array(
 					'post_type' 		=> 'comic',
-					//'posts_per_page' 	=> 4,		/* You can change this setting */
+					'posts_per_page' 	=> 12, // optional, changes default Blog pages number "reading settings" set in dashboard
 					'paged'				=> $paged,
 					'orderby'   		=> 'title',
 					'order'   			=> 'DESC',)
 					);
 					
     while ($comic->have_posts()) : $comic->the_post();   
-				
 				get_template_part( 'content-comic' );
-				// to style it like the blog entry page, change to 'content' ?> 
-
-						<?php endwhile;
+				// change to 'content' to style it like the blog entry page 
+				?> 
+					<?php endwhile;
 						wp_reset_postdata(); ?>
 						
 						<?php silentcomics_content_nav( 'nav-below' ); ?>
