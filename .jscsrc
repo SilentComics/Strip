@@ -3,5 +3,6 @@
     "fileExtensions": [ ".js" ],
     "excludeFiles": [
     	"js/**.min.js"
+    	"js/html5.js"
     ]
 }
