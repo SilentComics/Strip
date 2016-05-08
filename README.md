@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/SilentComics/Silent-Comics-Wordpress-Theme.svg?branch=master)](https://travis-ci.org/SilentComics/Silent-Comics-Wordpress-Theme)
+
 WIP WordPress-Theme-for-Silent-Comics
 =================================
 
