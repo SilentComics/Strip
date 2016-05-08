@@ -1,17 +1,17 @@
 <?php
 /**
  * The template for the "example" story pages
- * 
+ *
  * @package SilentComics
  */
- 
+
  get_header(); ?>
 
 	<div id="primary" class="content-area">
 		<div class="wrap" class="site-content" role="main">
-	
+
 	<header class="page-header">
-		
+
 			<?php
 						// Show an optional term description.
 						$term_description = term_description();
@@ -32,10 +32,10 @@ elseif ( get_query_var('page') ) {
 else {
    $paged = 1;
 }
-			
+
 // Call and run loop in ascending order
     $args = array(
-	    	
+
 		'post_type'		 => 'comic',
 		'posts_per_page' => 3, // Must be = or > than number set in function.php, line 663, to avoid breaking pagination
 		'story'			 => 'example', // Replace 'example' by your own story title
@@ -43,16 +43,16 @@ else {
 		'paged' 		 => $paged,
 		'order'  		 => 'ASC'
 	);
-		
+
 		$loop = new WP_Query( $args );
 			// Start the loop
-			if ( $loop->have_posts() ) : 
-    while ($loop->have_posts()) : $loop->the_post();   
-				
+			if ( $loop->have_posts() ) :
+    while ($loop->have_posts()) : $loop->the_post();
+
 		get_template_part( 'content-series' ); ?>
 
 			<?php endwhile;  wp_reset_postdata(); ?>
-			
+
 			<?php
 global $wp_query;
 
@@ -68,7 +68,7 @@ echo paginate_links( array(
 ) );
 
 		else :
-			get_template_part( 'no-results', 'archive-comic' ); 
+			get_template_part( 'no-results', 'archive-comic' );
 		endif; ?>
 
 		</div><!-- #content -->

@@ -39,12 +39,12 @@
 	</div><!-- #secondary -->
 <?php endif; //is_active_sidebar ?>
 		</div>
-		
+
 		<div class="site-info">
-			&copy; SILENT COMICS <?php 
-  $fromYear = 2013; 
-  $thisYear = (int)date('Y'); 
-  echo $fromYear . (($fromYear != $thisYear) ? '-' . $thisYear : '');?> 
+			&copy; SILENT COMICS <?php
+  $fromYear = 2013;
+  $thisYear = (int)date('Y');
+  echo $fromYear . (($fromYear != $thisYear) ? '-' . $thisYear : '');?>
 			<span class="sep"> | </span>
 			<?php do_action( 'silentcomics_credits' );
 				?>
@@ -59,7 +59,7 @@
 </body>
 </html>
 
-<?php //save queries for anlysis http://codex.wordpress.org/Editing_wp-config.php#Save_queries_for_analysis remove this when in production 
+<?php //save queries for anlysis http://codex.wordpress.org/Editing_wp-config.php#Save_queries_for_analysis remove this when in production
 //if ( current_user_can( 'administrator' ) ) {
 //    global $wpdb;
 //    echo "<pre>";

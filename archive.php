@@ -48,7 +48,7 @@ get_header(); ?>
 
 							elseif ( is_tax( 'post_format', 'post-format-aside' ) ) :
 								_e( 'Asides', 'silentcomics' );
-								
+
 								elseif ( is_tax( 'post_format', 'post-format-gallery' ) ) :
 								_e( 'Galleries', 'silentcomics' );
 
@@ -63,19 +63,19 @@ get_header(); ?>
 
 							elseif ( is_tax( 'post_format', 'post-format-link' ) ) :
 								_e( 'Links', 'silentcomics' );
-								
+
 								elseif ( is_tax( 'post_format', 'post-format-audio' ) ) :
 							_e( 'Audios', 'silentcomics' );
 
 							elseif ( is_tax( 'post_format', 'post-format-chat' ) ) :
 							_e( 'Chats', 'silentcomics' );
-							
+
 							elseif ( is_tax( 'story', 'comic' ) ) :
 							_e( 'Stories', 'silentcomics' );
-						
+
 						elseif ( !'comic' == get_post_type() ):
 							_e( 'Comics', 'silentcomics' );
-						
+
 							else :
 								_e( 'Archives', 'silentcomics' );
 

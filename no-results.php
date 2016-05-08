@@ -22,9 +22,9 @@
 		<?php elseif ( is_search() ) : ?>
 
 			<p><?php _e( 'Bummer, I cannot find what you are looking for.<br>Would you like to search in the', 'silentcomics' ); ?>
-			
+
 			<a href="<?php echo get_post_type_archive_link( 'comic' ); ?>">Comics Archive</a>? Great stuff there.</p>
-  
+
 			<p><?php _e('Or do you prefer trying another search with different keywords?', 'silentcomics'); ?></p>
 
 			<?php get_search_form(); ?>

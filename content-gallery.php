@@ -29,10 +29,10 @@ if ( isset( $GLOBALS['content_width'] ) )
 					the_title( '<h1 class="entry-title">', '</h1>' );
 				endif;
 			?>
-					
+
 		<div class="entry-content clear">
 			<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'silentcomics' ) ); ?>
-			
+
 		</div><!-- .entry-content -->
 		</header><!-- .entry-header -->
 

@@ -41,7 +41,7 @@ if ( isset( $GLOBALS['content_width'] ) )
 
 		<div class="entry-content clear">
 			<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'silentcomics' ) ); ?>
-			
+
 		</div><!-- .entry-content -->
 	</div><!-- .entry-wrap -->
 </article><!-- #post-## -->
