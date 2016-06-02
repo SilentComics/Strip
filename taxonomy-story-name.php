@@ -18,7 +18,7 @@
 						if ( ! empty( $term_description ) ) :
 							printf( '<div class="taxonomy-description">%s</div>', $term_description );
 						endif; ?>
-			<h4 class="comic-blurb">This is a blurb — add your own blurb here.</h4>
+			<h4 class="comic-blurb">This is a blurb. Add your own story name blurb here.</h4>
 			</br>
 	</header><!-- .page-header -->
 	<?php
