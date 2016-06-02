@@ -29,7 +29,6 @@ if ( post_type_exists( $post_type )  && is_single() ) {
 
 			</div><!-- #entry-comic -->
 
-
 			<?php  endif; wp_reset_query(); ?>
 
 				<?php

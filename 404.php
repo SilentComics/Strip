@@ -15,7 +15,7 @@ get_header(); ?>
 					<header class="entry-header">
 						<h1 class="entry-title"><?php _e( 'Oops! That page can&rsquo;t be found.', 'silentcomics' ); ?></h1>
 					</header><!-- .entry-header -->
-
+					
 					<div class="entry-content clear">
 						<p><?php _e( 'Nothing was found here. Maybe try one of the links below or a search?', 'silentcomics' ); ?></p>
 

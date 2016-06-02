@@ -38,6 +38,20 @@ if ( ! function_exists( 'silentcomics_setup' ) ) :
 * https://github.com/ResponsiveImagesCG/wp-tevko-responsive-images/tree/dev#advanced-image-compression
 */
 	add_theme_support( 'advanced-image-compression' );
+	
+	// Increase the limit to 1920px if the image is wider than 768px.
+
+function custom_max_srcset_image_width( $max_width, $size_array ) {
+    $width = $size_array[0];
+
+    if ( $width > 768 ) {
+        $max_width = 1920;
+    }
+
+    return $max_width;
+}
+add_filter( 'max_srcset_image_width', 'custom_max_srcset_image_width', 10, 2 );
+
 
 /**
 * Add default posts and comments RSS feed links to head
@@ -48,7 +62,7 @@ if ( ! function_exists( 'silentcomics_setup' ) ) :
 * Enable support for title-tag. Allows themes to add document title tag to HTML <head> (since version 4.1.).
 */
 	add_theme_support( 'title-tag' );
-
+	
 /**
 * Enable support for custom logo.
 *
@@ -73,11 +87,13 @@ if ( ! function_exists( 'silentcomics_setup' ) ) :
 /**
 * Remove default WordPress paragraph tags from around images (fixes layout discrepancy between post with image attachement and galleries)
 * See https://css-tricks.com/snippets/wordpress/remove-paragraph-tags-from-around-images/
+* http://codex.wordpress.org/Function_Reference/wpautop gets the same result but also removes line blocks: remove_filter( 'the_content', 'wpautop' ); 
+*	
 */
 	function filter_ptags_on_images($content){
 	return preg_replace('/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $content);
 	}
-	add_filter('the_content', 'filter_ptags_on_images');
+	add_filter('the_content', 'filter_ptags_on_images');	 	
 
 	/**
 	 * This theme uses wp_nav_menu() in one location.
@@ -124,9 +140,10 @@ if ( ! function_exists( 'silentcomics_setup' ) ) :
 * This theme styles the visual editor to resemble the theme style,
 * specifically font, colors, icons, and column width.
 */
-    add_editor_style( array( 'css/editor-style.css' ) );
-    /** add silentcomics_fonts_url() if you use Google Webfonts:
-    * add_editor_style( array( 'css/editor-style.css', silentcomics_fonts_url() ) );
+    add_editor_style( array( 'css/editor-style.css', 'fonts/fenix.css' ) );
+    
+    /** add silentcomics_fonts_url() if you want to use Google Webfonts:
+    // add_editor_style( array( 'css/editor-style.css', silentcomics_fonts_url() ) ); 
     */
 
 	// Indicate widget sidebars can use selective refresh in the Customizer. https://make.wordpress.org/core/2016/03/22/implementing-selective-refresh-support-for-widgets/
@@ -238,7 +255,7 @@ function silentcomics_update_menus() {
 }
 
 /**
-* Google Webfonts
+* Google Webfonts 
 * Font URLs function http://themeshaper.com/2014/08/13/how-to-add-google-fonts-to-wordpress-themes/
 */
 //function silentcomics_fonts_url() {
@@ -273,14 +290,16 @@ function silentcomics_update_menus() {
  */
 function silentcomics_scripts() {
 	// add custom font here if any
-	wp_enqueue_style( 'fenix', get_template_directory_uri() . '/fonts/stylesheet.css', array(), null );
+	wp_enqueue_style( 'fenix', get_template_directory_uri() . '/fonts/fenix.css', array(), null );
+	
+	wp_enqueue_style( 'inconsolata', get_template_directory_uri() . '/fonts/inconsolata.css', array(), null );
 
-	// Add custom fonts, used in the main stylesheet.
+	// Add custom fonts, used in the main stylesheet. (if using Google Fonts)
     //wp_enqueue_style( 'silentcomics-fonts', silentcomics_fonts_url(), array(), null );
-
+    	
 	// Theme stylesheet
 	wp_enqueue_style( 'silentcomics-style', get_stylesheet_uri() );
-
+	
 	// Load the Internet Explorer specific stylesheet. Conditional stylesheet — tested and works with IE9 on Windows7
 	wp_enqueue_style( 'silentcomics-ie', get_template_directory_uri() . '/css/ie.css', array( 'silentcomics-style' ), '20160305' );
 	wp_style_add_data( 'silentcomics-ie', 'conditional', 'lt IE 10' );
@@ -293,7 +312,7 @@ function silentcomics_scripts() {
 	wp_script_add_data( 'silentcomics-html5', 'conditional', 'lt IE 9' );
 
 	wp_enqueue_script( 'silentcomics-skip-link-focus-fix', get_template_directory_uri() . '/js/min/skip-link-focus-fix-min.js', array(), '20130115', true );
-
+	
 	// toggle comments js
 	wp_enqueue_script( 'silentcomics-toggle-comments', get_template_directory_uri() . '/js/min/toggle-comments-min.js', array( 'jquery' ), '20160401', false );
 
@@ -337,15 +356,13 @@ require get_template_directory() . '/inc/jetpack.php';
 * Register RoyalSLider
 */
 
-//register_new_royalslider_files(1);
+//register_new_royalslider_files(1); 
 
 /**
 * MailChimp for WordPress
 */
-
-
- function wp_enqueue_mc4wp_style(){
-
+function wp_enqueue_mc4wp_style(){
+	
 	wp_register_style( 'mc4wp', get_template_directory_uri() . '/library/css/mc4wp.css' );
 	if ( class_exists( 'mc4wp_form_css_classes' ) ) {
 	    wp_enqueue_style( 'mc4wp' );
@@ -354,9 +371,9 @@ require get_template_directory() . '/inc/jetpack.php';
 
 add_action( 'wp_enqueue_scripts', 'wp_enqueue_mc4wp_style' );
 /**
-* Get the first image in a post
+* Get the first image in a post 
 * See https://css-tricks.com/snippets/wordpress/get-the-first-image-from-a-post/
-*/
+*/	
 function catch_first_image() {
 global $post, $posts;
 $first_img = '';
@@ -382,7 +399,7 @@ add_filter ('first_img', 'catch_first_image');
 * http://stackoverflow.com/questions/19802157/change-wordpress-default-gallery-output
 */
 
-/**
+/**		
 * Register Custom Post Type — code generated by the CPT UI plugin with adaptation
 */
 function comic_post_type() {
@@ -390,8 +407,8 @@ function comic_post_type() {
 	$labels = array(
 		'name'                => _x( 'Comics', 'Post Type General Name', 'silentcomics' ),
 		'singular_name'       => _x( 'Comic', 'Post Type Singular Name', 'silentcomics' ),
-		'menu_name'           => __( 'Comics', 'silentcomics' ),
-		'name_admin_bar'      => __( 'Comic', 'silentcomics' ),
+		'menu_name'           => _x( 'Comics', 'admin menu', 'silentcomics' ),
+		'name_admin_bar'      => _x( 'Comic', 'add new on admin bar', 'silentcomics' ),
 		'parent_item_colon'   => __( 'Parent Comic:', 'silentcomics' ),
 		'all_items'           => __( 'All Comics', 'silentcomics' ),
 		'add_new_item'        => __( 'Add New Comic', 'silentcomics' ),
@@ -407,11 +424,15 @@ function comic_post_type() {
 		'items_list_navigation' => __( 'Comics list navigation', 'silentcomics' ),
 		'filter_items_list'     => __( 'Filter Comics list', 'silentcomics' ),
 	);
+	
+	$supports            = array( 'title', 'editor', 'excerpt', 'trackbacks', 'custom-fields', 'comments', 'revisions', 'thumbnail', 'author', 'archive',
+	);
+	
 	$args = array(
 		'label'               => __( 'Comic', 'silentcomics' ),
 		'description'         => __( 'Publish Comics and Webcomics', 'silentcomics' ),
 		'labels'              => $labels,
-		'supports'            => array( 'title', 'editor', 'excerpt', 'trackbacks', 'custom-fields', 'comments', 'revisions', 'thumbnail', 'author', 'archive'),
+		'supports'			  => $supports,
 		'taxonomies'          => array( 'story', 'story_term', 'draft' ),
 		'hierarchical'        => true,
 		'public'              => true,
@@ -430,33 +451,19 @@ function comic_post_type() {
 		'capability_type'     => 'post',
 	);
 	register_post_type( 'comic', $args );
-	register_taxonomy_for_object_type( 'story', 'comic' );
-	register_taxonomy( 'story', // register custom taxonomy - comic story
-			'comic',
-			array( 'hierarchical' => true,
-				'label' => 'Stories'
-			)
-		);
 }
 
 // Hook into the 'init' action
 add_action( 'init', 'comic_post_type', 0 );// End of register_cpt_comic()
 
-function silentcomics_rewrite_rules() {
-    flush_rewrite_rules();
-}
-/* Flush rewrite rules for custom post types. */
-add_action( 'after_switch_theme', 'silentcomics_rewrite_rules' );
-
-
 // Register Custom Taxonomy 'story'
 function comic_story_taxonomy() {
 
 	$labels = array(
-		'name'                       => _x( 'Story', 'Taxonomy General Name', 'silentcomics' ),
-		'singular_name'              => _x( 'Story', 'Taxonomy Singular Name', 'silentcomics' ),
-		'menu_name'                  => __( 'Stories', 'silentcomics' ),
-		'all_items'                  => __( 'All Stories', 'silentcomics' ),
+		'name'                       => _x( 'Comic Story', 'Taxonomy General Name', 'silentcomics' ),
+		'singular_name'              => _x( 'Comic Story', 'Taxonomy Singular Name', 'silentcomics' ),
+		'menu_name'                  => __( 'Comic Stories', 'silentcomics' ),
+		'all_items'                  => __( 'All Comic Stories', 'silentcomics' ),
 		'parent_item'                => __( 'Parent Story', 'silentcomics' ),
 		'parent_item_colon'          => __( 'Parent Story:', 'silentcomics' ),
 		'new_item_name'              => __( 'New Comic Story', 'silentcomics' ),
@@ -465,16 +472,17 @@ function comic_story_taxonomy() {
 		'update_item'                => __( 'Update Story', 'silentcomics' ),
 		'view_item'                  => __( 'View Item', 'silentcomics' ),
 		'separate_items_with_commas' => __( 'Separate stories with commas', 'silentcomics' ),
-		'add_or_remove_items'        => __( 'Add or remove stories', 'silentcomics' ),
+		'add_or_remove_items'        => __( 'Add or Remove Stories', 'silentcomics' ),
 		'choose_from_most_used'      => __( 'Choose from the most used stories', 'silentcomics' ),
-		'popular_items'              => __( 'Popular Items', 'silentcomics' ),
-		'search_items'               => __( 'Search stories', 'silentcomics' ),
-		'not_found'                  => __( 'Not Found', 'silentcomics' ),
-		'items_list'                 => __( 'Stories list', 'silentcomics' ),
-		'items_list_navigation'      => __( 'Stories list navigation', 'silentcomics' ),
+		'popular_items'              => NULL, // __( 'Popular comic stories', 'silentcomics' )
+		'search_items'               => __( 'Search Stories', 'silentcomics' ),
+		'not_found'                  => __( 'No comic Stories found', 'silentcomics' ),
+		'items_list'                 => __( 'Comic Stories list', 'silentcomics' ),
+		'items_list_navigation'      => __( 'Comic Stories list navigation', 'silentcomics' ),
 	);
 	$args = array(
 		'labels'                     => $labels,
+		'label'						 => 'Stories',
 		'hierarchical'               => true,
 		'public'                     => true,
 		'show_ui'                    => true,
@@ -485,47 +493,54 @@ function comic_story_taxonomy() {
 		'rewrite'          			 => array( 'slug' => 'story' ),
 	);
 	register_taxonomy( 'story', array( 'comic' ), $args );
+	register_taxonomy_for_object_type( 'story', 'comic' );
 }
 
 // Hook into the 'init' action
 add_action( 'init', 'comic_story_taxonomy', 0 );
 
-// Add new taxonomy, NOT hierarchical (like tags)
+function silentcomics_rewrite_rules() {
+    flush_rewrite_rules();
+}
+/* Flush rewrite rules for custom post types. */
+add_action( 'after_switch_theme', 'silentcomics_rewrite_rules' );
+
+
+// Add Print taxonomy, NOT hierarchical (like tags)
+// Register Custom Taxonomy
 	$labels = array(
-		'name'                       => _x( 'Prints', 'taxonomy general name', 'silentcomics' ),
-		'singular_name'              => _x( 'Print', 'taxonomy singular name', 'silentcomics' ),
-		'search_items'               => __( 'Search Prints', 'silentcomics' ),
-		'popular_items'              => __( 'Popular Prints', 'silentcomics' ),
+		'name'                       => _x( 'Prints', 'Taxonomy General Name', 'silentcomics' ),
+		'singular_name'              => _x( 'Print', 'Taxonomy Singular Name', 'silentcomics' ),
+		'menu_name'                  => __( 'Print', 'silentcomics' ),
 		'all_items'                  => __( 'All Prints', 'silentcomics' ),
-		'parent_item'                => null,
-		'parent_item_colon'          => null,
-		'edit_item'                  => __( 'Edit Print', 'silentcomics' ),
-		'update_item'                => __( 'Update Print', 'silentcomics' ),
+		'parent_item'                => __( 'Parent Print', 'silentcomics' ),
+		'parent_item_colon'          => __( 'Parent Print:', 'silentcomics' ),
+		'new_item_name'              => __( 'New Print Name', 'silentcomics' ),
 		'add_new_item'               => __( 'Add New Print', 'silentcomics' ),
-		'new_item_name'              => __( 'New Author Name', 'silentcomics' ),
+		'edit_item'                  => __( 'Edit Print', 'silentcomics' ),
+		'update_item'                => __( 'Update Pring', 'silentcomics' ),
+		'view_item'                  => __( 'View Print', 'silentcomics' ),
 		'separate_items_with_commas' => __( 'Separate prints with commas', 'silentcomics' ),
 		'add_or_remove_items'        => __( 'Add or remove prints', 'silentcomics' ),
-		'choose_from_most_used'      => __( 'Choose from the most used prints', 'silentcomics' ),
-		'not_found'                  => __( 'No prints found.', 'silentcomics' ),
-		'menu_name'                  => __( 'Prints', 'silentcomics' ),
+		'choose_from_most_used'      => __( 'Choose from the most used', 'silentcomics' ),
+		'popular_items'              => __( 'Popular Prints', 'silentcomics' ),
+		'search_items'               => __( 'Search Prints', 'silentcomics' ),
+		'not_found'                  => __( 'Not Found', 'silentcomics' ),
+		'no_terms'                   => __( 'No prints', 'silentcomics' ),
+		'items_list'                 => __( 'Prints list', 'silentcomics' ),
+		'items_list_navigation'      => __( 'Prints list navigation', 'silentcomics' ),
 	);
 
 	$args = array(
-		'hierarchical'          => false,
-		'labels'                => $labels,
-		'show_ui'               => true,
-		'show_admin_column'     => true,
-		'update_count_callback' => '_update_post_term_count',
-		'query_var'             => true,
-		'rewrite'               => array( 'slug' => 'prints' ),
+		'labels'                     => $labels,
+		'hierarchical'               => false,
+		'public'                     => true,
+		'show_ui'                    => true,
+		'show_admin_column'          => true,
+		'show_in_nav_menus'          => true,
+		'show_tagcloud'              => true,
 	);
-
-	register_taxonomy( 'print', // register custom taxonomy - comic tag
-			'comic',
-			array( 'hierarchical' => false,
-				'label' => 'Prints'
-			)
-		);
+	register_taxonomy( 'print', array( 'comic' ), $args );
 
 /*
 * WooCommerce Hooks
@@ -557,7 +572,7 @@ add_action( 'after_setup_theme', 'woocommerce_support' );
 function woocommerce_support() {
 	    add_theme_support( 'woocommerce' );
 	    }
-
+	    
 /**
 * Remove each WooCommerce style one by one, if needed
 * see https://docs.woothemes.com/document/disable-the-default-stylesheet/
@@ -573,7 +588,7 @@ function woocommerce_support() {
 
  // Enqueue the theme's own style for WooCommerce
  function wp_enqueue_woocommerce_style(){
-
+	
 	wp_register_style( 'silentcomics-woocommerce', get_template_directory_uri() . '/library/css/woocommerce-min.css' );
 	if ( class_exists( 'woocommerce' ) ) {
 	    wp_enqueue_style( 'silentcomics-woocommerce' );
@@ -591,11 +606,11 @@ add_action( 'wp_enqueue_scripts', 'wp_enqueue_woocommerce_style' );
 * also: http://dessky.com/blog/disable-woocommerce-scripts-and-styles/
 */
 add_action( 'wp_enqueue_scripts', 'silentcomics_manage_woocommerce_styles', 99 );
-
+ 
 function silentcomics_manage_woocommerce_styles() {
 	//remove generator meta tag
 	//remove_action( 'wp_head', array( $GLOBALS['woocommerce'], 'generator' ) );
-
+	
 	//first check that woo exists to prevent fatal errors
 	if ( function_exists( 'is_woocommerce' ) ) {
 		//dequeue scripts and styles, unless we're in the store
@@ -634,19 +649,9 @@ function silentcomics_manage_woocommerce_styles() {
 	}
 }
 
-/*
-* Enables Jetpack's Infinite Scroll for home (blog), disables it in WooCommerce product archives
-* @return bool
-* https://wordpress.org/support/topic/suppress-infinite-blog-with-woocommerce
-*/
-function silentcomics_jetpack_infinite_scroll_supported() {
-	return current_theme_supports( 'infinite-scroll' ) && ( is_admin() || is_home() || is_search()  && ! is_post_type_archive( 'product' ) );
-}
-add_filter( 'infinite_scroll_archive_supported', 'silentcomics_jetpack_infinite_scroll_supported' );
-
 /**
 * Set posts, WooCommerce products & comics number per archive page
-* Fixes 404 error on pagination due to CTP conflicting with WordPress posts_per_page default
+* Fixes 404 error on pagination due to CTP conflicting with WordPress posts_per_page default 
 * see http://wordpress.stackexchange.com/questions/30757/change-posts-per-page-count/30763#30763
 */
 add_action( 'pre_get_posts',  'silentcomics_set_posts_per_page'  );
@@ -663,7 +668,7 @@ function silentcomics_set_posts_per_page( $query ) {
   elseif ( ( ! is_admin() ) && ( $query === $wp_the_query ) && ( $query->is_archive() )  && (is_tax('story') ) ) {
     $query->set( 'posts_per_page', 3 );
   }
-
+  
   return $query;
 }
 
@@ -715,3 +720,23 @@ return $content;
     }
     // Add the function to the save_post hook so it runs when posts are saved
     add_action( 'save_post', 'save_post_delete_story_transient' );
+
+/*
+Remove query strings from CSS and JS inclusions
+*/
+function _remove_script_version($src) {
+   $parts = explode('?ver', $src);
+   return $parts[0];
+}
+add_filter('style_loader_src', '_remove_script_version', 15, 1);
+add_filter('script_loader_src', '_remove_script_version', 15, 1);
+    
+/*
+Remove jquery migrate for enhanced performance
+*/
+function remove_jquery_migrate($scripts) {
+   if (is_admin()) return;
+   $scripts->remove('jquery');
+   $scripts->add('jquery', false, array('jquery-core'), '1.10.2');
+}
+add_action('wp_default_scripts', 'remove_jquery_migrate');

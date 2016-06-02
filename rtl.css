@@ -9,9 +9,165 @@ http://codex.wordpress.org/Right_to_Left_Language_Support
 
 */
 
-/*
+/**
+ * 1.0 - Normalize
+ */
 body {
 	direction: rtl;
 	unicode-bidi: embed;
 }
-*/
+
+/*--------------------------------------------------------------
+3.0 Elements
+--------------------------------------------------------------*/
+
+caption,
+th,
+td {
+	text-align: right;
+}
+
+
+/*--------------------------------------------------------------
+10.4 Comics
+--------------------------------------------------------------*/
+.comic .entry-title {
+	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+	font-size: 24px;
+	font-size: 1.5rem;
+	font-weight: 400;
+	line-height: 1.2;
+	color: #f3e7e7;
+	margin-bottom: 0.75em; /* 1em = 24px */
+}
+.archive .entry-comic {
+	margin-bottom: 2em;
+}
+.comic .categories-links a {
+	color: #422424;
+}
+.comic .post-edit-link {
+    padding: 9px 6px 6px 6px;
+    font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+    font-size: 10px;
+    font-size: 0.625rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: black;
+    background-color: #ffff00;
+    text-align: left;
+}
+.comic .entry-meta {
+	float: right; /* aligns horizontally with categories-links */	
+	text-align: right;
+	vertical-align: bottom;
+	height: 0;
+}
+.single-comic .entry-meta {
+	display: none;
+}
+.navigation-comic a {
+	text-decoration: none; /* accessibility: remove to highlight link on hover */
+}
+.navigation-comic {
+	display: box; /* Fallback for pre 2009 browsers syntax */
+	display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+	display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+	display: -ms-flexbox;      /* TWEENER - IE 10 */
+	display: -webkit-flex;     /* NEW - Chrome */         
+	display: flex; /* NEW, Spec - Opera 12.1, Firefox 20+ */
+	justify-content: space-between;
+	width: 100%;
+}
+.navigation-comic .nav-first,
+.navigation-comic .nav-previous {
+	text-align: right;
+	width: 19.9%;
+}
+.navigation-comic .nav-last,
+.navigation-comic .nav-next {
+	text-align: left;
+	width: 19.9%;
+}
+.navigation-comic .nav-title,
+.navigation-comic .nav-title a {
+	text-align: center;
+  	color: black;
+	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+	font-size: 12px;
+	font-size: 0.75rem;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+}
+.navigation-comic .nav-title a:hover,
+.comic-episode, .comic-episode a:hover {
+  color: #ff7369;
+}
+.navigation-comic .nav-previous a,
+.navigation-comic .nav-next a,
+.navigation-comic .nav-first a,
+.navigation-comic .nav-last a {
+	background: #faf4f4;
+	border-radius: 3px;
+	color: #c9a6ab;
+	display: inline-block;
+	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+	font-size: 12px;
+	font-size: 0.75rem;
+	letter-spacing: 0.12em;
+	text-align: center;
+	padding: 0.6em;
+	width: 96px;
+	text-transform: uppercase;
+}
+.navigation-comic .nav-previous a:hover,
+.navigation-comic .nav-next a:hover,
+.navigation-comic .nav-first a:hover,
+.navigation-comic .nav-last a:hover {
+	background: #ff7369;
+	color: #fff;
+}
+.series-title, .series-title a, .series-title li,
+.post-parent-title, .post-parent-title a {
+	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+	color: black;
+	font-size: 12px;
+	font-size: 0.75rem;
+	line-height: 1.2;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	text-align: center;
+	margin-top: 12px;
+}
+.post-parent-title {
+	display: inline-block; /* rather than inline-block */
+    margin: 0 auto; 
+    width: 100%;
+}
+/* the comic page title */
+.page-title, 
+.taxonomy-description {
+	font: italic 400 24px/1 Futura, "Trebuchet MS", Arial, sans-serif;
+	margin-bottom: 0.6em;
+	text-align: center;
+}
+.taxonomy-description a {
+	font: 400 24px/1 Futura, "Trebuchet MS", Arial, sans-serif;
+	color: white;
+	text-transform: uppercase;
+	background-color: #EFE9EA;
+	padding: 4px;
+}
+/* comics blurb */
+.comic-blurb,
+.author-description {
+	margin: auto;
+	max-width: 696px;
+	background-color: #faf4f4;
+	font-family:'Fenix', Georgia, serif;
+	text-align: left;
+	padding: 1.2em;
+	font-size: 16px;
+	font-size: 1rem;
+	line-height: 1.2;
+}

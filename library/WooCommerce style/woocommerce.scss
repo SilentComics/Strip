@@ -1,4 +1,4 @@
-/*
+/*!
 Site Name: SILENT COMICS
 Author: Anh Hoa	Si
 
@@ -17,7 +17,7 @@ https://docs.woothemes.com/documentation/plugins/woocommerce/
 .woocommerce-content  {
 	clear: none; /* is this needed? */ 
 	margin: 0 auto;
-	max-width: 988px; /* could be 988px, or even 1272 if you want a larger product page display */
+	max-width: 984px; /* could be 984px, or even 1272 if you want a larger product page display */
 }
 
 .woocommerce .custom-logo,
@@ -103,7 +103,7 @@ p.demo_store{
 
 .woocommerce-content .woocommerce-description {
 	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
-	font-size: 1rem;
+	font-size: 0.625rem;
 }
 .woocommerce-content #toggle-comments-container,
 #reviews .woocommerce-content .toggle-comments,
@@ -117,7 +117,9 @@ p.demo_store{
 .woocommerce input[type="text"],
 .woocommerce input[type="email"],
 .woocommerce input[type="tel"],
-.woocommerce input[type="number"] {
+.woocommerce input[type="number"],
+.woocommerce input[type="country"],
+.woocommerce #select2-drop {
 	font-family:'Fenix', Georgia, serif;
 	font-size: medium;
 }
@@ -142,10 +144,10 @@ p.demo_store{
 	background: #422442; /* #00bbbb seablue */
 	cursor: pointer;
 	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
-	font-size: 1rem;
+	font-size: 0.6em;
 	letter-spacing: 0.12em;
 	text-align: center;
-	padding: 1rem;
+	padding: 1.2em;
 	text-transform: uppercase;
 	width: auto; 
 }
@@ -176,6 +178,9 @@ p.demo_store{
 	background-color: #0ddb85;
 }
 
+.woocommerce .search-field {
+	font-size: small;
+}
 /* MailChimp for WordPress style */
 .woocommerce .mc4wp-form input { 
 	-webkit-box-sizing:border-box;
@@ -187,14 +192,14 @@ p.demo_store{
 	line-height:1.2;
 	display: block;
     font-family: Inconsolata, monospace;
-	font-size: 1rem;
+	font-size: 0.875rem;
 	text-align: center;
 	width: 100%;
 } /* input fields */
 
 .woocommerce .mc4wp-form input[type="submit"] { 
 	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
-	font-size: 0.9rem;
+	font-size: 0.625rem;
 	width: 100%
 } /* submit button */
 
@@ -263,11 +268,10 @@ p.demo_store{
 	font-size: large;
 	letter-spacing: 0.1em;
 }
-.woocommerce-cart .woocommerce-checkout,
-.woocommerce-cart .payment_box.payment_method_bacs,
-#select2-drop {
-	font-size: medium;
-	display: none;
+
+.woocommerce .woocommerce-checkout,
+.woocommerce .payment_box.payment_method_bacs {
+  font-size: medium; 
 }
 
 .woocommerce .shop_table.cart {

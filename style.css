@@ -3,13 +3,13 @@ Theme Name: SilentComics
 Theme URI: https://github.com/SilentComics/Wordpress-Theme-for-Silent-Comics/
 Author: Anh Hoa Si
 Author URI: http://silent-comics.com
-Description: A theme for comics
-Version: 2.5.8.2 (6 MAY 2016) CSS update
+Description: A WordPress theme for comics and webcomics
+Version: 2.5.9 (MAY 2016)
 License: GNU General Public License v3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Text Domain: silentcomics
 Domain Path: /languages/
-Tags: white, light, one-column, flexible-header, responsive-layout, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images, post-formats, rtl-language-support, sticky-post, theme-options, translation-ready
+Tags: one-column, flexible-header, grid-layout, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images, post-formats, rtl-language-support, sticky-post, theme-options, custom-logo, translation-ready, blog
 
 This theme is licensed under the GPL, and is based on Underscores http://underscores.me/, (C) 2012-2016 Automattic, Inc.
 */
@@ -31,10 +31,11 @@ This theme is licensed under the GPL, and is based on Underscores http://undersc
 10.0 - Content
 	10.1 - Posts and pages
 	10.2 - Post Formats
-	10.3 — Media / Galleries
-	10.4 - Comics
-	10.5 - Comments
-	10.6 - Footer
+	10.3 — Author Index
+	10.4 — Media / Galleries
+	10.5 - Comics
+	10.6 - Comments
+	10.7 - Footer
 11.0 - Plugin specific
 	11.1 — MailChimp for WordPress
 	11.2 — RoyalSlider
@@ -153,23 +154,24 @@ input,
 optgroup,
 select,
 textarea {
-  color: inherit;
-  font: inherit;
-  margin: 0; }
+	color: inherit;
+	font: inherit;
+	margin: 0; }
 
 button {
-  overflow: visible; }
+	overflow: visible; }
 
 button,
 select {
-  text-transform: none; }
+	text-transform: none; }
 
 button,
 html input[type="button"],
 input[type="reset"],
 input[type="submit"] {
-  -webkit-appearance: button;
-  cursor: pointer; }
+	-moz-appearance: button;
+	-webkit-appearance: button;
+	cursor: pointer; }
 
 button[disabled],
 html input[disabled] {
@@ -177,19 +179,25 @@ html input[disabled] {
 
 button::-moz-focus-inner,
 input::-moz-focus-inner {
-  border: 0;
-  padding: 0; }
+	border: 0;
+	padding: 0; }
 
 input[type="search"] {
-  -webkit-appearance: textfield;
-  box-sizing: content-box; }
+	-webkit-appearance: textfield;
+	-moz-appearance: textfield;
+	box-sizing: content-box; }
 
 /*--------------------------------------------------------------
 2.0 Typography
 --------------------------------------------------------------*/
 /* =Global */
-html { font-size: 62.5%; } 
-body { font-size: 24px; font-size: 2.4rem; } /* =24px */
+body,
+button,
+input,
+select,
+textarea {
+	font-size: 24px; 
+	font-size: 1.5rem; } /* =24px */
 
 body {
 	color: #422442;
@@ -197,12 +205,19 @@ body {
 	line-height: 1.2;
 }
 
-h2, h3, h4, h5, h6 {
+h2, h3, h4 {
 	clear: both;
 	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
 	font-weight: 300;
-	line-height: 1;
+	line-height: 1.2;
 }
+
+h5, h6  { /* used for small prints */
+	font-family: Helvetica, "Helvetica Neue", Arial, sans-serif; 
+	font-weight: 100;
+	line-height: 1.2;
+	} 
+
 p {
 	margin-bottom: 1.5em;
 }
@@ -216,11 +231,15 @@ blockquote {
 address {
 	margin: 0 0 1.5em;
 }
+
+pre, code, kbd, tt, var {
+	font-family: Inconsolata, monospace; 
+	font-size: 16px;
+	font-size: 1rem;
+}
 pre {
 	background: #faf4f4;
-	font-family: Inconsolata, monospace;
-	font-size: medium;
-	color: #422442;
+	color: #422442; 
 	max-width: 100%;
 	overflow: auto;
 	padding: 1.76em;
@@ -228,15 +247,10 @@ pre {
 	white-space: pre-wrap;
 	word-wrap: break-word;
 }
-/* Do not show the outline on the skip link target. */
-#content[tabindex="-1"]:focus {
-	outline: 0;
-}
+
 code, kbd, tt, var {
-	font-family: Inconsolata, monospace;
 	background: #faf4f4;
 	padding: 4px;
-	font-size: medium;
 	vertical-align: middle;
 }
 abbr, acronym {
@@ -252,8 +266,8 @@ big {
 }
 
 /* Selection */
-::-selection{background:#FF7369;color:#ffffff;}
-::-moz-selection{background:#FF7369;color:#ffffff;}
+::-selection{background:#ff7369;color:#ffffff;}
+::-moz-selection{background:#ff7369;color:#ffffff;}
 img selection{background:transparent;}
 img -moz-selection{background:transparent;	
 }
@@ -285,7 +299,7 @@ hr {
 	height: 1px;
 	margin-bottom: 1.5em;
 }
-li{
+li {
 	list-style: none;
 }
 ul, ol {
@@ -308,10 +322,9 @@ img {
 	height: auto; /* Make sure images are scaled correctly. */
 	max-width: 100%; /* Adhere to container width. */
 }
-
 .entry-content table,
 .comment-content table {
-	font-size: medium;
+	font-size: large; /* change */
 }
 table {
   border-collapse: separate;
@@ -365,7 +378,7 @@ button {
 }
 input,
 textarea {
-	background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)); /* Removing the inner shadow, rounded corners on iOS inputs */
+	background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)); /* Removing the inner shadow, rounded corners on iOS inputs */ /* CSS Lint: Missing vendor-prefixed CSS gradient ... input */
 }
   
 button,
@@ -376,11 +389,12 @@ input[type="submit"] {
 	-moz-appearance: button;
 	-webkit-appearance: button;
 	border: 0;
-	background: #ff91ae; /* #FF7369; base pink #ff91ae pinker */
+	background: #ff91ae; /* #ff7369; base pink #ff91ae pinker */
 	color: #fff;
 	cursor: pointer;
 	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
-	font-size: 0.8rem;
+	font-size: 8px;
+	font-size: 0.5rem;
 	letter-spacing: 0.12em;
 	padding: 10px;
 	text-transform: uppercase;
@@ -425,7 +439,7 @@ textarea {
   border: 1px solid #f4f4f4;
   border-radius: 3px;
   font-family: Inconsolata, monospace; 
-  }
+}
   input[type="text"]:focus,
   input[type="email"]:focus,
   input[type="url"]:focus,
@@ -443,7 +457,7 @@ textarea {
   input[type="color"]:focus,
   textarea:focus {
   color: #111; 
- }
+}
     
 select {
 	border: 1px solid #ccc; 
@@ -478,7 +492,7 @@ input[type="color"] {
 5.1 Links
 --------------------------------------------------------------*/
 a:link {
-	color: #FF7369;
+	color: #ff7369;
 	text-decoration: none;
 }
 a:visited {
@@ -488,15 +502,14 @@ a:visited {
 a:hover,
 a:focus,
 a:active {
-	color: #ff1200;  /* #ff1200 */
+	color: #ff1200; 
+	text-decoration: underline; /* accessibility */
 	border: none;
 }
 /*--------------------------------------------------------------
 5.2 Menus
 --------------------------------------------------------------*/
-/*
- * Site Logo support since WP 4.5
- */
+/* Site Logo support since WP 4.5 */
 .custom-logo-link {
 	display: block;
 }
@@ -507,9 +520,7 @@ a:active {
 	max-width: 312px;
 } 
 .wp-custom-logo .site-header-main {
-	-webkit-align-items: center;
-	-ms-flex-align: center;
-	align-items: center;
+	margin: 0 auto;
 }
 
 /* author's custom style (svg logo)
@@ -584,15 +595,15 @@ a:active {
 /* =Menu
 ----------------------------------------------- */
 .main-navigation {
-	clear: both;
+	position: relative;
 	display: block;
+	clear: both;
 	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
-	font-size: 1.6rem;
+	font-size: 16px;
+	font-size: 1rem;
 	letter-spacing: 0.24em;
 	text-transform: uppercase;
 	width: 100%;
-	position: relative;
-	z-index: 5;
 }
 .main-navigation .menu {
 	max-width: 1920px;
@@ -603,8 +614,7 @@ a:active {
 	margin: 0;
 	padding-left: 0;
 	text-align: center;
-	position: relative;
-	z-index: 5;
+	z-index: 9999; /* or 5? whatever */
 }
 .main-navigation li {
 	display: inline-block;
@@ -621,54 +631,71 @@ a:active {
 .main-navigation a:hover {
 	background: #faf4f4;
 }
-.main-navigation .current_page_item > a,
-.main-navigation .current-menu-item > a {
-	color: #FF7369;
-}
 .main-navigation a:active {
 	background: #faf4f4;
 	color: white;
-	/* padding: 10px 6px 6px 10px; /* can remove */ 
 }
 .main-navigation ul ul {
 	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
-	display: none;
 	position: absolute;
+	/*z-index: 99999;*/
+    display: none;
 }
 .main-navigation ul ul ul a {
 	background: #00ffcc;
 	top: 0;
 }
-.main-navigation ul ul a {
+.main-navigation ul ul a { 
+	width: 196px; 
 	color: black;
+	background: #faf4f4;
 	line-height: 1.6;
-	background-color: #faf4f4;
 	padding: 0.4em;
 	margin: 0.1em;
 	white-space: nowrap;
-	width: 196px;
 }
-.main-navigation ul ul a:hover {
+
+/*.main-navigation ul ul :hover > a {} */
+
+.main-navigation ul ul a:hover,
+.main-navigation ul ul a:focus {
 	background-color: black;
 	color: #fff;
 }
-.main-navigation ul li:hover > ul {
-	display: block;
+.main-navigation ul li:hover > ul { display: block; }
+.main-navigation .current_page_item > a,
+.main-navigation .current-menu-item > a,
+.main-navigation .current_page_item > a:hover,
+.main-navigation .current-menu-item > a:hover,
+.main-navigation .current_page_item > a:focus,
+.main-navigation .current-menu-item > a:focus {
+    color: #ff7369;
+}
+
+.main-navigation .current_page_ancestor {
+    background: #faf4f4;
+}
+
+.main-navigation ul ul .current_page_parent,
+.main-navigation .current_page_parent .current_page_item > a {
+    color: #ffcc00;
+    background: #faf4f4;
 }
 
 /* Small menu */
 .menu-toggle {
 	display: none;
 	cursor: pointer;
-	font: 400 1.4rem/1.2 Futura, "Trebuchet MS", Arial, sans-serif;
 	margin: 0 auto;
 }
+
 button.menu-toggle {
 	border: 0;
 	color: black;
 	background: #faf4f4;
 	cursor: pointer;
-	font-size: 1.4rem;
+	font-size: 14px;
+	font-size: 0.875rem;
 	letter-spacing: 0.2em;
 	padding: 6px;
 	text-align: center;
@@ -679,17 +706,97 @@ button.menu-toggle:hover {
 }
 
 @media screen and (max-width: 600px) {
-	.menu-toggle,
-	.toggled .nav-menu {
-		display: block;
+.menu-toggle,
+.toggled .nav-menu {
+	display: block;
 	}
 	.main-navigation {
-	font-size: 1.2rem;
-		line-height: 1.4;
+	font-size: 12px;
+	font-size: 0.75rem;
+	line-height: 1.4;
     }
-	.main-navigation ul {
+.main-navigation ul {
 		display: none;
 	}
+}
+
+/*--------------------------------------------------------------
+5.3 Site, posts and pages navigation
+--------------------------------------------------------------*/
+.site-content .comment-navigation,
+.site-content .paging-navigation,
+.site-content .post-navigation
+.site-content .image-navigation {
+	margin: 0 0 1em;
+	overflow: hidden;
+}
+.site-content [class*="navigation"] {
+	overflow: hidden;
+	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+	font-size: 14px;
+	font-size: 0.875rem;
+	font-weight: 300;
+	line-height: 2;
+    }   
+.post-navigation .meta-nav {
+	color: #c9a6ab;
+	font-size: large;	
+	padding: 2px 8px 6px 8px;
+}
+.post-navigation a:hover .meta-nav {
+	color: #ff7369;
+}
+/* pagination */
+.page-numbers,
+.nav-previous a,
+.nav-next a,
+.nav-previous-page a,
+.nav-next-page a {
+    font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+    font-size: 10px;
+    font-size: 0.625rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: black;
+    padding: 10px 12px;
+    background-color: #faf4f4;
+	}
+.page-numbers,
+.prev page-numbers,
+.next page-numbers {
+	display: inline-block;
+}
+/* navigation specific */
+.nav-previous-page, 
+.image-navigation .nav-previous,
+.image-navigation .previous,
+.comment-navigation .nav-previous,
+.paging-navigation .nav-previous,
+.post-navigation .nav-previous {
+	float: left; 
+    text-align: left;
+}
+.nav-next-page,
+.image-navigation .nav-next,
+.image-navigation .next,
+.comment-navigation .nav-next,
+.paging-navigation .nav-next,
+.post-navigation .nav-next {
+    float: right;
+    text-align: right;
+}
+.image-navigation .text-nav {
+	display: block;
+	text-align: center
+} 
+.image-navigation .meta-nav {
+	border-radius: 3px; /* square shaped is 0px */
+	font-size: 24px;
+	font-size: 1.5rem;
+	color: black;
+	background-color: transparent;
+	text-align: center;
+	padding: 4px;
 }
 
 /*--------------------------------------------------------------
@@ -783,7 +890,7 @@ body {
 	text-align: center;
 }
 .widget-area .calendar_wrap {
-display:  inline-block;
+	display:  inline-block;
 }
 .footer-widget-1,
 .footer-widget-2,
@@ -801,13 +908,13 @@ display:  inline-block;
 .widget a {
 	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
 	color: #422424;
-	font-size: small;
+	font-size: 12px;
 	line-height: inherit;
 	font-weight: 300;
 	margin: 0 0 2.4em 0;
 }
 .widget a:hover {
-	color: #FF7369;
+	color: #ff7369;
 }
 .widget ul {
 	list-style: none;
@@ -835,15 +942,12 @@ display:  inline-block;
 	text-decoration: none;
 	max-width: 100%;
 }
-
-/* Make sure select elements fit in widgets */
 .widget select {
-	max-width: 100%;
+	max-width: 100%; /* Make sure select elements fit in widgets */
 }
-/* Design decision here — keep or remove? */
 .widget-area-wrapper {
 	margin: 0 auto;
-	max-width: 984px; /* 984px */
+	max-width: 984px; /* wraps the footer widget */
 }
 /* Search widget */
 .no-results .search-field,
@@ -852,7 +956,6 @@ display:  inline-block;
 .search .search-field,
 .search .search-form,
 .widget_search .search-form {
-	font-family: Inconsolata, monospace;
 	color: #ff91ae;
 	width: 100%;
 	text-align: center;
@@ -863,11 +966,6 @@ display:  inline-block;
 
 /* Calendar widget */
 
-.widget_calendar,
-.widget_calendar a {
-	font-size: 1.6rem; /* optional font size needed here */
-	line-height: 2.4;
-}
 .widget_calendar caption {
 	color: #769993;
 	letter-spacing: 0.2em;
@@ -877,15 +975,23 @@ display:  inline-block;
 }
 .widget_calendar thead th,
 .widget_calendar tbody td {
+	font-size: 16px;
+	font-size: 1rem;
 	border: 1px solid #f0f0f0; /* fallback */
 	border: 1px solid rgba(255, 255, 255, 0.2);
 	border-width: 0 1px 1px 0;
 	text-align: center;
-	
+}
+.widget_calendar thead th,
+.widget_calendar tbody td {
+	background-color: #fdfcfc;
 }
 .widget_calendar thead th a,
 .widget_calendar tbody td a {
 	background-color: #0ddb85;
+	color: #fff;
+	/*border-radius: 0px 50px;*/
+	padding: 0.42em;
 }
 .widget_calendar tbody td a:hover {
 	background-color: #00ffcc;
@@ -925,33 +1031,52 @@ article.no-results .search-form {
 article.error404 input[type="search"],
 article.no-results input[type="search"] {
 	margin-bottom: 12px;
+	font-size: 18px;
+	font-size: 1.125rem;
 }
 article.error404 .widget {
 	-moz-box-sizing: border-box;
 	box-sizing:      border-box;
-	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
 }
 article.error404 .widget a {
 	border-bottom: 0;
 }
 article.error404 .widget-title,
 article.error404 .widgettitle {
-	font: 700 1.8rem/2 Futura, "Trebuchet MS", Arial, sans-serif;
+	font-size: 18px;
+	font-size: 1.125rem;
+	line-height: 2;
+	font-weight: 700;
 	letter-spacing: 0.1em;
 	margin-bottom: 2.4em;
 	text-transform: uppercase;
 }
-article.error404 .widget ul {
-	font: 400 1.6rem/2 Futura, "Trebuchet MS", Arial, sans-serif;
+article.error404 .widget ul,
+article.error404 .widget ul a  {
+	font-size: 16px;
+	font-size: 1rem;
+	line-height: 2;
+	font-weight: 300;
 	list-style: none;
 	margin: 0;
 }
 article.error404 .widget li {
 	border-top: 1px solid #ffeeee;
 }
+article.error404 .widget_calendar {
+width: auto;
+font-size: 8px; }
+
+article.error404 .widget_calendar,
+article.error404 .widget_calendar a {
+	font-size: 12px;
+
+	line-height: 2;
+}
 article.error404 .widget_archive p,
 article.error404 .widget_calendar  {
-	font-size: 1.6rem;
+	font-size: 16px;
+	font-size: 1rem;
 	clear: both;
 }
 article.error404 .widget_calendar caption {
@@ -969,17 +1094,10 @@ article.error404 .widget_calendar tfoot td {
 	padding: 0;
 }
 article.error404 .widget_calendar tfoot #prev {
-	padding: 0 0 0 24px;
+	text-align: left;
 }
 article.error404 .widget_calendar tfoot #next {
-	padding: 0 12px 0 0;
-}
-article.error404 .widget_calendar tbody a {
-	background-color: #0ddb85;
-	color: #fff;
-}
-article.error404 .widget_calendar tbody a:hover {
-	background-color: #00ffcc;
+	text-align: left;
 }
 
 /*--------------------------------------------------------------
@@ -992,8 +1110,8 @@ article.error404 .widget_calendar tbody a:hover {
 	display: block; 
 }
 .sticky {
-	color: white;
-	background-color: #00ffaa;
+	color: #422442; /* #c9a6ab */
+	background-color: #f3e7e7; /* #00ffaa */
 }
 .sticky .entry-date {
 	display: none;
@@ -1022,14 +1140,15 @@ article.error404 .widget_calendar tbody a:hover {
 }
 .entry-title a:hover{
 	text-decoration: none;
-	color:#FF7369;
+	color:#ff7369;
 }
 .categories-links,
 .entry-meta {
 	display: block;
 	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
-	font-size: 1rem;
-    letter-spacing: 0.1em;
+	font-size: 10px;
+	font-size: 0.625rem;
+    letter-spacing: 0.12em;
 	line-height: 1.4;
 	max-width: 696px;
 	padding: 6px 0; /* previously 8px 0 9px 0 */
@@ -1037,7 +1156,7 @@ article.error404 .widget_calendar tbody a:hover {
 }
 .entry-meta span + span:before {
 	content: "\0020\007C\0020";
-	color: #C9A6AB;
+	color: #c9a6ab;
 }
 .entry-meta:hover {
   opacity: 1;
@@ -1046,10 +1165,10 @@ article.error404 .widget_calendar tbody a:hover {
 .entry-meta, 
 .entry-meta a {
 	text-decoration:none;
-	color:#C9A6AB;
+	color:#c9a6ab; /* #ff91ae or #c9a6ab */
 }
 .sep {
-	color:#FF7369;
+	color:#ff7369;
 }
 .byline {
 	display: block;
@@ -1099,7 +1218,8 @@ article.error404 .widget_calendar tbody a:hover {
 
 /* Asides */
 .format-aside .entry-content {
-	color: #ee2424;
+	color: #c9a6ab;
+	overflow: hidden;
 }
 /* Make sure embeds and iframes fit their containers */
 embed,
@@ -1118,14 +1238,36 @@ span > object {
 }
 
 /* link */
-.format-link  {
-	background-color: #faf4f4;
+.format-link, .format-chat {
 	margin: 0 auto;
 	padding: 1.2em 0;
-	font-family: Inconsolata, monospace;	 
+	text-align: left;
+	font-family: Inconsolata, monospace;
+}
+
+.format-link  {
+	background-color: #f3e7e7;
 }
 .format-link .entry-content a {
-	color: #FF7369; 
+	color: orange; 
+}
+
+/* Chat */
+.format-chat {
+	color: white;
+	background-color: #7369FF; /* #ff7369 over #c9a6ab or a contrasting colour #BE69FF */
+	margin: 0 auto;
+	padding: 1.2em 0;
+	font-size: 16px;
+	font-size: 1rem;
+}
+/*.format-link .entry-meta a,
+.format-link .categories-links a,
+.format-chat .categories-links a,
+.format-chat .entry-meta a, */
+.format-chat .entry-content a,
+.format-chat .entry-title a {
+	color: white; 
 }
 
 /* Gallery */
@@ -1172,42 +1314,31 @@ span > object {
     height: 100%;
 }
 
-/* Chat */
-.format-chat {
-	color: white;
-	background-color: #00bbff;
-	margin: 0 auto;
-	padding: 1.2em 0;
-	font-size: 1.6rem;
+/*--------------------------------------------------------------
+10.3 Author Index
+--------------------------------------------------------------*/
+.author-index .author-avatar {
 	text-align: left;
-	font-family: Inconsolata, monospace;
-}
-.format-chat .entry-content a,
-.format-chat .entry-title a,
-.format-chat .categories-links a,
-.format-chat .entry-meta a {
-	color: white; 
 }
 
 /*--------------------------------------------------------------
-10.3 Media
+10.4 Media
 --------------------------------------------------------------*/
-.gallery-item {
+.gallery-item,
+.gallery-item .attachment-thumbnail {
     float: left;
-    margin: 0 6px 0 0;
-    padding: 0;
+    margin: 0 6px 9px 0; /* vertical & horizontal space between image galleries */
+    line-height: 0; /* remove default space between rows */
     overflow: hidden;
     position: relative;
 }
-.gallery-item .gallery-icon.landscape {
-  line-height: 0; /* remove space between rows */
-}
+
 .gallery-columns-1 .gallery-item {
     max-width: 100%;
 }
 .gallery-columns-2 .gallery-item {
     max-width: 48%;
-    max-width: calc(50% - 4px);
+    max-width: calc(50% - 3px);
 }
 .gallery-columns-3 .gallery-item {
     max-width: 32%;
@@ -1215,27 +1346,27 @@ span > object {
 }
 .gallery-columns-4 .gallery-item {
     max-width: 23%;
-    max-width: calc(25% - 6px);
+    max-width: calc(25% - 5px);
 }
 .gallery-columns-5 .gallery-item {
     max-width: 19%;
-    max-width: calc(20% - 6px);
+    max-width: calc(20% - 5px);
 }
 .gallery-columns-6 .gallery-item {
     max-width: 15%;
-    max-width: calc(16.7% - 6px);
+    max-width: calc(16.82% - 7px);
 }
 .gallery-columns-7 .gallery-item {
     max-width: 13%;
-    max-width: calc(14.28% - 6px);
+    max-width: calc(14.5% - 8px);
 }
 .gallery-columns-8 .gallery-item {
     max-width: 11%;
-    max-width: calc(12.5% - 6px);
+    max-width: calc(12.56% - 6px);
 }
 .gallery-columns-9 .gallery-item {
     max-width: 9%;
-    max-width: calc(11.1% - 6px);
+    max-width: calc(11.47% - 10px);
 }
 .gallery-columns-1 .gallery-item:nth-of-type(1n),
 .gallery-columns-2 .gallery-item:nth-of-type(2n),
@@ -1248,18 +1379,22 @@ span > object {
 .gallery-columns-9 .gallery-item:nth-of-type(9n) {
     margin-right: 0;
 }
+
 .gallery-columns-1 .gallery-size-medium figure.gallery-item:nth-of-type(1n+1),
 .gallery-columns-1 .gallery-size-thumbnail figure.gallery-item:nth-of-type(1n+1),
 .gallery-columns-2 .gallery-size-thumbnail figure.gallery-item:nth-of-type(2n+1),
 .gallery-columns-3 .gallery-size-thumbnail figure.gallery-item:nth-of-type(3n+1) {
     clear: left;
 }
+
 .gallery-caption {
-    background-color: rgba(255, 255, 255, 0.7);
+	background-color: #f0f0f0; /* fallback */
+    background-color: rgba(255, 255, 255, 0.2);
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    color: #777777;
+    color: #fff;
     font-size: 12px;
+    font-size: 0.75rem;
     font-style: italic;
     line-height: 1.5;
     margin: 0;
@@ -1305,9 +1440,10 @@ span > object {
 	-webkit-box-sizing: border-box;
 	box-sizing:      border-box;
 	font-size: 12px;
+	font-size: 0.75rem;
 	font-style: italic;
 	line-height: 1.3076923076;
-	margin: 10px 0px 7px 0;
+	margin: 10px 0 7px 0;
 	padding: 0 10px 0 0; /* Avoid the caption to overflow the width of the image because wp-caption has 10px wider width */
 	text-align: center;
 }
@@ -1320,104 +1456,31 @@ span > object {
 }
 .wp-caption-text.aligncenter {
 	margin-top: 24px;
-}
-
-/* =Navigation
------------------------------------------------ */
-.site-content .comment-navigation,
-.site-content .paging-navigation,
-.site-content .post-navigation
-.site-content .image-navigation {
-	margin: 0 0 1em;
-	overflow: hidden;
-}
-.site-content [class*="navigation"] {
-	overflow: hidden;
-	font: 300 1.4rem/1 Futura, "Trebuchet MS", Arial, sans-serif;
-	line-height: 2;
-    }   
-.post-navigation .meta-nav {
-	color: #C9A6AB;
-	font-size: medium;	
-	padding: 2px 8px 6px 8px;
-}
-.post-navigation a:hover .meta-nav {
-	color: #FF7369;
-}
-/* pagination */
-.page-numbers,
-.nav-previous a,
-.nav-next a,
-.nav-previous-page a,
-.nav-next-page a {
-    font-family: Futura, "Trebuchet MS", Arial, sans-serif;
-    font-size: 1rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: black;
-    padding: 10px 12px;
-    background-color: #faf4f4;
-	}
-.page-numbers,
-.prev page-numbers,
-.next page-numbers {
-	display: inline-block;
-}
-/* navigation specific */
-.nav-previous-page, 
-.image-navigation .nav-previous,
-.image-navigation .previous,
-.comment-navigation .nav-previous,
-.paging-navigation .nav-previous,
-.post-navigation .nav-previous {
-    float: left;
-    text-align: left;
-}
-.nav-next-page,
-.image-navigation .nav-next,
-.image-navigation .next,
-.comment-navigation .nav-next,
-.paging-navigation .nav-next,
-.post-navigation .nav-next {
-    float: right;
-    text-align: right;
-}
-.image-navigation .text-nav {
-	display: block;
-	text-align: center
 } 
-.image-navigation .meta-nav {
-	border-radius: 3px; /* square shaped is 0px */
-	font-size: 2.4rem;
-	color: black;
-	background-color: transparent;
-	text-align: center;
-	padding: 4px;
-}
+
 /*--------------------------------------------------------------
-10.4 Comics
+10.5 Comics
 --------------------------------------------------------------*/
-.comic .hentry-comic,
-.gallery-item {
-	padding: 0 0 9px 0; /* aligns comic content images & galleries relative to comics navigation */
-}
 .comic .entry-title {
-	font: 400 2.4rem/1.2 Futura, "Trebuchet MS", Arial, sans-serif;
-	text-decoration:none;
+	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+	font-size: 24px;
+	font-size: 1.5rem;
+	font-weight: 400;
+	line-height: 1.2;
 	color: #f3e7e7;
-	text-transform:uppercase;	
-	text-align:center;
-	max-width: 696px; /* might drop this */
-	margin-bottom: 12px;
+	margin-bottom: 0.75em; /* 1em = 24px */
 }
-.comic .categories-links a,
-.comic-archive .categories-links a {
+.archive .entry-comic {
+	margin-bottom: 2em;
+}
+.comic .categories-links a {
 	color: #422424;
 }
 .comic .post-edit-link {
     padding: 9px 6px 6px 6px;
     font-family: Futura, "Trebuchet MS", Arial, sans-serif;
-    font-size: 1rem;
+    font-size: 10px;
+    font-size: 0.625rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     color: black;
@@ -1425,7 +1488,7 @@ span > object {
     text-align: left;
 }
 .comic .entry-meta {
-	float: right; /* aligns horizontally with categories-links */
+	float: right; /* aligns horizontally with categories-links */	
 	text-align: right;
 	vertical-align: bottom;
 	height: 0;
@@ -1433,8 +1496,8 @@ span > object {
 .single-comic .entry-meta {
 	display: none;
 }
-.navigation-comic  a {
-	text-decoration: none;
+.navigation-comic a {
+	text-decoration: none; /* accessibility: remove to highlight link on hover */
 }
 .navigation-comic {
 	display: box; /* Fallback for pre 2009 browsers syntax */
@@ -1461,52 +1524,54 @@ span > object {
 	text-align: center;
   	color: black;
 	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
-	font-size: 1.2rem;
+	font-size: 12px;
+	font-size: 0.75rem;
 	letter-spacing: 0.12em;
-	padding: 0;
 	text-transform: uppercase;
 }
-.entry-comic .navigation-comic .nav-title a:hover,
+.navigation-comic .nav-title a:hover,
 .comic-episode, .comic-episode a:hover {
-  color: #FF7369;
+  color: #ff7369;
 }
-.entry-comic .navigation-comic .nav-previous a,
-.entry-comic .navigation-comic .nav-next a,
-.entry-comic .navigation-comic .nav-first a,
-.entry-comic .navigation-comic .nav-last a {
+.navigation-comic .nav-previous a,
+.navigation-comic .nav-next a,
+.navigation-comic .nav-first a,
+.navigation-comic .nav-last a {
 	background: #faf4f4;
 	border-radius: 3px;
-	color: #C9A6AB;
+	color: #c9a6ab;
 	display: inline-block;
 	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
-	font-size: 1.2rem;
+	font-size: 12px;
+	font-size: 0.75rem;
 	letter-spacing: 0.12em;
 	text-align: center;
 	padding: 0.6em;
 	width: 96px;
 	text-transform: uppercase;
-	}
-.entry-comic .navigation-comic .nav-previous a:hover,
-.entry-comic .navigation-comic .nav-next a:hover,
-.entry-comic .navigation-comic .nav-first a:hover,
-.entry-comic .navigation-comic .nav-last a:hover {
-	background: #FF7369;
+}
+.navigation-comic .nav-previous a:hover,
+.navigation-comic .nav-next a:hover,
+.navigation-comic .nav-first a:hover,
+.navigation-comic .nav-last a:hover {
+	background: #ff7369;
 	color: #fff;
 }
-.series-title, .series-title li, .series-title a,
-.comic-episode, .comic-episode a,
+.series-title, .series-title a, .series-title li,
 .post-parent-title, .post-parent-title a {
 	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
 	color: black;
-	font-size: 1.2rem;
+	font-size: 12px;
+	font-size: 0.75rem;
 	line-height: 1.2;
-	letter-spacing: 0.1em;
+	letter-spacing: 0.12em;
 	text-transform: uppercase;
 	text-align: center;
+	margin-top: 12px;
 }
 .post-parent-title {
-	display:  inline-block;
-    margin: 0 auto; /* text-align: center; to replace align: middle;*/
+	display: inline-block; /* rather than inline-block */
+    margin: 0 auto; 
     width: 100%;
 }
 /* the comic page title */
@@ -1524,14 +1589,16 @@ span > object {
 	padding: 4px;
 }
 /* comics blurb */
-.comic-blurb {
+.comic-blurb,
+.author-description {
 	margin: auto;
 	max-width: 696px;
 	background-color: #faf4f4;
 	font-family:'Fenix', Georgia, serif;
 	text-align: left;
 	padding: 1.2em;
-	font-size: 1.6rem;
+	font-size: 16px;
+	font-size: 1rem;
 	line-height: 1.2;
 }
 /* Four columns grid */
@@ -1556,7 +1623,7 @@ span > object {
 .series-title { font-size: 10px;  line-height: 1.2; }
 }
 /*--------------------------------------------------------------
-10.5.1 Hide Comments
+10.6.1 Hide Comments
 --------------------------------------------------------------*/
 button.toggle-comments {
     border-width: 3px;
@@ -1565,7 +1632,8 @@ button.toggle-comments {
     border: #ff91ae 2px solid; /* new pink — VS #ffaaaa */
     text-decoration: none;
     transition: border ease 0.3s;
-    font-size: 1rem;
+    font-size: 10px;
+    font-size: 0.625rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     color: #ff91ae; /* new pink — VS #ffaaaa */
@@ -1576,13 +1644,14 @@ button.toggle-comments {
 	margin: 24px auto 24px;
 }
 /*--------------------------------------------------------------
-10.5.2 Comments
+10.6.2 Comments
 --------------------------------------------------------------*/
 .comment-author .author-cite, 
 .comment-author .author-cite a {
-	color: #C9A6AB;
+	color: #c9a6ab;
 	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
-	font-size: 1.4rem;
+	font-size: 14px;
+	font-size: 0.875rem;
 	text-transform: uppercase;
 	vertical-align: middle;
 }
@@ -1596,10 +1665,12 @@ button.toggle-comments {
 	border-radius: 6px;
 }	
 .comment-meta,
-.comment-meta a {
-	color: #C9A6AB;
+.comment-meta a,
+.ping-meta {
+	color: #c9a6ab;
 	height: 0;
-	font-size: 1.2rem;
+	font-size: 12px;
+	font-size: 0.75rem;
 	margin-bottom: 2em;
 }
 .comment-meta .comment-reply-link {
@@ -1612,8 +1683,6 @@ button.toggle-comments {
 }
 .ping-meta {
 	color: #a2a2a2;
-	font-size: 1.2rem;
-	line-height: 2;
 }
 .comment-awaiting-moderation {
 	color: #ffbb00;
@@ -1629,19 +1698,22 @@ button.toggle-comments {
 .comments-area {
 	max-width: 696px;
 	font-family: Inconsolata, monospace;
-	font-size: 1.4rem;
-	line-height: 1.9rem;
+	font-size: 18px;
+	font-size: 1.125rem;
+	line-height: 1.6;
 	margin: 0 auto;
-	padding: 0 1.5em;
 }
 .comments-title {
-	font-style: italic;
-	margin-bottom: 48px;
+	margin-bottom: 24px;
 	text-align: center;
 }
 .form-allowed-tags, 
 .form-allowed-tags code {
 	display: inline-block;   
+}
+.comment-respond {
+	margin: 0 1.5em;
+	padding-top: 24px;
 }
 .form-submit #submit{ 
     background: none;
@@ -1649,24 +1721,25 @@ button.toggle-comments {
     border: #000 2px solid;
     text-decoration: none;
     transition: border ease 0.3s;
-    font-size: 1rem;
+    font-size: 10px;
     color: #000;
 }
 .required {
 	color: #ff91ae;
 }
 /*--------------------------------------------------------------
-10.6 Footer
+10.7 Footer
 --------------------------------------------------------------*/
 .site-footer {
-	background-color: #faf4f4; /* #EFE9EA or #faf4f4 or even #FF7369? */
+	background-color: #faf4f4; /* #EFE9EA or #faf4f4 or even #ff7369? */
 	border-bottom: 3px solid #000000;
 }
 .site-info {
 	color: #421212;
 	background-color: white; /* white? */
 	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
-	font-size: 0.84rem;
+	font-size: 10px;
+	font-size: 0.625rem;
 	line-height: 1.2;
 	padding: 8px 0 9px 0;
 	text-align: center;
@@ -1675,7 +1748,7 @@ button.toggle-comments {
 	color: #421212;
 }
 .site-info a:hover {
-	color: #FF7369;
+	color: #ff7369;
 }
 /*--------------------------------------------------------------
 11.1 CSS for MailChimp 4 WP form
@@ -1698,7 +1771,8 @@ button.toggle-comments {
 	line-height:1.2;
 	display: block;
     font-family: Inconsolata, monospace;
-	font-size: 1rem;
+    font-size: 14px;
+	font-size: 0.875rem;
 	text-align: center;
 	width: 100%;
 } /* input fields */
@@ -1710,8 +1784,9 @@ button.toggle-comments {
 
 .mc4wp-form input[type="submit"] { 
 	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
-	font-size: 0.9rem;
-	width: 100%
+	font-size: 10px;
+	font-size: 0.625rem;
+
 } /* submit button */
 
 .mc4wp-success { 
@@ -1724,16 +1799,28 @@ button.toggle-comments {
 
 @media screen and (max-width: 600px) {
 	.mc4wp-form input[type="submit"] {
-		font-size: 0.6rem;
+		font-size: 9px;
+		font-size: 0.5625rem;
 	}
-} /* small screens */
+} /* small screens Unessessary */
 /*--------------------------------------------------------------
 11.2 RoyalSlider
 --------------------------------------------------------------*/
 /* Enables viewing if user has disabled javascript */
 .royalSlider > .rsContent {
+	visibility: visible; 
+	position:  relative;
+}
+.rsDefault.rs-default-template {
+	background-color: transparent;
+}
+
+.rsImg {
 	visibility: visible;
-	display: block;
+	display: inline-block;
+	width: 100%;
+	vertical-align: middle;
+	margin: 0 0 9px 0;
 }
 
 /*--------------------------------------------------------------
@@ -1741,11 +1828,11 @@ button.toggle-comments {
 --------------------------------------------------------------*/
 /* Globally hidden elements when Infinite Scroll is supported and in use. */
 .infinite-scroll .paging-navigation, /* Older / Newer Posts Navigation (always hidden) */
-.infinite-scroll.neverending .site-footer { /* Theme Footer (when set to scrolling) */
+.infinite-scroll .neverending .site-footer { /* Theme Footer (when set to scrolling) */
 	display: none;
 }
 /* When Infinite Scroll has reached its end we need to re-display elements that were hidden (via .neverending) before */
-.infinity-end.neverending .site-footer {
+.infinity-end .neverending .site-footer {
 	display: block;
 }
 /*--------------------------------------------------------------
@@ -1881,39 +1968,43 @@ button.toggle-comments {
 	}
 }
 @media screen and (max-width: 816px) {
-	.entry-comic .navigation-comic .nav-previous a,
-	.entry-comic .navigation-comic .nav-next a,
-	.entry-comic .navigation-comic .nav-title a,
-	.entry-comic .navigation-comic .nav-first a,
-	.entry-comic .navigation-comic .nav-last a {
-		font-size: 1rem;
+	.site-title {
+		font-size: 24px;
+		font-size: 1.5rem;
+		border: 5px solid #420084; 
+		max-width: 312px;
+	}
+	.navigation-comic .nav-previous a,
+	.navigation-comic .nav-next a,
+	.navigation-comic .nav-title a,
+	.navigation-comic .nav-first a,
+	.navigation-comic .nav-last a,
+	.post-parent-title, .post-parent-title a,
+	.series-title, .series-title a {
+		font-size: 10px;
+		font-size: 0.625rem;
 		letter-spacing: normal; 
 	}
-	.post-parent-title, .post-parent-title a {
-		font-size: 1rem;
-	}
-	/* keep nav comic title aligned with navigation buttons */
-	.entry-comic .navigation-comic .nav-title { 
-		font-size: 0.8rem;
-		padding: 0.3em;	
-		width: 19.9%;
+	.navigation-comic .nav-title { 	
+		width: 19.9%; /* leaves more room for comic title aligned with navigation buttons */
 	}
 }
 @media screen and (max-width: 600px) {
 	body {
 		font-size: 16px;
-		font-size: 1.6rem;
+		font-size: 1rem;
 		line-height: 1.4166666667;
 	}
-	pre, code, kbd, tt, var, textarea, button, input, select {
+	.format-chat, pre, code, kbd, tt, var, textarea, button, input, select {
 		font-size: 12px;
-		font-size: 1.2rem;
+		font-size: 0.85714286rem;
 		line-height: 1.4;	
 	}
 	.site-title {
 		font-size: 14.4px;
-		font-size: 1.44rem;
+		font-size: 0.875rem;
 		border: 4px solid #420084; 
+		max-width: 168px;
 	}
     .site-branding .logo {
 		width: 62px;
@@ -1924,12 +2015,13 @@ button.toggle-comments {
     }
 	blockquote p {
 		font-size: 16px;
+		font-size: 1rem;
 		font-weight: 400;
 		line-height: 1;
 		margin-bottom: 24px;
 	}
 	.entry-title {
-		font-size: 2.4rem;
+		font-size: 1.5rem;
 	}
 	.entry-content,
 	.entry-summary {
@@ -1946,11 +2038,9 @@ button.toggle-comments {
 		padding-top: 18px;
 	}
 	.comments-area,
-	.comment-meta a {
-		font-size: 1rem;
-	}
+	.comment-meta a,
 	.comment-content blockquote p {
-		font-size: 1.2rem;
+		font-size: 0.875rem;
 		line-height: 1.6;
 	}
 	.comments-title {
@@ -1966,39 +2056,35 @@ button.toggle-comments {
 		padding-bottom: 48px;
 	}
 	.comic .entry-title {
-		font-size: 1.6rem;
-	}
-	.entry-comic .navigation-comic .nav-title {
-		vertical-align: middle;
+		font-size: 16px;
+		font-size: 1rem;
 	}
 	.post-parent-title, .post-parent-title a {
-		font-size: 0.8rem;
+		font-size: 8px;
+		font-size: 0.5rem;
 	}
-	.entry-comic .navigation-comic .nav-previous a,
-	.entry-comic .navigation-comic .nav-next a,
-	.entry-comic .navigation-comic .nav-title a,
-	.entry-comic .navigation-comic .nav-first a,
-	.entry-comic .navigation-comic .nav-last a {
-		font-size: 0.8rem;
+	.navigation-comic .nav-previous a,
+	.navigation-comic .nav-next a,
+	.navigation-comic .nav-title a,
+	.navigation-comic .nav-first a,
+	.navigation-comic .nav-last a {
+		font-size: 8px;
+		font-size: 0.5rem;
 		width: 48px;
-		padding: 0.4em;
 	}
 	.widget-area {
 		overflow: hidden;
 	}
-	.footer-widget-1,
-	.footer-widget-2,
-	.footer-widget-3,
-	.footer-widget-4 {
+	.footer-widget-1, .footer-widget-2, .footer-widget-3, .footer-widget-4, .widget-area .search-form {
 		width: 120px;
 		margin: 0 6px;
 	}
 }
-/* Keep videos in 16:9 ratio on small screens */
 @media screen and (max-width: 312px) {
 	embed,
 	iframe,
 	object,
 	video {
-    	height : 100%;
+    	height: 100%; /* Keep videos in 16:9 ratio on small screens */
     }
+}

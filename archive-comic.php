@@ -2,8 +2,8 @@
 /**
  * Template Name: Archive all comics
  *
- * The template for displaying comic Archives pages.
- * This template provides an overview to peruse all stories — it also has links to custom comic posts in a second loop
+ * The template for displaying comic Archives pages. 
+ * This template provides an overview to peruse all stories — it also has links to custom comic posts in a second loop 
  *
  * @package SilentComics
  */
@@ -12,7 +12,7 @@ get_header(); ?>
 
 	<section id="primary" class="content-area">
 		<main id="content" class="site-content" role="main">
-
+				
 		<?php if ( have_posts() ) : ?>
 
 			<header class="page-header">
@@ -22,16 +22,20 @@ get_header(); ?>
 					single_cat_title( '', false ) . '</span>' );
 					?>
 					</h1>
-
-				<h3 class="page-title">
-				Watch 3
-					</h3>
+				
 					<h2 class="taxonomy-description">
-	<a href="<?php echo esc_url( home_url( '/series/' ) ); ?>">Series</a></h2>
-
+						<a href="<?php echo esc_url( home_url( '/series/' ) ); ?>">
+							<?php _e( '<span class="meta-nav">Series</span>', 'silentcomics' ); ?>
+						</a>
+					</h2>
+	
 					<h4 class="series-title">
-					<a href="http://url">Optional series link</a></h4>
-
+					<a href="<?php echo esc_url( home_url( '/story/exile/' ) ); ?>">ExIle</a></h4>
+					<h4 class="series-title">
+					<a href="<?php echo esc_url( home_url( '/story/tofu/' ) ); ?>">Morning Tofu Chase</a></h4>
+					<h3 class="series-title">
+					<a href="<?php echo esc_url( home_url( '/story/sentient-drone/' ) ); ?>">Sentient Drone</a></h3>
+					
 				<?php
 					// Show an optional term description.
 					$term_description = term_description();
@@ -40,8 +44,8 @@ get_header(); ?>
 					endif;
 				?>
 			</header><!-- .page-header -->
-
-<?php
+					
+<?php 
 	// Create and run first loop in reverse order
     $comic = new WP_Query();
     $comic = new WP_Query( array(
@@ -51,21 +55,21 @@ get_header(); ?>
 					'orderby'   		=> 'title',
 					'order'   			=> 'DESC',)
 					);
-
-    while ($comic->have_posts()) : $comic->the_post();
+					
+    while ($comic->have_posts()) : $comic->the_post();   	
 				get_template_part( 'content-comic' );
-				// change to 'content' to style it like the blog entry page
-				?>
+				// change to 'content' to style it like the blog entry page 
+				?> 
 					<?php endwhile;
 						wp_reset_postdata(); ?>
-
+						
 						<?php silentcomics_content_nav( 'nav-below' ); ?>
 
 		<?php else : ?>
 
 			<?php get_template_part( 'no-results', 'archive-comic' ); ?>
 
-		<?php endif;
+		<?php endif; 
 			wp_reset_postdata();
 		?>
 

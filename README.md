@@ -14,8 +14,8 @@ Not ready for production yet, but you are welcome to test the theme. Right now i
 # Theme Wiki
 [Theme wiki](https://github.com/SilentComics/Silent-Comics-Wordpress-Theme/wiki/SilentComic-WordPress-Theme-wiki)
 
-## Code review needed
-Do you know how to improve this theme? Please send your findings and suggestions over to hoa // @ // silent-comics.com
+## Contributing
+I'd love to get contributions for this project. I’m not a developer so there is room for improvements. Do you know how to make this theme better? Please send your findings and suggestions over to hoa // @ // silent-comics.com
 
 ## Other ways you can help:
 Theme review aside, there are a few other ways you can [support this project ♥](http://silentcomics.com/subscribe/). *Thank you!*

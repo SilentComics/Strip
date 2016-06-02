@@ -9,15 +9,22 @@
 
 get_header(); ?>
 
-		<div id="primary" class="content-area">
-			<div id="content" class="site-content" role="main">
+	<div id="primary" class="content-area">
+		<div id="content" class="site-content" role="main">
 
 
-		<?php if ( have_posts() ) : ?>
+	<?php if ( have_posts() ) : ?>
 
-			<header class="page-header">
-				<div class="wrap">
-					<h1 class="page-title">
+		<header class="page-header">
+			<div class="wrap">
+				<h1 class="page-title">
+					<?php
+                        if ( is_author() && get_the_author_meta( 'description' ) ) {
+                            echo '<div class="author-index shorter">';
+                            get_template_part('inc/author','box');
+                            echo '</div>';
+                        }
+                    ?>
 						<?php
 							if ( is_category() ) :
 								printf( __( 'Category Archives: %s', 'silentcomics' ), '<span>' . single_cat_title( '', false ) . '</span>' );
@@ -48,7 +55,7 @@ get_header(); ?>
 
 							elseif ( is_tax( 'post_format', 'post-format-aside' ) ) :
 								_e( 'Asides', 'silentcomics' );
-
+								
 								elseif ( is_tax( 'post_format', 'post-format-gallery' ) ) :
 								_e( 'Galleries', 'silentcomics' );
 
@@ -63,19 +70,19 @@ get_header(); ?>
 
 							elseif ( is_tax( 'post_format', 'post-format-link' ) ) :
 								_e( 'Links', 'silentcomics' );
-
+								
 								elseif ( is_tax( 'post_format', 'post-format-audio' ) ) :
 							_e( 'Audios', 'silentcomics' );
 
 							elseif ( is_tax( 'post_format', 'post-format-chat' ) ) :
 							_e( 'Chats', 'silentcomics' );
-
+							
 							elseif ( is_tax( 'story', 'comic' ) ) :
 							_e( 'Stories', 'silentcomics' );
-
+						
 						elseif ( !'comic' == get_post_type() ):
 							_e( 'Comics', 'silentcomics' );
-
+						
 							else :
 								_e( 'Archives', 'silentcomics' );
 
@@ -89,7 +96,7 @@ get_header(); ?>
 							printf( '<div class="taxonomy-description">%s</div>', $term_description );
 						endif;
 					?>
-				</div>
+				</div><!-- .wrap -->
 			</header><!-- .page-header -->
 
 			<?php /* Start the Loop */ ?>

@@ -23,7 +23,7 @@
 <body <?php body_class(); ?>>
 <div id="page" class="hfeed site">
 	<header id="masthead" class="site-header" role="banner">
-
+		
 		<?php if ( has_nav_menu( 'primary' ) ) : ?>
 		<nav id="site-navigation" class="main-navigation clear" role="navigation">
 			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'discover', 'silentcomics' ); ?></button>
@@ -32,5 +32,5 @@
 			<?php wp_nav_menu( array( 'theme_location' => 'primary', 'container_class' => 'wrap'  ) ); ?>
 		</nav><!-- #site-navigation -->
 		<?php endif; ?>
-
+		
 	</header><!-- #masthead -->

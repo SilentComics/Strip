@@ -38,7 +38,7 @@ else {
 
 		'post_type'		 => 'comic',
 		'posts_per_page' => 3, // Must be = or > than number set in function.php, line 663, to avoid breaking pagination
-		'story'			 => 'example', // Replace 'example' by your own story title
+		'story'			 => 'name', // Replace 'example' by your own story title
 		'orderby'  		 => 'title', // you can order by date if you so prefer
 		'paged' 		 => $paged,
 		'order'  		 => 'ASC'

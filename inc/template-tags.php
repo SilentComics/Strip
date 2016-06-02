@@ -45,11 +45,11 @@ function silentcomics_content_nav( $nav_id ) {
 		$nav_class .= ' navigation-comic'; ?> 
 		
 				<div class="navigation-comic">
-				<nav class="nav-first"><a href="<?php echo esc_url( first_comic_link()); ?>"><?php esc_html_e( '&#124;&#10094; Start', 'silentcomics' ); ?></a></nav>
+				<nav class="nav-first"><a href="<?php echo esc_url( first_comic_link()); ?>"><?php esc_html_e( 'Start', 'silentcomics' ); ?></a></nav>
 				<nav class="nav-previous"><?php previous_post_link('%link',  __( 'Previous', 'silentcomics' ), $in_same_term = true, $excluded_terms = '', $taxonomy = 'story' ); ?></nav>
-				<nav class="nav-title"><?php the_title( '<h4 class=".series-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h4>' ); ?></nav>
+				<nav class="nav-title"><?php the_title( '<h4 class="series-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h4>' ); ?></nav>
 				<nav class="nav-next"><?php next_post_link( '%link', __('Next', 'silentcomics' ), true, '', 'story' ); ?></nav>  
-				<nav class="nav-last"><a href="<?php echo esc_url( last_comic_link()); ?>"><?php esc_html_e( 'Last &#10095;&#124;', 'silentcomics' ); ?></a></nav>
+				<nav class="nav-last"><a href="<?php echo esc_url( last_comic_link()); ?>"><?php esc_html_e( 'Last', 'silentcomics' ); ?></a></nav>
 			</div>
 
 			<?php elseif ( is_single() ) : // navigation links for single posts ?>
@@ -227,7 +227,6 @@ function get_comic_boundary_post( $in_same_term = false, $excluded_terms = '', $
         'posts_per_page' => 1,
         'order' => $start ? 'ASC' : 'DESC',
         'no_found_rows' => true,
-       // 'update_term_meta_cache' => true, // added
         'update_post_term_cache' => false,
         'update_post_meta_cache' => false
     );
