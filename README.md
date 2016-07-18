@@ -12,7 +12,7 @@ Not ready for production yet, but you are welcome to test the theme. Right now i
 *SilentComics* is a WordPress theme designed for the upcoming [SILENT COMICS site](http://silent-comics.com). The theme, still in development, is released under the GNU General Public License.
 
 # Theme Wiki
-[Theme wiki](https://github.com/SilentComics/Silent-Comics-Wordpress-Theme/wiki/SilentComic-WordPress-Theme-wiki)
+[Theme wiki](https://github.com/SilentComics/SilentComics-for-WordPress/wiki/Theme-set-up)
 
 ## Contributing
 I'd love to get contributions for this project. I’m not a developer so there is room for improvements. Do you know how to make this theme better? Please send your findings and suggestions over to hoa // @ // silent-comics.com
