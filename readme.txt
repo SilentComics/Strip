@@ -5,7 +5,7 @@ Tags: one-column, flexible-header, grid-layout, custom-background, custom-colors
 
 Requires at least: WordPress 4.5
 Tested up to: 4.6
-Version; 2.5.9
+Version; 2.6.1
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -18,12 +18,11 @@ SilentComic is a theme to showcase and manage online comics with WordPress.
 Easy to use, distraction free and responsive. 
 Designed for large images, galleries and continuous stories, optimised for fullscreen mode on desktop computers, mobile and tablets. 
 Its main function is a comic post format with basic navigation for web comics. 
-It will display comics in ascending or descending order (scroll) or one panel at a time, as a WP gallery in one post (card). 
-In this logic, each story reads either panel by panel or page by page. 
+It will display comics in ascending or descending order (scroll) or one panel at a time, using the native WP gallery for each comic post (card). Following this logic, each story reads either panel by panel or page by page. 
 The theme will handle different series or one-offs, sorted under the custom taxonomy “story”. 
-A comics post without category will default to “draft”. 
+A comic post without category will default to “draft”. 
 Blog features: one column, simple typography, and post-formats. 
-Non obtrusive commenting (toggle on & off). 
+Non obtrusive commenting with toggle on & off button. 
 Four columns footer widget, no sidebars. 
 
 Features:  
@@ -35,13 +34,13 @@ For more information about Silent Comics please go to https://silentcomics.com/a
 
 == Installation ==
 
-- 1 Download the WIP SilentComics Theme from GitHub
+- 1 Download SilentComics Theme from GitHub
 
 - 2 Upload SilentComics directory into your WordPress installation’s theme folder (wp-content/themes).
 
 - 3 In the WordPress backend, find and activate the theme under Appearance —> Themes.
 
-## Setup
+== Setup ==
 
 - 1 Create your menus and submenus. You can add a header image, a background image and change the theme’s background colour.
 
@@ -94,8 +93,8 @@ This template call all comics episodes but will only display their titles, in as
 
 `taxonomy-story-draft.php`
 The fallback for all uncategorised stories — no pagination.
-You should have a category 
-It’s a good reminder for your unpublished stories
+Note that for the theme to run smootly you should have a single taxonomy for each story.
+A "draft" taxonomy is a good way to preview your unpublished stories.
 
 `taxonomy-story-name.php` 
 A sample template — replace “name” by your own story title and duplicate this template with new details for each new story
@@ -132,8 +131,8 @@ Licence: EULA
 Source: http://www.ferfolio.com/about/
 
 Inconsolata, Copyright Raphael Levien
-Licence:
-Source:
+Licence: Open Font License of SIL
+Source: http://www.levien.com/type/myfonts/inconsolata.html
 
 SilentComics is distributed under the terms of the GNU GPL
 

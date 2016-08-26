@@ -14,7 +14,7 @@ if (isset($GLOBALS['content_width']) ) {
 
 <?php
 if ('' != get_the_post_thumbnail() ) :
-                the_post_thumbnail('silentcomics-featured-thumbnail');
+    the_post_thumbnail('silentcomics-featured-thumbnail');
 endif;
     ?>
 

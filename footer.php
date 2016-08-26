@@ -41,14 +41,13 @@
         </div>
 
         <div class="site-info">
-            &copy; SILENT COMICS <?php
+            &copy; <span class="site-name"><a href="<?php echo esc_url(home_url('/')); ?>" rel="home"><?php bloginfo('name'); ?></a></span> <?php
             $fromYear = 2013;
             $thisYear = (int)date('Y');
             echo $fromYear . (($fromYear != $thisYear) ? '-' . $thisYear : '');?>
             <span class="sep"> | </span>
     <?php do_action('silentcomics_credits');
                 ?>
-                <span class="site-name"><a href="<?php echo esc_url(home_url('/')); ?>" rel="home"><?php bloginfo('name'); ?></a></span>
                 <a href="<?php echo esc_url(__('https://github.com/SilentComics/Silent-Comics-Wordpress-Theme', 'silentcomics')); ?>"><?php printf(esc_html__('Theme: %1$s by %2$s.', 'silentcomics'), 'silentcomics', 'Hoa'); ?><rel="designer"></a>
         </div><!-- .site-info -->
     </footer><!-- #colophon -->

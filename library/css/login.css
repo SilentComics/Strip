@@ -12,6 +12,9 @@ For more info, check out the codex:
 http://codex.wordpress.org/Creating_Admin_Themes
 
 ******************************************************************/
+
+@import url( '/fonts/inconsolata.css');
+
 /* the form box */
 /*
 * wp-login CSS overwrites
@@ -45,15 +48,12 @@ http://codex.wordpress.org/Creating_Admin_Themes
   box-shadow: none; 
 }
 body form .input {
-  font-family: Inconsolata, monospace;
+  font-family: Inconsolata, monospace;  
   color: #424242;
-  font-size: 24px;
+  font-size: 16px;
+  font-size: 1rem;
   text-align: center;
   width: 100%;
-  padding: 3px;
-  margin-top: 2px;
-  margin-right: 6px;
-  margin-bottom: 16px;
   border: 1px solid #e7e7e7;
   background: #f9f6f2;
   outline: none;
@@ -71,11 +71,11 @@ body form .input {
 }
 
 /* login button*/
-
 .wp-core-ui.login .button-primary {
 	width: 100%;
 	height: 40px;
 	background: salmon;
+	text-transform: uppercase;
 	color: #fff;
 	border: none;
 	-webkit-border-radius: 2px;

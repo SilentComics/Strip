@@ -18,32 +18,31 @@ if (isset($GLOBALS['content_width']) ) {
     endif;
     ?>
         
-            <header class="entry-header">
-                <?php
-                    $categories_list = get_the_category_list(__(', ', 'silentcomics'));
-                if ($categories_list && silentcomics_categorized_blog() ) {
-                    echo '<span class="categories-links">' . $categories_list . '</span>'; 
-                }
+    <header class="entry-header">
+        <?php
+            $categories_list = get_the_category_list(__(', ', 'silentcomics'));
+        if ($categories_list && silentcomics_categorized_blog() ) {
+            echo '<span class="categories-links">' . $categories_list . '</span>'; 
+            }
 
-                if (! is_single() ) :
-                    the_title('<h1 class="entry-title"><a href="' . esc_url(get_permalink()) . '" rel="bookmark">', '</a></h1>');
-                    else :
-                        the_title('<h1 class="entry-title">', '</h1>');
-                    endif;
-                ?>
-            </header><!-- .entry-header -->
-            
-            <div class="entry-content">    
-    <?php
-                /* translators: %s: Name of current post */
-    the_content(
-        sprintf(
-            __('Continue reading %s <span class="meta-nav">&rarr;</span>', 'silentcomics'),
-            the_title('<span class="screen-reader-text">', '</span>', false)
-        ) 
-    );
-    ?>
-            </div><!-- .entry-content -->
+        if (! is_single() ) :
+            the_title('<h1 class="entry-title"><a href="' . esc_url(get_permalink()) . '" rel="bookmark">', '</a></h1>');
+        else :
+            the_title('<h1 class="entry-title">', '</h1>');
+        endif;
+        ?>
+    </header><!-- .entry-header -->
+    <br>        
+	<div class="entry-content">
+		<?php
+			the_content( sprintf(
+				/* translators: %s: Name of current post. */
+				wp_kses( __( 'Continue reading %s <span class="meta-nav">&rarr;</span>', 'silentcomics' ), array( 'span' => array( 'class' => array() ) ) ),
+				the_title( '<span class="screen-reader-text">"', '"</span>', false )
+			) );
+
+		?>
+	</div><!-- .entry-content -->
             
             <footer class="entry-meta">
                 <?php silentcomics_entry_meta(); ?>

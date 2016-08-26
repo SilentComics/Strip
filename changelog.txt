@@ -11,6 +11,13 @@ changelog.txt
 
 == changelog ==
 
+= (26/08/2016) - Version 2.6.1 =
+[>] Author template style
+[>] CSS improvement, removed some CSS errors
+[>] cleaned archive templates
+[>] translation & RTL improvements
+[>] minor fixes
+
 = (02/06/2016) - Version 2.5.9 =
 [+] Added author template (mainly for archive & multi-users purpose)
 [+] Added unbranded archive template for comics
@@ -26,13 +33,13 @@ changelog.txt
 
 = (02/05/2016) - Version 2.5.8 -> 2.5.8.2 =
 [>] minor PHP, CSS & JS improvements
-[>] enqueued fonts properly 
+[>] enqueued fonts properly
 [*] `get_post_gallery_images` to retrieve the first image in RoyalSLider galleries posts doesn’t work when lazy-loading is selected
 
 = (02/04/2016) - Version 2.5.7 =
 
 [+] Default-header.png
-[>] Replace `silentcomics_the_site_logo`by `silentcomics_the_custom_logo()` fixes issue with Jetpack 
+[>] Replace `silentcomics_the_site_logo`by `silentcomics_the_custom_logo()` fixes issue with Jetpack
 [>] Properly enqueue `silentcomics-toggle-comments`calling `jquery`
 [+] Added IE conditional stylesheet in CSS folder
 [+] Added selective refresh support for widgets
@@ -48,12 +55,12 @@ changelog.txt
 [+] Changed README to readme.txt
 [+] Fine tuned WooCommerce integration, clean up and minified SilentComics WooCommerce custom styles
 [+] Fixed pagination for comics archives, products and is_home (blog)
-[+] Archive stories now display the first image of each comic post on a four columns grids  
- 
+[+] Archive stories now display the first image of each comic post on a four columns grids
+
 [*] html5 full screen Video obstructs text
 
 [!] Installing Jetpack breaks the customizer functionality, without triggering any php error.
-This behaviour happens with Twenty Sixteen as well. 
+This behaviour happens with Twenty Sixteen as well.
 Core and Jetpack developers are aware and working on compatibility.
 [!] Function `catch_first_image()` First image in post return empty when post is a RoyalSlider gallery
 
@@ -61,14 +68,14 @@ Core and Jetpack developers are aware and working on compatibility.
 
 **CSS changes**
 - Keep CSS styling under 2000 lines
-- Style sticky post 
+- Style sticky post
 - Enhanced branding position
 - BASE64 SVG Logo consistent with theme colour
 - Changed ```.entry-meta``` to prevent content overflow on medium screens
 - Added a proper line height in comments
 - Improved comics navigation bar for small screens
 - search box & input boxes styling & consistency
-- Improved WooCommerce styling (review button, colours, Order Notes, style comments, etc.) 
+- Improved WooCommerce styling (review button, colours, Order Notes, style comments, etc.)
 - Added @media queries for small screens for 4 columns grids to archive comics
 
 
@@ -76,9 +83,9 @@ Core and Jetpack developers are aware and working on compatibility.
 - Improved pagination & fixed display of WooCommerce categories (no longer split with different pages~~) check if `is_tax()` is not deprecated it is not, `is_taxonomy()` is deprecated since WP 3.0.
 - `pre_get_post` change to exclude comics from is_home (blog pages)
 [+] Added logo support from WP version 4.5
-[+] Added function `catch_first_image()` First image in post click goes to post // use this to display archive in a grid 
+[+] Added function `catch_first_image()` First image in post click goes to post // use this to display archive in a grid
 - Removed errors caused by `function catch_that_image()` (`Undefined offset 0` and `Undefined variable: post_id`)
-- Better WooCommerce integration (remove clutter on non e-commerce pages) 
+- Better WooCommerce integration (remove clutter on non e-commerce pages)
 - Changed `set_posts_per_page` for WooCommerce pages
 - Monthly archive only diplays the last post in each month
 
@@ -88,7 +95,7 @@ Core and Jetpack developers are aware and working on compatibility.
 
 = (01/02/2016) - Version 2.5.6.8 =
 
-**CSS changes:** 
+**CSS changes:**
 - Reduce CSS styles to 1800 lines or less —> got to around 1835 lines (but more lines will add up to complete styling…
 - Fixed horizontal space in between rows of gallery images
 - Comics navigation bar now aligns within .wrap

@@ -18,6 +18,6 @@ if ( ! is_active_sidebar( 'sidebar' ) ) {
 		
 	<?php dynamic_sidebar( 'sidebar' ); ?>
 	
-	</div>
+		</div>
 	</div><!-- .widget-wrap -->
-	</div><!-- #secondary -->
+</div><!-- #secondary -->
