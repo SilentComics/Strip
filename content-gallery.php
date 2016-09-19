@@ -5,7 +5,7 @@
 
 // Access global variable directly to set content_width
 if (isset($GLOBALS['content_width']) ) {
-    $GLOBALS['content_width'] = 1920; 
+    $GLOBALS['content_width'] = 1920;
 }
 ?>
 
@@ -22,7 +22,7 @@ endif;
     <?php
                 $categories_list = get_the_category_list(__(', ', 'silentcomics'));
     if ($categories_list && silentcomics_categorized_blog() ) {
-        echo '<span class="categories-links">' . $categories_list . '</span>'; 
+        echo '<span class="categories-links">' . $categories_list . '</span>';
     }
 
     if (! is_single() ) :

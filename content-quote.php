@@ -16,7 +16,7 @@
 
         <footer class="entry-meta">
 
-    <?php if (! post_password_required() && ( comments_open() || '0' != get_comments_number() ) ) : ?>
+    <?php if (! post_password_required() && ( comments_open() || '0' != get_comments_number() )) : ?>
             <span class="comments-link"><?php comments_popup_link(__('Leave a comment', 'silentcomics'), __('1 Comment', 'silentcomics'), __('% Comments', 'silentcomics')); ?></span>
     <?php endif; ?>
 
