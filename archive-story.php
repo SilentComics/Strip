@@ -1,7 +1,7 @@
 <?php
 /**
- * Template Name: Series Archive 
- * The template for displaying comic archives pages. 
+ * Template Name: Series Archive
+ * The template for displaying comic archives pages.
  * Peruse all stories visually showcasing the first image of each comic post on a four column grid
  * TODO: excerpts enhancements — Use this template as reference during develoment
  *
@@ -10,8 +10,8 @@
 
 get_header(); ?>
 
-	<section id="primary" class="content-area">
-        <div class="content" class="site-content" role="main">
+<section id="primary" 
+    <div class="content" role="main">
 		<div class="wrap">
 			<header class="entry-header">
 				<h3 class="taxonomy-description">
@@ -22,9 +22,9 @@ get_header(); ?>
 			</header>
 
 		<div class="columns">
-			
-		<?php	
-			
+
+		<?php
+
 			if ( get_query_var('paged') ) {
    $paged = get_query_var('paged');
 }
@@ -36,21 +36,21 @@ get_header(); ?>
 }
 
 // Call and run loop in descending order
-$loop = new WP_Query( array( 
+$loop = new WP_Query( array(
 			'post_type'			=> 'comic',
 			'story' 			=> '', // add story term here if you want this template to only archive a specific story
 			'posts_per_page' 	=> 12, // changes default Blog pages number "reading settings" set in dashboard
 			'paged'	 			=> $paged, //you absolutely need this
 			'orderby' 			=> 'title', // order by title or date
 			'order'				=> 'DESC')
-			
+
 			);
-			
+
 			// Start the loop
 if ( $loop->have_posts() ) :
    while ( $loop->have_posts() ) :
       $loop->the_post();
-      
+
       ?>
       <div class="column">
 				<a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php printf(_e('Permanent Link to %s', 'silentcomics'),the_title_attribute('echo=0')); ?>"></a>
@@ -61,7 +61,7 @@ if ( $loop->have_posts() ) :
 
   echo '</a>';
 
-} 
+}
 
 else {
 
@@ -70,10 +70,10 @@ echo '<img src="';
 echo catch_first_image();
 echo '" alt="" />';
 echo '</a>';
-} ?>  
+} ?>
 
 <h2 class="series-title"><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php printf(_e('Permanent Link to %s', 'silentcomics'),the_title_attribute('echo=0')); ?>"><?php the_title(); ?></a></h2>
-				
+
 			</div><!-- .column -->
 			<?php endwhile; ?>
 			</div><!-- .columns -->
@@ -85,22 +85,22 @@ echo '</a>';
 // get_next_posts_link() usage with max_num_pages ?>
 <nav class="paging-navigation">
 <div class="nav-previous-page">
-<?php echo get_next_posts_link( esc_html_x( 'Previous episodes', 'Next posts link', 'silentcomics' ), $loop->max_num_pages ); ?>
+<?php next_posts_link( esc_html_x( 'Previous episodes', 'Next posts link', 'silentcomics' ), $loop->max_num_pages ); ?>
  </div>
     <div class="nav-next-page">
-<?php echo get_previous_posts_link( esc_html_x( 'Recent episodes', 'Previous post link', 'silentcomics' )); ?>
+<?php previous_posts_link( esc_html_x( 'Recent episodes' , 'Previous post link', 'silentcomics' )); ?>
 </div>
 </nav>
 <?php // clean up after the query and pagination
-wp_reset_postdata(); 
+wp_reset_postdata();
 ?>
 		<?php
 		else :
-			get_template_part( 'no-results', 'archive-comic' ); 
+			get_template_part( 'no-results', 'archive-comic' );
 		endif; ?>
-		
-        </div><!-- wrap -->
-	</div><!-- #content -->
+
+        </div><!-- .wrap -->
+  </main><!-- #content -->
 </section><!-- #primary -->
 
 <?php get_sidebar(); ?>

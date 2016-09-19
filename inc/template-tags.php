@@ -219,7 +219,7 @@ endif;
 */
 function get_comic_boundary_post( $in_same_term = false, $excluded_terms = '', $start = true, $taxonomy = 'category' ) {
     $post = get_post();
-    if ( ! $post || ! is_single() || is_attachment() ||  ! taxonomy_exists( $taxonomy ) )
+    if ( ! taxonomy_exists( $taxonomy ) )
         return null;
 
     $query_args = array(

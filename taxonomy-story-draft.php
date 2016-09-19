@@ -9,8 +9,8 @@
 
  get_header(); ?>
 
-	<div id="primary" class="content-area">
-		<div class="wrap" class="entry-comic" role="main">
+	<div id="primary" 
+        <main id="content" class="wrap" role="main">
 
 	<?php if ( have_posts() ) : ?>
 	<header class="page-header">
@@ -49,7 +49,6 @@
 
 		<?php endif; ?>
 
-		</div><!-- #content -->
-	</div><!-- #primary -->
-
+        </main><!-- #content -->
+    </section><!-- #primary -->
 <?php get_footer(); ?>

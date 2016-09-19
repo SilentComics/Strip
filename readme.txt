@@ -3,9 +3,9 @@
 Contributors: Anh Hoa Si, SILENT COMICS
 Tags: one-column, flexible-header, grid-layout, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images, post-formats, rtl-language-support, sticky-post, theme-options, custom-logo, translation-ready, blog
 
-Requires at least: WordPress 4.5
-Tested up to: 4.6
-Version; 2.6.1
+Requires at least: WordPress 4.5.3
+Tested up to: 4.7-alpha
+Version; 2.6.2
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -124,7 +124,9 @@ HTML5 Shiv v3.7.0, Copyright 2014 Alexander Farkas
 Licences: MIT/GPL2
 Source: https://github.com/aFarkas/html5shiv
 
-custom admin, Copyright Eddie Machado
+Custom Admin, Copyright Eddie Machado
+License: WTFPL
+URL: http://themble.com/bones/
 
 Fenix font, Copyright Fernando Díaz, TipoType, 2012
 Licence: EULA

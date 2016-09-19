@@ -4,7 +4,7 @@
  */
  
 ?>
-<comic id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<div class="entry-wrap wrap clear">
 		<?php if ( '' != get_the_post_thumbnail() ) : ?>
 			
@@ -17,7 +17,7 @@
 			<a href="<?php the_permalink(); ?>"><?php echo get_the_date(); ?></a>
 		</footer><!-- .entry-meta -->
 		
-		<header class="entry-header"></br>
+		<header class="entry-header">
 			
 			<?php 
 			edit_post_link( __( 'Edit Comic', 'silentcomics' ), '<span class="edit-link">', '</span>' ); 

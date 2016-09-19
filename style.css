@@ -1,10 +1,10 @@
 /*
 Theme Name: SilentComics
-Theme URI: https://github.com/SilentComics/Wordpress-Theme-for-Silent-Comics/
-Author: Anh Hoa Si
+Theme URI: https://github.com/SilentComics/SilentComics-for-WordPress
+Author: SILENT COMICS
 Author URI: http://silent-comics.com
 Description: A WordPress theme for comics and webcomics <a href="https://github.com/SilentComics/Wordpress-Theme-for-Silent-Comics/">Contribute on GitHub</a>
-Version: 2.6.1 
+Version: 2.6.2
 License: GNU General Public License v3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Text Domain: silentcomics
@@ -42,18 +42,17 @@ This theme is licensed under the GPL, and is based on Underscores http://undersc
 	11.3 — Infinite scroll
 12.0 - Media queries
 --------------------------------------------------------------*/
-
 /*--------------------------------------------------------------
 1.0 - Normalize
 --------------------------------------------------------------*/
 html {
 	font-family: sans-serif;
 	-webkit-text-size-adjust: 100%;
-	-ms-text-size-adjust:     100%;
-}
+	-ms-text-size-adjust:     100%; }
+
 body {
-	margin: 0;
-}
+	margin: 0; }
+	
 article,
 aside,
 details,
@@ -66,88 +65,88 @@ menu,
 nav,
 section,
 summary {
-	display: block;
-}
+	display: block; }
+	
 audio,
 canvas,
 progress,
 video {
 	display: inline-block;
-	vertical-align: baseline;
-}
+	vertical-align: baseline; }
+	
 audio:not([controls]) {
 	display: none;
-	height: 0;
-}
+	height: 0; }
+	
 [hidden],
 template {
-	display: none;
-}
+	display: none; }
+
 a {
-	background-color: transparent;
-}
+	background-color: transparent; }
+	
 /* Accessibility, use focus instead of outline: 0; https://github.com/CSSLint/csslint/wiki/Disallow-outline%3Anone */
 a:focus {
     border: 1px solid red;
-    outline: none;
-}
+    outline: none; }
+
 abbr[title] {
-	border-bottom: 1px dotted;
-}
+	border-bottom: 1px dotted; }
+
 b,
 strong {
-	font-weight: bold;
-}
+	font-weight: bold; }
+
 dfn {
-	font-style: italic;
-}
+	font-style: italic; }
+
 h1 {
 	font-size: 2em;
-	margin: 0.67em 0;
-}
+	margin: 0.67em 0; }
+	
 mark {
 	background: #ff0;
-	color: #000;
-}
+	color: #000; }
+	
 small {
-	font-size: 80%;
-}
+	font-size: 80%; }
+
 sub,
 sup {
 	font-size: 75%;
 	line-height: 0;
 	position: relative;
-	vertical-align: baseline;
-}
+	vertical-align: baseline; }
+
 sup {
-	top: -0.5em;
-}
+	top: -0.5em; }
+
 sub {
-	bottom: -0.25em;
-}
+	bottom: -0.25em; }
+
 img {
-	border: 0;
-}
+	border: 0; }
+
 svg:not(:root) {
-	overflow: hidden;
-}
+	overflow: hidden; }
+	
 figure {
-	margin: 1em 40px;
-}
+	margin: 1em 40px; }
+
 hr {
 	box-sizing: content-box;
-	height: 0;
-}
+	height: 0; }
+
 pre {
-	overflow: auto;
-}
+	overflow: auto; }
+
 code,
 kbd,
 pre,
 samp {
 	font-family: monospace, monospace;
-	font-size: 1em;
-}
+	font-size: 1em; }
+
 button,
 input,
 optgroup,
@@ -155,15 +154,15 @@ select,
 textarea {
 	color: inherit;
 	font: inherit;
-	margin: 0;
-}
+	margin: 0; }
+
 button {
-	overflow: visible;
-}
+	overflow: visible; }
+	
 button,
 select {
-	text-transform: none;
-}
+	text-transform: none; }
+	
 button,
 html input[type="button"],
 input[type="reset"],
@@ -195,161 +194,151 @@ button,
 input,
 select,
 textarea {
-	font-size: 24px; 
+	font-size: 24px;
 	font-size: 1.5rem; } /* =24px */
 
 body {
 	color: #422442;
 	font-family:'Fenix', Georgia, serif;
-	line-height: 1.2;
-}
+	line-height: 1.45; }
 
 h2, h3, h4, h5 {
 	clear: both;
-	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+	font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
 	font-weight: 700;
-	line-height: 1.2;
-}
+	line-height: 1.2; }
 
-h6  { 
-	font-family:'Fenix', Georgia, serif; /* font-family: Inconsolata, monospace;  */ 
+h6  {
+	font-family:'Fenix', Georgia, serif; /* font-family: Inconsolata, monospace;  */
 	font-weight: 100;
-	line-height: 1.2;
-	} 
+	line-height: 1.2; }
 
 p {
-	margin-bottom: 1.5em;
-}
+	margin-bottom: 1.3em; }
+	
 dfn, cite, em,
 i {
-	font-style: italic;
-}
+	font-style: italic; }
+
 blockquote {
-	margin: 0 1.5em;
-}
+	margin: 0 1.3em; }
+	
 address {
-	margin: 0 0 1.5em;
-}
+	margin: 0 1.3em; }
 
 pre, code, kbd, tt, var {
-	font-family: Inconsolata, monospace; 
+	font-family: Inconsolata, monospace;
 	font-size: 16px;
-	font-size: 1rem;
-}
+	font-size: 1rem; }
+	
 pre {
 	background: #faf4f4;
-	color: #422442; 
+	color: #422442;
 	max-width: 100%;
 	overflow: auto;
 	padding: 1.76em;
 	white-space: pre;
 	white-space: pre-wrap;
-	word-wrap: break-word;
-}
+	word-wrap: break-word; }
 
 code, kbd, tt, var {
 	background: #faf4f4;
 	padding: 4px;
-	vertical-align: middle;
-}
+	vertical-align: middle; }
+	
 abbr, acronym {
 	border-bottom: 1px dotted #666;
-	cursor: help;
-}
+	cursor: help; }
+	
 mark, ins {
 	background: #ffee00;
-	text-decoration: none;
-}
+	text-decoration: none; }
 
 big {
-	font-size: 125%;
-}
+	font-size: 125%; }
 
 /* Selection */
-::-selection{background:#ff7369;color:#ffffff;}
-::-moz-selection{background:#ff7369;color:#ffffff;}
-img selection{background:transparent;}
-img -moz-selection{background:transparent;	
-}
+::selection{background:#ff7369;color:#ffffff;}
+::-moz-selection {background:#ff7369;color:#ffffff;}
+img::selection{background:transparent;}
+img::-moz-selection{background:transparent;}
 
 /*--------------------------------------------------------------
 3.0 Elements
 --------------------------------------------------------------*/
 html {
-	box-sizing: border-box;
-}
+	box-sizing: border-box; }
+
 *,
 *:before,
 *:after { /* Inherit box-sizing to make it easier to change the property for components that leverage other behavior; see http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
-box-sizing: inherit;
-}
+box-sizing: inherit; }
+
 blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-	content: "";
-}
+	content: ""; }
+
 blockquote,
 q {
-	quotes: "" "";
-}
+	quotes: "" ""; }
+
 hr {
 	background-color: #ccc;
 	border: 0;
 	height: 1px;
-	margin-bottom: 1.5em;
-}
+	margin-bottom: 1.5em; }
+
 li {
-	list-style: none;
-}
+	list-style: none; }
+
 ul, ol {
 	list-style: none;
 	margin: 0 1.5em;
-	padding: 0;
-}
+	padding: 0; }
+	
 li > ul,
 li > ol {
 	text-align: left;
-	margin: 0 1.5em;
-}
+	margin: 0 1.5em; }
+	
 dt {
-	font-weight: bold;
-}
+	font-weight: bold; }
+	
 dd {
-	margin: 0 1.5em 1.5em;
-}
+	margin: 0 1.5em 1.5em; }
+
 img {
 	height: auto; /* Make sure images are scaled correctly. */
-	max-width: 100%; /* Adhere to container width. */
-}
+	max-width: 100%; /* Adhere to container width. */ }
+	
 .entry-content table,
 .comment-content table {
-	font-size: large; /* change */
-}
+	font-size: large; /* change */ }
+
 table {
   border-collapse: separate;
   border-spacing: 0;
   border-width: 1px 0 0 1px;
   margin: 0 0 10px 0;
-  width: 100%;
-}
+  width: 100%; }
+  
 table, th, td {
-  border: none; /* 1px solid #fefefe — none works better */
-}
+  border: none; }
+  
 caption, th, td {
   font-weight: normal;
-  text-align: left;
-}
+  text-align: left; }
+  
 th {
   border-width: 1px;
   font-weight: bold;
-  padding: 5px 10px;
-}
+  padding: 5px 10px; }
 
 td {
   border-width: 1px;
-  padding: 5px 10px;
-}
+  padding: 5px 10px; }
 
 /*--------------------------------------------------------------
 4.0 Forms
@@ -360,23 +349,22 @@ input,
 optgroup,
 select,
 textarea {
-    color: inherit; 
-    font: inherit; 
-    margin: 0 auto; 
-}
+    color: inherit;
+    font: inherit;
+    margin: 0 auto; }
+
 button,
 input,
 select,
 textarea {
 	font-size: 100%; /* Corrects font size not being inherited in all browsers */
 	margin: 0; /* Addresses margins set differently in IE6/7, F3/4, S5, Chrome */
-	vertical-align: top; /* Improves readability and alignment in all browsers */
-}
+	vertical-align: top; /* Improves readability and alignment in all browsers */ }
+
 button {
 	line-height: normal; /* Addresses FF3/4 setting line-height using !important in the UA stylesheet */
-	overflow: visible;  /* Corrects inner spacing displayed oddly in IE6/7 */
-}
-  
+	overflow: visible;  /* Corrects inner spacing displayed oddly in IE6/7 */ }
+
 button,
 html input[type="button"],
 html input[type="button"],
@@ -385,17 +373,17 @@ input[type="submit"] {
 	-moz-appearance: button;
 	-webkit-appearance: button;
 	border: 0;
-	background: #ff91ae; /* #ff7369; base pink  */
+	background: #ff69AA; /* #ff7369; base pink  */
 	color: #fff;
 	cursor: pointer;
-	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+	font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
 	font-size: 10px;
 	font-size: 0.625rem;
 	letter-spacing: 0.12em;
 	padding: 10px;
 	text-transform: uppercase;
-	width: auto;
-}
+	width: auto; }
+
 button:hover,
 button:focus,
 .button:hover,
@@ -406,15 +394,15 @@ input[type="submit"]:hover,
 input[type="submit"]:focus,
 input[type="button"]:hover,
 input[type="button"]:focus {
-	color: black; 	
-	background-color: #faf4f4;
-}
+	color: black;
+	background-color: #faf4f4; }
+
 button:active,
 html input[type="button"]:active,
 input[type="reset"]:active,
 input[type="submit"]:active {
-	background-color: #00ffcc;
-}
+	background-color: #69F5FF; }
+
 input[type="text"],
 input[type="email"],
 input[type="url"],
@@ -432,10 +420,10 @@ input[type="datetime-local"],
 input[type="color"],
 textarea {
   color: #666;
-  border: 1px solid #f4f4f4;
-  border-radius: 3px;
-  font-family: Inconsolata, monospace; 
-}
+  border: 1px solid #faf4f4;
+  border-radius: 2px;
+  font-family: Inconsolata, monospace; }
+  
   input[type="text"]:focus,
   input[type="email"]:focus,
   input[type="url"]:focus,
@@ -452,13 +440,11 @@ textarea {
   input[type="datetime-local"]:focus,
   input[type="color"]:focus,
   textarea:focus {
-  color: #111; 
-}
-    
+  color: #111; }
+
 select {
-	border: 1px solid #ccc; 
-}
-  
+	border: 1px solid #ccc; }
+
 input[type="text"],
 input[type="email"],
 input[type="url"],
@@ -474,12 +460,10 @@ input[type="time"],
 input[type="datetime"],
 input[type="datetime-local"],
 input[type="color"] {
-	padding: 3px; 
-}
-  
+	padding: 3px; }
+
   textarea {
-	width: 100%; 
-}
+	width: 100%; }
 
 /*--------------------------------------------------------------
 5.0 Navigation
@@ -489,19 +473,19 @@ input[type="color"] {
 --------------------------------------------------------------*/
 a:link {
 	color: #ff7369;
-	text-decoration: none;
-}
+	text-decoration: none; }
+
 a:visited {
 	color: #ffaaaa;
-	text-decoration: none;
-}
+	text-decoration: none; }
+	
 a:hover,
 a:focus,
 a:active {
-	color: #ff1200; 
+	color: #ff1200;
 	text-decoration: underline; /* accessibility */
-	border: none;
-}
+	border: none; }
+	
 /*--------------------------------------------------------------
 5.2 Menus
 --------------------------------------------------------------*/
@@ -510,14 +494,13 @@ a:active {
 	display: block;
 }
 .wp-custom-logo  .site-title {
-	margin-top: 0.2em;
-}	
+	margin-top: 0.2em; }
+	
 .custom-logo {
-	max-width: 312px;
-} 
+	max-width: 312px; }
+	
 .wp-custom-logo .site-header-main {
-	margin: 0 auto;
-}
+	margin: 0 auto; }
 
 /* author's custom style (svg logo)
 ----------------------------------------------- */
@@ -526,21 +509,21 @@ a:active {
 	height: 62px;
 	position: relative;
 	margin: 12px 0 12px 0;
-	display: inline-block; 
-}
+	display: inline-block; }
+	
 .logo:after, a.logo:after {
-	content: ""; 
-	position: fixed; 
-	top: 0; 
-	right: 0; 
-	left: 50%;
-}
+	content: "";
+	position: fixed;
+	top: 0;
+	right: 0;
+	left: 50%; }
+	
 .no-svg .logo {
 	width: 96px;
 	height: 48px;
 	background-image: url('../images/silent-comics-logo.png');
-	background-repeat: no-repeat;
-}
+	background-repeat: no-repeat; }
+	
 /* =Masthead
 ----------------------------------------------- */
 .site-branding {
@@ -553,13 +536,13 @@ a:active {
 	text-align: center; /* Avoid overflowing wide custom logo in small screens in Firefox and IEs */
 	max-width: 100%;
  	min-width: 0;
- 	overflow: hidden;
-}
+ 	overflow: hidden; }
+ 	
 .site-title {
 	box-sizing: border-box;
 	border: 6px solid #420084;
 	display: table;
-	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+	font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
 	line-height: 1.2;
 	letter-spacing: 0.1em;
 	margin: 0 auto;
@@ -567,25 +550,25 @@ a:active {
 	padding: 3px 9px 4px 9px;
 	text-align: center;
 	text-transform: uppercase;
-	word-wrap: break-word; 
-}
+	word-wrap: break-word; }
+	
 .site-title a {
 	text-decoration: none;
-	color: #420084;
-}
+	color: #420084; }
+	
 .site-description {
-	font-family:'Fenix', Georgia, serif;
+	font-family: Inconsolata, monospace;
 	font-size: 0.6em;
-	color: #422442; 
+	font-weight: 400; /* 400 or 700 */
+	color: #420084;
 	text-align: center;
 	padding: 0 6px 6px 6px;
-	margin-bottom: 0.1em;
-}
+	margin-bottom: 0.1em; }
+	
 .header-image {
   width: 100%;
   height: auto;
-  -ms-interpolation-mode: bicubic;
-}
+  -ms-interpolation-mode: bicubic; }
 
 /* =Menu
 ----------------------------------------------- */
@@ -593,69 +576,68 @@ a:active {
 	position: relative;
 	display: block;
 	clear: both;
-	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+	font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
 	font-size: 16px;
 	font-size: 1rem;
 	letter-spacing: 0.24em;
 	text-transform: uppercase;
-	width: 100%;
-}
+	width: 100%; }
+	
 .main-navigation .menu {
 	max-width: 1920px;
-	margin: 0 auto;
-}
+	margin: 0 auto; }
+	
 .main-navigation ul {
 	position: relative;
 	list-style: none;
 	margin: 0;
 	padding-left: 0;
 	text-align: center;
-	z-index: 9999; 
-}
+	z-index: 9999; }
+	
 .main-navigation li {
 	display: inline-block;
-	position: relative;
-}
+	position: relative; }
+	
 .main-navigation a {
 	display: block;
-	text-decoration: none;
-}
+	text-decoration: none; }
+	
 .main-navigation a {
 	color: #422442;
-	padding: 10px 6px 6px 10px;
-}
+	padding: 10px 6px 6px 10px; }
+
 .main-navigation a:hover {
-	background: #faf4f4;
-}
+	background: #faf4f4; }
+	
 .main-navigation a:active {
 	background: #faf4f4;
-	color: white;
-}
+	color: white; }
+	
 .main-navigation ul ul {
 	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
 	position: absolute;
-    display: none;
-}
+    display: none; }
+    
 .main-navigation ul ul ul a {
-	background: #00ffcc;
-	top: 0;
-}
-.main-navigation ul ul a { 
-	width: 196px; 
+	background: #69F5FF; /*  #00ffcc */
+	top: 0; }
+
+.main-navigation ul ul a {
+	width: 196px;
 	color: black;
 	background: #faf4f4;
 	line-height: 1.6;
 	padding: 0.4em;
 	margin: 0.1em;
-	white-space: nowrap;
-}
+	white-space: nowrap; }
 
 /*.main-navigation ul ul :hover > a {} */
 .main-navigation ul ul a:hover,
 .main-navigation ul ul a:focus {
 	background-color: black;
-	color: #fff;
-}
+	color: #fff; }
+	
 .main-navigation ul li:hover > ul { display: block; }
 .main-navigation .current_page_item > a,
 .main-navigation .current-menu-item > a,
@@ -663,25 +645,21 @@ a:active {
 .main-navigation .current-menu-item > a:hover,
 .main-navigation .current_page_item > a:focus,
 .main-navigation .current-menu-item > a:focus {
-    color: #ff7369;
-}
+    color: #ff7369; }
 
 .main-navigation .current_page_ancestor {
-    background: #faf4f4;
-}
+    background: #faf4f4; }
 
 .main-navigation ul ul .current_page_parent,
 .main-navigation .current_page_parent .current_page_item > a {
     color: #ffcc00;
-    background: #faf4f4;
-}
+    background: #faf4f4; }
 
 /* Small menu */
 .menu-toggle {
 	display: none;
 	cursor: pointer;
-	margin: 0 auto;
-}
+	margin: 0 auto; }
 
 button.menu-toggle {
 	border: 0;
@@ -693,48 +671,42 @@ button.menu-toggle {
 	letter-spacing: 0.2em;
 	padding: 6px;
 	text-align: center;
-	text-transform: uppercase;
-}
+	text-transform: uppercase; }
+	
 button.menu-toggle:hover {
-	color: white;
-}
+	color: white; }
 
 @media screen and (max-width: 600px) {
 .menu-toggle,
 .toggled .nav-menu {
-	display: block;
-	}
+	display: block; }
+	
 	.main-navigation {
 	font-size: 12px;
 	font-size: 0.875rem;
-	line-height: 1.4;
-    }
+	line-height: 1.4; }
+	
 .main-navigation ul {
-		display: none;
-	}
-}
+		display: none; } }
 
 /*--------------------------------------------------------------
 5.3 Site, posts and pages navigation
 --------------------------------------------------------------*/
-.site-content .comment-navigation,
-.site-content .paging-navigation,
-.site-content .post-navigation
-.site-content .image-navigation {
+.comment-navigation,
+.paging-navigation,
+.post-navigation
+.image-navigation {
 	margin: 0 0 1em;
-	overflow: hidden;
-}
-    
+	overflow: hidden; }
+
 .post-navigation a .meta-nav {
 	color: #c9a6ab;
-	font-size: 18px;	
-	padding: 2px 8px 6px 8px;
-}
+	font-size: 18px;
+	padding: 2px 8px 6px 8px; }
 
 .post-navigation a:hover .meta-nav {
 	color: #ff7369;
-	text-decoration: none;
-} /* needs fix */
+	text-decoration: none; } /* needs fix */
 
 /* pagination */
 .page-numbers,
@@ -742,32 +714,33 @@ button.menu-toggle:hover {
 .nav-next a,
 .nav-previous-page a,
 .nav-next-page a {
-    font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+	font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
     font-size: 10px;
     font-size: 0.625rem;
     overflow: hidden;
     line-height: 2;
+    margin: 0 0 6px 0;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     color: black;
     padding: 10px 12px;
-    background-color: #faf4f4;
-	}
+    background-color: #faf4f4; }
+    
 .page-numbers,
 .prev page-numbers,
 .next page-numbers {
-	display: inline-block;
-}
+	display: inline-block; }
+	
 /* navigation specific */
-.nav-previous-page, 
+.nav-previous-page,
 .image-navigation .nav-previous,
 .image-navigation .previous,
 .comment-navigation .nav-previous,
 .paging-navigation .nav-previous,
 .post-navigation .nav-previous {
-	float: left; 
-    text-align: left;
-}
+	float: left;
+    text-align: left; }
+    
 .nav-next-page,
 .image-navigation .nav-next,
 .image-navigation .next,
@@ -775,19 +748,17 @@ button.menu-toggle:hover {
 .paging-navigation .nav-next,
 .post-navigation .nav-next {
     float: right;
-    text-align: right;
-}
+    text-align: right; }
 
  .image-navigation {
-	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+	font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
 	font-size: 16px;
-	font-size: 1rem;
-    }  
-    
+	font-size: 1rem; }
+
 .image-navigation .text-nav {
 	display: block;
-	text-align: center
-} 
+	text-align: center }
+	
 .image-navigation .meta-nav {
 	border-radius: 3px; /* 0px square shaped */
 	font-size: 24px;
@@ -795,8 +766,7 @@ button.menu-toggle:hover {
 	color: black;
 	background-color: transparent;
 	text-align: center;
-	padding: 4px;
-}
+	padding: 4px; }
 
 /*--------------------------------------------------------------
 6.0 Accessibility
@@ -805,8 +775,8 @@ button.menu-toggle:hover {
 .screen-reader-text {
 	clip: rect(1px, 1px, 1px, 1px);
  	overflow: hidden;
-	position: absolute;
-}
+	position: absolute; }
+	
 .screen-reader-text:hover,
 .screen-reader-text:active,
 .screen-reader-text:focus {
@@ -825,25 +795,23 @@ button.menu-toggle:hover {
 	text-decoration: none;
 	top: 5px;
 	width: auto;
-	z-index: 100000; /* Above WP toolbar */
-}
+	z-index: 100000; /* Above WP toolbar */ }
 
 /*--------------------------------------------------------------
 7.0 Alignments
 --------------------------------------------------------------*/
 .alignleft {
 	float: left;
-	margin: 1.5em;
-}
+	margin: 1.3em; }
+	
 .alignright {
 	float: right;
-	margin: 1.5em;
-}
+	margin: 1.3em; }
+	
 .aligncenter {
 	clear: both;
 	display: block;
-	margin: 0 auto 1.76em;
-}
+	margin: 0 auto 1.76em; }
 
 /*--------------------------------------------------------------
 8.0 Clearings
@@ -851,126 +819,121 @@ button.menu-toggle:hover {
 .clear:before,
 .clear:after {
 	content: "";
-	display: table;
-}
+	display: table; }
+	
 .clear:after {
-	clear: both;
-}
+	clear: both; }
+	
 /* Hidden */
 .hide {
-	display: none;
-}
+	display: none; }
 
 /* =Basic Structure
 ----------------------------------------------- */
-
 body {
-	background-color: #fff; /* Fallback if no background color is defined. */
-}
+	background-color: #efe9ea; /* #efe9ea Fallback if no background color is defined. Default to white */ }
+	
 .wrap {
-	margin: 0 auto;
- }
+	margin: 0 auto; }
+	
 .site-header  {
-	border-top: 3px solid #000000;
-}
+	border-top: 3px solid #000000; }
+	
 .site-footer {
-	padding: 1em 0; /* padding-top: 1em; */
- }
+	padding: 1em 0; /* padding-top: 1em; */ }
 
 /*--------------------------------------------------------------
 9.0 Widgets
 --------------------------------------------------------------*/
 .widget-area .main-sidebar,
 .widget-area .widget-calendar {
-	margin: 0 auto;	
+	margin: 0 auto;
 	width: 294px;
 	padding-top: 2em;
-	text-align: center;
-}
+	text-align: center; }
+	
 .widget-area .calendar_wrap {
-	display: inline-block;
-}
+	display: inline-block; }
+	
 .footer-widget-1,
 .footer-widget-2,
 .footer-widget-3,
 .footer-widget-4 {
-	float: left;
-	margin: 0;
-	width: 25%;
-}
+  float: left;
+  text-align: left;
+  letter-spacing: 0.09em; }
+  
 .footer-widget-4 {
-	margin-right: 0;
-}
+	margin-right: 0; }
+	
 .widget-title,
-.widget, 
+.widget,
 .widget a {
-	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+	font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
 	color: #422424;
 	font-size: 12px;
-	line-height: inherit;
+	line-height: 1.44; /*check */
 	font-weight: 300;
 	margin: 0 0 2.4em 0;
 }
 .widget a:hover {
-	color: #ff7369;
-}
+	color: #ff7369; }
+	
 .widget ul {
 	list-style: none;
 	margin: 0;
-	padding: 0;
-}
+	padding: 0; }
+	
 .widget ul > li {
 	display: block;
 	list-style: none;
-	padding: .6em 0;
-}
+	padding: .6em 0; }
+	
 .widget ul > li:last-child {
-	padding-bottom: 0;
-}
+	padding-bottom: 0; }
+	
 .widget ul ul > li:first-child {
-	margin-top: .8em;
-}
+	margin-top: .8em; }
+	
 .widget ul ul {
-	margin-left: .2em;
-}
+	margin-left: .2em; }
+	
 .widget-title,
 .widget-title a {
 	line-height: 1;
 	margin: 0 0 .6em;
 	text-decoration: none;
-	max-width: 100%;
-}
+	max-width: 100%; }
+	
 .widget select {
-	max-width: 100%; /* Make sure select elements fit in widgets */
-}
+	max-width: 100%; }
+	
 .widget-area-wrapper {
 	margin: 0 auto;
-	max-width: 984px; /* wraps the footer widget */
-}
+	max-width: 1128px; /* wraps the footer widget */}
+
 /* Search widget */
-.no-results .search-field,
-.error404 .search-field,
+.widget_search form {
+  position: relative; }
+
 .widget_search .search-field,
-.search .search-field,
-.search .search-form,
-.widget_search .search-form {
+.error404 .search-field,
+.search .search-field {
 	color: #ff91ae;
-	width: 100%;
 	text-align: center;
-}
+	width: 100%; }
+	
 .widget_search .search-submit {
-	display: none;
-}
+	display: none; }
 
 /* Calendar widget */
-
 .widget_calendar caption {
 	color: #769993;
 	letter-spacing: 0.2em;
 	line-height: 1.76;
 	text-align: left;
-	text-transform: uppercase;
-}
+	text-transform: uppercase; }
+	
 .widget_calendar thead th,
 .widget_calendar tbody td {
 	font-size: 16px;
@@ -978,71 +941,66 @@ body {
 	border: 1px solid #f0f0f0; /* fallback */
 	border: 1px solid rgba(255, 255, 255, 0.2);
 	border-width: 0 1px 1px 0;
-	text-align: center;
-}
+	text-align: center; }
+	
 .widget_calendar thead th,
 .widget_calendar tbody td {
-	background-color: #fdfcfc;
-}
+	background-color: #fdfcfc; }
+	
 .widget_calendar thead th a,
 .widget_calendar tbody td a {
 	background-color: #0ddb85;
 	color: #fff;
-	/*border-radius: 0px 50px;*/
-	padding: 0.42em;
-}
+	padding: 0.5em; }
+	
 .widget_calendar tbody td a:hover {
 	background-color: #00ffcc;
-	color: #fff;	
-}
+	color: #fff; }
+	
 .widget_calendar tfoot a {
-	color: black;
-}
+	color: black; }
 
 /* =Attachment page */
-
 article.attachment .entry-content,
 article.attachment .attachment {
 	margin-top: 0;
 	max-width: 1920px;
-	text-align: center;
-}
+	text-align: center; }
+	
 article.attachment .entry-caption {
 	max-width: 696px;
-	font-size: small;
-}
+	font-size: small; }
+	
 article.attachment  .entry-meta {
-	margin-bottom: 0;
-}
+	margin-bottom: 0; }
 
 /* =404 Page / No search result */
-
 article.error404,
 article.no-results {
-	padding-top: 48px;
-}
+	padding-top: 48px; }
+	
 .error404 .entry-content,
 .no-results .entry-content {
-	margin: 24px auto 0 auto;
-}
-article.error404 .search-form, 
+	margin: 24px auto 0 auto; }
+	
+article.error404 .search-form,
 article.no-results .search-form {
-	text-align: center;
-}
+	text-align: center; }
+	
 article.error404 input[type="search"],
 article.no-results input[type="search"] {
 	margin-bottom: 12px;
 	font-size: 18px;
-	font-size: 1.125rem;
-}
+	font-size: 1.125rem; }
+	
 article.error404 .widget {
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
-	box-sizing: border-box;
-}
+	box-sizing: border-box; }
+	
 article.error404 .widget a {
-	border-bottom: 0;
-}
+	border-bottom: 0; }
+	
 article.error404 .widget-title,
 article.error404 .widgettitle {
 	font-size: 18px;
@@ -1051,8 +1009,8 @@ article.error404 .widgettitle {
 	font-weight: 700;
 	letter-spacing: 0.1em;
 	margin-bottom: 2.4em;
-	text-transform: uppercase;
-}
+	text-transform: uppercase; }
+	
 article.error404 .widget ul,
 article.error404 .widget ul a  {
 	font-size: 16px;
@@ -1060,11 +1018,11 @@ article.error404 .widget ul a  {
 	line-height: 2;
 	font-weight: 300;
 	list-style: none;
-	margin: 0;
-}
+	margin: 0; }
+	
 article.error404 .widget li {
-	border-top: 1px solid #ffeeee;
-}
+	border-top: 1px solid #ffeeee; }
+	
 article.error404 .widget_calendar {
 width: auto;
 font-size: 8px; }
@@ -1072,29 +1030,27 @@ font-size: 8px; }
 article.error404 .widget_calendar,
 article.error404 .widget_calendar a {
 	font-size: 12px;
-
-	line-height: 2;
-}
+	line-height: 2; }
+	
 article.error404 .widget_archive p,
 article.error404 .widget_calendar  {
 	font-size: 16px;
 	font-size: 1rem;
-	clear: both;
-}
+	clear: both; }
+	
 article.error404 .widget_calendar caption {
-	color: #769993;
-}
+	color: #769993; }
+	
 article.error404 .widget_calendar thead th,
 article.error404 .widget_calendar tbody td {
 	border: 1px dotted #f0f0f0; /* fallback */
 	border: 1px dotted rgba(0, 0, 0, 0.1);
 	border-width: 0 1px 1px 0;
-	width: inherit;
-}
+	width: inherit; }
+	
 article.error404 .widget_calendar tfoot td {
 	border: none;
-	padding: 0;
-}
+	padding: 0; }
 
 /*--------------------------------------------------------------
 10.0 Content
@@ -1102,141 +1058,132 @@ article.error404 .widget_calendar tfoot td {
 /*--------------------------------------------------------------
 10.1 Posts and pages
 --------------------------------------------------------------*/
-.blog .entry-meta { 
-	display: block; 
-}
+.blog .entry-meta {
+	display: block; }
+
 .sticky {
-	color: #422442; /* #422442 or #c9a6ab */
-	background-color: #faf4f4; /* #7369FF, #00ffaa or #f3e7e7 */
-}
+	color: #422442; /* or #c9a6ab */
+	background-color: #faf4f4; } /* #7369FF, #00ffaa or #f3e7e7 */
+
 .sticky .entry-date {
-	display: none;
-}
+	display: none; }
+	
 .entry-wrap {
 	margin: 0 auto;
-	max-width: 1920px;
-}
+	max-width: 1920px; }
+	
 .hentry {
-	padding: 12px 0 24px 0;
-}
+	padding: 12px 0 24px 0; }
+	
 .attachment-silentcomics-featured-thumbnail {
 	display: block;
 	margin: 0 auto;
-	margin-top: 24px;
-}
+	margin-top: 24px; }
+	
 .entry-title, .entry-title a {
-	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+	font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
 	margin: 0 auto;
 	max-width: 696px;
 	-ms-word-wrap: break-word; /* support non-breaking text for edge cases  */
 	word-wrap: break-word;
 	color:#422442;
-	text-transform:uppercase;
-	text-align:center;
-}
+	text-transform: uppercase;
+	text-align:center; }
+	
 .entry-title a:hover{
 	text-decoration: none;
-	color:#ff7369;
-}
+	color:#ff7369; }
+
 .categories-links,
 .entry-meta {
 	display: block;
-	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+	font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
 	font-size: 10px;
 	font-size: 0.625rem;
     letter-spacing: 0.12em;
 	line-height: 1.4;
 	max-width: 696px;
-	padding: 6px 0; 
-	text-transform: uppercase;
-}
+	padding: 6px 0;
+	text-transform: uppercase; }
+	
 .entry-meta span + span:before {
 	content: "\0020\007C\0020";
-	color: #c9a6ab;
-}
+	color: #c9a6ab; }
+	
 .entry-meta:hover {
-  opacity: 1;
-}
+  opacity: 1; }
+
 .categories-links a,
-.entry-meta, 
+.entry-meta,
 .entry-meta a {
 	text-decoration:none;
-	color:#c9a6ab; /* #ff91ae or #c9a6ab */
-}
+	color:#c9a6ab; /* #ff91ae or #c9a6ab */ }
+	
 .sep {
-	color:#ff7369;
-}
+	color:#ff7369; }
+	
 .byline {
-	display: none;
-}
+	display: none; }
+	
 .single .byline,
 .group-blog .byline {
-	display: inline;
-}
+	display: inline; }
+	
 .entry-content,
 .entry-summary {
 	margin: 0 0 24px 0;
-	max-width: 696px;
-	width: 100%;
-}
+	max-width: 696px; /* 840px instead of 696px */
+	width: 100%; }
 
 /*--------------------------------------------------------------
 10.2 Post Formats
 --------------------------------------------------------------*/
-
 /* Standard */
 .format-standard {
 	margin-top: 0;
-	margin: 0 auto;	
-}
+	margin: 0 auto; }
+	
 .entry-meta {
-	margin-bottom: 0;
-}
+	margin-bottom: 0; }
 
 /* Image */
 .format-image .entry-content {
 	max-width: 1920px;
-	text-align: left;
-}
+	text-align: left; }
 
 /* Quote */
 .format-quote .entry-content {
-	color: gray;
-}
+	color: gray; }
 
 /* Asides */
 .format-aside .entry-content {
 	color: #c9a6ab;
-	overflow: hidden;
-}
+	overflow: hidden; }
 
 /* Make sure embeds and iframes fit their containers */
 embed,
 iframe,
 object,
 video {
-    max-width: 100%;
-}
+    max-width: 100%; }
+    
 p > embed,
 p > iframe,
 p > object,
 span > embed,
 span > iframe,
 span > object {
-	margin-bottom: 0; 
-}
+	margin-bottom: 0; }
 
 /* link */
 .format-link, .format-chat {
 	margin: 0 auto;
 	padding: 1.2em 0;
 	text-align: left;
-	font-family: Inconsolata, monospace;
-}
+	font-family: Inconsolata, monospace; }
 
 .format-link .entry-content a {
-	color: #BE69FF; 
-}
+	color: #7369FF; /* #BE69FF */ }
 
 /* Chat */
 .format-chat {
@@ -1246,30 +1193,28 @@ span > object {
 	padding: 1.2em 0;
 	font-size: 18px;
 	font-size: 1.125rem;
-	line-height: 1.8;
-}
+	line-height: 1.8; }
+	
 .format-chat .entry-content a,
 .format-chat .entry-title a {
-	color: white; 
-}
+	color: white; }
 
 /* Gallery */
 .format-gallery .entry-content {
-	max-width: 1920px;
-}
+	max-width: 1920px; }
+
 .format-gallery .entry-meta {
-	margin-bottom: 12px;
-}
+	margin-bottom: 12px; }
 
 /* Video */
 .format-video .entry-content {
-	height: 0;   
+	height: 0;
     position: relative;
     padding-bottom: 56.25%; /* 16:9 */
-    padding-top: 0; 
+    padding-top: 0;
     overflow: hidden;
-    margin-bottom: 1.2em;
-}
+    margin-bottom: 1.2em; }
+
 .format-video iframe,
 .format-video object,
 .format-video embed {
@@ -1279,14 +1224,14 @@ span > object {
     right: 0;
     bottom: 0;
     width: 100%;
-    height: 100%;
-}
+    height: 100%; }
+    
 .tab--preview {
   	display: block;
 	position: relative;
     padding-bottom: 56.25%;
-    padding-top: 30px; height: 0; overflow: hidden;
-}
+    padding-top: 30px; height: 0; overflow: hidden; }
+    
 .tab--preview iframe,
 .tab--preview object,
 .tab--preview embed {
@@ -1294,32 +1239,28 @@ span > object {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
-}
+    height: 100%; }
 
 /*--------------------------------------------------------------
 10.3 Author Box
 --------------------------------------------------------------*/
 .author-index .author-avatar {
-	display: inline-block;
-}
+	display: inline-block; }
 
 .author-avatar img {
 	max-width: 120px;
-	outline:  double;
-	outline-color:  #f9f9f9;
-	margin-bottom: 0;
-}
+	outline: double;
+	outline-color: #f9f9f9;
+	margin-bottom: 0; }
 
 .author-index .author-title {
 	margin-top: 0;
 	text-align: center;
-	color: lightgrey;
-}
+	color: lightgrey; }
+	
 .author-index .author-description {
 	display: inline-block;
-	background: transparent;
-}
+	background: transparent; }
 
 /*--------------------------------------------------------------
 10.4 Media
@@ -1330,44 +1271,43 @@ span > object {
     margin: 0 6px 9px 0; /* vertical & horizontal space between image galleries */
     line-height: 0; /* remove default space between rows */
     overflow: hidden;
-    position: relative;
-}
+    position: relative; }
 
 .gallery-columns-1 .gallery-item {
-    max-width: 100%;
-}
+    max-width: 100%; }
+    
 .gallery-columns-2 .gallery-item {
     max-width: 48%;
-    max-width: calc(50% - 3px);
-}
+    max-width: calc(50% - 3px); }
+    
 .gallery-columns-3 .gallery-item {
     max-width: 32%;
-    max-width: calc(33.3% - 4px);
-}
+    max-width: calc(33.3% - 4px); }
+    
 .gallery-columns-4 .gallery-item {
     max-width: 23%;
-    max-width: calc(25% - 5px);
-}
+    max-width: calc(25% - 5px); }
+
 .gallery-columns-5 .gallery-item {
     max-width: 19%;
-    max-width: calc(20% - 5px);
-}
+    max-width: calc(20% - 5px); }
+
 .gallery-columns-6 .gallery-item {
     max-width: 15%;
-    max-width: calc(16.82% - 7px);
-}
+    max-width: calc(16.82% - 7px); }
+
 .gallery-columns-7 .gallery-item {
     max-width: 13%;
-    max-width: calc(14.5% - 8px);
-}
+    max-width: calc(14.5% - 8px); }
+    
 .gallery-columns-8 .gallery-item {
     max-width: 11%;
-    max-width: calc(12.56% - 6px);
-}
+    max-width: calc(12.56% - 6px); }
+    
 .gallery-columns-9 .gallery-item {
     max-width: 9%;
-    max-width: calc(11.47% - 10px);
-}
+    max-width: calc(11.47% - 10px); }
+    
 .gallery-columns-1 .gallery-item:nth-of-type(1n),
 .gallery-columns-2 .gallery-item:nth-of-type(2n),
 .gallery-columns-3 .gallery-item:nth-of-type(3n),
@@ -1377,15 +1317,13 @@ span > object {
 .gallery-columns-7 .gallery-item:nth-of-type(7n),
 .gallery-columns-8 .gallery-item:nth-of-type(8n),
 .gallery-columns-9 .gallery-item:nth-of-type(9n) {
-    margin-right: 0;
-}
-
+    margin-right: 0; }
+    
 .gallery-columns-1 .gallery-size-medium figure.gallery-item:nth-of-type(1n+1),
 .gallery-columns-1 .gallery-size-thumbnail figure.gallery-item:nth-of-type(1n+1),
 .gallery-columns-2 .gallery-size-thumbnail figure.gallery-item:nth-of-type(2n+1),
 .gallery-columns-3 .gallery-size-thumbnail figure.gallery-item:nth-of-type(3n+1) {
-    clear: left;
-}
+    clear: left }
 
 .gallery-caption {
 	background-color: #f0f0f0; /* fallback */
@@ -1406,8 +1344,8 @@ span > object {
     bottom: 0;
     left: 0;
     text-align: left;
-    width: 100%;
-}
+    width: 100%; }
+    
 .gallery-caption:before {
     content: "";
     height: 100%;
@@ -1415,27 +1353,26 @@ span > object {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-}
+    width: 100%; }
+    
 .gallery-item:hover .gallery-caption {
-    opacity: 1;
-}
+    opacity: 1; }
 .gallery-columns-7 .gallery-caption,
 .gallery-columns-8 .gallery-caption,
 .gallery-columns-9 .gallery-caption {
-    display: none;
-}
+    display: none; }
+
 /* Captions settings */
 .wp-caption {
 	margin-bottom: 34px;
-	max-width: 100%;
-}
+	max-width: 100%; }
+	
 .wp-caption img[class*="wp-image-"] {
 	display: block;
 	height: auto;
 	margin: 0;
-	max-width: 100%;
-}
+	max-width: 100%; }
+	
 .wp-caption-text {
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
@@ -1446,99 +1383,99 @@ span > object {
 	line-height: 1.3076923076;
 	margin: 10px 0 7px 0;
 	padding: 0 10px 0 0; /* Prevent caption overflowing image width since wp-caption has 10px wider width */
-	text-align: center;
-}
+	text-align: center; }
+	
 .wp-caption-text.alignleft {
-	margin: 7px 24px 0 24px;	
-}
+	margin: 7px 24px 0 24px; }
+	
 .wp-caption.alignright {
-	margin: 7px 0 0 34px;
-}
+	margin: 7px 0 0 34px; }
+	
 .wp-caption-text.aligncenter {
-	margin-top: 24px;
-} 
+	margin-top: 24px; }
 
 /*--------------------------------------------------------------
 10.5 Comics
 --------------------------------------------------------------*/
 .comic .entry-title {
-	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+	font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
 	font-size: 24px;
 	font-size: 1.5rem;
 	font-weight: 400;
-	line-height: 1.2;
-	color: #f3e7e7;
-	margin-bottom: 0.75em; /* 1em = 24px */
-}
+	color: #faf4f4; /* #F3E7E7 */
+	margin-bottom: 0.5em; /* 1em = 24px */ }
+	
 .archive .entry-comic {
-	margin-bottom: 2em;
-}
+	margin-bottom: 2em; }
+	
 .comic .categories-links a {
-	color: #422424;
-}
+	color: #422424; }
+	
 .comic .post-edit-link {
     padding: 9px 6px 6px 6px;
-    font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+	font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
     font-size: 10px;
     font-size: 0.625rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     color: black;
-    background-color: #ffff00;
-    text-align: left;
-}
+    background-color: #69FF73; /* #FF69F5 #FFBE69 #FFFF00 */
+    text-align: left; }
+    
+.comic .entry-comic {
+	font-family: Inconsolata, monospace; }
+	
 .comic .entry-meta {
 	text-align: right;
-	vertical-align: bottom;
-	height: 0;
-}
+	max-width: 100%; }
+	
 .single-comic .entry-meta {
-	display: none;
-}
+	display: none; }
+	
 .navigation-comic a {
-	text-decoration: none; /* accessibility: remove to highlight link on hover */
-}
+	text-decoration: none; /* accessibility: remove to highlight link on hover */ }
+
 .navigation-comic {
 	display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
 	display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
 	display: -ms-flexbox;      /* TWEENER - IE 10 */
-	display: -webkit-flex;     /* NEW - Chrome */         
+	display: -webkit-flex;     /* NEW - Chrome */
 	display: flex; 			   /* NEW, Spec - Opera 12.1, Firefox 20+ */
 	justify-content: space-between;
-	width: 100%;
-}
+	width: 100%; }
+	
 .navigation-comic .nav-first,
 .navigation-comic .nav-previous {
 	text-align: left;
-	width: 19.9%;
-}
+	width: 19.9%; }
+	
 .navigation-comic .nav-last,
 .navigation-comic .nav-next {
 	text-align: right;
-	width: 19.9%;
-}
+	width: 19.9%; }
+	
+.navigation-comic .nav-first a,
+.navigation-comic .nav-previous a,
 .navigation-comic .nav-title,
 .navigation-comic .nav-title a,
-.navigation-comic .nav-previous a,
 .navigation-comic .nav-next a,
-.navigation-comic .nav-first a,
 .navigation-comic .nav-last a,
 .series-title, .series-title a, .series-title li,
 .post-parent-title, .post-parent-title a {
 	text-align: center;
-	font-family: Inconsolata, monospace; /* Futura, "Trebuchet MS", Arial, sans-serif — Inconsolata, monospace works better for small screens */
-	font-size: 12px; 
-	font-size: 0.75rem; 
+	font-family: Inconsolata, monospace; /* better on small screens */
+	font-size: 14px;
+	font-size: 0.875rem;
 	letter-spacing: 0.12em;
-	text-transform: uppercase;
-}
+	text-transform: uppercase; }
+	
 .navigation-comic .nav-title a:hover,
 .comic-episode, .comic-episode a:hover {
-  color: #ff7369;
-}
+  color: #ff7369; }
+  
+.navigation-comic .nav-first a,
 .navigation-comic .nav-previous a,
 .navigation-comic .nav-next a,
-.navigation-comic .nav-first a,
 .navigation-comic .nav-last a {
 	background: #faf4f4;
 	border-radius: 3px;
@@ -1546,56 +1483,53 @@ span > object {
 	display: inline-block;
 	padding: 0.6em;
 	width: 96px;
-	line-height: 2;
-}
+	line-height: 2; }
+	
+.navigation-comic .nav-first a:hover,
 .navigation-comic .nav-previous a:hover,
 .navigation-comic .nav-next a:hover,
-.navigation-comic .nav-first a:hover,
 .navigation-comic .nav-last a:hover {
 	background: #ff7369;
-	color: #fff;
-}
+	color: #fff; }
+	
 .series-title, .series-title a, .series-title li,
 .post-parent-title, .post-parent-title a {
-	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+	font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
 	color: black;
 	text-align: center;
-	margin-top: 12px;
-}
+	margin-top: 12px; }
+	
 .post-parent-title {
-	display: inline-block; 
-    margin: 0 auto; 
-    width: 100%;
-}
+	display: inline-block;
+    margin: 0 auto;
+    width: 100%; }
+    
 /* the comic page title */
-.page-title, 
+.page-title,
 .taxonomy-description {
-	font: italic 400 24px/1 Futura, "Trebuchet MS", Arial, sans-serif;
+	font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
 	margin-bottom: 0.6em;
-	text-align: center;
-}
+	text-align: center; }
+	
 .taxonomy-description a {
-	font: 400 24px/1 Futura, "Trebuchet MS", Arial, sans-serif;
-	color: white;
+	font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
 	text-transform: uppercase;
-	background-color: #EFE9EA;
-	padding: 4px;
-}
+	padding: 4px; }
+	
 /* comics blurb */
 .comic-blurb,
 .author-description {
 	margin: 0 auto;
 	max-width: 696px;
-	background-color: #fdfafa; /* #faf4f4 */
-	
-	font-family: Inconsolata, monospace; /* 'Fenix', Georgia, serif */
+	background-color: #FAF4FA; /* fallback */
+	background-color: rgba(253,  250,  250, 0.24);
+	font-family: Inconsolata, monospace; 
 	font-weight: 400;
-	text-align: left;
 	padding: 1.2em;
 	font-size: 16px;
 	font-size: 1rem;
-	line-height: 1.2;
-}
+	line-height: 1.2; }
+	
 /* Four columns grid */
 .columns { width: 101%; margin: 1em 0;  }
 .columns:before, .columns:after { content: " "; display: table; }
@@ -1608,15 +1542,14 @@ span > object {
 @media screen and (max-width: 888px) {
 .column { margin: 0 1% 10px 0; width: 48.5%; }
 .column:nth-child(2n) { margin-right: 0; }
-.column:nth-child(2n+1) { margin-left: 0; clear: left; }
-}
+.column:nth-child(2n+1) { margin-left: 0; clear: left; } }
 
 @media screen and (max-width: 456px) {
 .column { margin: 0; width: 100%; }
 .column:nth-child(1n) { margin-right: 0; }
 .column:nth-child(1n+1) { margin-left: 0; clear: left; }
-.series-title { font-size: 10px;  line-height: 1.2; }
-}
+.series-title { font-size: 10px;  line-height: 1.2; } }
+
 /*--------------------------------------------------------------
 10.6.1 Hide Comments
 --------------------------------------------------------------*/
@@ -1632,33 +1565,33 @@ button.toggle-comments {
     text-transform: uppercase;
     letter-spacing: 0.1em;
     color: #ff91ae; /* new pink — VS #ffaaaa */
-    background-color: transparent;
-}
+    background-color: transparent; }
+    
 .toggle-comments {
 	display: block;
-	margin: 24px auto 24px;
-}
+	margin: 24px auto 24px; }
+	
 /*--------------------------------------------------------------
 10.6.2 Comments
 --------------------------------------------------------------*/
-.comment-author .author-cite, 
+.comment-author .author-cite,
 .comment-author .author-cite a {
 	color: #c9a6ab;
-	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+	font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
 	font-size: 14px;
 	font-size: 0.875rem;
 	text-transform: uppercase;
-	vertical-align: middle;
-}
+	vertical-align: middle; }
+	
 .comment-author .says {
-	display: none;
-}
+	display: none; }
+	
 .bypostauthor .comment-content {
 	color: #422442;
-	background: #fffcfc; /* Highlight post author for Theme Check */
+	background: #fffcfc; /* Highlight for Theme Check */
 	padding: 2px 12px 1px 12px;
-	border-radius: 6px;
-}	
+	border-radius: 6px; }
+	
 .comment-meta,
 .comment-meta a,
 .ping-meta {
@@ -1666,93 +1599,92 @@ button.toggle-comments {
 	height: 0;
 	font-size: 12px;
 	font-size: 0.875rem;
-	margin-bottom: 2em;
-}
+	margin-bottom: 2em; }
+	
 .comment-meta .comment-reply-link {
-  /* background-color: #faf4f4; */
   padding: 3px;
-  color: #000;
-}
+  color: #000; }
+  
 .comment-meta a:hover {
-	color: #ffaaaa;
-}
+	color: #ffaaaa; }
+	
 .ping-meta {
-	color: #a2a2a2;
-}
+	color: #a2a2a2; }
+	
 .comment-awaiting-moderation {
-	color: #ffbb00;
-}
+	color: #ffbb00; }
+	
 .comments,
 .comment-respond {
-	max-width: 696px;
-}
+	max-width: 696px; }
+	
 .comment-author .avatar {
 	border-radius: 50%; /* 50% = Circle placeholder */
-	vertical-align: middle;
-}
+	vertical-align: middle; }
+	
 .comments-area {
 	max-width: 696px;
 	font-family: Inconsolata, monospace;
 	font-size: 18px;
 	font-size: 1.125rem;
 	line-height: 1.6;
-	margin: 0 auto;
-}
+	margin: 0 auto; }
+	
 .comments-title {
 	margin-bottom: 24px;
-	text-align: center;
-}
-.form-allowed-tags, 
+	text-align: center; }
+	
+.form-allowed-tags,
 .form-allowed-tags code {
-	display: inline-block;   
-}
+	display: inline-block; }
+	
 .comment-respond {
 	margin: 0 1.5em;
-	padding-top: 24px;
-}
-.form-submit #submit { 
+	padding-top: 24px; }
+	
+.form-submit #submit {
     background: transparent;
     display: inline-block;
     border: #000 2px solid;
     text-decoration: none;
     transition: border ease 0.3s;
     font-size: 10px;
-    color: #000;
-}
+    color: #000; }
+    
 .required {
-	color: #ff91ae;
-}
+	color: #ff91ae; }
+	
 /*--------------------------------------------------------------
 10.7 Footer
 --------------------------------------------------------------*/
 .site-footer {
-	background-color: #faf4f4; /* #EFE9EA or #faf4f4 or even #ff7369? */
-	border-bottom: 3px solid #000000;
-}
+	background-color: #faf4f4; /* #EFE9EA or #faf4f4  */
+	border-bottom: 3px solid #000000; }
+	
 .site-info {
 	color: #421212;
 	background-color: white; /* white? */
-	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+	font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
 	font-size: 10px;
 	font-size: 0.625rem;
 	line-height: 1.2;
 	padding: 8px 0 9px 0;
-	text-align: center;
-}
+	text-align: center; }
+	
 .site-info a {
-	color: #421212;
-}
+	color: #421212; }
+	
 .site-info a:hover {
-	color: #ff7369;
-}
+	color: #ff7369; }
+	
 /*--------------------------------------------------------------
 11.1 CSS for MailChimp 4 WP form
 --------------------------------------------------------------*/
 .mc4wp-form {
-	width: 100%; /* doesn't align with the search widget when 100% (fix) */
+	max-width: 192px; /* doesn't align with the search widget when 100% (fix) */
 } /* the form element */
 
-.mc4wp-form label { 
+.mc4wp-form label {
 	display: none;
 } /* labels */
 
@@ -1766,305 +1698,304 @@ button.toggle-comments {
 	line-height: 1.2;
 	display: block;
     font-family: Inconsolata, monospace;
-    font-size: 14px;
-	font-size: 0.875rem;
 	text-align: center;
-	width: 100%;
-} /* input fields */
+	width: 100%; } /* input fields */
 
 .mc4wp-form input[type="email"],
 .mc4wp-form input[type="text"] {
-	background: #ffffff;
-}
+	background: #ffffff; }
 
-.mc4wp-form input[type="submit"] { 
-	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+.mc4wp-form input[type="submit"] {
+	font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
 	font-size: 10px;
-	font-size: 0.625rem;
+	font-size: 0.625rem; } /* submit button */
 
-} /* submit button */
+.mc4wp-success {
+	color: #0ddb85; } /* success message */
 
-.mc4wp-success { 
-	color: #0ddb85;
-} /* success message */
-
-.mc4wp-error { 
-	color: #ff00cc;
-	} /* error messages */
+.mc4wp-error {
+	color: #ff00cc; } /* error messages */
 
 @media screen and (max-width: 600px) {
 	.mc4wp-form input[type="submit"] {
 		font-size: 9px;
-		font-size: 0.5625rem;
-	}
-}
+		font-size: 0.5625rem; } }
+		
 /*--------------------------------------------------------------
 11.2 RoyalSlider
 --------------------------------------------------------------*/
 /* Enables browsing for users with JavaScript off */
 .royalSlider > .rsContent {
-	visibility: visible; 
-	position:  relative;
-}
+	visibility: visible;
+	position:  relative; }
 
 .rsImg {
 	visibility: visible;
 	display: inline-block;
 	width: 100%;
 	vertical-align: middle;
-	margin: 0 0 9px 0;
-}
+	margin: 0 0 9px 0; }
+	
 /*--------------------------------------------------------------
 11.3 Infinite scroll
 --------------------------------------------------------------*/
 /* Globally hidden elements when Infinite Scroll is supported and in use. */
 .infinite-scroll .paging-navigation, /* Older / Newer Posts Navigation (always hidden) */
 .infinite-scroll .neverending .site-footer { /* Theme Footer (when set to scrolling) */
-	display: none;
-}
-/* When Infinite Scroll has reached its end we need to re-display elements that were hidden (via .neverending) before */
+	display: none; } /* When Infinite Scroll has reached its end we need to re-display elements that were hidden (via .neverending) before */
+	
 .infinity-end .neverending .site-footer {
-	display: block;
-}
+	display: block; }
+	
 /*--------------------------------------------------------------
 12.0 Media queries
 --------------------------------------------------------------*/
 @media screen and (min-width: 288px) {
 	.wrap {
-		max-width: 264px;
-	}
-}
+		max-width: 264px; } }
+		
 @media screen and (min-width: 312px) {
 	.wrap {
-		max-width: 288px;
-	}
-}
+		max-width: 288px; } }
+		
 @media screen and (min-width: 456px) {
 	.wrap {
-		max-width: 408px;
-	}
-}
+		max-width: 408px; } }
+		
 @media screen and (min-width: 600px) {
 	.wrap {
-		max-width: 552px;
-	}
+		max-width: 552px; }
+		
 	.comment-list .children {
-		margin-left: 16px;
-	}
+		margin-left: 16px; }
+		
 	.comment-author {
-		padding-left: 0;
-	}
+		padding-left: 0; }
+		
 	.comment-author .avatar  {
 		width: 96px;
-		height: 96px;
-	}
+		height: 96px; }
+		
 	.comment-content,
 	.comment-meta {
-		padding: 0;
-	}
-	article.error404 .widget {
-		float: left;
-		width: 50%;
-	}
+	padding: 0; }
+		
+article.error404 .widget {
+	float: left;
+	width: 50%; }
+		
 	article.error404 .widget_most_used_categories,
 	article.error404 .widget_archive {
 		padding-right: 0;
-		padding-left: 12px;
-	}
-}
+		padding-left: 12px; }
+		
+  .footer-widget-1,
+  .footer-widget-2,
+  .footer-widget-3,
+  .footer-widget-4 {
+    margin: 0 12% 0 0;
+    width: 38%; } }
+    
 @media screen and (min-width: 744px) {
 	.wrap {
-		max-width: 696px;
-	}
+	max-width: 696px; }
+	
 	article.error404 input[type="search"],
 	article.no-results input[type="search"] {
-		width: 100%;
-	}
-}
+		width: auto; } }
+		
 @media screen and (min-width: 888px) {
 	.wrap,
 	.categories-links {
-		max-width: 840px;
-	}
+		max-width: 840px; }
+		
 	.entry-content,
 	.entry-summary,
 	article.attachment .entry-caption {
-		margin: auto;
-	}
+		margin: auto; }
+
 .format-video .entry-content {
-		max-width: 840px;
-	}
-}
+		max-width: 840px; } }
+		
 @media screen and (min-width: 1032px) {
 	.wrap {
-		max-width: 984px;
-	}
+		max-width: 984px; }
+		
 	.categories-links {
-		max-width: 912px;
-	}
+		max-width: 912px; }
+		
 .entry-meta span + span:before {
-		content: "";
-	}
+		content: ""; }
+		
 	.entry-meta,
 	.comic .entry-meta {
 		float: right;
-		max-width: 168px;
-	}
+		max-width: 168px; }
+		
 	.entry-meta span {
 		display: block;
-		padding: 2px 0;
-	}
+		padding: 2px 0; }
+		
 	.entry-meta .entry-format {
-		display: block;
-	}
+		display: block; }
+		
 	.format-video .entry-content {
-		max-width: 984px;
-	}
-}
+		max-width: 984px; }
+		
+  .footer-widget-1,
+  .footer-widget-2,
+  .footer-widget-3,
+  .footer-widget-4 {
+    margin: 0 6% 0 0;
+    width: 19%; } }
+    
 @media screen and (min-width: 1176px) {
 	.wrap {
-		max-width: 1128px;
-	}
+		max-width: 1128px; }
+		
 	.categories-links {
-		max-width: 984px;
-	}
+		max-width: 100%; }
+		
 	.entry-meta {
-		width: 240px;
-	}
+	width: 240px; }
+		
 	.format-video .entry-content {
-		max-width: 1128px;
-	}
-}
+	max-width: 1128px; } }
+	
 @media screen and (min-width: 1320px) {
 	.wrap,
 	.format-video .entry-content {
-		max-width: 1272px;
-	}
-}
+		max-width: 1272px; } }
+	
 @media screen and (min-width: 1680px) {
 	.wrap {
-		max-width: 1608px;
-	}
+		max-width: 1608px; }
+		
 	.format-video .entry-content,
 	.entry-comic .wrap {
-		max-width: 1652px;
-	}
-}
+		max-width: 1652px; } }
+		
 @media screen and (min-width: 2048px) {
 	.entry-comic .wrap {
-		max-width: 1920px;
-	}
-}
+		max-width: 1920px; } }
+		
 @media screen and (max-width: 816px) {
 	.site-title {
 		font-size: 24px;
 		font-size: 1.5rem;
-		border: 5px solid #420084; 
-		max-width: 312px;
-	}
-	.navigation-comic .nav-previous a,
-	.navigation-comic .nav-next a,
-	.navigation-comic .nav-title a,
-	.navigation-comic .nav-first a,
-	.navigation-comic .nav-last a,
-	.post-parent-title, .post-parent-title a,
-	.series-title, .series-title a {
-		font-size: 10px;
-		font-size: 0.625rem;
-		letter-spacing: normal; 
-	}
-	.navigation-comic .nav-title { 	
-		width: 19.9%; /* leaves more room for comic title aligned with navigation buttons */
-	}
-}
-@media screen and (max-width: 600px) {
-	body {
-		font-size: 16px;
-		font-size: 1rem;
-		line-height: 1.4166666667;
-	}
-	.format-chat, pre, code, kbd, tt, var, textarea, button, input, select {
-		font-size: 12px;
-		font-size: 0.875rem;
-		line-height: 1.4;	
-	}
-	.site-title {
-		font-size: 14.4px;
-		font-size: 0.875rem;
-		border: 4px solid #420084; 
-		max-width: 168px;
-	}
-    .site-branding .logo {
-		width: 62px;
-		height: 31px;
-    } 
-    .site-description {
-    	display: block;
-    }
-	blockquote p {
-		font-size: 16px;
-		font-size: 1rem;
-		font-weight: 400;
-		line-height: 1;
-		margin-bottom: 24px;
-	}
-	.entry-title {
-		font-size: 1.5rem;
-	}
-	.entry-content,
-	.entry-summary {
-		margin-top: 0;
-	}
-	.comment-author .avatar  {
-		width: 48px;
-		height: 48px;
-	}
-	.comments-area article,
-	.comment-list .trackback,
-	.comment-list .pingback {
-		margin-bottom: 18px;
-		padding-top: 18px;
-	}
-	.comments-area,
-	.comment-meta a,
-	.comment-content blockquote p {
-		font-size: 0.875rem;
-		line-height: 1.6;
-	}
-	.comments-title {
-		margin-bottom: 24px;
-	}
-	.site-content .navigation-comment {
-		padding: 0;
-	}
-	.comment-list {
-		margin-bottom: 48px;
-	}
-	.comment-nav-below {
-		padding-bottom: 48px;
-	}
-	.comic .entry-title {
-		font-size: 16px;
-		font-size: 1rem;
-	}
+		border: 5px solid #420084;
+		max-width: 312px; }
+		
+	.series-title, series-title a,
 	.post-parent-title, .post-parent-title a {
-		font-size: 8px;
-		font-size: 0.5rem;
-	}
+		font-size: 10px;
+		font-size: 0.625rem; }
+		
 	.navigation-comic .nav-previous a,
 	.navigation-comic .nav-next a,
 	.navigation-comic .nav-title a,
 	.navigation-comic .nav-first a,
 	.navigation-comic .nav-last a {
-		font-size: 8px;
-		font-size: 0.5rem;
-		width: 48px;
-	}
-	.widget-area {
-		overflow: hidden;
-	}
-	.footer-widget-1, .footer-widget-2, .footer-widget-3, .footer-widget-4, .widget-area .search-form {
-		width: 120px;
-		margin: 0 6px;
-	}
-}
+		font-size: 10px;
+		font-size: 0.625rem;
+		vertical-align: text-bottom;
+		width: 72px; }
+		
+.navigation-comic .nav-title {
+	width: 19.9%; } }
+		
+@media screen and (max-width: 600px) {
+	body {
+	font-size: 16px;
+	font-size: 1rem;
+	line-height: 1.4166666667; }
+		
+.format-chat, pre, code, kbd, tt, var, textarea, button, input, select {
+	font-size: 12px;
+	font-size: 0.875rem;
+	line-height: 1.4; }
+		
+.site-title {
+	font-size: 14.4px;
+	font-size: 0.875rem;
+	border: 4px solid #420084;
+	max-width: 168px; }
+	
+.site-branding .logo {
+	width: 62px;
+	height: 31px; }
+		
+.site-description {
+	display: block; }
+    	
+blockquote p {
+	font-size: 16px;
+	font-size: 1rem;
+	font-weight: 400;
+	line-height: 1;
+	margin-bottom: 24px; }
+		
+.entry-title {
+	font-size: 1.5rem; }
+		
+.entry-content,
+.entry-summary {
+	margin-top: 0; }
+	
+.comment-author .avatar  {
+	width: 48px;
+	height: 48px; }
+		
+.comments-area article,
+.comment-list .trackback,
+.comment-list .pingback {
+	margin-bottom: 18px;
+	padding-top: 18px; }
+		
+.comments-area,
+.comment-meta a,
+.comment-content blockquote p {
+	font-size: 0.875rem;
+	line-height: 1.6; }
+		
+.comments-title {
+		margin-bottom: 24px; }
+		
+.content .navigation-comment {
+	padding: 0; }
+	
+.comment-list {
+	margin-bottom: 48px; }
+	
+.comment-nav-below {
+	padding-bottom: 48px; }
+
+.comic .entry-title {
+	font-size: 16px;
+	font-size: 1rem; }
+		
+.series-title, series-title a {
+	font-size: 8px;
+	font-size: 0.5rem;
+	margin-top: 1em; }
+		
+.navigation-comic .nav-previous a,
+.navigation-comic .nav-next a,
+.navigation-comic .nav-title a,
+.navigation-comic .nav-first a,
+.navigation-comic .nav-last a {
+	font-size: 8px;
+	font-size: 0.5rem;
+	letter-spacing: normal;
+	width: 48px; }
+	
+.widget-area {
+		overflow: hidden; }
+		
+.footer-widget-1, 
+.footer-widget-2, 
+.footer-widget-3, 
+.footer-widget-4, 
+.widget-area .search-form {
+    margin: 0 auto;
+    width: 100%; } }

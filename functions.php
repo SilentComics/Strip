@@ -588,7 +588,7 @@ function woocommerce_support() {
  // Enqueue the theme's own style for WooCommerce
  function wp_enqueue_woocommerce_style(){
 	
-	wp_register_style( 'silentcomics-woocommerce', get_template_directory_uri() . '/library/css/woocommerce-min.css' );
+	wp_register_style( 'silentcomics-woocommerce', get_template_directory_uri() . '/library/css/woocommerce.min.css' );
 	if ( class_exists( 'woocommerce' ) ) {
 	    wp_enqueue_style( 'silentcomics-woocommerce' );
 	}

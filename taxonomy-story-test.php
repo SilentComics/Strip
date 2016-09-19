@@ -7,18 +7,18 @@
  
  get_header(); ?>
 
-	<div id="primary" class="content-area">
-		<div class="wrap" class="entry-comic" role="main">
-	
-	<?php if ( have_posts() ) : ?>
-	<header class="page-header">
-		</br>
-			<?php
-						// Show an optional term description.
-						$term_description = term_description();
-						if ( ! empty( $term_description ) ) :
-							printf( '<div class="taxonomy-description">%s</div>', $term_description );
-						endif; ?>
+    <section id="primary" 
+        <main id="content" class="wrap" role="main">
+    
+    <header class="page-header">
+        
+    <?php 
+	// Show an optional term description.
+	$term_description = term_description();
+	if (! empty($term_description) ) :
+	printf('<div class="taxonomy-description">%s</div>', $term_description);
+	endif; 
+	?>
 			<h4 class="comic-blurb">This. Is. Just. A. Test.</h4>
 			</br>
 	</header><!-- .page-header -->
@@ -47,7 +47,6 @@
 
 		<?php endif; ?>
 
-		</div><!-- #content -->
-	</div><!-- #primary -->
-
+        </main><!-- #content -->
+    </section><!-- #primary -->
 <?php get_footer(); ?>

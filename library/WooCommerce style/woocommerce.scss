@@ -15,9 +15,8 @@ https://docs.woothemes.com/documentation/plugins/woocommerce/
 >>> WooCommerce							
 --------------------------------------------------------------*/
 .woocommerce-content  {
-	clear: none; /* is this needed? */ 
 	margin: 0 auto;
-	max-width: 984px; /* could be 984px, or even 1272 if you want a larger product page display */
+	max-width: 984px; /* 1272px if you want a larger product page display */
 }
 
 .woocommerce .custom-logo,
@@ -25,9 +24,27 @@ https://docs.woothemes.com/documentation/plugins/woocommerce/
 .woocommerce-checkout .custom-logo {
 	max-width: 192px;
 } 
-
+.woocommerce .cart a {
+	color: #7369FF;
+	text-decoration: none;
+} 
+/* .woocommerce a:link {
+	color: #7369FF;
+	text-decoration: none;
+}
+.woocommerce a:visited {
+	color: #69F5FF;
+	text-decoration: none;
+}
+/*
+.woocommerce a:hover,
+.woocommerce a:focus,
+.woocommerce a:active {
+	color: #69F5FF; 
+	text-decoration: underline;	border: none;
+} */
 p.demo_store{
-	background-color: #FF7369;
+	background-color: #FF69AA;
 }
 .woocommerce-content .product_meta .posted_in,
 .woocommerce-content .product_meta .posted_in a,
@@ -75,22 +92,23 @@ p.demo_store{
 	padding-top: 2.4em;
 	line-height: inherit;
 	font-size: large;
-	color: #00bbff; /* #aadddd & #aacccc = light blue pink would be #ffaaaa */
+	color: #aadddd; /* #aadddd = light blue pink would be #ffaaaa */
 	text-transform: uppercase;
 	letter-spacing: 0.1em;
 	word-wrap: break-word;
 }
-
+.woocommerce-content .price,
 .woocommerce-content .woocommerce-price-suffix,
 .woocommerce-content .added_to_cart.wc-forward {
-	color: darkgreen;
+	font-family: Inconsolata, monospace;
+	color: #00bbff;
 }
 
 .woocommerce-content .added_to_cart.wc-forward:hover {
-	color: #0ddb85;
+	color: #69F5FF;
 }
 
-.woocommerce-content {
+.woocommerce .product {
 	margin-top: 1em;
 }
 
@@ -105,11 +123,25 @@ p.demo_store{
 	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
 	font-size: 0.625rem;
 }
-.woocommerce-content #toggle-comments-container,
-#reviews .woocommerce-content .toggle-comments,
-.woocommerce-content button.toggle-comments {
-	display: none;
+
+#reviews .woocommerce-Reviews,
+.woocommerce-content .comment_container,
+.woocommerce-content #comments {
+	display: block !important;
 }
+.woocommerce-content #toggle-comments-container {
+	display: none; /* Because there is no point to toggle on and off reviews like comments if you enabled reviews in the first place */
+}
+
+.woocommerce-content #comments .comment_container .img.avatar {
+	max-width: 120px;
+	outline:  black;
+	outline-color: #ffcc00;
+	margin-bottom: 0;
+		width: 196px;
+		height: 196px;
+}
+
 .woocommerce label,
 .woocommerce .orderby,
 .woocommerce .woocommerce-message,
@@ -123,6 +155,8 @@ p.demo_store{
 	font-family:'Fenix', Georgia, serif;
 	font-size: medium;
 }
+
+/* Cart */
 .woocommerce .cart .single_add_to_cart_button,
 .woocommerce .cart .wc-proceed-to-checkout, 
 .woocommerce .cart .single_add_to_cart_button.button.alt,
@@ -186,7 +220,7 @@ p.demo_store{
 .woocommerce #respond input#submit,.woocommerce input.button:hover,
 .woocommerce .button html input[type="button"]:active,
 .woocommerce .button input[type="submit"]:active {
-	background-color: #0ddb85;
+	background-color: #69F5FF;
 }
 
 .woocommerce .search-field {
@@ -224,11 +258,11 @@ p.demo_store{
 .woocommerce .price ins,
 .woocommerce .woocommerce-message:before {
 	content:"\e015";
-	color: #0ddb85;
+	color: #69F5FF;
 }
 
 .woocommerce .woocommerce-message {
-	border-top-color: #0ddb85;
+	border-top-color: #69F5FF;
 }
 
 .woocommerce .woocommerce-error,.woocommerce .woocommerce-info,
@@ -253,12 +287,12 @@ p.demo_store{
 
 .woocommerce .woocommerce-error:before{
 	content:"\e016";
-	color: #ff00cc; /* fushia for now */
+	color: #FF69F5;
 }
 
 .woocommerce span.onsale {
 	color: black;
-	background-color: #ffff00; /* #ff7624 = orange #aaff00=acid green #00ffaa = light flashy green #00ffcc = Light seablue #00bbbb = seablue #ccffdd = lame pale blue #ffcc00 #bbff00 #ffee00 */
+	background-color: #69F5FF; /* #ff0000 = pure yellow #ff7624 = orange #aaff00=acid green #00ffaa = light flashy green #00ffcc = Light seablue #00bbbb = seablue #ccffdd = lame pale blue #ffcc00 #bbff00 #ffee00 */
 	padding: 0.6em;
 	font-weight:400;
 	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
@@ -269,7 +303,7 @@ p.demo_store{
 
 .woocommerce .cart_totals .checkout-button.button.alt.wc-forward {
 	color: #fff;
-	background: #0ddb85; /* green */
+	background: #69F5FF; 
 	font-size: large;
 }
 
@@ -292,7 +326,7 @@ p.demo_store{
 	vertical-align: top;
 	margin-bottom: 34px;
 	width: 100%;
-	}
+}
 	
 small.download-url {
 	font-size: large;

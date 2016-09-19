@@ -40,18 +40,25 @@ http://codex.wordpress.org/Creating_Admin_Themes
 
 #loginform {
   margin-left: 8px;
-  padding: 26px 24px 46px;
-  font-weight: normal;
+  padding: 26px 24px 48px;
+  font-family: Inconsolata, monospace;
+  font-weight: 400;
   background: transparent;
   border: none;
   border-radius: 3px;
   box-shadow: none; 
 }
+
+#loginform label {
+  color: #c9a6ab; /* #c9a6ab meta #BF8B87 monochromatic */
+}
+
 body form .input {
-  font-family: Inconsolata, monospace;  
-  color: #424242;
-  font-size: 16px;
-  font-size: 1rem;
+  font-family: Inconsolata, monospace; 
+  font-weight: 400;
+  color: #420084;
+  font-size: 12px;
+
   text-align: center;
   width: 100%;
   border: 1px solid #e7e7e7;
@@ -68,13 +75,26 @@ body form .input {
 /* Forget Me Not */
 .forgetmenot {
 	display: none;
+  
+}
+
+#nav a,
+#backtoblog a {
+  font-family: Inconsolata, monospace; 
+  font-size: 16px;
+}
+
+#nav a:hover,
+#backtoblog a:hover {
+  font-family: Inconsolata, monospace; 
+  color: #7369FF !important;
 }
 
 /* login button*/
 .wp-core-ui.login .button-primary {
 	width: 100%;
 	height: 40px;
-	background: salmon;
+	background: #FF7369;
 	text-transform: uppercase;
 	color: #fff;
 	border: none;
@@ -84,13 +104,15 @@ body form .input {
 	outline: none;
 	position: relative;
 	text-shadow: none;
+	/*font-family: Futura, "Trebuchet MS", Arial, sans-serif;*/
 	font-size: 16px;
+	letter-spacing: 0.1em;
 	-webkit-box-shadow: none;
 	box-shadow: none;
 }
 
 .wp-core-ui.login .button-primary:hover {
-	background: black;
+	background: #7369FF; 
 	-webkit-transition: background 0.2s ease;
 	transition: background 0.2s ease;
 }
@@ -105,7 +127,7 @@ body form .input {
     
 body {
   transition: background-color 0.5s ease;
-  background-color: black;
+  background-color: #420084;
 }
 body:hover {
   background-color: #EFE9EA;

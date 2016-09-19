@@ -39,7 +39,7 @@ if ( ! function_exists( 'silentcomics_header_style' ) ) :
 */
 register_default_headers( array(
     'DefaultHeader' => array(
-    'url'   => get_template_directory_uri() . '/library/images/Default-header.png',
+    'url'  			=> get_template_directory_uri() . '/library/images/Default-header.png',
     'thumbnail_url' => get_template_directory_uri() . '/library/images/Default-header.png',
     'description'   => _x( 'DefaultHeader', 'header image description', 'silentcomics' )),
 ));

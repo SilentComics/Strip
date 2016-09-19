@@ -8,6 +8,7 @@
  */
 ?>
     </div><!-- #content -->
+    
     <footer id="colophon" class="site-footer" role="contentinfo">
 
 <div class="entry-wrap wrap clear">
@@ -38,7 +39,8 @@
         </div><!-- .widget-area-wrapper -->
     </div><!-- #secondary -->
     <?php endif; //is_active_sidebar ?>
-        </div>
+    		</div><!-- .entry-wrap -->
+
 
         <div class="site-info">
             &copy; <span class="site-name"><a href="<?php echo esc_url(home_url('/')); ?>" rel="home"><?php bloginfo('name'); ?></a></span> <?php
@@ -48,7 +50,7 @@
             <span class="sep"> | </span>
     <?php do_action('silentcomics_credits');
                 ?>
-                <a href="<?php echo esc_url(__('https://github.com/SilentComics/Silent-Comics-Wordpress-Theme', 'silentcomics')); ?>"><?php printf(esc_html__('Theme: %1$s by %2$s.', 'silentcomics'), 'silentcomics', 'Hoa'); ?><rel="designer"></a>
+                <a href="<?php echo esc_url(__('https://github.com/SilentComics/Silent-Comics-Wordpress-Theme', 'silentcomics')); ?>"><?php printf(esc_html__('Theme: %1$s by %2$s.', 'silentcomics'), 'silentcomics', 'Hoa'); ?></a>
         </div><!-- .site-info -->
     </footer><!-- #colophon -->
 </div><!-- #page -->

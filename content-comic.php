@@ -58,6 +58,6 @@
         <?php the_content(__('Continue watching <span class="meta-nav">&rarr;</span>', 'silentcomics')); ?>
 
             <?php endif; ?>
-        </div><!-- .entry-comic -->
+        </div><!-- .entry-content -->
     </div><!-- .entry-wrap -->
 </article>

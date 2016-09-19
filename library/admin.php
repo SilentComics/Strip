@@ -101,8 +101,10 @@ add_action('wp_dashboard_setup', 'silentcomics_custom_dashboard_widgets');
 //http://codex.wordpress.org/Plugin_API/Action_Reference/login_enqueue_scripts
 function silentcomics_login_css() {
 	wp_enqueue_style( 'silentcomics_login_css', get_template_directory_uri() . '/library/css/login.css', false );
-}
-
+	
+// Enqueue custom font to the login form
+wp_enqueue_style( 'inconsolata', get_template_directory_uri() . '/fonts/inconsolata.css', array(), null );
+}    
 // changing the logo link from wordpress.org to your site
 function silentcomics_login_url() {  return home_url(); }
 
@@ -111,6 +113,8 @@ function silentcomics_login_title() { return get_option('blogname'); }
 
 // calling it only on the login page
 add_action( 'login_enqueue_scripts', 'silentcomics_login_css', 10 );
+// Add custom font to the login form
+add_action( 'login_enqueue_scripts', '/fonts/inconsolata.css', 10 );
 add_filter('login_headerurl', 'silentcomics_login_url' );
 add_filter('login_headertitle', 'silentcomics_login_title' );
 
@@ -127,9 +131,9 @@ you like.
 // Custom Backend Footer
 function silentcomics_custom_admin_footer() {
 	?>
-	<span id="footer-thankyou"><a href="<?php echo esc_url( __( 'https://github.com/SilentComics/Silent-Comics-Wordpress-Theme/tree/master/silentcomics/', 'silentcomics' ) ); ?>"><?php printf( esc_html__( 'Developed by %s', 'silentcomics' ), 'Hoa Si' ); ?></a>
+	<span id="footer-thankyou"><a href="<?php echo esc_url( __( 'http://silentcomics.com/', 'silentcomics' ) ); ?>"><?php printf( esc_html__( 'Developed by %s', 'silentcomics' ), 'Silent Comics' ); ?></a>
 			<span class="sep"> | </span>
-			<a href="<?php echo esc_url( __( 'http://themble.com/bones', 'silentcomics' ) ); ?>"><?php printf( esc_html__( 'Custom admin area thanks to %s', 'silentcomics' ), 'Themble' ); ?></a>
+			<a href="<?php echo esc_url( __( 'https://github.com/SilentComics/SilentComics-for-WordPress/', 'silentcomics' ) ); ?>"><?php printf( esc_html__( 'Contribute on %s', 'silentcomics' ), 'GitHub' ); ?></a>
 <?php }
 
 // adding it to the admin area

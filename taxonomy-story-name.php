@@ -8,17 +8,18 @@
 
  get_header(); ?>
 
-    <div id="primary" class="content-area">
-        <div class="wrap" class="site-content" role="main">
-
+    <section id="primary" 
+        <main id="content" class="wrap" role="main">
+    
     <header class="page-header">
-
-    <?php
-                        // Show an optional term description.
-                        $term_description = term_description();
-    if (! empty($term_description) ) :
-        printf('<div class="taxonomy-description">%s</div>', $term_description);
-    endif; ?>
+        
+    <?php 
+	// Show an optional term description.
+	$term_description = term_description();
+	if (! empty($term_description) ) :
+	printf('<div class="taxonomy-description">%s</div>', $term_description);
+	endif; 
+	?>
             <h4 class="comic-blurb">This is a blurb. Add your own story name blurb here.</h4>
             </br>
     </header><!-- .page-header -->
@@ -74,6 +75,6 @@
             get_template_part('no-results', 'archive-comic');
         endif; ?>
 
-        </div><!-- #content -->
-    </div><!-- #primary -->
+        </main><!-- #content -->
+    </section><!-- #primary -->
 <?php get_footer(); ?>

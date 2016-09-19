@@ -71,4 +71,4 @@ $content_width = 1920;
         </div><!-- #content -->
     </div><!-- #primary -->
 
-<?php get_footer(); ?>
+<?php get_footer('lite'); ?>

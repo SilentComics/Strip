@@ -12,7 +12,7 @@
   \_____\____/|_|  |_|_____\_____|_____/
 
 
-  静かな漫画
+  静かな漫画 ★ الحكايات الصامتة ★ Stummcomic Bande Dessinée Muette ★ Quadrinhos Silenciosos ★
 
         _           _          _             _            _           _
        / /\        /\ \       _\ \          /\ \         /\ \     _  /\ \
@@ -47,11 +47,10 @@
 ║  ║ ║║║║║║  ╚═╗
 ╚═╝╚═╝╩ ╩╩╚═╝╚═╝
 
-静かな漫画
 
 /* http://silent-comics.com */
 
-Currently under development — Contribute on GitHub: https://github.com/SilentComics/Wordpress-Theme-for-Silent-Comics/
+Currently under development — Contribute on GitHub: https://github.com/SilentComics/SilentComics-for-WordPress
 
 /* TEAM */
 
@@ -77,10 +76,16 @@ Location: Earth.
 /* THANKS */
 
 
-Name: Soraya Abbar, Yoshihiro Deguchi, Susumu Toyama, Andre Torres, Pieter Goosen, <DRSK>, <Clorith>, Dmitry Semenov, WordPress.org
+Name: Soraya Abbar, Yoshihiro Deguchi, Susumu Toyama, Andre Torres, Pieter Goosen, <DRSK>, <Clorith>, Dmitry Semenov
 
 
 /* ABOUT */
 SIlENT COMICS project log
 http://silentcomics.com/
 Content:	© SILENT COMICS
+
+/* SITE */
+
+  Language:     English
+  Built with:   WordPress <http://WordPress.org>
+  

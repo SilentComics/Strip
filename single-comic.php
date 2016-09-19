@@ -13,8 +13,8 @@ if ( post_type_exists( $post_type )  && is_single() ) {
     get_header(); }
     ?>
 
-	<div id="primary" class="content-area">
-		<div id="content" class="site-content" role="main">
+	<section id="primary">
+		<main id="content" role="main">
 
 	<?php
 	// Start the loop.
@@ -39,7 +39,7 @@ if ( post_type_exists( $post_type )  && is_single() ) {
 
 		<?php endwhile; // end of the loop. ?>
 
-	</div><!-- #content -->
-</div><!-- #primary -->
+		</main><!-- #content -->
+	</section><!-- #primary -->
 
-<?php get_footer(); ?>
+<?php get_footer('lite'); ?>
