@@ -101,10 +101,10 @@ add_action('wp_dashboard_setup', 'silentcomics_custom_dashboard_widgets');
 //http://codex.wordpress.org/Plugin_API/Action_Reference/login_enqueue_scripts
 function silentcomics_login_css() {
 	wp_enqueue_style( 'silentcomics_login_css', get_template_directory_uri() . '/library/css/login.css', false );
-	
+
 // Enqueue custom font to the login form
 wp_enqueue_style( 'inconsolata', get_template_directory_uri() . '/fonts/inconsolata.css', array(), null );
-}    
+}
 // changing the logo link from wordpress.org to your site
 function silentcomics_login_url() {  return home_url(); }
 

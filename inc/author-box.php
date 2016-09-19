@@ -23,10 +23,10 @@
     </div><!-- .author-avatar -->
 
     <div class="author-meta">
- 
+
     <div class="author-description">
         <h2 class="author-title"><span class="author-heading"><?php _e('&#9998;', 'silentcomics'); ?></span> <?php echo get_the_author(); ?></h2>
-        
+
 
         <p class="author-bio">
             <?php the_author_meta('description'); ?>

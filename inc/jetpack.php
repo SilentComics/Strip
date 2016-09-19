@@ -25,7 +25,7 @@ function silentcomics_infinite_scroll_setup() {
 add_action( 'after_setup_theme', 'silentcomics_infinite_scroll_setup' );
 
 /*
-* Enables Jetpack's Infinite Scroll for home (blog), disables it in WooCommerce product archives 
+* Enables Jetpack's Infinite Scroll for home (blog), disables it in WooCommerce product archives
 * @return bool
 * https://wordpress.org/support/topic/suppress-infinite-blog-with-woocommerce
 */
