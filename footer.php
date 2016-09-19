@@ -39,7 +39,7 @@
         </div><!-- .widget-area-wrapper -->
     </div><!-- #secondary -->
     <?php endif; //is_active_sidebar ?>
-    		</div><!-- .entry-wrap -->
+            </div><!-- .entry-wrap -->
 
 
         <div class="site-info">

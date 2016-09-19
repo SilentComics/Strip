@@ -8,17 +8,17 @@
 
  get_header(); ?>
 
-    <section id="primary" 
+    <section id="primary"
         <main id="content" class="wrap" role="main">
-    
+
     <header class="page-header">
-        
-    <?php 
+
+    <?php
 	// Show an optional term description.
 	$term_description = term_description();
 	if (! empty($term_description) ) :
 	printf('<div class="taxonomy-description">%s</div>', $term_description);
-	endif; 
+	endif;
 	?>
             <h4 class="comic-blurb">This is a blurb. Add your own story name blurb here.</h4>
             </br>
@@ -68,7 +68,7 @@
             'current' => max(1, get_query_var('paged')),
             'total' => $loop->max_num_pages,
             'before_page_number' => '<span class="screen-reader-text">'.$translated.' </span>'
-            ) 
+            )
         );
 
         else :

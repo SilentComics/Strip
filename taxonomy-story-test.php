@@ -4,41 +4,41 @@
  *
  * @package SilentComics
  */
- 
+
  get_header(); ?>
 
-    <section id="primary" 
+    <section id="primary"
         <main id="content" class="wrap" role="main">
-    
+
     <header class="page-header">
-        
-    <?php 
+
+    <?php
 	// Show an optional term description.
 	$term_description = term_description();
 	if (! empty($term_description) ) :
 	printf('<div class="taxonomy-description">%s</div>', $term_description);
-	endif; 
+	endif;
 	?>
 			<h4 class="comic-blurb">This. Is. Just. A. Test.</h4>
 			</br>
 	</header><!-- .page-header -->
-	
+
 <?php // Create and run first loop in reverse order
     	$comic = new WP_Query();
 		$comic->query( array(
 		'post_type'		=> 'comic',
-    	'showposts'		=> -1, 
+    	'showposts'		=> -1,
 		'story'			=> 'test',
 		'orderby'  		=> 'title',
 		'order'  		=> 'ASC',)
 		);
-		
-    while ($comic->have_posts()) : $comic->the_post();   
-				
+
+    while ($comic->have_posts()) : $comic->the_post();
+
 		get_template_part( 'content-comic' ); ?>
 
 			<?php endwhile; ?>
-<?php 
+<?php
     wp_reset_query();
 ?>
 		<?php else : ?>

@@ -9,7 +9,7 @@
 
  get_header(); ?>
 
-	<div id="primary" 
+	<div id="primary"
         <main id="content" class="wrap" role="main">
 
 	<?php if ( have_posts() ) : ?>

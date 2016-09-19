@@ -38,7 +38,7 @@ if ( ! function_exists( 'silentcomics_setup' ) ) :
 * https://github.com/ResponsiveImagesCG/wp-tevko-responsive-images/tree/dev#advanced-image-compression
 */
 	add_theme_support( 'advanced-image-compression' );
-	
+
 	// Increase the limit to 1920px if the image is wider than 768px.
 
 function custom_max_srcset_image_width( $max_width, $size_array ) {
@@ -62,7 +62,7 @@ add_filter( 'max_srcset_image_width', 'custom_max_srcset_image_width', 10, 2 );
 * Enable support for title-tag. Allows themes to add document title tag to HTML <head> (since version 4.1.).
 */
 	add_theme_support( 'title-tag' );
-	
+
 /**
 * Enable support for custom logo.
 *
@@ -87,13 +87,13 @@ add_filter( 'max_srcset_image_width', 'custom_max_srcset_image_width', 10, 2 );
 /**
 * Remove default WordPress paragraph tags from around images (fixes layout discrepancy between post with image attachement and galleries)
 * See https://css-tricks.com/snippets/wordpress/remove-paragraph-tags-from-around-images/
-* http://codex.wordpress.org/Function_Reference/wpautop gets the same result but also removes line blocks: remove_filter( 'the_content', 'wpautop' ); 
-*	
+* http://codex.wordpress.org/Function_Reference/wpautop gets the same result but also removes line blocks: remove_filter( 'the_content', 'wpautop' );
+*
 */
 	function filter_ptags_on_images($content){
 	return preg_replace('/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $content);
 	}
-	add_filter('the_content', 'filter_ptags_on_images');	 	
+	add_filter('the_content', 'filter_ptags_on_images');
 
 	/**
 	 * This theme uses wp_nav_menu() in one location.
@@ -141,9 +141,9 @@ add_filter( 'max_srcset_image_width', 'custom_max_srcset_image_width', 10, 2 );
 * specifically font, colors, icons, and column width.
 */
     add_editor_style( array( 'css/editor-style.css', 'fonts/fenix.css' ) );
-    
+
     /** add silentcomics_fonts_url() if you want to use Google Webfonts:
-    // add_editor_style( array( 'css/editor-style.css', silentcomics_fonts_url() ) ); 
+    // add_editor_style( array( 'css/editor-style.css', silentcomics_fonts_url() ) );
     */
 
 	// Indicate widget sidebars can use selective refresh in the Customizer. https://make.wordpress.org/core/2016/03/22/implementing-selective-refresh-support-for-widgets/
@@ -255,7 +255,7 @@ function silentcomics_update_menus() {
 }
 
 /**
-* Google Webfonts 
+* Google Webfonts
 * Font URLs function http://themeshaper.com/2014/08/13/how-to-add-google-fonts-to-wordpress-themes/
 */
 //function silentcomics_fonts_url() {
@@ -291,15 +291,15 @@ function silentcomics_update_menus() {
 function silentcomics_scripts() {
 	// add custom font here if any
 	wp_enqueue_style( 'fenix', get_template_directory_uri() . '/fonts/fenix.css', array(), null );
-	
+
 	wp_enqueue_style( 'inconsolata', get_template_directory_uri() . '/fonts/inconsolata.css', array(), null );
 
 	// Add custom fonts, used in the main stylesheet. (if using Google Fonts)
     //wp_enqueue_style( 'silentcomics-fonts', silentcomics_fonts_url(), array(), null );
-    	
+
 	// Theme stylesheet
 	wp_enqueue_style( 'silentcomics-style', get_stylesheet_uri() );
-	
+
 	// Load the Internet Explorer specific stylesheet. Conditional stylesheet — tested and works with IE9 on Windows7
 	wp_enqueue_style( 'silentcomics-ie', get_template_directory_uri() . '/css/ie.css', array( 'silentcomics-style' ), '20160305' );
 	wp_style_add_data( 'silentcomics-ie', 'conditional', 'lt IE 10' );
@@ -312,7 +312,7 @@ function silentcomics_scripts() {
 	wp_script_add_data( 'silentcomics-html5', 'conditional', 'lt IE 9' );
 
 	wp_enqueue_script( 'silentcomics-skip-link-focus-fix', get_template_directory_uri() . '/js/min/skip-link-focus-fix-min.js', array(), '20130115', true );
-	
+
 	// toggle comments js
 	wp_enqueue_script( 'silentcomics-toggle-comments', get_template_directory_uri() . '/js/min/toggle-comments-min.js', array( 'jquery' ), '20160401', false );
 
@@ -355,13 +355,13 @@ require get_template_directory() . '/inc/jetpack.php';
 /**
 * Register RoyalSLider
 */
-//register_new_royalslider_files(1); 
+//register_new_royalslider_files(1);
 
 /**
 * MailChimp for WordPress
 */
 function wp_enqueue_mc4wp_style(){
-	
+
 	wp_register_style( 'mc4wp', get_template_directory_uri() . '/library/css/mc4wp.css' );
 	if ( class_exists( 'mc4wp_form_css_classes' ) ) {
 	    wp_enqueue_style( 'mc4wp' );
@@ -370,9 +370,9 @@ function wp_enqueue_mc4wp_style(){
 
 add_action( 'wp_enqueue_scripts', 'wp_enqueue_mc4wp_style' );
 /**
-* Get the first image in a post 
+* Get the first image in a post
 * See https://css-tricks.com/snippets/wordpress/get-the-first-image-from-a-post/
-*/	
+*/
 function catch_first_image() {
 global $post, $posts;
 $first_img = '';
@@ -398,7 +398,7 @@ add_filter ('first_img', 'catch_first_image');
 * http://stackoverflow.com/questions/19802157/change-wordpress-default-gallery-output
 */
 
-/**		
+/**
 * Register Custom Post Type for comics
 */
 function comic_post_type() {
@@ -423,10 +423,10 @@ function comic_post_type() {
 		'items_list_navigation' => __( 'Comics list navigation', 'silentcomics' ),
 		'filter_items_list'     => __( 'Filter Comics list', 'silentcomics' ),
 	);
-	
+
 	$supports            = array( 'title', 'editor', 'excerpt', 'trackbacks', 'custom-fields', 'comments', 'revisions', 'thumbnail', 'author', 'archive',
 	);
-	
+
 	$args = array(
 		'label'               => __( 'Comic', 'silentcomics' ),
 		'description'         => __( 'Publish Comics and Webcomics', 'silentcomics' ),
@@ -571,7 +571,7 @@ add_action( 'after_setup_theme', 'woocommerce_support' );
 function woocommerce_support() {
 	    add_theme_support( 'woocommerce' );
 	    }
-	    
+
 /**
 * Remove each WooCommerce style one by one, if needed
 * see https://docs.woothemes.com/document/disable-the-default-stylesheet/
@@ -587,7 +587,7 @@ function woocommerce_support() {
 
  // Enqueue the theme's own style for WooCommerce
  function wp_enqueue_woocommerce_style(){
-	
+
 	wp_register_style( 'silentcomics-woocommerce', get_template_directory_uri() . '/library/css/woocommerce.min.css' );
 	if ( class_exists( 'woocommerce' ) ) {
 	    wp_enqueue_style( 'silentcomics-woocommerce' );
@@ -605,11 +605,11 @@ add_action( 'wp_enqueue_scripts', 'wp_enqueue_woocommerce_style' );
 * also: http://dessky.com/blog/disable-woocommerce-scripts-and-styles/
 */
 add_action( 'wp_enqueue_scripts', 'silentcomics_manage_woocommerce_styles', 99 );
- 
+
 function silentcomics_manage_woocommerce_styles() {
 	//remove generator meta tag
 	//remove_action( 'wp_head', array( $GLOBALS['woocommerce'], 'generator' ) );
-	
+
 	//first check that woo exists to prevent fatal errors
 	if ( function_exists( 'is_woocommerce' ) ) {
 		//dequeue scripts and styles, unless we're in the store
@@ -650,7 +650,7 @@ function silentcomics_manage_woocommerce_styles() {
 
 /**
 * Set posts, WooCommerce products & comics number per archive page
-* Fixes 404 error on pagination due to CTP conflicting with WordPress posts_per_page default 
+* Fixes 404 error on pagination due to CTP conflicting with WordPress posts_per_page default
 * see http://wordpress.stackexchange.com/questions/30757/change-posts-per-page-count/30763#30763
 */
 add_action( 'pre_get_posts',  'silentcomics_set_posts_per_page'  );
@@ -667,7 +667,7 @@ function silentcomics_set_posts_per_page( $query ) {
   elseif ( ( ! is_admin() ) && ( $query === $wp_the_query ) && ( $query->is_archive() )  && (is_tax('story') ) ) {
     $query->set( 'posts_per_page', 3 );
   }
-  
+
   return $query;
 }
 
@@ -729,7 +729,7 @@ function _remove_script_version($src) {
 }
 add_filter('style_loader_src', '_remove_script_version', 15, 1);
 add_filter('script_loader_src', '_remove_script_version', 15, 1);
-    
+
 /*
 Remove jquery migrate for enhanced performance
 */
