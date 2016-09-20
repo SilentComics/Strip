@@ -1,21 +1,21 @@
 [![Build Status](https://travis-ci.org/SilentComics/SilentComics-for-WordPress.svg?branch=master)](https://travis-ci.org/SilentComics/SilentComics-for-WordPress)
 
-WIP WordPress-Theme-for-Silent-Comics
+WIP WordPress Theme for Silent-Comics
 =================================
 
-Not ready for production yet, but you are welcome to test the theme. Right now it has two functions (custom post type and taxonomies) that belong to a plugin. **Warning** It means you will lose access to the comics data when changing theme.
+*SilentComics* is a WordPress theme designed for the upcoming [SILENT COMICS site](http://silent-comics.com). The theme is still in development.
 
 ![screenshot](http://silentcomics.com/images/screenshot.png)
 
-# Silent Comics WordPress Theme
-
-*SilentComics* is a WordPress theme designed for the upcoming [SILENT COMICS site](http://silent-comics.com). The theme, still in development, is released under the GNU General Public License.
+As such, it is not 100% ready for production yet, but you are welcome to test the theme. Right now two of the theme's functions, custom post type and taxonomies, should go in a plugin. WordPress is right to advocates for the separation of presentation and content[^1].This makes sense for portability of content. Yet for this particular project, using custom functions within the theme makes sense too. Because the theme design responds to the projects needs. Warning But it means you will lose access to your (comics) data if you want to use this theme and then change theme. That is not something we want to happen. So until a [simple webcomic plugin](https://github.com/SilentComics/strip) is ready to solve this potential issue, it is best to avoid using this theme on your live site.
 
 # Theme Wiki
 [Theme wiki](https://github.com/SilentComics/SilentComics-for-WordPress/wiki/Theme-set-up)
 
 ## Contributing
-I'd love to get contributions for this project. I’m not a developer so there is room for improvements. Do you know how to make this theme better? Please send your findings and suggestions over to hoa // @ // silent-comics.com
+I'd love to get contributions for this project. I’m not a developer at all so there is room for improvements. Do you know how to make this theme better? Please send your findings and suggestions over to hoa // @ // silent-comics.com
 
 ## Other ways you can help:
-Theme review aside, there are a few other ways you can [support this project ♥](http://silentcomics.com/subscribe/). *Thank you!*
+Theme review aside, there are a few ways you can [support this project ♥](http://silentcomics.com/subscribe/). *Thank you!*
+
+[^1]: See WordPress.org’s [presentation vs functionality](https://make.wordpress.org/themes/handbook/review/required/#presentation-vs-functionality) guidelines
