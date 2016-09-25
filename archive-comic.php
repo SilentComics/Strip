@@ -15,27 +15,22 @@ get_header(); ?>
 			<?php if (have_posts() ) : ?>
 
 				<header class="page-header">
-					<h1 class="page-title">
-						<?php
-							printf(
-							__('STORIES %s', 'silentcomics'), '<span>' .
-							single_cat_title('', false) . '</span>'
-							);
-						?>
-                	</h1>
+				<h1 class="page-title">
+				<?php
+					printf( __( 'STORIES %s', 'silentcomics' ), '<span>' .
+					single_cat_title( '', false ) . '</span>' );
+					?>
+					</h1>
 
                     <h2 class="taxonomy-description">
-                        <a href="<?php echo esc_url(home_url('/series/')); ?>">
-						<?php _e('<span class="meta-nav">Series</span>', 'silentcomics'); ?>
-                        </a>
-                    </h2>
-
-                    <h4 class="series-title">
-                    <a href="<?php echo esc_url(home_url('/story/exile/')); ?>">ExIle</a></h4>
-                    <h4 class="series-title">
-                    <a href="<?php echo esc_url(home_url('/story/tofu/')); ?>">Morning Tofu Chase</a></h4>
-                    <h3 class="series-title">
-                    <a href="<?php echo esc_url(home_url('/story/sentient-drone/')); ?>">Sentient Drone</a></h3>
+						<a href="<?php echo esc_url( home_url( '/series/' ) ); ?>">
+							<?php _e( '<span class="meta-nav">Series</span>', 'silentcomics' ); ?>
+						</a>
+					</h2>
+				<?php
+					// don't forget to edit this part, replace name by your story title ?>
+					<h4 class="series-title">
+					<a href="<?php echo esc_url( home_url( '/story/name/' ) ); ?>">name</a></h4>
 
                 <?php
                     // Show an optional term description.
