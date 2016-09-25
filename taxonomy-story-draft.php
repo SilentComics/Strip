@@ -1,8 +1,11 @@
 <?php
 /**
- * The template for the "Draft" story pages, sorting the comic stories that have no taxonomy_term set
+ * The template for the "Draft" story pages
+ *
+ * Archive comic stories without a taxonomy_term set.
  * Using custom Taxonomy "draft" http://codex.wordpress.org/Template_Tags/get_posts#Taxonomy_Parameters
- * Learn more: http://codex.wordpress.org/Template_Hierarchy
+ *
+ * @link https://codex.wordpress.org/Template_Hierarchy
  *
  * @package SilentComics
  */

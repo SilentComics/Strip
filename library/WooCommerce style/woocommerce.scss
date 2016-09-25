@@ -4,7 +4,7 @@ Author: Anh Hoa	Si
 
 Stylesheet: WooCommerce Stylesheet
 
-This stylesheet overwrites some WooCommerce CSS rules to better match SilentComics theme. 
+This stylesheet overwrites some WooCommerce CSS rules to better match SilentComics theme.
 
 For more info, check out:
 https://docs.woothemes.com/documentation/plugins/woocommerce/
@@ -12,7 +12,7 @@ https://docs.woothemes.com/documentation/plugins/woocommerce/
 */
 
 /*--------------------------------------------------------------
->>> WooCommerce							
+>>> WooCommerce
 --------------------------------------------------------------*/
 .woocommerce-content  {
 	margin: 0 auto;
@@ -23,11 +23,11 @@ https://docs.woothemes.com/documentation/plugins/woocommerce/
 .woocommerce-cart .custom-logo,
 .woocommerce-checkout .custom-logo {
 	max-width: 192px;
-} 
+}
 .woocommerce .cart a {
 	color: #7369FF;
 	text-decoration: none;
-} 
+}
 /* .woocommerce a:link {
 	color: #7369FF;
 	text-decoration: none;
@@ -40,7 +40,7 @@ https://docs.woothemes.com/documentation/plugins/woocommerce/
 .woocommerce a:hover,
 .woocommerce a:focus,
 .woocommerce a:active {
-	color: #69F5FF; 
+	color: #69F5FF;
 	text-decoration: underline;	border: none;
 } */
 p.demo_store{
@@ -59,7 +59,7 @@ p.demo_store{
 .woocommerce .widget-area-wrapper {
 		overflow: hidden;
 }
-	
+
 #payment.woocommerce-checkout-payment,
 #payment.form-row place-order {
  background-color: #faf4f4;
@@ -72,8 +72,8 @@ p.demo_store{
 
 #payment.woocommerce-checkout-payment .payment_box.payment_method_bacs::before,
 #payment.woocommerce-checkout-payment .payment_box.payment_method_bacs::after {
-	width: 0; 
-	height: 0; 
+	width: 0;
+	height: 0;
 	border-left: 20px solid transparent;
 	border-right: 20px solid transparent;
 	border-bottom: 20px solid #fff;
@@ -81,8 +81,8 @@ p.demo_store{
 
 #payment.woocommerce-checkout-payment .payment_box.payment_method_paypal::before,
 #payment.woocommerce-checkout-payment .payment_box.payment_method_paypal::after {
-	width: 0; 
-	height: 0; 
+	width: 0;
+	height: 0;
 	border-left: 20px solid transparent;
 	border-right: 20px solid transparent;
 	border-bottom: 20px solid #fff;
@@ -158,10 +158,10 @@ p.demo_store{
 
 /* Cart */
 .woocommerce .cart .single_add_to_cart_button,
-.woocommerce .cart .wc-proceed-to-checkout, 
+.woocommerce .cart .wc-proceed-to-checkout,
 .woocommerce .cart .single_add_to_cart_button.button.alt,
 .woocommerce-content .button.add_to_cart_button.product_type_simple,
-.woocommerce-content .woocommerce-message .button.wc-forward, 
+.woocommerce-content .woocommerce-message .button.wc-forward,
 .woocommerce .wc-proceed-to-checkout.checkout-button.button.alt.wc-forward,
 .woocommerce .cart .button,
 .woocommerce.form-submit,
@@ -183,7 +183,7 @@ p.demo_store{
 	text-align: center;
 	padding: 1.2em;
 	text-transform: uppercase;
-	width: auto; 
+	width: auto;
 }
 .woocommerce .cart .update_cart input.button {
 	color: #fff;
@@ -195,7 +195,7 @@ p.demo_store{
 	text-align: center;
 	padding: 1.2em;
 	text-transform: uppercase;
-	width: auto; 
+	width: auto;
 }
 .woocommerce .cart .single_add_to_cart_button,
 .woocommerce .cart .single_add_to_cart_button:hover,
@@ -204,7 +204,7 @@ p.demo_store{
 }
 
 .woocommerce .cart .single_add_to_cart_button:hover,
-.woocommerce .cart .wc-proceed-to-checkout:hover, 
+.woocommerce .cart .wc-proceed-to-checkout:hover,
 .woocommerce .cart .single_add_to_cart_button.button.alt:hover,
 .woocommerce-content .button.add_to_cart_button.product_type_simple:hover,
 .woocommerce-content .woocommerce-message .button.wc-forward:hover,
@@ -227,7 +227,7 @@ p.demo_store{
 	font-size: small;
 }
 /* MailChimp for WordPress style */
-.woocommerce .mc4wp-form input { 
+.woocommerce .mc4wp-form input {
 	-webkit-box-sizing:border-box;
 	-moz-box-sizing:border-box;
 	box-sizing:border-box;
@@ -242,7 +242,7 @@ p.demo_store{
 	width: 100%;
 } /* input fields */
 
-.woocommerce .mc4wp-form input[type="submit"] { 
+.woocommerce .mc4wp-form input[type="submit"] {
 	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
 	font-size: 0.625rem;
 	width: 100%
@@ -267,7 +267,7 @@ p.demo_store{
 
 .woocommerce .woocommerce-error,.woocommerce .woocommerce-info,
 .woocommerce .woocommerce-message {
-	background-color: #faf4f4;	
+	background-color: #faf4f4;
 }
 .woocommerce .woocommerce-error .button.wc-forward {
 	color: #fff;
@@ -303,7 +303,7 @@ p.demo_store{
 
 .woocommerce .cart_totals .checkout-button.button.alt.wc-forward {
 	color: #fff;
-	background: #69F5FF; 
+	background: #69F5FF;
 	font-size: large;
 }
 
@@ -316,7 +316,7 @@ p.demo_store{
 
 .woocommerce .woocommerce-checkout,
 .woocommerce .payment_box.payment_method_bacs {
-  font-size: medium; 
+  font-size: medium;
 }
 
 .woocommerce .shop_table.cart {
@@ -327,7 +327,7 @@ p.demo_store{
 	margin-bottom: 34px;
 	width: 100%;
 }
-	
+
 small.download-url {
 	font-size: large;
 	font-style: italic;

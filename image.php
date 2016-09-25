@@ -1,6 +1,6 @@
 <?php
 /**
- * The template for displaying image attachments.
+ * The template for displaying image attachments
  *
  * @package SilentComics
  */
@@ -13,7 +13,8 @@ $content_width = 1920;
 
     <?php
                 // Start the loop.
-    while ( have_posts() ) : the_post(); ?>
+    while (have_posts()) :
+        the_post(); ?>
 
             <article id="post-<?php the_ID(); ?>" <?php post_class('clear'); ?>>
                 <div class="entry-wrap wrap clear">
@@ -46,7 +47,7 @@ $content_width = 1920;
                 <nav class="post-parent-title"><?php echo "<a href='" . get_permalink($post->post_parent). "'>Return to ". get_the_title($post->post_parent) ."</a>"; ?></nav>
             </nav><!-- #image-navigation -->
 
-        <?php if (has_excerpt() ) : ?>
+        <?php if (has_excerpt()) : ?>
                     <div class="entry-caption">
         <?php the_excerpt(); ?>
                     </div><!-- .entry-caption -->

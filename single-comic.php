@@ -1,6 +1,6 @@
 <?php
 /**
- *  The Template for displaying all single comics.
+ *  The Template for displaying all single comics
  *
  * @package SilentComics
  */

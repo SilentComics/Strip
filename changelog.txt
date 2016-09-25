@@ -11,8 +11,14 @@ changelog.txt
 
 == changelog ==
 
+= (??/10/2016) - Version 2.6.3 =
+[>] Removed deprecated constant HEADER_TEXTCOLOR in custom-header.php
+[>] Improved several minor documentation issues
+[>] Improved PHP as per WP PHP Documentation standards https://make.wordpress.org/core/handbook/best-practices/coding-standards/
+[>] changed RSS feed in admin.php and removed default WordPress widgets in admin
+
 = (19/09/2016) - Version 2.6.2 =
-[+] Added a 'lite' footer for singlecomics and image.php — optional but it removes distraction and WP queries as well
+[+] Added a 'lite' footer for single-comics.php & image.php — optional but removes distraction & WP queries as well
 [-] Removed some unused files and templates (sample files & tests)
 [-] color-scheme-control.js
 [-] Removed subscribe.css
@@ -20,11 +26,11 @@ changelog.txt
 [-] (removed?) mc4wp.css?
 [>] Automated header description
 [>] updated readme / credits
-[>] Improved WooCommerce integration, (style and reviews)
+[>] Improved WooCommerce integration, (style & reviews)
 [>] Custom fonts on login page
 [>] Archives templates
 [>] updated humans.txt
-[>] styles changes
+[>] styles changes (2005 css lines)
 
 = (26/08/2016) - Version 2.6.1 =
 [>] Author template style

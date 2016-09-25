@@ -34,7 +34,7 @@ jQuery(document).ready(function() {
 		jQuery(anchor).text(anchorText);
 	});
 	});
- 
+
 	} // End of commentsDiv.length
-	
+
 }); // End of Show/Hide Comments

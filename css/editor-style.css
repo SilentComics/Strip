@@ -18,7 +18,7 @@ Description: Used to style the TinyMCE editor.
 
 /*@import url( 'style.css' );*/
 /*@import url( .'/fonts/fenix.css');*/
-@import url( '/fonts/inconsolata.css');
+/*@import url( '/fonts/inconsolata.css');*/
 
 /* Add overwrites as needed so that the content of the editor field is attractive and not broken */
 body,
@@ -26,7 +26,7 @@ button,
 input,
 select,
 textarea {
-	font-size: 24px; 
+	font-size: 24px;
 	font-size: 1.5rem; } /* =24px */
 
 body {

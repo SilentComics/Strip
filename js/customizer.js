@@ -27,7 +27,7 @@
 			$( '.site-description' ).text( to );
 		} );
 	} );
-	
+
 	// Header text color
 		api( 'header_textcolor', function( value ) {
 		value.bind( function( to ) {

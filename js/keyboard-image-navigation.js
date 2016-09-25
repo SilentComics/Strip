@@ -1,7 +1,7 @@
 /**
  * Silent Comics keyboard support for image navigation.
  */
- 
+
 ( function( $ ) {
 	$( document ).on( 'keydown.silentcomics', function( e ) {
 		var url = false;

@@ -1,15 +1,15 @@
 <?php
 /**
- * The template for displaying Archive pages.
+ * The template for displaying Archive pages
  *
- * Learn more: http://codex.wordpress.org/Template_Hierarchy
+ * @link https://codex.wordpress.org/Template_Hierarchy
  *
  * @package SilentComics
  */
 
 get_header(); ?>
 
-	<div id="primary"
+	<div id="primary" 
 		<div id="content" role="main">
 
 	<?php if ( have_posts() ) : ?>
@@ -45,7 +45,7 @@ get_header(); ?>
 
 							elseif ( is_tax( 'post_format', 'post-format-aside' ) ) :
 								_e( 'Asides', 'silentcomics' );
-
+								
 								elseif ( is_tax( 'post_format', 'post-format-gallery' ) ) :
 								_e( 'Galleries', 'silentcomics' );
 
@@ -60,19 +60,19 @@ get_header(); ?>
 
 							elseif ( is_tax( 'post_format', 'post-format-link' ) ) :
 								_e( 'Links', 'silentcomics' );
-
+								
 								elseif ( is_tax( 'post_format', 'post-format-audio' ) ) :
 							_e( 'Audios', 'silentcomics' );
 
 							elseif ( is_tax( 'post_format', 'post-format-chat' ) ) :
 							_e( 'Chats', 'silentcomics' );
-
+							
 							elseif ( is_tax( 'story', 'comic' ) ) :
 							_e( 'Stories', 'silentcomics' );
-
+						
 						elseif ( !'comic' == get_post_type() ):
 							_e( 'Comics', 'silentcomics' );
-
+						
 							else :
 								_e( 'Archives', 'silentcomics' );
 
@@ -88,7 +88,7 @@ get_header(); ?>
 					?>
 				</div><!-- .wrap -->
 			</header><!-- .page-header -->
-
+                        
 			<?php /* Start the Loop */ ?>
 			<?php while ( have_posts() ) : the_post(); ?>
 

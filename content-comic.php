@@ -11,7 +11,7 @@
             <a href="<?php the_permalink(); ?>" title="<?php echo esc_attr(sprintf(__('Permalink to %s', 'silentcomics'), the_title_attribute('echo=0'))); ?>" rel="<?php the_ID(); ?>" class="silentcomics-featured-thumbnail">
                 <?php the_post_thumbnail('silentcomics-featured-thumbnail'); ?>
             </a>
-        <?php endif; ?>
+            <?php endif; ?>
 
         <footer class="entry-meta">
             <a href="<?php the_permalink(); ?>"><?php echo get_the_date(); ?></a>
@@ -57,7 +57,7 @@
     <div class="entry-comic">
         <?php the_content(__('Continue watching <span class="meta-nav">&rarr;</span>', 'silentcomics')); ?>
 
-        <?php endif; ?>
+            <?php endif; ?>
         </div><!-- .entry-content -->
     </div><!-- .entry-wrap -->
 </article>

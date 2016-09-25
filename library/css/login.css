@@ -4,16 +4,14 @@ Author: Silent Comics
 
 Stylesheet: Login Stylesheet
 
-This stylesheet is loaded (if admin.php is setup in your 
-functions file) on the login page. This way you can style 
+This stylesheet is loaded (if admin.php is setup in your
+functions file) on the login page. This way you can style
 the login page. It won't affect any other page, admin or front-end.
 
 For more info, check out the codex:
 http://codex.wordpress.org/Creating_Admin_Themes
 
 ******************************************************************/
-
-@import url( '/fonts/inconsolata.css');
 
 /* the form box */
 /*
@@ -26,17 +24,17 @@ http://codex.wordpress.org/Creating_Admin_Themes
 .login h1 a {
   background: url('../images/login-logo.svg') no-repeat top center;
 /* make sure to replace this! */
-  width: 326px;
-  height: 67px;
+  width: 124px;
+  height: 62px;
   text-indent: -9999px;
   overflow: hidden;
-  padding-bottom: 15px;
+  padding-bottom: 10;
   display: block;
 }
 
 .no-svg login h1 a {
   background-image: url('../images/login-logo.png');
-}  
+}
 
 #loginform {
   margin-left: 8px;
@@ -46,7 +44,7 @@ http://codex.wordpress.org/Creating_Admin_Themes
   background: transparent;
   border: none;
   border-radius: 3px;
-  box-shadow: none; 
+  box-shadow: none;
 }
 
 #loginform label {
@@ -54,7 +52,7 @@ http://codex.wordpress.org/Creating_Admin_Themes
 }
 
 body form .input {
-  font-family: Inconsolata, monospace; 
+  font-family: Inconsolata, monospace;
   font-weight: 400;
   color: #420084;
   font-size: 12px;
@@ -75,18 +73,18 @@ body form .input {
 /* Forget Me Not */
 .forgetmenot {
 	display: none;
-  
+
 }
 
 #nav a,
 #backtoblog a {
-  font-family: Inconsolata, monospace; 
+  font-family: Inconsolata, monospace;
   font-size: 16px;
 }
 
 #nav a:hover,
 #backtoblog a:hover {
-  font-family: Inconsolata, monospace; 
+  font-family: Inconsolata, monospace;
   color: #7369FF !important;
 }
 
@@ -112,7 +110,7 @@ body form .input {
 }
 
 .wp-core-ui.login .button-primary:hover {
-	background: #7369FF; 
+	background: #7369FF;
 	-webkit-transition: background 0.2s ease;
 	transition: background 0.2s ease;
 }
@@ -124,11 +122,11 @@ body form .input {
 }
 
 /* background colour */
-    
+
 body {
   transition: background-color 0.5s ease;
   background-color: #420084;
 }
 body:hover {
   background-color: #EFE9EA;
-} 
+}

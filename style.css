@@ -4,7 +4,7 @@ Theme URI: https://github.com/SilentComics/SilentComics-for-WordPress
 Author: SILENT COMICS
 Author URI: http://silent-comics.com
 Description: A WordPress theme for comics and webcomics <a href="https://github.com/SilentComics/Wordpress-Theme-for-Silent-Comics/">Contribute on GitHub</a>
-Version: 2.6.2.1
+Version: 2.6.3
 License: GNU General Public License v3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Text Domain: silentcomics
@@ -831,7 +831,7 @@ button.menu-toggle:hover {
 /* =Basic Structure
 ----------------------------------------------- */
 body {
-	background-color: #efe9ea; /* #efe9ea Fallback if no background color is defined. Default to white */ }
+	background-color: #ffffff; /* #efe9ea suggested — Default to white */ }
 
 .wrap {
 	margin: 0 auto; }
@@ -849,7 +849,6 @@ body {
 .widget-area .widget-calendar {
 	margin: 0 auto;
 	width: 294px;
-	padding-top: 2em;
 	text-align: center; }
 
 .widget-area .calendar_wrap {
@@ -930,12 +929,13 @@ body {
 .widget_calendar caption {
 	color: #769993;
 	letter-spacing: 0.2em;
-	line-height: 1.76;
+	line-height: 2;
 	text-align: left;
 	text-transform: uppercase; }
 
 .widget_calendar thead th,
 .widget_calendar tbody td {
+	font-family: Inconsolata, monospace;
 	font-size: 16px;
 	font-size: 1rem;
 	border: 1px solid #f0f0f0; /* fallback */
@@ -945,13 +945,13 @@ body {
 
 .widget_calendar thead th,
 .widget_calendar tbody td {
-	background-color: #fdfcfc; }
+	background-color: #faf4f4; }
 
 .widget_calendar thead th a,
 .widget_calendar tbody td a {
 	background-color: #0ddb85;
 	color: #fff;
-	padding: 0.5em; }
+	padding: 0.4em; }
 
 .widget_calendar tbody td a:hover {
 	background-color: #00ffcc;
@@ -1376,23 +1376,14 @@ span > object {
 .wp-caption-text {
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
-	box-sizing:      border-box;
+	box-sizing: border-box;
 	font-size: 12px;
 	font-size: 0.75rem;
 	font-style: italic;
-	line-height: 1.3076923076;
+	line-height: 1.44;
 	margin: 10px 0 7px 0;
 	padding: 0 10px 0 0; /* Prevent caption overflowing image width since wp-caption has 10px wider width */
 	text-align: center; }
-
-.wp-caption-text.alignleft {
-	margin: 7px 24px 0 24px; }
-
-.wp-caption.alignright {
-	margin: 7px 0 0 34px; }
-
-.wp-caption-text.aligncenter {
-	margin-top: 24px; }
 
 /*--------------------------------------------------------------
 10.5 Comics
@@ -1646,7 +1637,7 @@ button.toggle-comments {
 	margin: 0 1.5em;
 	padding-top: 24px; }
 
-.form-submit #submit {
+.form-submit .submit {
     background: transparent;
     display: inline-block;
     border: #000 2px solid;

@@ -5,7 +5,7 @@ Tags: one-column, flexible-header, grid-layout, custom-background, custom-colors
 
 Requires at least: WordPress 4.5.3
 Tested up to: 4.7-alpha
-Version; 2.6.2
+Version; 2.6.3
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
