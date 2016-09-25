@@ -11,7 +11,7 @@ changelog.txt
 
 == changelog ==
 
-= (??/10/2016) - Version 2.6.3 =
+= (24/09/2016) - Version 2.6.3 =
 [>] Removed deprecated constant HEADER_TEXTCOLOR in custom-header.php
 [>] Improved several minor documentation issues
 [>] Improved PHP as per WP PHP Documentation standards https://make.wordpress.org/core/handbook/best-practices/coding-standards/
