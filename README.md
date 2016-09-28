@@ -7,7 +7,7 @@ WIP WordPress Theme for Silent-Comics
 
 ![screenshot](http://silentcomics.com/images/screenshot.png)
 
-As such, this theme is not 100% ready for production yet, but you are welcome to test it. Right now two of the theme's functions, *custom post type* and *custom taxonomy*, should go in a plugin. WordPress is right to advocates for the separation of presentation and content<sup>[1](#myfootnote1)</sup>.This makes sense for portability of content. Yet for this particular project, using custom functions within the theme makes sense too. Because the theme design responds to the projects needs. Warning But it means you will lose access to your (comics) data if you want to use this theme and then change theme. That is not something we want to happen. So until a [simple webcomic plugin](https://github.com/SilentComics/strip) is ready to solve this potential issue, it is best to avoid using this theme on your live site.
+As such, this theme is not 100% ready for production yet, but you are welcome to test it. Right now two of the theme's functions, *custom post type* and *custom taxonomy*, should go in a plugin. WordPress.org advocates for the separation of presentation and content<sup>[1](#myfootnote1)</sup>.This is important for portability of content. Yet for this particular project, using custom functions within the theme makes sense too<sup>[2](#myfootnote2)</sup>. The theme design responds to the projects needs. Warning But it means you will lose access to your (comics) data if you want to use this theme and then change theme. That is not something we want to happen. So until a [simple webcomic plugin](https://github.com/SilentComics/strip) is ready to solve this potential issue, it is best to avoid using this theme on your live site.
 
 # Theme Wiki
 [Theme wiki](https://github.com/SilentComics/SilentComics-for-WordPress/wiki/Theme-set-up)
@@ -19,3 +19,5 @@ I'd love to get contributions for this project. I’m not a developer at all so 
 Theme review aside, there are a few ways you can [support this project ♥](http://silentcomics.com/subscribe/). *Thank you!*
 
 <small><a name="myfootnote1">1</a>: See WordPress.org’s [presentation vs functionality](https://make.wordpress.org/themes/handbook/review/required/#presentation-vs-functionality) guidelines</small>
+
+<small><a name="myfootnote2">2</a>: Because, you know, the less plugins the project uses, the better.</small>
