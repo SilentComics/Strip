@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/SilentComics/SilentComics-for-WordPress.svg?branch=master)](https://travis-ci.org/SilentComics/SilentComics-for-WordPress) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+[![Build Status](https://travis-ci.org/SilentComics/SilentComics-for-WordPress.svg?branch=master)](https://travis-ci.org/SilentComics/SilentComics-for-WordPress)
 
 WIP WordPress Theme for Silent-Comics
 =================================
@@ -13,6 +13,7 @@ As such, this theme is not 100% ready for production yet, but you are welcome to
 [Theme wiki](https://github.com/SilentComics/SilentComics-for-WordPress/wiki/Theme-set-up)
 
 ## Contributing
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 I'd love to get contributions for this project. I’m not a developer at all so there is room for improvements. Do you know how to make this theme better? Please send your findings and suggestions over to hoa // @ // silent-comics.com
 
 ## Other ways you can help:
