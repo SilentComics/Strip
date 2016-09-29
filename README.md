@@ -1,6 +1,4 @@
-[![Build Status](https://travis-ci.org/SilentComics/SilentComics-for-WordPress.svg?branch=master)](https://travis-ci.org/SilentComics/SilentComics-for-WordPress)
-
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+[![Build Status](https://travis-ci.org/SilentComics/SilentComics-for-WordPress.svg?branch=master)](https://travis-ci.org/SilentComics/SilentComics-for-WordPress) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
 WIP WordPress Theme for Silent-Comics
 =================================
