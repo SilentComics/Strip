@@ -11,6 +11,13 @@ changelog.txt
 
 == changelog ==
 
+= (03/10/2016) - Version 2.6.4 =
+[>] Improved panel navigation (image.php)
+[+] Added assets folder for js, images and dependencies
+[x] Removed 'css' and 'Library' folders 
+[x] Remove mc4wp.css
+This is the last version in this development cycle. Theme development will continue under the name “Strip”
+
 = (24/09/2016) - Version 2.6.3 =
 [>] Removed deprecated constant HEADER_TEXTCOLOR in custom-header.php
 [>] Improved several minor documentation issues

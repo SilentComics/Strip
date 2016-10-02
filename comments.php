@@ -7,7 +7,8 @@
  * handled by a callback to silentcomics_comment() which is
  * located in the inc/template-tags.php file.
  *
- * @package SilentComics
+ * @package WordPress
+ * @subpackage SilentComics
  */
 
 /*

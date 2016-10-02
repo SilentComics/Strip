@@ -1,8 +1,11 @@
 <?php
 /**
- * Dispay author bio and other information on single posts and author index page.
+ * Dispay author bio on author index page
+ *
  * Dependent on bio being available for current author.
  *
+ * @package WordPress
+ * @subpackage SilentComics
  */
 ?>
 

@@ -2,7 +2,8 @@
 /**
  * The template for displaying Search Results pages.
  *
- * @package SilentComics
+ * @package WordPress
+ * @subpackage SilentComics
  */
 
 get_header(); ?>

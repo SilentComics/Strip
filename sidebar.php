@@ -2,7 +2,8 @@
 /**
 * The Sidebar containing the main widget areas
 *
-* @package SilentComics
+ * @package WordPress
+ * @subpackage SilentComics
 */
 
 if (! is_active_sidebar('sidebar')) {

@@ -4,7 +4,8 @@
  *
  * Contains the closing of the #content div and all content after
  *
- * @package SilentComics
+ * @package WordPress
+ * @subpackage SilentComics
  */
 ?>
     </div><!-- #content -->

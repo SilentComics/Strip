@@ -7,7 +7,8 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package SilentComics
+ * @package WordPress
+ * @subpackage SilentComics
  */
 
  get_header(); ?>

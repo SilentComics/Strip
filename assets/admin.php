@@ -7,7 +7,7 @@
  * The file is called by functions.php.
  *
  * Developed by: Eddie Machado
- * URL: http://themble.com/silentcomics/
+ * URL: http://themble.com/bones/
  *
  * Special Thanks for code & inspiration to:
  * @jackmcconnell - http://www.voltronik.co.uk/
@@ -99,7 +99,7 @@ add_action( 'wp_dashboard_setup', 'silentcomics_custom_dashboard_widgets' );
 //Updated to proper 'enqueue' method
 //http://codex.wordpress.org/Plugin_API/Action_Reference/login_enqueue_scripts
 function silentcomics_login_css() {
-	wp_enqueue_style( 'silentcomics_login_css', get_template_directory_uri() . '/library/css/login.css', false );
+	wp_enqueue_style( 'silentcomics_login_css', get_template_directory_uri() . '/assets/css/login.css', false );
 	
 // Enqueue custom font to the login form
 wp_enqueue_style( 'inconsolata', get_template_directory_uri() . '/fonts/inconsolata.css', array(), null );

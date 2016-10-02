@@ -2,7 +2,8 @@
 /**
  * The template for displaying image attachments
  *
- * @package SilentComics
+ * @package WordPress
+ * @subpackage SilentComics
  */
 
 get_header('lite');
@@ -12,7 +13,7 @@ $content_width = 1920;
         <div id="content" class="site-content" role="main">
 
     <?php
-                // Start the loop.
+    // Start the loop.
     while (have_posts()) :
         the_post(); ?>
 
@@ -26,7 +27,7 @@ $content_width = 1920;
                     /**
                                  * Filter the default Silentcomics image attachment size.
                                  *
-                                 * @since Silent Comics 2.5.0
+                                 * @since Silentcomics 2.5.0
                                  *
                                  * @param string $image_size Image size. Default 'full'.
                                  */
@@ -41,8 +42,8 @@ $content_width = 1920;
         <?php // image navigation. ?>
 <nav role="navigation" id="image-navigation" class="image-navigation">
 
-                <div class="previous"><?php previous_image_link(false, __('<div class="previous"><span class="meta-nav">&larr;</span> <span class="text-nav">Previous</span></div>', 'silentcomics')); ?></div>
-                <div class="next"><?php next_image_link(false, __('<div class="next"><span class="meta-nav">&rarr;</span> <span class="text-nav">Next</span></div>', 'silentcomics')); ?></div>
+                <div class="previous"><?php previous_image_link(false, __('<span class="meta-nav">&larr;</span> <span class="text-nav">Previous panel</span>', 'silentcomics')); ?></div>
+                <div class="next"><?php next_image_link(false, __('<span class="meta-nav">&rarr;</span> <span class="text-nav">Next panel</span>', 'silentcomics')); ?></div>
 
                 <nav class="post-parent-title"><?php echo "<a href='" . get_permalink($post->post_parent). "'>Return to ". get_the_title($post->post_parent) ."</a>"; ?></nav>
             </nav><!-- #image-navigation -->
@@ -59,9 +60,9 @@ $content_width = 1920;
 
     <?php
     /**
- * If comments are open or we have at least one comment, load up the comment template
-                 * Disabled by default on single images
-*/
+	* If comments are open or we have at least one comment, load up the comment template.
+    * Disabled by default on single images.
+	*/
     //	if ( comments_open() || '0' != get_comments_number() )
     //		comments_template();
 

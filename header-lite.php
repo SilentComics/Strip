@@ -4,8 +4,10 @@
  *
  * Displays all of the <head> section and everything up till <main id="main">
  *
- * @package SilentComics
+ * @package WordPress
+ * @subpackage SilentComics
  */
+ 
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>

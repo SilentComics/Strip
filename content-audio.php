@@ -1,6 +1,7 @@
 <?php
 /**
- * @package SilentComics
+ * @package WordPress
+ * @subpackage @package SilentComics
  */
 
 // Access global variable directly to set content_width

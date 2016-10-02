@@ -2,7 +2,8 @@
 /**
  *  The Template for displaying all single comics
  *
- * @package SilentComics
+ * @package WordPress
+ * @subpackage SilentComics
  */
 
 if (post_type_exists($post_type)  && is_single()) {

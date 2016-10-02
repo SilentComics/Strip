@@ -3,7 +3,8 @@
  * Template Name: Archive titles
  * The template for displaying comic Archives by titles only.
  *
- * @package SilentComics
+ * @package WordPress
+ * @subpackage SilentComics
  */
 
  get_header(); ?>

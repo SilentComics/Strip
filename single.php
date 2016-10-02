@@ -4,7 +4,8 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
  *
- * @package SilentComics
+ * @package WordPress
+ * @subpackage SilentComics
  */
 
 get_header(); ?>

@@ -1,10 +1,11 @@
 <?php
 /**
- * The template for displaying 404 pages (Not Found).
+ * The template for displaying 404 pages (Not Found)
  *
  * @link https://codex.wordpress.org/Creating_an_Error_404_Page
  *
- * @package SilentComics
+ * @package WordPress
+ * @subpackage SilentComics
  */
 
 get_header(); ?>

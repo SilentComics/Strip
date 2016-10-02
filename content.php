@@ -1,9 +1,10 @@
 <?php
 /**
-* The template part for displaying content
-*
-* @package SilentComics
-*/
+ * The template part for displaying content
+ *
+ * @package WordPress
+ * @subpackage SilentComics
+ */
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>

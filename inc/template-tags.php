@@ -4,7 +4,8 @@
  *
  * Eventually, some of the functionality here could be replaced by core features. // TO DO: trim
  *
- * @package SilentComics
+ * @package WordPress
+ * @subpackage SilentComics
  */
 
 /**

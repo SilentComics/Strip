@@ -8,6 +8,7 @@ Description: Used to style the TinyMCE editor.
  *
  * 1.0 - Body
  * 2.0 - Typography
+ 	2.1 - Links
  * 3.0 - Elements
  * 4.0 - Alignment
  * 5.0 - Caption
@@ -15,10 +16,6 @@ Description: Used to style the TinyMCE editor.
  * 7.0 - Audio / Video
  * 8.0 - RTL
  */
-
-/*@import url( 'style.css' );*/
-/*@import url( .'/fonts/fenix.css');*/
-/*@import url( '/fonts/inconsolata.css');*/
 
 /* Add overwrites as needed so that the content of the editor field is attractive and not broken */
 body,
@@ -244,6 +241,24 @@ big {
 	font-size: 125%;
 }
 
+/**
+ * 2.1 Links
+ */
+ 
+ a:link {
+	color: #ff7369;
+	text-decoration: none; }
+
+a:visited {
+	color: #ffaaaa;
+	text-decoration: none; }
+
+a:hover,
+a:focus,
+a:active {
+	color: #ff1200;
+	text-decoration: underline; /* accessibility */
+	border: none; }
 
 /**
  * 3.0 - Elements

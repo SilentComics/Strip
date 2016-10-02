@@ -5,7 +5,7 @@ Tags: one-column, flexible-header, grid-layout, custom-background, custom-colors
 
 Requires at least: WordPress 4.5.3
 Tested up to: 4.7-alpha
-Version; 2.6.3
+Version; 2.6.4
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -14,7 +14,7 @@ SilentComics is a WordPress theme designed for [SILENT COMICS site](http://silen
 
 == Description ==
 
-SilentComic is a theme to showcase and manage online comics with WordPress. 
+SilentComics is a theme to showcase and manage online comics with WordPress. 
 Easy to use, distraction free and responsive. 
 Designed for large images, galleries and continuous stories, optimised for fullscreen mode on desktop computers, mobile and tablets. 
 Its main function is a comic post format with basic navigation for web comics. 
@@ -45,8 +45,8 @@ For more information about Silent Comics please go to https://silentcomics.com/a
 - 1 Create your menus and submenus. You can add a header image, a background image and change the theme’s background colour.
 
 - 2 To use your own logo in svg format, you need to edit header.php. 
-Replace the Base64 code found in library/inline-logo.svg.php with your own logo. 
-You can then call your logo in header.php replacing this line: `<?php get_template_part('library/inline', 'logo.svg'); ?>`. 
+Replace the Base64 code found in assets/inline-logo.svg.php with your own logo. 
+You can then call your logo in header.php replacing this line: `<?php get_template_part('assets/inline', 'logo.svg'); ?>`. 
 Or remove that line if you don’t bother about having a svg logo. 
 You can also add a custom image logo from the customiser → site identity → logo, just use the site text title or both.
 
@@ -113,7 +113,7 @@ SilentComics includes support for Infinite Scroll in Jetpack, and support for Wo
 
 SilentComics WordPress Theme, Copyright 2013-2016 silent-comics.com
 
-SilentComic Theme bundles the following third-party resources:
+SilentComics Theme bundles the following third-party resources:
 Based on Underscores http://underscores.me/, Copyright 2012-2016 Automattic, Inc., 
 Licence: [GPLv3 or later](https://www.gnu.org/licenses/gpl-3.0.html)
 

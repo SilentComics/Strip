@@ -4,7 +4,7 @@ Theme URI: https://github.com/SilentComics/SilentComics-for-WordPress
 Author: SILENT COMICS
 Author URI: http://silent-comics.com
 Description: A WordPress theme for comics and webcomics <a href="https://github.com/SilentComics/Wordpress-Theme-for-Silent-Comics/">Contribute on GitHub</a>
-Version: 2.6.3
+Version: 2.6.4
 License: GNU General Public License v3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Text Domain: silentcomics
@@ -858,9 +858,9 @@ body {
 .footer-widget-2,
 .footer-widget-3,
 .footer-widget-4 {
-  float: left;
-  text-align: left;
-  letter-spacing: 0.09em; }
+	float: left;
+	text-align: left;
+	letter-spacing: 0.09em; }
 
 .footer-widget-4 {
 	margin-right: 0; }
@@ -1178,12 +1178,10 @@ span > object {
 /* link */
 .format-link, .format-chat {
 	margin: 0 auto;
-	padding: 1.2em 0;
-	text-align: left;
 	font-family: Inconsolata, monospace; }
 
 .format-link .entry-content a {
-	color: #7369FF; /* #BE69FF */ }
+	color: #7369FF; }
 
 /* Chat */
 .format-chat {
@@ -1676,12 +1674,10 @@ button.toggle-comments {
 11.1 CSS for MailChimp 4 WP form
 --------------------------------------------------------------*/
 .mc4wp-form {
-	max-width: 192px; /* doesn't align with the search widget when 100% (fix) */
-} /* the form element */
+	max-width: auto; } /* the form element */
 
 .mc4wp-form label {
-	display: none;
-} /* labels */
+	display: none; } /* labels */
 
 .mc4wp-form input {
 	-webkit-box-sizing: content-box;
@@ -1714,7 +1710,7 @@ button.toggle-comments {
 @media screen and (max-width: 600px) {
 	.mc4wp-form input[type="submit"] {
 		font-size: 9px;
-		font-size: 0.5625rem; } }
+		font-size: 0.5625rem; } } /* small screens */
 
 /*--------------------------------------------------------------
 11.2 RoyalSlider

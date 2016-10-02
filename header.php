@@ -4,8 +4,10 @@
  *
  * Displays all of the <head> section and everything up till <main id="main">
  *
- * @package SilentComics
+ * @package WordPress
+ * @subpackage SilentComics
  */
+ 
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
@@ -29,7 +31,7 @@
 <div id="page" class="hfeed site">
 	<header id="branding" class="site-header" role="banner">			
 		<div class="site-branding">
-			<?php get_template_part('library/inline', 'logo.svg'); // remove or replace by your own custom svg logo ?>	
+			<?php get_template_part('assets/inline', 'logo.svg'); // remove or replace by your own custom svg logo ?>	
 			<?php silentcomics_the_custom_logo(); ?>			
 				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1> <h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
 	</div><!-- .site-branding -->

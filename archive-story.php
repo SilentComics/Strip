@@ -5,7 +5,8 @@
  * Peruse all stories visually showcasing the first image of each comic post on a four column grid
  * TODO: excerpts enhancements — Use this template as reference during develoment
  *
- * @package SilentComics
+ * @package WordPress
+ * @subpackage SilentComics
  */
 
 get_header(); ?>

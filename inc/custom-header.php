@@ -4,7 +4,8 @@
  *
  * @link http://codex.wordpress.org/Custom_Headers
  *
- * @package SilentComics
+ * @package WordPress
+ * @subpackage SilentComics
  */
 
 /**
@@ -18,7 +19,7 @@
  */
 function silentcomics_custom_header_setup() {
 	add_theme_support( 'custom-header', apply_filters( 'silentcomics_custom_header_args', array(
-		'default-image'          => get_template_directory_uri() . '/library/images/Default-header.png',
+		'default-image'          => get_template_directory_uri() . '/assets/images/Default-header.png',
 		'default-text-color'     => '000',
 		'flex-width'             => true,
 		'width'                  => 1920,
@@ -39,8 +40,8 @@ if ( ! function_exists( 'silentcomics_header_style' ) ) :
 */
 register_default_headers( array(
     'DefaultHeader' => array(
-    'url'  			=> get_template_directory_uri() . '/library/images/Default-header.png',
-    'thumbnail_url' => get_template_directory_uri() . '/library/images/Default-header.png',
+    'url'  			=> get_template_directory_uri() . '/assets/images/Default-header.png',
+    'thumbnail_url' => get_template_directory_uri() . '/assets/images/Default-header.png',
     'description'   => _x( 'DefaultHeader', 'header image description', 'silentcomics' )),
 ));
 /**
