@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/SilentComics/SilentComics-for-WordPress.svg?branch=master)](https://travis-ci.org/SilentComics/SilentComics-for-WordPress)
+[![Build Status](https://travis-ci.org/SilentComics/Strip.svg?branch=master)](https://travis-ci.org/SilentComics/Strip)
 
 WIP WordPress Theme for Silent-Comics
 =================================
