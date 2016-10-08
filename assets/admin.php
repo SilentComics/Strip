@@ -39,7 +39,7 @@ function disable_default_dashboard_widgets() {
 	have more plugin widgets you'd like to remove?
 	share them with us so we can get a list of
 	the most commonly used. :D
-	https://github.com/eddiemachado/silentcomics/issues
+	https://github.com/eddiemachado/bones/issues
 	*/
 }
 
