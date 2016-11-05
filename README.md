@@ -2,7 +2,7 @@
 
 [![Mastodon](https://img.shields.io/badge/Mastodon-@Silent_Comics-blue.svg?style=flat)](https://mastodon.social/users/Silent_Comics)
 
-Silent Comics WordPress Theme 
+Strip: A WordPress Theme for Silent Comics
 =================================
 
 *Strip* is a WordPress theme designed for the upcoming [SILENT COMICS site](http://silent-comics.com). 
