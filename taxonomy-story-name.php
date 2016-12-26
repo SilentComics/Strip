@@ -3,78 +3,81 @@
  * The template for the "example" story pages
  * Clone this template and replace "name" by your own story name.
  *
- * @package SilentComics
+ * @package WordPress
+ * @subpackage Strip
  */
 
- get_header(); ?>
+ 	get_header(); ?>
 
-    <section id="primary"
-        <main id="content" class="wrap" role="main">
+	<section id="primary"
+		<main id="content" class="wrap" role="main">
 
-    <header class="page-header">
+	<header class="page-header">
 
-    <?php
+	<h1 class="page-title"><?php single_term_title( 'All episodes: ' ); ?></h1>
+
+	<?php
 	// Show an optional term description.
 	$term_description = term_description();
-	if (! empty($term_description) ) :
-	printf('<div class="taxonomy-description">%s</div>', $term_description);
-	endif;
-	?>
-            <h4 class="comic-blurb">This is a blurb. Add your own story name blurb here.</h4>
-            </br>
-    </header><!-- .page-header -->
-    <?php
-    //get the correct paged figure on a static page
-    if (get_query_var('paged') ) {
-           $paged = get_query_var('paged');
-    }
-    elseif (get_query_var('page') ) {
-           $paged = get_query_var('page');
-    }
-    else {
-           $paged = 1;
-    }
+	if ( ! empty( $term_description ) ) :
+		echo apply_filters( 'taxonomy_archive_meta', '<div class="taxonomy-description">' . $term_description . '</div>' );
+endif;
+?>
 
-    // Call and run loop in ascending order
-    $args = array(
+	</header><!-- .page-header -->
 
-    'post_type'         => 'comic',
-    'posts_per_page' => 3, // Must be = or > than number set in function.php, line 663, to avoid breaking pagination
-    'story'             => 'name', // Replace 'example' by your own story title
-    'orderby'           => 'title', // you can order by date if you so prefer
-    'paged'          => $paged,
-    'order'           => 'ASC'
-    );
+	<?php
+	// get the correct paged figure on a static page.
+	if ( get_query_var( 'paged' ) ) {
+		   $paged = get_query_var( 'paged' );
+	} elseif ( get_query_var( 'page' ) ) {
+		   $paged = get_query_var( 'page' );
+	} else {
+		   $paged = 1;
+	}
 
-    $loop = new WP_Query($args);
-    // Start the loop
-    if ($loop->have_posts() ) :
-        while ($loop->have_posts()) : $loop->the_post();
+	// Call and run loop in ascending order.
+	$args = array(
 
-            get_template_part('content-series'); ?>
+	'post_type'       => 'comic',
+	'posts_per_page'  => 3, // Must be = or > than number set in function.php to avoid breaking pagination.
+	'story'           => 'name', // change this to your own story name, clone template for multiple stories.
+	'orderby'         => 'title', // you can order by date if you so prefer.
+	'paged'           => $paged,
+	'order'           => 'ASC',
+	);
 
-        <?php endwhile;  wp_reset_postdata(); ?>
+	$loop = new WP_Query( $args );
+	// Start the loop.
+	if ( $loop->have_posts() ) :
+		while ( $loop->have_posts() ) : $loop->the_post();
 
-        <?php
-        global $wp_query;
+			get_template_part( 'content-series' ); ?>
 
-        $big = 999999999; // need an unlikely integer
-        $translated = __('Page', 'silentcomics'); // supply translatable string
+		<?php endwhile;
+		wp_reset_postdata(); ?>
 
-        echo paginate_links(
-            array(
-            'base' => str_replace($big, '%#%', esc_url(get_pagenum_link($big))),
-            'format' => '?paged=%#%',
-            'current' => max(1, get_query_var('paged')),
-            'total' => $loop->max_num_pages,
-            'before_page_number' => '<span class="screen-reader-text">'.$translated.' </span>'
-            )
-        );
+		<?php
+		global $wp_query;
 
-        else :
-            get_template_part('no-results', 'archive-comic');
-        endif; ?>
+		$big = 999999999; // need an unlikely integer.
+		$translated = __( 'Page', 'strip' ); // supply translatable string.
 
-        </main><!-- #content -->
-    </section><!-- #primary -->
+		echo paginate_links(
+			array(
+			'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
+			'format' => '?paged=%#%',
+			'current' => max( 1, get_query_var( 'paged' ) ),
+			'total' => $loop->max_num_pages,
+			'before_page_number' => '<span class="screen-reader-text">' . $translated . ' </span>',
+			)
+		);
+
+
+		else :
+			get_template_part( 'no-results', 'archive-comic' );
+		endif; ?>
+
+		</main><!-- #content -->
+	</section><!-- #primary -->
 <?php get_footer(); ?>

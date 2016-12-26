@@ -1,13 +1,13 @@
 /*
-Theme Name: SilentComics
-Theme URI: https://github.com/SilentComics/SilentComics-for-WordPress
+Theme Name: Strip
+Theme URI: https://github.com/SilentComics/Strip
 Author: SILENT COMICS
 Author URI: http://silent-comics.com
-Description: A WordPress theme for comics and webcomics <a href="https://github.com/SilentComics/Wordpress-Theme-for-Silent-Comics/">Contribute on GitHub</a>
-Version: 2.6.4
+Description: A WordPress theme for comics and webcomics <a href="https://github.com/SilentComics/Strip/">Contribute on GitHub</a>
+Version: 1.0
 License: GNU General Public License v3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
-Text Domain: silentcomics
+Text Domain: strip
 Domain Path: /languages/
 Tags: one-column, flexible-header, grid-layout, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images, post-formats, rtl-language-support, sticky-post, theme-options, custom-logo, translation-ready, blog
 
@@ -95,7 +95,7 @@ abbr[title] {
 
 b,
 strong {
-	font-weight: bold; }
+	font-weight: 700; }
 
 dfn {
 	font-style: italic; }
@@ -258,8 +258,8 @@ big {
 	font-size: 125%; }
 
 /* Selection */
-::selection{background:#FF7369;color:#ffffff;}
-::-moz-selection{background:#FF7369;color:#ffffff;}
+::selection{background:#FF7369;color:#fff;}
+::-moz-selection{background:#FF7369;color:#fff;}
 img::selection{background:transparent;}
 img::-moz-selection{background:transparent;}
 
@@ -304,7 +304,7 @@ li > ol {
 	margin: 0 1.5em; }
 
 dt {
-	font-weight: bold; }
+	font-weight: 700; }
 
 dd {
 	margin: 0 1.5em 1.5em; }
@@ -333,7 +333,7 @@ caption, th, td {
 
 th {
   border-width: 1px;
-  font-weight: bold;
+  font-weight: 700;
   padding: 5px 10px; }
 
 td {
@@ -373,8 +373,8 @@ input[type="submit"] {
 	-moz-appearance: button;
 	-webkit-appearance: button;
 	border: 0;
-	background: #ff69AA; /* #ff7369; base pink  */
-	color: #fff;
+	background: #EFE9EA;
+	color: #422442;
 	cursor: pointer;
 	font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
 	font-size: 10px;
@@ -394,14 +394,14 @@ input[type="submit"]:hover,
 input[type="submit"]:focus,
 input[type="button"]:hover,
 input[type="button"]:focus {
-	color: black;
-	background-color: #faf4f4; }
+	color: #ff91ae;
+background-color: #fff; }
 
 button:active,
 html input[type="button"]:active,
 input[type="reset"]:active,
 input[type="submit"]:active {
-	background-color: #69F5FF; }
+	background-color: #422442; }
 
 input[type="text"],
 input[type="email"],
@@ -588,7 +588,6 @@ a:active {
 	margin: 0 auto; }
 
 .main-navigation ul {
-	position: relative;
 	list-style: none;
 	margin: 0;
 	padding-left: 0;
@@ -677,16 +676,20 @@ button.menu-toggle:hover {
 	color: white; }
 
 @media screen and (max-width: 600px) {
-.menu-toggle,
-.toggled .nav-menu {
+/* Display the menu toggle when JavaScript is available. */
+.js .menu-toggle,
+.js .toggled .nav-menu {
 	display: block; }
 
-	.main-navigation {
+.main-navigation {
 	font-size: 12px;
 	font-size: 0.875rem;
 	line-height: 1.4; }
 
-.main-navigation ul {
+/* Display the menu toggle when JavaScript is available.
+* It only works with JavaScript.
+*/
+.js .main-navigation ul {
 		display: none; } }
 
 /*--------------------------------------------------------------
@@ -787,7 +790,7 @@ button.menu-toggle:hover {
 	color: #20759c;
 	display: block;
 	font-size: 14px;
-	font-weight: bold;
+	font-weight: 700;
 	height: auto;
 	left: 5px;
 	line-height: normal;
@@ -831,13 +834,13 @@ button.menu-toggle:hover {
 /* =Basic Structure
 ----------------------------------------------- */
 body {
-	background-color: #ffffff; /* #efe9ea suggested — Default to white */ }
+	background-color: #fff; /* #efe9ea suggested — Default to white */ }
 
 .wrap {
 	margin: 0 auto; }
 
 .site-header  {
-	border-top: 3px solid #000000; }
+	border-top: 3px solid #000; }
 
 .site-footer {
 	padding: 1em 0; /* padding-top: 1em; */ }
@@ -1075,7 +1078,7 @@ article.error404 .widget_calendar tfoot td {
 .hentry {
 	padding: 12px 0 24px 0; }
 
-.attachment-silentcomics-featured-thumbnail {
+.attachment-strip-featured-thumbnail {
 	display: block;
 	margin: 0 auto;
 	margin-top: 24px; }
@@ -1100,10 +1103,10 @@ article.error404 .widget_calendar tfoot td {
 	font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
 	font-size: 10px;
 	font-size: 0.625rem;
-    letter-spacing: 0.12em;
-	line-height: 1.4;
+  letter-spacing: 0.12em;
+	line-height: inherit;
 	max-width: 696px;
-	padding: 6px 0;
+	padding: 0;
 	text-transform: uppercase; }
 
 .entry-meta span + span:before {
@@ -1408,7 +1411,7 @@ span > object {
     text-transform: uppercase;
     letter-spacing: 0.1em;
     color: black;
-    background-color: #69FF73; /* #FF69F5 #FFBE69 #FFFF00 */
+    background-color: #FFFF00; /* #69FF73; #FF69F5 #FFBE69 #FFFF00 */
     text-align: left; }
 
 .comic .entry-comic {
@@ -1449,12 +1452,13 @@ span > object {
 .navigation-comic .nav-title a,
 .navigation-comic .nav-next a,
 .navigation-comic .nav-last a,
-.series-title, .series-title a, .series-title li,
+.series-title, .series-title a,
 .post-parent-title, .post-parent-title a {
 	text-align: center;
 	font-family: Inconsolata, monospace; /* better on small screens */
 	font-size: 14px;
 	font-size: 0.875rem;
+	font-weight: 500;
 	letter-spacing: 0.12em;
 	text-transform: uppercase; }
 
@@ -1484,9 +1488,9 @@ span > object {
 .series-title, .series-title a, .series-title li,
 .post-parent-title, .post-parent-title a {
 	font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
-	color: black;
+	color: #422442;
 	text-align: center;
-	margin-top: 12px; }
+	margin-bottom: 1em; }
 
 .post-parent-title {
 	display: inline-block;
@@ -1494,23 +1498,23 @@ span > object {
     width: 100%; }
 
 /* the comic page title */
-.page-title,
-.taxonomy-description {
+.page-title {
 	font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
-	margin: 0;
+	margin: 0.24em;
 	/*
 	font: italic 400 24px/1 Futura, "Trebuchet MS", Arial, sans-serif;
 	margin-bottom: 0.6em;
 	*/
 	text-align: center; }
 
-.taxonomy-description a {
+.author-title {
 	font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
 	text-transform: uppercase;
-	padding: 4px; }
+	font-weight: 500; }
 
 /* comics blurb */
 .comic-blurb,
+.taxonomy-description,
 .author-description {
 	margin: 0 auto;
 	max-width: 696px;
@@ -1518,22 +1522,23 @@ span > object {
 	background-color: rgba(253,  250,  250, 0.24);
 	font-family: Inconsolata, monospace;
 	font-weight: 400;
+	margin-top: 0;
 	padding: 1.2em;
 	font-size: 16px;
 	font-size: 1rem;
 	line-height: 1.2; }
 
 /* Four columns grid */
-.columns { width: 101%; margin: 1em 0;  }
+.columns { width: 101%; margin: 0.6em 0 0;  }
 .columns:before, .columns:after { content: " "; display: table; }
 .columns:after { clear: both; }
-.column { float: left; margin: 0 1% 10px 0; width: 24%; }
+.column { float: left; margin: 0 1% 12px 0; width: 24%; }
 .column:nth-child(4n) { margin-right: 0; }
 .column:nth-child(4n+1) { margin-left: 0; clear: left; }
-.column img { max-width: 100%; height: auto; }
+.column img { width: 100%; max-width: 312px; height: auto; }
 
-@media screen and (max-width: 888px) {
-.column { margin: 0 1% 10px 0; width: 48.5%; }
+@media screen and (max-width: 744px) {
+.column { margin: 0 2% 10px 0; width: 48%; }
 .column:nth-child(2n) { margin-right: 0; }
 .column:nth-child(2n+1) { margin-left: 0; clear: left; } }
 
@@ -1541,7 +1546,7 @@ span > object {
 .column { margin: 0; width: 100%; }
 .column:nth-child(1n) { margin-right: 0; }
 .column:nth-child(1n+1) { margin-left: 0; clear: left; }
-.series-title { font-size: 10px;  line-height: 1.2; } }
+.series-title { font-size: 10px; font-weight: 100; line-height: 1.2; } }
 
 /*--------------------------------------------------------------
 10.6.1 Hide Comments
@@ -1588,11 +1593,11 @@ button.toggle-comments {
 .comment-meta,
 .comment-meta a,
 .ping-meta {
-	color: #c9a6ab;
-	height: 0;
 	font-size: 12px;
 	font-size: 0.875rem;
-	margin-bottom: 2em; }
+	color: #c9a6ab;
+	height: 1.2;
+	margin-bottom: 2.4em; }
 
 .comment-meta .comment-reply-link {
   padding: 3px;
@@ -1612,7 +1617,7 @@ button.toggle-comments {
 	max-width: 696px; }
 
 .comment-author .avatar {
-	border-radius: 50%; /* 50% = Circle placeholder */
+	border-radius: 50%; /* 50% = Circle  */
 	vertical-align: middle; }
 
 .comments-area {
@@ -1621,6 +1626,7 @@ button.toggle-comments {
 	font-size: 18px;
 	font-size: 1.125rem;
 	line-height: 1.6;
+
 	margin: 0 auto; }
 
 .comments-title {
@@ -1652,11 +1658,11 @@ button.toggle-comments {
 --------------------------------------------------------------*/
 .site-footer {
 	background-color: #faf4f4; /* #EFE9EA or #faf4f4  */
-	border-bottom: 3px solid #000000; }
+	border-bottom: 3px solid #000; }
 
 .site-info {
 	color: #421212;
-	background-color: white; /* white? */
+	background-color: #faf4f4; /* white? */
 	font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
 	font-size: 10px;
 	font-size: 0.625rem;
@@ -1674,7 +1680,7 @@ button.toggle-comments {
 11.1 CSS for MailChimp 4 WP form
 --------------------------------------------------------------*/
 .mc4wp-form {
-	max-width: auto; } /* the form element */
+	max-width: 100%; } /* the form element */
 
 .mc4wp-form label {
 	display: none; } /* labels */
@@ -1694,7 +1700,7 @@ button.toggle-comments {
 
 .mc4wp-form input[type="email"],
 .mc4wp-form input[type="text"] {
-	background: #ffffff; }
+	background: #fff; }
 
 .mc4wp-form input[type="submit"] {
 	font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
@@ -1880,7 +1886,8 @@ article.error404 .widget {
 	.series-title, series-title a,
 	.post-parent-title, .post-parent-title a {
 		font-size: 10px;
-		font-size: 0.625rem; }
+		font-size: 0.625rem;
+		font-weight: 500; }
 
 	.navigation-comic .nav-previous a,
 	.navigation-comic .nav-next a,

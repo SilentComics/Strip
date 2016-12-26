@@ -53,9 +53,11 @@ p.demo_store{
 	text-transform: lowercase;
 	font-size: small;
 }
-.woocommerce .product_title.entry-title {
-	text-align: left;
-}
+
+/* .woocommerce .product_title.entry-title {
+
+	text-align: right;
+} */
 .woocommerce .widget-area-wrapper {
 		overflow: hidden;
 }
@@ -88,13 +90,17 @@ p.demo_store{
 	border-bottom: 20px solid #fff;
 }
 
+.woocommerce h3 {
+	font-weight: 500;
+}
+
 .woocommerce-content .product a {
 	padding-top: 2.4em;
-	line-height: inherit;
 	font-size: large;
-	color: #aadddd; /* #aadddd = light blue pink would be #ffaaaa */
+	font-weight: 500;
+	color: #aaddee; /* #aadddd = light blue pink would be #ffaaaa */
 	text-transform: uppercase;
-	letter-spacing: 0.1em;
+	letter-spacing: 0.12em;
 	word-wrap: break-word;
 }
 .woocommerce-content .price,
@@ -113,7 +119,7 @@ p.demo_store{
 }
 
 .woocommerce-content .woocommerce-breadcrumb {
-	display: none; /* Chose blocks if you want to show this */
+	display: block; /* Chose blocks if you want to show this */
 	font: italic 400 24px/1 Futura, "Trebuchet MS", Arial, sans-serif;
 	margin-bottom: 1.2em;
 	text-align: center;
@@ -178,14 +184,15 @@ p.demo_store{
 	background: #422442; /* #00bbbb seablue */
 	cursor: pointer;
 	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
-	font-size: 0.6em;
+	font-size: small;
 	letter-spacing: 0.12em;
+	font-weight: 500;
 	text-align: center;
 	padding: 1.2em;
 	text-transform: uppercase;
 	width: auto;
 }
-.woocommerce .cart .update_cart input.button {
+.woocommerce .cart input.button .update_cart {
 	color: #fff;
 	background: #00bbbb;
 	cursor: pointer;

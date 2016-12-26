@@ -1,48 +1,51 @@
 <?php
 /**
+ * Template part for displaying the comic series archive pages
+ *
  * @package WordPress
- * @subpackage SilentComics
+ * @subpackage Strip
  */
+
 ?>
-
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-    <div class="entry-wrap wrap clear">
-        <?php if ('' != get_the_post_thumbnail()) : ?>
 
-            <a href="<?php the_permalink(); ?>" title="<?php echo esc_attr(sprintf(__('Permalink to %s', 'silentcomics'), the_title_attribute('echo=0'))); ?>" rel="<?php the_ID(); ?>" class="silentcomics-featured-thumbnail">
-                <?php the_post_thumbnail('silentcomics-featured-thumbnail'); ?>
-            </a>
-        <?php endif; ?>
+	<div class="wrap">
+		<?php if ( '' !== get_the_post_thumbnail() ) : ?>
 
-        <footer class="entry-meta">
-            <a href="<?php the_permalink(); ?>"><?php echo get_the_date(); ?></a>
-        </footer><!-- .entry-meta -->
+			<a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'strip' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="<?php the_ID(); ?>" class="strip-featured-thumbnail">
+				<?php the_post_thumbnail( 'strip-featured-thumbnail' ); ?>
+			</a>
+		<?php endif; ?>
 
-        <header class="entry-header">
+		<footer class="entry-meta">
+			<a href="<?php the_permalink(); ?>"><?php echo get_the_date(); ?></a>
+		</footer><!-- .entry-meta -->
 
-            <?php
-            edit_post_link(__('Edit Comic', 'silentcomics'), '<span class="edit-link">', '</span>');
+		<header class="entry-header">
 
-            if (! is_single()) :
-                the_title('<h1 class="entry-title"><a href="' . esc_url(get_permalink()) . '" rel="bookmark">', '</a></h1>');
-            else :
-                    the_title('<h1 class="entry-title">', '</h1>');
-            endif; ?>
+			<?php
+			edit_post_link( __( 'Edit Comic', 'strip' ), '<span class="edit-link">', '</span>' );
 
-    </header><!-- .entry-header -->
+			if ( ! is_single() ) :
+				the_title( '<h1 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h1>' );
+			else :
+					the_title( '<h1 class="entry-title">', '</h1>' );
+			endif; ?>
 
-    <?php if (is_search()) : // Only display Excerpts for Search — implement search for custom taxonomies ?>
+	</header><!-- .entry-header -->
 
-        <div class="entry-summary">
-            <?php the_excerpt(); ?>
-        </div><!-- .entry-summary -->
+	<?php if ( is_search() ) : // Only display Excerpts for Search — implement search for custom taxonomies. ?>
 
-        <?php else : ?>
+		<div class="entry-summary">
+			<?php the_excerpt(); ?>
+		</div><!-- .entry-summary -->
 
-    <div class="entry-comic">
-        <?php the_content(); ?>
+		<?php else : ?>
 
-        <?php endif; ?>
-        </div><!-- .entry-content -->
-    </div><!-- .entry-wrap -->
+	<div class="entry-comic">
+		<?php the_content(); ?>
+
+		<?php endif; ?>
+		</div><!-- .entry-content -->
+	</div><!-- .entry-wrap -->
 </article>

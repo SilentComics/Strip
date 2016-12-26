@@ -1,9 +1,9 @@
 /**
- * Silent Comics keyboard support for image navigation.
+ * Strip keyboard support for image navigation.
  */
 
 ( function( $ ) {
-	$( document ).on( 'keydown.silentcomics', function( e ) {
+	$( document ).on( 'keydown.strip', function( e ) {
 		var url = false;
 
 		// Left arrow key code.

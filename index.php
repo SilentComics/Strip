@@ -9,39 +9,42 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package SilentComics
+ * @package Strip
  */
 
 get_header(); ?>
 
-    <div id="primary" class="content-area">
-        <div id="content" class="site-content" role="main">
+	<div id="primary" class="content-area">
+		<div id="content" class="site-content" role="main">
 
-        <?php if (have_posts()) : ?>
+		<?php if ( have_posts() ) : ?>
 
-    <?php /* Start the Loop */ ?>
-            <?php while (have_posts()) :
-                the_post(); ?>
+	<?php /* Start the Loop */ ?>
+			<?php while ( have_posts() ) :
+				the_post(); ?>
 
-                <?php
-                    /* Include the Post-Format-specific template for the content.
-                     * If you want to override this in a child theme, then include a file
-                     * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-					 */
-                    get_template_part('content', get_post_format());
-                ?>
+				<?php
 
-            <?php endwhile; ?>
+				/*
+				*
+				* Include the Post-Format-specific template for the content.
+				* If you want to override this in a child theme, then include a file
+				* called content-___.php (where ___ is the Post Format name) and that will be used instead.
+				*/
+					get_template_part( 'content', get_post_format() );
+				?>
 
-            <?php silentcomics_content_nav('nav-below'); ?>
+			<?php endwhile; ?>
 
-        <?php else : ?>
+			<?php strip_content_nav( 'nav-below' ); ?>
 
-            <?php get_template_part('no-results', 'index'); ?>
+		<?php else : ?>
 
-        <?php endif; ?>
+			<?php get_template_part( 'no-results', 'index' ); ?>
 
-        </div><!-- #content -->
-    </div><!-- #primary -->
+		<?php endif; ?>
+
+		</div><!-- #content -->
+	</div><!-- #primary -->
 
 <?php get_footer(); ?>

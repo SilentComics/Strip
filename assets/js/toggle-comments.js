@@ -1,4 +1,8 @@
-// Show/Hide Comments
+/**
+ * toggle-comments.js
+ *
+ * Show and hide comments animation.
+ */
 jQuery(document).ready(function() {
 
 	// Get #comment-section div

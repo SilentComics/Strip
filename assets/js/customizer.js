@@ -6,12 +6,12 @@
 
 /*jshint latedef: nofunc */
 ( function( $ ) {
-	var style = $( '#silentcomics-color-scheme-css' ),
+	var style = $( '#strip-color-scheme-css' ),
 		api = wp.customize;
 
 	if ( ! style.length ) {
-		style = $( 'head' ).append( '<style type="text/css" id="silentcomics-color-scheme-css" />' )
-		                    .find( '#silentcomics-color-scheme-css' );
+		style = $( 'head' ).append( '<style type="text/css" id="strip-color-scheme-css" />' )
+		                    .find( '#strip-color-scheme-css' );
 	}
 
 	// Site title.
