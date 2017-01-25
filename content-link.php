@@ -1,6 +1,6 @@
 <?php
 /**
- * The template part for displaying post format link
+ * Template part for displaying the link post format
  *
  * @package WordPress
  * @subpackage Strip
@@ -8,7 +8,7 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" >
+<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<div class="wrap">
 		<header class="entry-header">
 			<?php
@@ -21,10 +21,6 @@
 
 		<footer class="entry-meta">
 			<?php strip_entry_meta(); ?>
-
-			<?php if ( ! post_password_required() && ( comments_open() || '0' !== get_comments_number() ) ) : ?>
-			<span class="comments-link"><?php comments_popup_link( __( 'Leave a comment', 'strip' ), __( '1 Comment', 'strip' ), __( '% Comments', 'strip' ) ); ?></span>
-			<?php endif; ?>
 
 			<span class="entry-format"><a href="<?php echo esc_url( get_post_format_link( 'link' ) ); ?>" title="<?php echo esc_attr( sprintf( __( 'All %s posts', 'strip' ), get_post_format_string( 'link' ) ) ); ?>"><?php echo esc_html( get_post_format_string( 'link' ) ); ?></a></span>
 

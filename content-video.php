@@ -50,11 +50,7 @@ if ( isset( $GLOBALS['content_width'] ) ) {
 			<footer class="entry-meta">
 				<?php strip_entry_meta(); ?>
 
-				<?php if ( ! post_password_required() && ( comments_open() || '0' !== get_comments_number() ) ) : ?>
-				<span class="comments-link"><?php comments_popup_link( __( 'Leave a comment', 'strip' ), __( '1 Comment', 'strip' ), __( '% Comments', 'strip' ) ); ?></span>
-				<?php endif; ?>
-
-				<span class="entry-format"><a href="<?php echo esc_url( get_post_format_link( 'video' ) ); ?>" title="<?php echo esc_attr( sprintf( __( 'All %s posts', 'strip' ), get_post_format_string( 'video' ) ) ); ?>"><?php echo get_post_format_string( 'video' ); ?></a></span>
+				<span class="entry-format"><a href="<?php echo esc_url( get_post_format_link( 'video' ) ); ?>" title="<?php echo esc_attr( sprintf( __( 'All %s posts', 'strip' ), get_post_format_string( 'video' ) ) ); ?>"><?php echo esc_html( get_post_format_string( 'video' ) ); ?></a></span>
 
 				<?php edit_post_link( __( 'Edit', 'strip' ), '<span class="edit-link">', '</span>' ); ?>
 			</footer><!-- .entry-meta -->

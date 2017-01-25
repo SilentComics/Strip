@@ -1,6 +1,6 @@
 <?php
 /**
- * Template part for displaying the gallery post format
+ * Template part for displaying the quote post format
  *
  * @package WordPress
  * @subpackage Strip
@@ -21,11 +21,7 @@
 
 		<footer class="entry-meta">
 
-	<?php if ( ! post_password_required() && ( comments_open() || '0' !== get_comments_number() ) ) : ?>
-			<span class="comments-link"><?php comments_popup_link( __( 'Leave a comment', 'strip' ), __( '1 Comment', 'strip' ), __( '% Comments', 'strip' ) ); ?></span>
-	<?php endif; ?>
-
-			<span class="entry-format"><a href="<?php echo esc_url( get_post_format_link( 'quote' ) ); ?>" title="<?php echo esc_attr( sprintf( __( 'All %s posts', 'strip' ), get_post_format_string( 'quote' ) ) ); ?>"><?php echo get_post_format_string( 'quote' ); ?></a></span>
+			<span class="entry-format"><a href="<?php echo esc_url( get_post_format_link( 'quote' ) ); ?>" title="<?php echo esc_attr( sprintf( __( 'All %s posts', 'strip' ), get_post_format_string( 'quote' ) ) ); ?>"><?php echo esc_html( get_post_format_string( 'quote' ) ); ?></a></span>
 
 	<?php edit_post_link( __( 'Edit', 'strip' ), '<span class="edit-link">', '</span>' ); ?>
 		</footer><!-- .entry-meta -->
