@@ -5,6 +5,7 @@
  * @link http://www.nczonline.net/blog/2013/01/15/fixing-skip-to-content-links/
  */
 
+/** global: navigator */
  ( function() {
 	var isWebkit = navigator.userAgent.toLowerCase().indexOf( 'webkit' ) > -1,
 		isOpera  = navigator.userAgent.toLowerCase().indexOf( 'opera' )  > -1,

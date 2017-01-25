@@ -7,8 +7,32 @@
 		"uuidString": "1ADDC29E-9424-480A-8E55-CCE3BAA0D648"
 		}
 	],
-"creatorBuild": "25444",
+"creatorBuild": "25504",
 "files": {
+	"\/.gitignore": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/.gitignore",
+		"oF": 0
+		},
+	"\/.jscsrc": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/.jscsrc",
+		"oF": 0
+		},
+	"\/.jshintignore": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/.jshintignore",
+		"oF": 0
+		},
+	"\/.travis.yml": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/.travis.yml",
+		"oF": 0
+		},
 	"\/404.php": {
 		"ft": 8192,
 		"oA": 2,
@@ -225,8 +249,8 @@
 		"ft": 64,
 		"mi": 1,
 		"oA": 0,
-		"oAP": "\/assets\/js\/customizer-min.js",
-		"oF": 0,
+		"oAP": "\/assets\/js\/min\/customizer-min.js",
+		"oF": 2,
 		"sC": 1,
 		"tS": 0
 		},
@@ -234,8 +258,8 @@
 		"ft": 64,
 		"mi": 1,
 		"oA": 0,
-		"oAP": "\/assets\/js\/html5-min.js",
-		"oF": 0,
+		"oAP": "\/assets\/js\/min\/html5-min.js",
+		"oF": 2,
 		"sC": 1,
 		"tS": 0
 		},
@@ -243,8 +267,8 @@
 		"ft": 64,
 		"mi": 1,
 		"oA": 0,
-		"oAP": "\/assets\/js\/keyboard-image-navigation-min.js",
-		"oF": 0,
+		"oAP": "\/assets\/js\/min\/keyboard-image-navigation-min.js",
+		"oF": 2,
 		"sC": 1,
 		"tS": 0
 		},
@@ -306,8 +330,8 @@
 		"ft": 64,
 		"mi": 1,
 		"oA": 0,
-		"oAP": "\/assets\/js\/navigation-min.js",
-		"oF": 0,
+		"oAP": "\/assets\/js\/min\/navigation-min.js",
+		"oF": 2,
 		"sC": 1,
 		"tS": 0
 		},
@@ -315,8 +339,8 @@
 		"ft": 64,
 		"mi": 1,
 		"oA": 0,
-		"oAP": "\/assets\/js\/skip-link-focus-fix-min.js",
-		"oF": 0,
+		"oAP": "\/assets\/js\/min\/skip-link-focus-fix-min.js",
+		"oF": 2,
 		"sC": 1,
 		"tS": 0
 		},
@@ -324,8 +348,8 @@
 		"ft": 64,
 		"mi": 1,
 		"oA": 0,
-		"oAP": "\/assets\/js\/toggle-comments-min.js",
-		"oF": 0,
+		"oAP": "\/assets\/js\/min\/toggle-comments-min.js",
+		"oF": 2,
 		"sC": 1,
 		"tS": 0
 		},
@@ -426,11 +450,23 @@
 		"oAP": "\/content.php",
 		"oF": 0
 		},
-	"\/exile.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/exile.php",
-		"oF": 0
+	"\/CONTRIBUTING.md": {
+		"cS": 0,
+		"eF": 1,
+		"eL": 1,
+		"eLB": 0,
+		"ema": 1,
+		"eSQ": 1,
+		"ft": 4096,
+		"oA": 1,
+		"oAP": "\/CONTRIBUTING.html",
+		"oF": 0,
+		"oFM": 9,
+		"oS": 0,
+		"pHT": 0,
+		"pME": 1,
+		"rFN": 0,
+		"uCM": 0
 		},
 	"\/footer-lite.php": {
 		"ft": 8192,
@@ -460,12 +496,6 @@
 		"ft": 8192,
 		"oA": 2,
 		"oAP": "\/header.php",
-		"oF": 0
-		},
-	"\/humans.txt": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/humans.txt",
 		"oF": 0
 		},
 	"\/image.php": {
@@ -528,11 +558,35 @@
 		"oAP": "\/languages\/strip.pot",
 		"oF": 0
 		},
+	"\/license": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/license",
+		"oF": 0
+		},
 	"\/page.php": {
 		"ft": 8192,
 		"oA": 2,
 		"oAP": "\/page.php",
 		"oF": 0
+		},
+	"\/README.md": {
+		"cS": 0,
+		"eF": 1,
+		"eL": 1,
+		"eLB": 0,
+		"ema": 1,
+		"eSQ": 1,
+		"ft": 4096,
+		"oA": 1,
+		"oAP": "\/README.html",
+		"oF": 0,
+		"oFM": 9,
+		"oS": 0,
+		"pHT": 0,
+		"pME": 1,
+		"rFN": 0,
+		"uCM": 0
 		},
 	"\/readme.txt": {
 		"ft": 8192,
@@ -588,6 +642,16 @@
 		"oAP": "\/single.php",
 		"oF": 0
 		},
+	"\/style-min.css": {
+		"aP": 0,
+		"bl": 0,
+		"ft": 16,
+		"ma": 0,
+		"oA": 2,
+		"oAP": "\/style-min-min.css",
+		"oF": 0,
+		"oS": 0
+		},
 	"\/style.css": {
 		"aP": 0,
 		"bl": 0,
@@ -604,22 +668,10 @@
 		"oAP": "\/taxonomy-story-draft.php",
 		"oF": 0
 		},
-	"\/taxonomy-story-exile.php": {
+	"\/taxonomy-story-name.php": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/taxonomy-story-exile.php",
-		"oF": 0
-		},
-	"\/taxonomy-story-magar.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/taxonomy-story-magar.php",
-		"oF": 0
-		},
-	"\/taxonomy-story-tofu.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/taxonomy-story-tofu.php",
+		"oAP": "\/taxonomy-story-name.php",
 		"oF": 0
 		}
 	},
@@ -629,7 +681,7 @@
 	},
 "projectAttributes": {
 	"creationDate": 499962503,
-	"displayValue": "strip",
+	"displayValue": "Strip",
 	"displayValueWasSetByUser": 0,
 	"iconImageName": "meme-ron"
 	},
@@ -1075,6 +1127,10 @@
 			"active": 0,
 			"optionString": "{'properties': 'always'}"
 			},
+		"capitalized-comments": {
+			"active": 0,
+			"optionString": "'always', {'ignoreInlineComments': false, 'ignoreConsecutiveComments': false}"
+			},
 		"class-methods-use-this": {
 			"active": 0,
 			"optionString": "{'exceptMethods': []}"
@@ -1239,6 +1295,10 @@
 			"active": 0,
 			"optionString": "{'max': 10}, {'ignoreTopLevelFunctions': true}"
 			},
+		"max-statements-per-line": {
+			"active": 0,
+			"optionString": "{'max': 1}"
+			},
 		"multiline-ternary": {
 			"active": 0,
 			"optionString": "'always'"
@@ -1268,6 +1328,10 @@
 			"optionString": ""
 			},
 		"no-array-constructor": {
+			"active": 0,
+			"optionString": ""
+			},
+		"no-await-in-loop": {
 			"active": 0,
 			"optionString": ""
 			},
@@ -1603,6 +1667,10 @@
 			"active": 0,
 			"optionString": "'except-parens'"
 			},
+		"no-return-await": {
+			"active": 0,
+			"optionString": ""
+			},
 		"no-script-url": {
 			"active": 0,
 			"optionString": ""
@@ -1807,6 +1875,10 @@
 			"active": 0,
 			"optionString": "{'destructuring': 'any', 'ignoreReadBeforeAssign': false}"
 			},
+		"prefer-destructuring": {
+			"active": 0,
+			"optionString": "{'array': true, 'object': true}, {'enforceForRenamedProperties': false}"
+			},
 		"prefer-numeric-literals": {
 			"active": 0,
 			"optionString": ""
@@ -1834,6 +1906,10 @@
 		"radix": {
 			"active": 0,
 			"optionString": "'always'"
+			},
+		"require-await": {
+			"active": 0,
+			"optionString": ""
 			},
 		"require-jsdoc": {
 			"active": 0,
@@ -2667,6 +2743,10 @@
 			},
 		"space-colon": {
 			"active": 1,
+			"flagValue": -1
+			},
+		"support-ie8": {
+			"active": 0,
 			"flagValue": -1
 			},
 		"toplevel": {
