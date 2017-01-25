@@ -27,11 +27,14 @@ get_header(); ?>
 
 		strip_content_nav( 'nav-below' );
 
-		else : ?>
+		else {
+			: ?>
 
 <article id="post-0" class="no-results">
 	<header class="page-header">
-		<h1 class="page-title"><?php esc_html_e( 'Nothing Found', 'strip' ); ?></h1>
+		<h1 class="page-title"><?php esc_html_e( 'Nothing Found', 'strip' );
+		}
+		?></h1>
 	</header><!-- .page-header -->
 <div class="entry-content">
 			<p> <?php esc_html_e( 'Bummer, I cannot find what you are looking for.
