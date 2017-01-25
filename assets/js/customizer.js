@@ -5,6 +5,7 @@
  */
 
 /*jshint latedef: nofunc */
+/** global: wp */
 ( function( $ ) {
 	var style = $( '#strip-color-scheme-css' ),
 		api = wp.customize;
