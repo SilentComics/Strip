@@ -1,3 +1,4 @@
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/e448b4df0cde4232a320d6f5580e76fa)](https://www.codacy.com/app/SilentComics/Strip?utm_source=github.com&utm_medium=referral&utm_content=SilentComics/Strip&utm_campaign=badger)
 [![Build Status](https://travis-ci.org/SilentComics/Strip.svg?branch=master)](https://travis-ci.org/SilentComics/Strip)
 
 [![Mastodon](https://img.shields.io/badge/Mastodon-@Silent_Comics-blue.svg?style=flat)](https://mastodon.social/users/Silent_Comics)
