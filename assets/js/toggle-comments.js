@@ -23,7 +23,7 @@ jQuery(document).ready(function() {
 
 	// Encase button in #toggle-comments-container div
 	jQuery(".toggle-comments").wrap(jQuery('<div/>', {
-		id: 'toggle-comments-container'
+		id: "toggle-comments-container"
 	}));
 
 	// When show/hide is clicked
