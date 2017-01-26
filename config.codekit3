@@ -89,6 +89,16 @@
 		"oF": 0,
 		"oS": 0
 		},
+	"\/assets\/css\/login-min.css": {
+		"aP": 0,
+		"bl": 0,
+		"ft": 16,
+		"ma": 0,
+		"oA": 2,
+		"oAP": "\/assets\/css\/login-min-min.css",
+		"oF": 0,
+		"oS": 0
+		},
 	"\/assets\/css\/login.css": {
 		"aP": 0,
 		"bl": 0,
@@ -244,6 +254,15 @@
 		"oA": 2,
 		"oAP": "\/assets\/inline-logo.svg.php",
 		"oF": 0
+		},
+	"\/assets\/js\/customizer.js": {
+		"ft": 64,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/assets\/js\/customizer-min.js",
+		"oF": 0,
+		"sC": 1,
+		"tS": 0
 		},
 	"\/assets\/js\/html5.js": {
 		"ft": 64,
@@ -560,6 +579,24 @@
 		"oA": 2,
 		"oAP": "\/page.php",
 		"oF": 0
+		},
+	"\/README.md": {
+		"cS": 0,
+		"eF": 1,
+		"eL": 1,
+		"eLB": 0,
+		"ema": 1,
+		"eSQ": 1,
+		"ft": 4096,
+		"oA": 1,
+		"oAP": "\/README.html",
+		"oF": 0,
+		"oFM": 9,
+		"oS": 0,
+		"pHT": 0,
+		"pME": 1,
+		"rFN": 0,
+		"uCM": 0
 		},
 	"\/readme.txt": {
 		"ft": 8192,
