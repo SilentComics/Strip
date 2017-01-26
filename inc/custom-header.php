@@ -75,10 +75,10 @@ if ( ! function_exists( 'strip_header_style' ) ) :
 	?>
 		.site-title a,
 		.site-description {
-			color: #<?php echo esc_attr( $header_text_color ); ?>;
+			color: #<?php echo esc_html( $header_text_color ); ?>;
 		}
 		.site-title {
-			border-color: #<?php echo esc_attr( $header_text_color ); ?>;
+			border-color: #<?php echo esc_html( $header_text_color ); ?>;
 		}
 	<?php endif; ?>
 
