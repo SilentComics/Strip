@@ -65,7 +65,7 @@
      * @returns {StyleSheet} The style element.
      */
     function addStyleSheet(ownerDocument, cssText) {
-        var p = ownerDocument.createElement('p'),
+        var p = ownerDocument.createElement("p"),
             parent = ownerDocument.getElementsByTagName('head')[0] || ownerDocument.documentElement;
 
         p.innerHTML = 'x<style>' + cssText + '</style>';
@@ -235,7 +235,7 @@
                 // adds styling not present in IE6/7/8/9
                 'mark{background:#FF0;color:#000}' +
                 // hides non-rendered elements
-                'template{display:none}'
+                "template{display:none}"
             );
         }
         if (!supportsUnknownElements) {
@@ -299,7 +299,7 @@
         'type': 'default',
 
         // shivs the document according to the specified `html5` object options
-        'shivDocument': shivDocument,
+        "shivDocument": shivDocument,
 
         //creates a shived element
         createElement: createElement,

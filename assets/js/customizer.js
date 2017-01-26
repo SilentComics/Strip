@@ -26,7 +26,7 @@
 				} );
 			} else {
 				$( '.site-title, .site-description' ).css( {
-					'clip': 'auto',
+					"clip": "auto",
 					'position': 'static'
 				} );
 

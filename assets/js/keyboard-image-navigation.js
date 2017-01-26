@@ -3,7 +3,7 @@
  */
 
 ( function( $ ) {
-	$( document ).on( 'keydown.strip', function( e ) {
+	$( document ).on( "keydown.strip", function( e ) {
 		var url = false;
 
 		// Left arrow key code.
