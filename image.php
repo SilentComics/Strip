@@ -62,13 +62,6 @@ $content_width = 1920;
 				</div><!-- .entry-wrap -->
 			</article><!-- #post-## -->
 
-			<?php
-			// If comments are open or we have at least one comment, load up the comment template (disabled).
-			// if ( comments_open() || '0' !== get_comments_number() ) {
-			// comments_template();
-			// }
-			?>
-
 		<?php endwhile; // end of the loop. ?>
 
 		</div><!-- #content -->

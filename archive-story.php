@@ -29,10 +29,6 @@ get_header(); ?>
 
 		<?php
 		if ( get_query_var( 'paged' ) ) {
-			$paged = get_query_var( 'paged' );
-		} elseif ( get_query_var( 'page' ) ) {
-			$paged = get_query_var( 'page' );
-		} else {
 			$paged = 1;
 		}
 
