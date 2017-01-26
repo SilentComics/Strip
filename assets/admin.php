@@ -26,7 +26,6 @@
  */
 function disable_default_dashboard_widgets() {
 	global $wp_meta_boxes;
-	// unset( $wp_meta_boxes['dashboard']['normal']['core']['dashboard_right_now'] );    // Right Now Widget.
 	unset( $wp_meta_boxes['dashboard']['normal']['core']['dashboard_activity'] );        // Activity Widget.
 	unset( $wp_meta_boxes['dashboard']['normal']['core']['dashboard_recent_comments'] ); // Comments Widget.
 	unset( $wp_meta_boxes['dashboard']['normal']['core']['dashboard_incoming_links'] );  // Incoming Links Widget.
@@ -68,12 +67,12 @@ function strip_rss_dashboard_widget() {
 		if ( is_wp_error( $feed ) ) {
 			$limit = 0;
 			$items = 0;
-		} else {
+			return;
+		}
 			$limit = $feed->get_item_quantity( 7 );                        // specify number of items.
 			$items = $feed->get_items( 0, $limit );                        // create an array of items.
-		}
 	}
-	if ( 0 === $limit ) { echo '<div>The RSS Feed is either empty or unavailable.</div>'; // fallback message.
+	if ( 0 ) { echo '<div>The RSS Feed is either empty or unavailable.</div>'; // fallback message.
 	} else { foreach ( $items as $item ) { ?>
 
 	<h4 style="margin-bottom: 0;">

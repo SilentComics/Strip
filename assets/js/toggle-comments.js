@@ -18,11 +18,11 @@ jQuery(document).ready(function() {
 	jQuery('<button/>')
 		.attr('class', 'toggle-comments')
 		.attr('href', '#')
-		.text('Join the Discussion')
+		.text("Join the Discussion")
 		.insertBefore(commentsDiv);
 
 	// Encase button in #toggle-comments-container div
-	jQuery('.toggle-comments').wrap(jQuery('<div/>', {
+	jQuery(".toggle-comments").wrap(jQuery('<div/>', {
 		id: 'toggle-comments-container'
 	}));
 
