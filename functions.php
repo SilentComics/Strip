@@ -279,7 +279,7 @@ require get_template_directory() . '/inc/jetpack.php';
  * see https://gist.github.com/tommaitland/8001524
  */
 function get_first_image( $size = false ) {
-	  global $post, $_wp_image_sizes;
+	  global $post, $_wp_additional_image_sizes;
 
 	  $output = preg_match_all( '/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', do_shortcode( $post->post_content, 'gallery' ), $matches );
 		$first_img = isset( $matches[1][0] ) ? $matches[1][0] : null;
@@ -287,8 +287,8 @@ function get_first_image( $size = false ) {
 	if ( empty( $first_img ) ) {
 			return get_template_directory_uri() . '/assets/images/empty.png'; // path to default image.
 	}
-	if ( $size && $_wp_image_sizes[ $size ]['crop'] === 0 ) {
-		$size = '-' . $_wp_image_sizes[ $size ]['width'] . 'x' . $_wp_image_sizes[ $size ]['height'] . '.jpg';
+	if ( $size && $_wp_additional_image_sizes[ $size ]['story-thumb'] ) {
+		$size = '-' . $_wp_additional_image_sizes[ $size ]['width'] . 'x' . $_wp_additional_image_sizes[ $size ]['height'] . '.jpg';
 		$pattern = '/-\d+x\d+\.jpg$/i';
 		$first_img = preg_replace( $pattern, $size, $first_img );
 	}
