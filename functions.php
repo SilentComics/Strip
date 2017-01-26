@@ -67,7 +67,7 @@ if ( ! function_exists( 'strip_setup' ) ) :
 */
 		add_theme_support( 'post-thumbnails' );
 		set_post_thumbnail_size( 1920, 0 ); // was using add_image_size.
-		add_image_size( 'story-thumb', 312, 156, true ); // cropped.
+		add_image_size( 'thumbnail', 312, 156, true ); // cropped.
 
 		/**
 		 * See https://css-tricks.com/snippets/wordpress/remove-paragraph-tags-from-around-images/
@@ -278,16 +278,16 @@ require get_template_directory() . '/inc/jetpack.php';
  * @link https://css-tricks.com/snippets/wordpress/get-the-first-image-from-a-post/
  * see https://gist.github.com/tommaitland/8001524
  */
-function get_first_image( $size = false ) {
+function get_first_image( $size = true ) {
 	  global $post, $_wp_additional_image_sizes;
 
-	  $output = preg_match_all( '/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', do_shortcode( $post->post_content, 'gallery' ), $matches );
+	  preg_match_all( '/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', do_shortcode( $post->post_content, 'gallery' ), $matches );
 		$first_img = isset( $matches[1][0] ) ? $matches[1][0] : null;
 
 	if ( empty( $first_img ) ) {
 			return get_template_directory_uri() . '/assets/images/empty.png'; // path to default image.
 	}
-	if ( $size && $_wp_additional_image_sizes[ $size ]['crop'] === 0 ) {
+	if ( $size && $_wp_additional_image_sizes[ $size ]['crop'] === 1 ) {
 		$size = '-' . $_wp_additional_image_sizes[ $size ]['width'] . 'x' . $_wp_additional_image_sizes[ $size ]['height'] . '.jpg';
 		$pattern = '/-\d+x\d+\.jpg$/i';
 		$first_img = preg_replace( $pattern, $size, $first_img );
