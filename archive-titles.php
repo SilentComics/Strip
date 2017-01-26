@@ -12,13 +12,6 @@
 	<section id="primary"
 		<main id="content" role="main">
 
-			<?php if ( '' !== get_the_post_thumbnail() ) : ?>
-
-			<a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'strip' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="<?php the_ID(); ?>" class="strip-featured-thumbnail">
-				<?php the_post_thumbnail( 'strip-featured-thumbnail' ); ?>
-			</a>
-			<?php endif; ?>
-
 			<header class="entry-header">
 
 			<?php the_title( '<h1 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h1>' ); ?>
