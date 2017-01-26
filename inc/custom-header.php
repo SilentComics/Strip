@@ -71,7 +71,7 @@ if ( ! function_exists( 'strip_header_style' ) ) :
 		}
 	<?php
 		// If the user has set a custom color for the text use that.
-		else :
+		return;
 	?>
 		.site-title a,
 		.site-description {
@@ -128,11 +128,10 @@ if ( ! function_exists( 'strip_admin_header_image' ) ) :
 	 */
 	function strip_admin_header_image() {
 		$style        = sprintf( ' style="color:#%s;"', get_header_textcolor() );
-		$header_image = get_header_image();
 		?>
 		<div id="headimg">
-		<h1 class="displaying-header-text"><a id="name"<?php echo $style; ?> onclick="return false;" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo( 'name' ); ?></a></h1>
-		<div class="displaying-header-text" id="desc"<?php echo $style; ?>><?php bloginfo( 'description' ); ?></div>
+		<h1 class="displaying-header-text"><a id="name"<?php echo esc_attr( $style ); ?> onclick="return false;" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo( 'name' ); ?></a></h1>
+		<div class="displaying-header-text" id="desc"<?php echo esc_attr( $style ); ?>><?php bloginfo( 'description' ); ?></div>
 		<?php if ( get_header_image() ) : ?>
 		<img src="<?php header_image(); ?>" alt="">
 		<?php endif; ?>
