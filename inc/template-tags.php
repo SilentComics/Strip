@@ -28,8 +28,7 @@ if ( ! function_exists( 'strip_content_nav' ) ) :
 	 * @param $string $nav_id strip_content_nav.
 	 */
 	function strip_content_nav( $nav_id ) {
-		global $wp_query, $post;
-
+		global $wp_query, $wp_rewrite;
 		// Don't print empty markup on single pages if there's nowhere to navigate.
 		// Don't print empty markup in archives if there's only one page.
 		if ( $wp_query->max_num_pages < 2 && ( is_home() || is_archive() || is_search() ) ) {
@@ -49,7 +48,7 @@ if ( ! function_exists( 'strip_content_nav' ) ) :
 
 				<div class="navigation-comic">
 				<nav class="nav-first"><a href="<?php echo esc_url( first_comic_link() ); ?>"><?php esc_html_e( 'Start', 'strip' ); ?></a></nav>
-				<nav class="nav-previous"><?php previous_post_link( '%link', __( 'Previous', 'strip' ), $in_same_term = true, $excluded_terms = '', $taxonomy = 'story' ); ?></nav>
+				<nav class="nav-previous"><?php previous_post_link( '%link', __( 'Previous', 'strip' ), true, '', $taxonomy = 'story' ); ?></nav>
 				<nav class="nav-title"><?php the_title( '<h4 class="series-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h4>' ); ?></nav>
 				<nav class="nav-next"><?php next_post_link( '%link', __( 'Next', 'strip' ), true, '', 'story' ); ?></nav>
 				<nav class="nav-last"><a href="<?php echo esc_url( last_comic_link() ); ?>"><?php esc_html_e( 'Last', 'strip' ); ?></a></nav>
@@ -189,10 +188,10 @@ endif;
  *
  * @link https://core.trac.wordpress.org/ticket/27094
  *
- * @param bool         $in_same_term   Optional. Whether returned post should be in a same taxonomy term.
- * @param array|string $excluded_terms Optional. Array or comma-separated list of excluded term IDs.
- * @param bool         $start          Optional. Whether to retrieve first or last post.
- * @param string       $taxonomy       Optional. Taxonomy, if $in_same_term is true. Default 'category'.
+ * @param bool   $in_same_term   Optional. Whether returned post should be in a same taxonomy term.
+ * @param string $excluded_terms Optional. Array or comma-separated list of excluded term IDs.
+ * @param bool   $start          Optional. Whether to retrieve first or last post.
+ * @param string $taxonomy       Optional. Taxonomy, if $in_same_term is true. Default 'category'.
  * @return mixed Array containing the boundary post object if successful, null otherwise.
  */
 function get_comic_boundary_post( $in_same_term = false, $excluded_terms = '', $start = true, $taxonomy = 'category' ) {
@@ -216,9 +215,9 @@ function get_comic_boundary_post( $in_same_term = false, $excluded_terms = '', $
 	if ( ! is_array( $excluded_terms ) ) {
 		if ( ! empty( $excluded_terms ) ) {
 			$excluded_terms = explode( ',', $excluded_terms );
-		} else {
-			$excluded_terms = array();
+			return;
 		}
+			$excluded_terms = array();
 	}
 
 	if ( $in_same_term || ! empty( $excluded_terms ) ) {
@@ -251,10 +250,8 @@ function get_comic_boundary_post( $in_same_term = false, $excluded_terms = '', $
 
 /**
  * Link to the first comic post in same term
- *
- * @param array $args first_comic_link.
  */
-function first_comic_link( $args = array() ) {
+function first_comic_link() {
 	$first = get_comic_boundary_post( true, '', true, 'story' );
 	apply_filters( 'the_title', $first[0]->post_title );
 
@@ -263,10 +260,8 @@ function first_comic_link( $args = array() ) {
 
 /**
  * Link to the last comic post in same term
- *
- * @param array $args last_comic_link.
  */
-function last_comic_link( $args = array() ) {
+function last_comic_link() {
 	$last = get_comic_boundary_post( true, '', false, 'story' );
 	apply_filters( 'the_title', $last[0]->post_title );
 
