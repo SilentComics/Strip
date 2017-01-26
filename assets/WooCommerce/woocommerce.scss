@@ -51,7 +51,8 @@ p.demo_store{
 .woocommerce-content .product_meta .tagged_as,
 .woocommerce-content .product_meta .tagged_as a {
 	text-transform: lowercase;
-	font-size: small;
+	font-family: Inconsolata, monospace;
+	font-size: medium;
 }
 
 /* .woocommerce .product_title.entry-title {
@@ -133,7 +134,7 @@ p.demo_store{
 #reviews .woocommerce-Reviews,
 .woocommerce-content .comment_container,
 .woocommerce-content #comments {
-	display: block !important;
+	display: block;
 }
 .woocommerce-content #toggle-comments-container {
 	display: none; /* Because there is no point to toggle on and off reviews like comments if you enabled reviews in the first place */

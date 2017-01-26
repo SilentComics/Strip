@@ -9,4 +9,310 @@ This stylesheet overwrites some WooCommerce CSS rules to better match SilentComi
 For more info, check out:
 https://docs.woothemes.com/documentation/plugins/woocommerce/
 
-*/.woocommerce-content{margin:0 auto;max-width:984px}.woocommerce .custom-logo,.woocommerce-cart .custom-logo,.woocommerce-checkout .custom-logo{max-width:192px}.woocommerce .cart a{color:#7369FF;text-decoration:none}p.demo_store{background-color:#FF69AA}.woocommerce-content .product_meta .posted_in,.woocommerce-content .product_meta .posted_in a,.woocommerce-content .product_meta .tagged_as,.woocommerce-content .product_meta .tagged_as a{text-transform:lowercase;font-size:small}.woocommerce .widget-area-wrapper{overflow:hidden}#payment.woocommerce-checkout-payment,#payment.form-row place-order{background-color:#faf4f4}#payment.woocommerce-checkout-payment .payment_box.payment_method_bacs,#payment.woocommerce-checkout-payment .payment_box.payment_method_paypal{background-color:#fff}#payment.woocommerce-checkout-payment .payment_box.payment_method_bacs::before,#payment.woocommerce-checkout-payment .payment_box.payment_method_bacs::after{width:0;height:0;border-left:20px solid transparent;border-right:20px solid transparent;border-bottom:20px solid #fff}#payment.woocommerce-checkout-payment .payment_box.payment_method_paypal::before,#payment.woocommerce-checkout-payment .payment_box.payment_method_paypal::after{width:0;height:0;border-left:20px solid transparent;border-right:20px solid transparent;border-bottom:20px solid #fff}.woocommerce h3{font-weight:500}.woocommerce-content .product a{padding-top:2.4em;font-size:large;font-weight:500;color:#aaddee;text-transform:uppercase;letter-spacing:0.12em;word-wrap:break-word}.woocommerce-content .price,.woocommerce-content .woocommerce-price-suffix,.woocommerce-content .added_to_cart.wc-forward{font-family:Inconsolata, monospace;color:#00bbff}.woocommerce-content .added_to_cart.wc-forward:hover{color:#69F5FF}.woocommerce .product{margin-top:1em}.woocommerce-content .woocommerce-breadcrumb{display:block;font:italic 400 24px/1 Futura, "Trebuchet MS", Arial, sans-serif;margin-bottom:1.2em;text-align:center}.woocommerce-content .woocommerce-description{font-family:Futura, "Trebuchet MS", Arial, sans-serif;font-size:0.625rem}#reviews .woocommerce-Reviews,.woocommerce-content .comment_container,.woocommerce-content #comments{display:block !important}.woocommerce-content #toggle-comments-container{display:none}.woocommerce-content #comments .comment_container .img.avatar{max-width:120px;outline:black;outline-color:#ffcc00;margin-bottom:0;width:196px;height:196px}.woocommerce label,.woocommerce .orderby,.woocommerce .woocommerce-message,.woocommerce textarea,.woocommerce input[type="text"],.woocommerce input[type="email"],.woocommerce input[type="tel"],.woocommerce input[type="number"],.woocommerce input[type="country"],.woocommerce #select2-drop{font-family:'Fenix', Georgia, serif;font-size:medium}.woocommerce .cart .single_add_to_cart_button,.woocommerce .cart .wc-proceed-to-checkout,.woocommerce .cart .single_add_to_cart_button.button.alt,.woocommerce-content .button.add_to_cart_button.product_type_simple,.woocommerce-content .woocommerce-message .button.wc-forward,.woocommerce .wc-proceed-to-checkout.checkout-button.button.alt.wc-forward,.woocommerce .cart .button,.woocommerce.form-submit,.woocommerce .form-row.place-order .button.alt,.woocommerce .button.wc-backward,.woocommerce .button .wc-forward,.woocommerce .woocommerce-checkout-payment .button.alt,.woocommerce .lost_reset_password .button,.woocommerce button.button,.woocommerce #respond input#submit,.woocommerce input.button,.woocommerce .button html input[type="button"],.woocommerce .button input[type="submit"]{color:#fff;background:#422442;cursor:pointer;font-family:Futura, "Trebuchet MS", Arial, sans-serif;font-size:small;letter-spacing:0.12em;font-weight:500;text-align:center;padding:1.2em;text-transform:uppercase;width:auto}.woocommerce .cart input.button .update_cart{color:#fff;background:#00bbbb;cursor:pointer;font-family:Futura, "Trebuchet MS", Arial, sans-serif;font-size:0.6em;letter-spacing:0.12em;text-align:center;padding:1.2em;text-transform:uppercase;width:auto}.woocommerce .cart .single_add_to_cart_button,.woocommerce .cart .single_add_to_cart_button:hover,.woocommerce button.button{width:100%}.woocommerce .cart .single_add_to_cart_button:hover,.woocommerce .cart .wc-proceed-to-checkout:hover,.woocommerce .cart .single_add_to_cart_button.button.alt:hover,.woocommerce-content .button.add_to_cart_button.product_type_simple:hover,.woocommerce-content .woocommerce-message .button.wc-forward:hover,.woocommerce .wc-proceed-to-checkout.checkout-button.button.alt.wc-forward:hover,.woocommerce .cart .button:hover,.woocommerce.form-submit:hover,.woocommerce .form-row.place-order .button.alt:hover,.woocommerce .button.wc-backward:hover,.woocommerce .button .wc-forward:hover,.woocommerce .woocommerce-checkout-payment .button.alt:hover,.woocommerce .lost_reset_password .button:hover,.woocommerce button.button:hover,.woocommerce #respond input#submit,.woocommerce input.button:hover,.woocommerce .button html input[type="button"]:active,.woocommerce .button input[type="submit"]:active{background-color:#69F5FF}.woocommerce .search-field{font-size:small}.woocommerce .mc4wp-form input{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;border:1px solid #faf4f4;padding:6px 6px 5px;margin:0 4px 0 0;line-height:1.2;display:block;font-family:Inconsolata, monospace;font-size:0.875rem;text-align:center;width:100%}.woocommerce .mc4wp-form input[type="submit"]{font-family:Futura, "Trebuchet MS", Arial, sans-serif;font-size:0.625rem;width:100%}.woocommerce .added_to_cart.wc-forward{display:initial;color:blueviolet;text-transform:uppercase}.woocommerce .price ins,.woocommerce .woocommerce-message:before{content:"\e015";color:#69F5FF}.woocommerce .woocommerce-message{border-top-color:#69F5FF}.woocommerce .woocommerce-error,.woocommerce .woocommerce-info,.woocommerce .woocommerce-message{background-color:#faf4f4}.woocommerce .woocommerce-error .button.wc-forward{color:#fff;background:#ff00cc;cursor:pointer;font-family:Futura, "Trebuchet MS", Arial, sans-serif;font-size:0.9rem;letter-spacing:0.1em;text-align:center;padding:9px;text-transform:uppercase;width:auto}.woocommerce .woocommerce-error{border-top-color:#ff00cc}.woocommerce .woocommerce-error:before{content:"\e016";color:#FF69F5}.woocommerce span.onsale{color:black;background-color:#69F5FF;padding:0.6em;font-weight:400;font-family:Futura, "Trebuchet MS", Arial, sans-serif;font-size:1.2em;letter-spacing:0.12em;text-transform:uppercase}.woocommerce .cart_totals .checkout-button.button.alt.wc-forward{color:#fff;background:#69F5FF;font-size:large}.woocommerce-content .price,.woocommerce-content .amount{color:black;font-size:large;letter-spacing:0.1em}.woocommerce .woocommerce-checkout,.woocommerce .payment_box.payment_method_bacs{font-size:medium}.woocommerce .shop_table.cart{border:1px solid rgba(0,0,0,0.1);border-width:1px 0 0 1px;padding:5px 5px 10px 5px;vertical-align:top;margin-bottom:34px;width:100%}small.download-url{font-size:large;font-style:italic;text-decoration:underline}
+*/
+/*--------------------------------------------------------------
+>>> WooCommerce
+--------------------------------------------------------------*/
+.woocommerce-content {
+  margin: 0 auto;
+  max-width: 984px;
+  /* 1272px if you want a larger product page display */ }
+
+.woocommerce .custom-logo,
+.woocommerce-cart .custom-logo,
+.woocommerce-checkout .custom-logo {
+  max-width: 192px; }
+
+.woocommerce .cart a {
+  color: #7369FF;
+  text-decoration: none; }
+
+/* .woocommerce a:link {
+	color: #7369FF;
+	text-decoration: none;
+}
+.woocommerce a:visited {
+	color: #69F5FF;
+	text-decoration: none;
+}
+/*
+.woocommerce a:hover,
+.woocommerce a:focus,
+.woocommerce a:active {
+	color: #69F5FF;
+	text-decoration: underline;	border: none;
+} */
+p.demo_store {
+  background-color: #FF69AA; }
+
+.woocommerce-content .product_meta .posted_in,
+.woocommerce-content .product_meta .posted_in a,
+.woocommerce-content .product_meta .tagged_as,
+.woocommerce-content .product_meta .tagged_as a {
+  text-transform: lowercase;
+  font-family: Inconsolata, monospace;
+  font-size: medium; }
+
+/* .woocommerce .product_title.entry-title {
+
+	text-align: right;
+} */
+.woocommerce .widget-area-wrapper {
+  overflow: hidden; }
+
+#payment.woocommerce-checkout-payment,
+#payment.form-row place-order {
+  background-color: #faf4f4; }
+
+#payment.woocommerce-checkout-payment .payment_box.payment_method_bacs,
+#payment.woocommerce-checkout-payment .payment_box.payment_method_paypal {
+  background-color: #fff; }
+
+#payment.woocommerce-checkout-payment .payment_box.payment_method_bacs::before,
+#payment.woocommerce-checkout-payment .payment_box.payment_method_bacs::after {
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-bottom: 20px solid #fff; }
+
+#payment.woocommerce-checkout-payment .payment_box.payment_method_paypal::before,
+#payment.woocommerce-checkout-payment .payment_box.payment_method_paypal::after {
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-bottom: 20px solid #fff; }
+
+.woocommerce h3 {
+  font-weight: 500; }
+
+.woocommerce-content .product a {
+  padding-top: 2.4em;
+  font-size: large;
+  font-weight: 500;
+  color: #aaddee;
+  /* #aadddd = light blue pink would be #ffaaaa */
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  word-wrap: break-word; }
+
+.woocommerce-content .price,
+.woocommerce-content .woocommerce-price-suffix,
+.woocommerce-content .added_to_cart.wc-forward {
+  font-family: Inconsolata, monospace;
+  color: #00bbff; }
+
+.woocommerce-content .added_to_cart.wc-forward:hover {
+  color: #69F5FF; }
+
+.woocommerce .product {
+  margin-top: 1em; }
+
+.woocommerce-content .woocommerce-breadcrumb {
+  display: block;
+  /* Chose blocks if you want to show this */
+  font: italic 400 24px/1 Futura, "Trebuchet MS", Arial, sans-serif;
+  margin-bottom: 1.2em;
+  text-align: center; }
+
+.woocommerce-content .woocommerce-description {
+  font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+  font-size: 0.625rem; }
+
+#reviews .woocommerce-Reviews,
+.woocommerce-content .comment_container,
+.woocommerce-content #comments {
+  display: block; }
+
+.woocommerce-content #toggle-comments-container {
+  display: none;
+  /* Because there is no point to toggle on and off reviews like comments if you enabled reviews in the first place */ }
+
+.woocommerce-content #comments .comment_container .img.avatar {
+  max-width: 120px;
+  outline: black;
+  outline-color: #ffcc00;
+  margin-bottom: 0;
+  width: 196px;
+  height: 196px; }
+
+.woocommerce label,
+.woocommerce .orderby,
+.woocommerce .woocommerce-message,
+.woocommerce textarea,
+.woocommerce input[type="text"],
+.woocommerce input[type="email"],
+.woocommerce input[type="tel"],
+.woocommerce input[type="number"],
+.woocommerce input[type="country"],
+.woocommerce #select2-drop {
+  font-family: 'Fenix', Georgia, serif;
+  font-size: medium; }
+
+/* Cart */
+.woocommerce .cart .single_add_to_cart_button,
+.woocommerce .cart .wc-proceed-to-checkout,
+.woocommerce .cart .single_add_to_cart_button.button.alt,
+.woocommerce-content .button.add_to_cart_button.product_type_simple,
+.woocommerce-content .woocommerce-message .button.wc-forward,
+.woocommerce .wc-proceed-to-checkout.checkout-button.button.alt.wc-forward,
+.woocommerce .cart .button,
+.woocommerce.form-submit,
+.woocommerce .form-row.place-order .button.alt,
+.woocommerce .button.wc-backward,
+.woocommerce .button .wc-forward,
+.woocommerce .woocommerce-checkout-payment .button.alt,
+.woocommerce .lost_reset_password .button,
+.woocommerce button.button,
+.woocommerce #respond input#submit, .woocommerce input.button,
+.woocommerce .button html input[type="button"],
+.woocommerce .button input[type="submit"] {
+  color: #fff;
+  background: #422442;
+  /* #00bbbb seablue */
+  cursor: pointer;
+  font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+  font-size: small;
+  letter-spacing: 0.12em;
+  font-weight: 500;
+  text-align: center;
+  padding: 1.2em;
+  text-transform: uppercase;
+  width: auto; }
+
+.woocommerce .cart input.button .update_cart {
+  color: #fff;
+  background: #00bbbb;
+  cursor: pointer;
+  font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+  font-size: 0.6em;
+  letter-spacing: 0.12em;
+  text-align: center;
+  padding: 1.2em;
+  text-transform: uppercase;
+  width: auto; }
+
+.woocommerce .cart .single_add_to_cart_button,
+.woocommerce .cart .single_add_to_cart_button:hover,
+.woocommerce button.button {
+  width: 100%; }
+
+.woocommerce .cart .single_add_to_cart_button:hover,
+.woocommerce .cart .wc-proceed-to-checkout:hover,
+.woocommerce .cart .single_add_to_cart_button.button.alt:hover,
+.woocommerce-content .button.add_to_cart_button.product_type_simple:hover,
+.woocommerce-content .woocommerce-message .button.wc-forward:hover,
+.woocommerce .wc-proceed-to-checkout.checkout-button.button.alt.wc-forward:hover,
+.woocommerce .cart .button:hover,
+.woocommerce.form-submit:hover,
+.woocommerce .form-row.place-order .button.alt:hover,
+.woocommerce .button.wc-backward:hover,
+.woocommerce .button .wc-forward:hover,
+.woocommerce .woocommerce-checkout-payment .button.alt:hover,
+.woocommerce .lost_reset_password .button:hover,
+.woocommerce button.button:hover,
+.woocommerce #respond input#submit, .woocommerce input.button:hover,
+.woocommerce .button html input[type="button"]:active,
+.woocommerce .button input[type="submit"]:active {
+  background-color: #69F5FF; }
+
+.woocommerce .search-field {
+  font-size: small; }
+
+/* MailChimp for WordPress style */
+.woocommerce .mc4wp-form input {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border: 1px solid #faf4f4;
+  padding: 6px 6px 5px;
+  margin: 0 4px 0 0;
+  line-height: 1.2;
+  display: block;
+  font-family: Inconsolata, monospace;
+  font-size: 0.875rem;
+  text-align: center;
+  width: 100%; }
+
+/* input fields */
+.woocommerce .mc4wp-form input[type="submit"] {
+  font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+  font-size: 0.625rem;
+  width: 100%; }
+
+/* submit button */
+.woocommerce .added_to_cart.wc-forward {
+  display: initial;
+  color: blueviolet;
+  text-transform: uppercase; }
+
+.woocommerce .price ins,
+.woocommerce .woocommerce-message:before {
+  content: "\e015";
+  color: #69F5FF; }
+
+.woocommerce .woocommerce-message {
+  border-top-color: #69F5FF; }
+
+.woocommerce .woocommerce-error, .woocommerce .woocommerce-info,
+.woocommerce .woocommerce-message {
+  background-color: #faf4f4; }
+
+.woocommerce .woocommerce-error .button.wc-forward {
+  color: #fff;
+  background: #ff00cc;
+  cursor: pointer;
+  font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+  font-size: 0.9rem;
+  letter-spacing: 0.1em;
+  text-align: center;
+  padding: 9px;
+  text-transform: uppercase;
+  width: auto; }
+
+.woocommerce .woocommerce-error {
+  border-top-color: #ff00cc; }
+
+.woocommerce .woocommerce-error:before {
+  content: "\e016";
+  color: #FF69F5; }
+
+.woocommerce span.onsale {
+  color: black;
+  background-color: #69F5FF;
+  /* #ff0000 = pure yellow #ff7624 = orange #aaff00=acid green #00ffaa = light flashy green #00ffcc = Light seablue #00bbbb = seablue #ccffdd = lame pale blue #ffcc00 #bbff00 #ffee00 */
+  padding: 0.6em;
+  font-weight: 400;
+  font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+  font-size: 1.2em;
+  letter-spacing: 0.12em;
+  text-transform: uppercase; }
+
+.woocommerce .cart_totals .checkout-button.button.alt.wc-forward {
+  color: #fff;
+  background: #69F5FF;
+  font-size: large; }
+
+.woocommerce-content .price,
+.woocommerce-content .amount {
+  color: black;
+  font-size: large;
+  letter-spacing: 0.1em; }
+
+.woocommerce .woocommerce-checkout,
+.woocommerce .payment_box.payment_method_bacs {
+  font-size: medium; }
+
+.woocommerce .shop_table.cart {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-width: 1px 0 0 1px;
+  padding: 5px 5px 10px 5px;
+  vertical-align: top;
+  margin-bottom: 34px;
+  width: 100%; }
+
+small.download-url {
+  font-size: large;
+  font-style: italic;
+  text-decoration: underline; }
