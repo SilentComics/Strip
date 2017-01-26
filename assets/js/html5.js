@@ -43,7 +43,7 @@
                 var frag = document.createDocumentFragment();
                 return (
                     typeof frag.cloneNode === 'undefined' ||
-                    typeof frag.createDocumentFragment === 'undefined' ||
+                    typeof frag.createDocumentFragment === "undefined" ||
                     typeof frag.createElement === 'undefined'
                 );
             }());
@@ -79,7 +79,7 @@
      */
     function getElements() {
         var elements = html5.elements;
-        return typeof elements === 'string' ? elements.split(' ') : elements;
+        return typeof elements === "string" ? elements.split(' ') : elements;
     }
 
     /**
@@ -90,7 +90,7 @@
      */
     function addElements(newElements, ownerDocument) {
         var elements = html5.elements;
-        if (typeof elements !== 'string') {
+        if (typeof elements !== "string") {
             elements = elements.join(' ');
         }
         if (typeof newElements !== 'string') {
@@ -233,7 +233,7 @@
                 // corrects block display not defined in IE6/7/8/9
                 'article,aside,dialog,figcaption,figure,footer,header,hgroup,main,nav,section{display:block}' +
                 // adds styling not present in IE6/7/8/9
-                'mark{background:#FF0;color:#000}' +
+                "mark{background:#FF0;color:#000}" +
                 // hides non-rendered elements
                 "template{display:none}"
             );
