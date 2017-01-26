@@ -19,7 +19,7 @@
 			return;
 		}
 
-		if ( url && ! $( 'textarea, input' ).is( ':focus' ) ) {
+		if ( url && ! $( "textarea, input" ).is( ":focus" ) ) {
 			window.location = url;
 		}
 	} );

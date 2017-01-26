@@ -3,6 +3,7 @@
  *
  * Contains handlers to make Theme Customizer preview reload changes asynchronously.
  */
+
 /** global: wp */
 ( function( $ ) {
 	// Site title and description.
@@ -27,12 +28,12 @@
 			} else {
 				$( '.site-title, .site-description' ).css( {
 					"clip": "auto",
+					'color': to,
 					'position': 'static'
 				} );
-
 				$( '.site-title a, .site-description' ).css( {
 					'color': to
-				} );
+					} );
 				$( '.site-title a' ).css( {
 					'border-color': to
 				} );
