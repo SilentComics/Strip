@@ -567,12 +567,12 @@ add_action( 'after_switch_theme', 'strip_rewrite_rules' );
 	 */
 	function strip_set_posts_per_page( $query ) {
 
-		if ( ( ! is_admin() ) && ( $query->is_home() ) && ( $query->is_search() ) ) {
+		if ( ( ! is_admin() ) && ( is_home() ) && ( is_search() ) ) {
 			 $query->set( 'posts_per_page', 12 );
 		}
-		if ( ( ! is_admin() ) && ( $query->is_post_type_archive( 'product' ) ) && (taxonomy_exists( 'category' ) ) ) {
+		if ( ( ! is_admin() ) && ( is_post_type_archive( 'product' ) ) && (taxonomy_exists( 'category' ) ) ) {
 			$query->set( 'posts_per_page', 8 );
-		} elseif ( ( ! is_admin() ) && ( $query->is_archive() )	&& (is_tax( 'story' ) ) ) {
+		} elseif ( ( ! is_admin() ) && ( is_archive() )	&& (is_tax( 'story' ) ) ) {
 			$query->set( 'posts_per_page', 3 );
 		}
 			return $query;
