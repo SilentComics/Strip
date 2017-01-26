@@ -28,7 +28,7 @@ if ( ! function_exists( 'strip_content_nav' ) ) :
 	 * @param $string $nav_id strip_content_nav.
 	 */
 	function strip_content_nav( $nav_id ) {
-		global $wp_query, $wp_rewrite;
+		global $wp_query;
 		// Don't print empty markup on single pages if there's nowhere to navigate.
 		// Don't print empty markup in archives if there's only one page.
 		if ( $wp_query->max_num_pages < 2 && ( is_home() || is_archive() || is_search() ) ) {
@@ -48,7 +48,7 @@ if ( ! function_exists( 'strip_content_nav' ) ) :
 
 				<div class="navigation-comic">
 				<nav class="nav-first"><a href="<?php echo esc_url( first_comic_link() ); ?>"><?php esc_html_e( 'Start', 'strip' ); ?></a></nav>
-				<nav class="nav-previous"><?php previous_post_link( '%link', __( 'Previous', 'strip' ), true, '', $taxonomy = 'story' ); ?></nav>
+				<nav class="nav-previous"><?php previous_post_link( '%link', __( 'Previous', 'strip' ), true, '', 'story' ); ?></nav>
 				<nav class="nav-title"><?php the_title( '<h4 class="series-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h4>' ); ?></nav>
 				<nav class="nav-next"><?php next_post_link( '%link', __( 'Next', 'strip' ), true, '', 'story' ); ?></nav>
 				<nav class="nav-last"><a href="<?php echo esc_url( last_comic_link() ); ?>"><?php esc_html_e( 'Last', 'strip' ); ?></a></nav>
