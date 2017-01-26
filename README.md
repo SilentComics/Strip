@@ -10,7 +10,7 @@ Strip: A WordPress Theme for Silent Comics
 *Strip* is a WordPress theme designed for the upcoming [SILENT COMICS site](http://silent-comics.com). 
 ![screenshot](http://silentcomics.com/images/screenshot.png)
 
-This theme is not 100% ready for production, although you are welcome to test it. Right now two of the theme's functions, *custom post type* and *custom taxonomy*, should go in a plugin. WordPress.org advocates for the separation of presentation and content<sup>[1](#myfootnote1)</sup>. This is important for portability of content. For this particular project, using custom functions within the theme makes sense<sup>[2](#myfootnote2)</sup>. The theme design responds to the projects needs. **Warning** :loudspeaker: But it means you will lose access to your (comics) data if you use this theme and then switch theme. That is not something we want to happen. So until a [simple webcomic plugin](https://github.com/SilentComics/strip-plugin) is ready to solve this potential issue, it is best to avoid using this theme on your live site.
+This theme is not 100% ready for production, although you are welcome to test it. Right now two of the theme's functions, *custom post type* and *custom taxonomy*, should go in a plugin. WordPress.org advocates for the separation of presentation and content<sup>[1](#myfootnote1)</sup>. While this is important for portability of content, custom functions within the theme suit this particular project at this point<sup>[2](#myfootnote2)</sup>. **Warning** :loudspeaker: But that means you would lose access to your (comics) data if you used this theme and then switched to another. That is not something you want to happen. So until a [simple webcomic plugin](https://github.com/SilentComics/strip-plugin) is ready to solve this potential issue, it is best to avoid using this theme on your live site.
 
 # Theme Wiki
 [Theme wiki](https://github.com/SilentComics/Strip/wiki/Theme-set-up)
@@ -24,4 +24,4 @@ Theme review aside, there are a few ways you can [support this project ♥](http
 
 <small><a name="myfootnote1">1</a>: See WordPress.org’s [presentation vs functionality](https://make.wordpress.org/themes/handbook/review/required/#presentation-vs-functionality) guidelines</small>
 
-<small><a name="myfootnote2">2</a>: Because the less plugins the project uses, the better.</small>
+<small><a name="myfootnote2">2</a>: Because the less plugins this project uses, the better.</small>

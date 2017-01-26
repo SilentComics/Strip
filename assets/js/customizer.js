@@ -4,8 +4,7 @@
  * Contains handlers to make Theme Customizer preview reload changes asynchronously.
  */
 
-/** global: wp */
-(function($) {
+(function($, wp) {
     // Site title and description.
     wp.customize("blogname", function(value) {
         value.bind(function(to) {
@@ -26,7 +25,7 @@
                     'position': 'absolute'
                 });
             } else {
-                $('.site-title, .site-description').css({
+                $(".site-title, .site-description").css({
                     "clip": "auto",
                     "color": to,
                     "position": "static"
