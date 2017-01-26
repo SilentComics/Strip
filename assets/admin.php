@@ -73,18 +73,20 @@ function strip_rss_dashboard_widget() {
 			$items = $feed->get_items( 0, $limit );                        // create an array of items.
 	}
 	if ( 0 ) { echo '<div>The RSS Feed is either empty or unavailable.</div>'; // fallback message.
-	} else { foreach ( $items as $item ) { ?>
+		return;
+	}
+	foreach ( $items as $item ) { ?>
 
-	<h4 style="margin-bottom: 0;">
-		<a href="<?php echo $item->get_permalink(); ?>" title="<?php echo mysql2date( __( 'j F Y @ g:i a', 'strip' ), $item->get_date( 'Y-m-d H:i:s' ) ); ?>" target="_blank">
-			<?php echo $item->get_title(); ?>
-		</a>
-	</h4>
-	<p style="margin-top: 0.5em;
-			  .inside { max-width: 240px;}">
-	<?php echo substr( $item->get_description(), 0, 600 ); ?>
-	</p>
-	<?php }
+			<h4 style="margin-bottom: 0;">
+				<a href="<?php echo $item->get_permalink(); ?>" title="<?php echo mysql2date( __( 'j F Y @ g:i a', 'strip' ), $item->get_date( 'Y-m-d H:i:s' ) ); ?>" target="_blank">
+					<?php echo $item->get_title(); ?>
+				</a>
+			</h4>
+			<p style="margin-top: 0.5em;
+					  .inside { max-width: 240px;}">
+			<?php echo substr( $item->get_description(), 0, 600 ); ?>
+			</p>
+			<?php
 	}
 }
 
