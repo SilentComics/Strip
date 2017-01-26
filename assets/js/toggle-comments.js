@@ -22,7 +22,7 @@ jQuery(document).ready(function() {
 		.insertBefore(commentsDiv);
 
 	// Encase button in #toggle-comments-container div
-	jQuery(".toggle-comments").wrap(jQuery('<div/>', {
+	jQuery(".toggle-comments").wrap(jQuery("<div/>", {
 		id: "toggle-comments-container"
 	}));
 

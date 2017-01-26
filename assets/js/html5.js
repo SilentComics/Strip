@@ -66,7 +66,7 @@
      */
     function addStyleSheet(ownerDocument, cssText) {
         var p = ownerDocument.createElement("p"),
-            parent = ownerDocument.getElementsByTagName('head')[0] || ownerDocument.documentElement;
+            parent = ownerDocument.getElementsByTagName("head")[0] || ownerDocument.documentElement;
 
         p.innerHTML = 'x<style>' + cssText + '</style>';
         return parent.insertBefore(p.lastChild, parent.firstChild);
@@ -93,7 +93,7 @@
         if (typeof elements !== "string") {
             elements = elements.join(' ');
         }
-        if (typeof newElements !== 'string') {
+        if (typeof newElements !== "string") {
             newElements = newElements.join(' ');
         }
         html5.elements = elements + ' ' + newElements;
@@ -267,7 +267,7 @@
         /**
          * current version of html5shiv
          */
-        'version': version,
+        "version": version,
 
         /**
          * A flag to indicate that the HTML5 style sheet should be inserted.
@@ -281,7 +281,7 @@
          * @memberOf html5
          * @type boolean
          */
-        'supportsUnknownElements': supportsUnknownElements,
+        "supportsUnknownElements": supportsUnknownElements,
 
         /**
          * A flag to indicate that the document's `createElement` and `createDocumentFragment`
