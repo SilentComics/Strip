@@ -279,17 +279,16 @@ require get_template_directory() . '/inc/jetpack.php';
  * see https://gist.github.com/tommaitland/8001524
  */
 function get_first_image( $size = false ) {
-	  global $post, $_wp_additional_image_sizes;
-	  $first_img = '';
+	  global $post, $_wp_image_sizes;
 
 	  $output = preg_match_all( '/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', do_shortcode( $post->post_content, 'gallery' ), $matches );
-		$first_img = $matches [1][0];
+		$first_img = isset( $matches[1][0] ) ? $matches[1][0] : null;
 
 	if ( empty( $first_img ) ) {
 			return get_template_directory_uri() . '/assets/images/empty.png'; // path to default image.
 	}
-	if ( $size && $_wp_additional_image_sizes[ $size ]['crop'] !== 1 ) {
-		$size = '-' . $_wp_additional_image_sizes[ $size ]['width'] . 'x' . $_wp_additional_image_sizes[ $size ]['height'] . '.jpg';
+	if ( $size && $_wp_image_sizes[ $size ]['crop'] === 0 ) {
+		$size = '-' . $_wp_image_sizes[ $size ]['width'] . 'x' . $_wp_image_sizes[ $size ]['height'] . '.jpg';
 		$pattern = '/-\d+x\d+\.jpg$/i';
 		$first_img = preg_replace( $pattern, $size, $first_img );
 	}
@@ -570,12 +569,12 @@ add_action( 'after_switch_theme', 'strip_rewrite_rules' );
 
 			global $wp_the_query;
 
-		if ( ( ! is_admin() ) && ( $query === $wp_the_query ) && ( $query->is_home() ) && ( $query->is_search() ) ) {
+		if ( ( ! is_admin() ) && ( $query->is_home() ) && ( $query->is_search() ) ) {
 			 $query->set( 'posts_per_page', 12 );
 		}
-		if ( ( ! is_admin() ) && ( $query === $wp_the_query ) && ( $query->is_post_type_archive( 'product' ) ) && (taxonomy_exists( 'category' ) ) ) {
+		if ( ( ! is_admin() ) && ( $query->is_post_type_archive( 'product' ) ) && (taxonomy_exists( 'category' ) ) ) {
 			$query->set( 'posts_per_page', 8 );
-		} elseif ( ( ! is_admin() ) && ( $query === $wp_the_query ) && ( $query->is_archive() )	&& (is_tax( 'story' ) ) ) {
+		} elseif ( ( ! is_admin() ) && ( $query->is_archive() )	&& (is_tax( 'story' ) ) ) {
 			$query->set( 'posts_per_page', 3 );
 		}
 			return $query;
