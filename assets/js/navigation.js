@@ -31,9 +31,9 @@
     }
 
     button.onclick = function () {
-        if (-1 !== container.className.indexOf('toggled')) {
+        if (-1 !== container.className.indexOf("toggled")) {
             container.className = container.className.replace(' toggled', '');
-            button.setAttribute('aria-expanded', 'false');
+            button.setAttribute("aria-expanded", "false");
             menu.setAttribute('aria-expanded', 'false');
         } else {
             container.className += ' toggled';
@@ -48,7 +48,7 @@
 
     // Set menu items with submenus to aria-haspopup="true".
     for (var i = 0, len = subMenus.length; i < len; i++) {
-        subMenus[i].parentNode.setAttribute('aria-haspopup', 'true');
+        subMenus[i].parentNode.setAttribute("aria-haspopup", "true");
     }
 
     // Each time a menu link is focused or blurred, toggle focus.
@@ -64,7 +64,7 @@
         var self = this;
 
         // Move up through the ancestors of the current link until we hit .nav-menu.
-        while (-1 === self.className.indexOf('nav-menu')) {
+        while (-1 === self.className.indexOf("nav-menu")) {
 
             // On li elements toggle the class .focus.
             if ("li" === self.tagName.toLowerCase()) {
