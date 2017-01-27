@@ -30,7 +30,7 @@
                     "color": to,
                     "position": "static"
                 });
-                $('.site-title a, .site-description').css({
+                $(".site-title a, .site-description").css({
                     "color": to
                 });
                 $(".site-title a").css({

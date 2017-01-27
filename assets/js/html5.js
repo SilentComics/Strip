@@ -4,7 +4,7 @@
 (function(window, document) {
     /*jshint evil:true */
     /** version */
-    var version = '3.7.3';
+    var version = "3.7.3";
 
     /** Preset options */
     var options = window.html5 || {};
@@ -262,7 +262,7 @@
          * @memberOf html5
          * @type Array|String
          */
-        'elements': options.elements || 'abbr article aside audio bdi canvas data datalist details dialog figcaption figure footer header hgroup main mark meter nav output picture progress section summary template time video',
+        "elements": options.elements || 'abbr article aside audio bdi canvas data datalist details dialog figcaption figure footer header hgroup main mark meter nav output picture progress section summary template time video',
 
         /**
          * current version of html5shiv

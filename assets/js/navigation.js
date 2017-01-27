@@ -7,7 +7,7 @@
 (function () {
     var container, button, menu, links, subMenus;
 
-    container = document.getElementById('site-navigation');
+    container = document.getElementById("site-navigation");
     if (!container) {
         return;
     }
@@ -17,7 +17,7 @@
         return undefined;
     }
 
-    menu = container.getElementsByTagName('ul')[0];
+    menu = container.getElementsByTagName("ul")[0];
 
     // Hide menu toggle button if menu is empty and return early.
     if ('undefined' === typeof menu) {
@@ -37,8 +37,8 @@
             menu.setAttribute('aria-expanded', 'false');
         } else {
             container.className += ' toggled';
-            button.setAttribute('aria-expanded', 'true');
-            menu.setAttribute('aria-expanded', 'true');
+            button.setAttribute("aria-expanded", "true");
+            menu.setAttribute("aria-expanded", "true");
         }
     };
 
@@ -53,7 +53,7 @@
 
     // Each time a menu link is focused or blurred, toggle focus.
     for (i = 0, len = links.length; i < len; i++) {
-        links[i].addEventListener('focus', toggleFocus, true);
+        links[i].addEventListener("focus", toggleFocus, true);
         links[i].addEventListener("blur", toggleFocus, true);
     }
 
