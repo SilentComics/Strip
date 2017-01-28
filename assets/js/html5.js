@@ -32,7 +32,7 @@
 
   (function() {
     try {
-        var a = document.createElement('a');
+        var a = document.createElement("a");
         a.innerHTML = '<xyz></xyz>';
         //if the hidden property is implemented we can assume, that the browser supports basic HTML5 Styles
         supportsHtml5Styles = ('hidden' in a);
@@ -42,9 +42,9 @@
           (document.createElement)('a');
           var frag = document.createDocumentFragment();
           return (
-            typeof frag.cloneNode == 'undefined' ||
+            typeof frag.cloneNode == "undefined" ||
             typeof frag.createDocumentFragment == 'undefined' ||
-            typeof frag.createElement == 'undefined'
+            typeof frag.createElement == "undefined"
           );
         }());
     } catch(e) {
@@ -68,7 +68,7 @@
     var p = ownerDocument.createElement('p'),
         parent = ownerDocument.getElementsByTagName('head')[0] || ownerDocument.documentElement;
 
-    p.innerHTML = 'x<style>' + cssText + '</style>';
+    p.innerHTML = 'x<style>' + cssText + "</style>";
     return parent.insertBefore(p.lastChild, parent.firstChild);
   }
 
@@ -79,7 +79,7 @@
    */
   function getElements() {
     var elements = html5.elements;
-    return typeof elements == 'string' ? elements.split(' ') : elements;
+    return typeof elements == "string" ? elements.split(' ') : elements;
   }
 
   /**
@@ -201,7 +201,7 @@
       return createElement(nodeName, ownerDocument, data);
     };
 
-    ownerDocument.createDocumentFragment = Function('h,f', 'return function(){' +
+    ownerDocument.createDocumentFragment = Function("h,f", 'return function(){' +
       'var n=f.cloneNode(),c=n.createElement;' +
       'h.shivMethods&&(' +
         // unroll the `createElement` calls
@@ -262,12 +262,12 @@
      * @memberOf html5
      * @type Array|String
      */
-    'elements': options.elements || 'abbr article aside audio bdi canvas data datalist details dialog figcaption figure footer header hgroup main mark meter nav output picture progress section summary template time video',
+    "elements": options.elements || 'abbr article aside audio bdi canvas data datalist details dialog figcaption figure footer header hgroup main mark meter nav output picture progress section summary template time video',
 
     /**
      * current version of html5shiv
      */
-    'version': version,
+    "version": version,
 
     /**
      * A flag to indicate that the HTML5 style sheet should be inserted.
@@ -289,14 +289,14 @@
      * @memberOf html5
      * @type Boolean
      */
-    'shivMethods': (options.shivMethods !== false),
+    "shivMethods": (options.shivMethods !== false),
 
     /**
      * A string to describe the type of `html5` object ("default" or "default print").
      * @memberOf html5
      * @type String
      */
-    'type': 'default',
+    "type": "default",
 
     // shivs the document according to the specified `html5` object options
     'shivDocument': shivDocument,
@@ -319,7 +319,7 @@
   // shiv the document
   shivDocument(document);
 
-  if(typeof module == 'object' && module.exports){
+  if(typeof module == "object" && module.exports){
     module.exports = html5;
   }
 
