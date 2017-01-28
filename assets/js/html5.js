@@ -1,10 +1,10 @@
 /**
 * @preserve HTML5 Shiv 3.7.3 | @afarkas @jdalton @jon_neal @rem | MIT/GPL2 Licensed
 */
-;(function(window, document) {
+(function(window, document) {
 /*jshint evil:true */
   /** version */
-  var version = '3.7.3';
+  var version = "3.7.3";
 
   /** Preset options */
   var options = window.html5 || {};
@@ -35,15 +35,15 @@
         var a = document.createElement("a");
         a.innerHTML = '<xyz></xyz>';
         //if the hidden property is implemented we can assume, that the browser supports basic HTML5 Styles
-        supportsHtml5Styles = ('hidden' in a);
+        supportsHtml5Styles = ("hidden" in a);
 
-        supportsUnknownElements = a.childNodes.length == 1 || (function() {
+        supportsUnknownElements = a.childNodes.length === 1 || (function() {
           // assign a false positive if unable to shiv
           (document.createElement)('a');
           var frag = document.createDocumentFragment();
           return (
             typeof frag.cloneNode == "undefined" ||
-            typeof frag.createDocumentFragment == 'undefined' ||
+            typeof frag.createDocumentFragment == "undefined" ||
             typeof frag.createElement == "undefined"
           );
         }());
@@ -65,8 +65,8 @@
    * @returns {StyleSheet} The style element.
    */
   function addStyleSheet(ownerDocument, cssText) {
-    var p = ownerDocument.createElement('p'),
-        parent = ownerDocument.getElementsByTagName('head')[0] || ownerDocument.documentElement;
+    var p = ownerDocument.createElement("p"),
+        parent = ownerDocument.getElementsByTagName("head")[0] || ownerDocument.documentElement;
 
     p.innerHTML = 'x<style>' + cssText + "</style>";
     return parent.insertBefore(p.lastChild, parent.firstChild);
@@ -90,10 +90,10 @@
    */
   function addElements(newElements, ownerDocument) {
     var elements = html5.elements;
-    if(typeof elements != 'string'){
+    if(typeof elements != "string"){
       elements = elements.join(' ');
     }
-    if(typeof newElements != 'string'){
+    if(typeof newElements != "string"){
       newElements = newElements.join(' ');
     }
     html5.elements = elements +' '+ newElements;
@@ -233,9 +233,9 @@
         // corrects block display not defined in IE6/7/8/9
         'article,aside,dialog,figcaption,figure,footer,header,hgroup,main,nav,section{display:block}' +
         // adds styling not present in IE6/7/8/9
-        'mark{background:#FF0;color:#000}' +
+        "mark{background:#FF0;color:#000}" +
         // hides non-rendered elements
-        'template{display:none}'
+        "template{display:none}"
       );
     }
     if (!supportsUnknownElements) {
@@ -299,7 +299,7 @@
     "type": "default",
 
     // shivs the document according to the specified `html5` object options
-    'shivDocument': shivDocument,
+    "shivDocument": shivDocument,
 
     //creates a shived element
     createElement: createElement,
