@@ -42,9 +42,9 @@
           (document.createElement)('a');
           var frag = document.createDocumentFragment();
           return (
-            typeof frag.cloneNode == "undefined" ||
-            typeof frag.createDocumentFragment == "undefined" ||
-            typeof frag.createElement == "undefined"
+            typeof frag.cloneNode === "undefined" ||
+            typeof frag.createDocumentFragment === "undefined" ||
+            typeof frag.createElement === "undefined"
           );
         }());
     } catch(e) {
@@ -79,7 +79,7 @@
    */
   function getElements() {
     var elements = html5.elements;
-    return typeof elements == "string" ? elements.split(' ') : elements;
+    return typeof elements === "string" ? elements.split(' ') : elements;
   }
 
   /**
@@ -90,10 +90,10 @@
    */
   function addElements(newElements, ownerDocument) {
     var elements = html5.elements;
-    if(typeof elements != "string"){
+    if(typeof elements !== "string"){
       elements = elements.join(' ');
     }
-    if(typeof newElements != "string"){
+    if(typeof newElements !== "string"){
       newElements = newElements.join(' ');
     }
     html5.elements = elements +' '+ newElements;
@@ -319,7 +319,7 @@
   // shiv the document
   shivDocument(document);
 
-  if(typeof module == "object" && module.exports){
+  if(typeof module === "object" && module.exports){
     module.exports = html5;
   }
 
