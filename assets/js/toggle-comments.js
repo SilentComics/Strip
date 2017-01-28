@@ -15,7 +15,7 @@ jQuery(document).ready(function() {
 	jQuery(commentsDiv).hide();
 
 	// Append a link to show/hide
-	jQuery('<button/>')
+	jQuery("<button/>")
 		.attr('class', 'toggle-comments')
 		.attr('href', '#')
 		.text("Join the Discussion")
@@ -31,9 +31,9 @@ jQuery(document).ready(function() {
 		e.preventDefault();
 
 	// Show/hide the div using jQuery's toggle()
-	jQuery(commentsDiv).toggle('slow', function() {
+	jQuery(commentsDiv).toggle("slow", function() {
 	// change the text of the anchor
-		var anchor = jQuery('.toggle-comments');
+		var anchor = jQuery(".toggle-comments");
 		var anchorText = anchor.html() === 'Hide Comments' ? 'Show Comments' : 'Hide Comments';
 		jQuery(anchor).text(anchorText);
 	});
