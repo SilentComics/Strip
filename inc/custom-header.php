@@ -71,7 +71,7 @@ if ( ! function_exists( 'strip_header_style' ) ) :
 			}
 		<?php
 			// If the user has set a custom color for the text use that.
-			return;
+			else :
 		?>
 			.site-title a,
 			.site-description {
