@@ -273,15 +273,6 @@
 		"sC": 1,
 		"tS": 0
 		},
-	"\/assets\/js\/html5.js": {
-		"ft": 64,
-		"mi": 1,
-		"oA": 0,
-		"oAP": "\/assets\/js\/min\/html5-min.js",
-		"oF": 2,
-		"sC": 1,
-		"tS": 0
-		},
 	"\/assets\/js\/keyboard-image-navigation.js": {
 		"ft": 64,
 		"mi": 1,
@@ -527,12 +518,6 @@
 		"ft": 8192,
 		"oA": 2,
 		"oAP": "\/inc\/author-box.php",
-		"oF": 0
-		},
-	"\/inc\/custom-header.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/inc\/custom-header.php",
 		"oF": 0
 		},
 	"\/inc\/customizer.php": {
