@@ -1,7 +1,7 @@
 /**
 * @preserve HTML5 Shiv 3.7.3 | @afarkas @jdalton @jon_neal @rem | MIT/GPL2 Licensed
 */
-(function(window, document) {
+;(function(window, document) {
 /*jshint evil:true */
   /** version */
   var version = "3.7.3";
@@ -281,7 +281,7 @@
      * @memberOf html5
      * @type boolean
      */
-    'supportsUnknownElements': supportsUnknownElements,
+    "supportsUnknownElements": supportsUnknownElements,
 
     /**
      * A flag to indicate that the document's `createElement` and `createDocumentFragment`
