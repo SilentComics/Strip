@@ -8,7 +8,7 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" >
+<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<div class="wrap">
 		<?php if ( '' !== get_the_post_thumbnail() ) : ?>
 			<?php if ( ! is_single() ) : ?>
@@ -23,9 +23,6 @@
 		<header class="entry-header">
 			<?php
 				$categories_list = get_the_category_list( __( ', ', 'strip' ) );
-			if ( $categories_list && strip_categorized_blog() ) {
-					echo '<span class="categories-links">' . $categories_list . '</span>';
-			}
 
 			if ( ! is_single() ) :
 				the_title( '<h1 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h1>' );
