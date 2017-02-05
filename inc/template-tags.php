@@ -233,7 +233,7 @@ function get_comic_boundary_post( $in_same_term = false, $start = true, $taxonom
  * Link to the first comic post in same term
  */
 function first_comic_link() {
-	$first = get_comic_boundary_post( true, '', true, 'story' );
+	$first = get_comic_boundary_post( true, true, 'story' );
 	apply_filters( 'the_title', $first[0]->post_title );
 
 	echo esc_html( get_permalink( $first[0]->ID ) );
@@ -243,7 +243,7 @@ function first_comic_link() {
  * Link to the last comic post in same term
  */
 function last_comic_link() {
-	$last = get_comic_boundary_post( true, '', false, 'story' );
+	$last = get_comic_boundary_post( true, false, 'story' );
 	apply_filters( 'the_title', $last[0]->post_title );
 
 	echo esc_html( get_permalink( $last[0]->ID ) );
