@@ -4,7 +4,7 @@ Theme URI: https://github.com/SilentComics/Strip
 Author: SILENT COMICS
 Author URI: http://silent-comics.com
 Description: A WordPress theme for comics and webcomics <a href="https://github.com/SilentComics/Strip/">Contribute on GitHub</a>
-Version: 1.0
+Version: 1.1.1
 License: GNU General Public License v3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Text Domain: strip
@@ -530,7 +530,7 @@ a:active {
 	background-color: transparent;
 	background-repeat: no-repeat;
 	background-position: center;
-	background-size: cover;
+	background-size: contain;
 	padding: 0;
 	position: relative;
 	text-align: center; /* Avoid overflowing wide custom logo in small screens in Firefox and IEs */
@@ -639,11 +639,7 @@ a:active {
 
 .main-navigation ul li:hover > ul { display: block; }
 .main-navigation .current_page_item > a,
-.main-navigation .current-menu-item > a,
-.main-navigation .current_page_item > a:hover,
-.main-navigation .current-menu-item > a:hover,
-.main-navigation .current_page_item > a:focus,
-.main-navigation .current-menu-item > a:focus {
+.main-navigation .current-menu-item > a {
     color: #ff7369; }
 
 .main-navigation .current_page_ancestor {
@@ -1135,7 +1131,7 @@ article.error404 .widget_calendar tfoot td {
 .entry-content,
 .entry-summary {
 	margin: 0 0 24px 0;
-	max-width: 696px; /* 840px instead of 696px */
+	max-width: 792px; /* 840px instead of 696px */
 	width: 100%; }
 
 /*--------------------------------------------------------------
@@ -1404,18 +1400,19 @@ span > object {
 	color: #422424; }
 
 .comic .post-edit-link {
-    padding: 9px 6px 6px 6px;
+  padding: 9px 6px 6px 6px;
 	font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
-    font-size: 10px;
-    font-size: 0.625rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: black;
-    background-color: #FFFF00; /* #69FF73; #FF69F5 #FFBE69 #FFFF00 */
-    text-align: left; }
+  font-size: 10px;
+  font-size: 0.625rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: black;
+  background-color: #ffff00; /* #69FF73 #FFFF00 */
+  text-align: left; }
 
 .comic .entry-comic {
-	font-family: Inconsolata, monospace; }
+	font-family: Inconsolata, monospace;
+	font-size: 0.8em; }
 
 .comic .entry-meta {
 	text-align: right;
@@ -1484,6 +1481,13 @@ span > object {
 .navigation-comic .nav-last a:hover {
 	background: #ff7369;
 	color: #fff; }
+
+	.navigation-comic .nav-first a:active,
+	.navigation-comic .nav-previous current_page_item > a,
+	.navigation-comic .nav-next current_page_item > a,
+	.navigation-comic .nav-last current_page_item > a {
+		background: #000;
+		color: #fff; }
 
 .series-title, .series-title a, .series-title li,
 .post-parent-title, .post-parent-title a {
@@ -1588,6 +1592,7 @@ button.toggle-comments {
 	color: #422442;
 	background: #fffcfc; /* Highlight for Theme Check */
 	padding: 2px 12px 1px 12px;
+	margin-bottom: 2.4em;
 	border-radius: 6px; }
 
 .comment-meta,
@@ -1626,8 +1631,10 @@ button.toggle-comments {
 	font-size: 18px;
 	font-size: 1.125rem;
 	line-height: 1.6;
-
 	margin: 0 auto; }
+
+.comment-metadata {
+	text-align: right; }
 
 .comments-title {
 	margin-bottom: 24px;
@@ -1757,7 +1764,8 @@ button.toggle-comments {
 
 @media screen and (min-width: 456px) {
 	.wrap {
-		max-width: 408px; } }
+		max-width: 408px;
+		} }
 
 @media screen and (min-width: 600px) {
 	.wrap {
