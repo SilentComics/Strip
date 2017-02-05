@@ -12,11 +12,8 @@
 	<div class="wrap">
 		<header class="entry-header">
 			<?php
-				$categories_list = get_the_category_list( __( ', ', 'strip' ) );
-			if ( $categories_list && strip_categorized_blog() ) {
-				echo '<span class="categories-links">' . $categories_list . '</span>';
-			}
-			?>
+				$categories_list = get_the_category_list( __( ', ', 'strip' ) ); ?>
+
 		</header><!-- .entry-header -->
 
 		<footer class="entry-meta">
