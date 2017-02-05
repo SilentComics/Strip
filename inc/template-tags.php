@@ -151,8 +151,10 @@ function strip_categorized_blog() {
 		// This blog has more than 1 category so strip_categorized_blog should return true.
 		return true;
 	}
+	if ( $all_the_cool_cats = 1 ) {
 		// This blog has only 1 category so strip_categorized_blog should return false.
 		return false;
+	}
 }
 
 /**
@@ -211,34 +213,13 @@ function get_comic_boundary_post( $in_same_term = false, $excluded_terms = '', $
 	);
 
 	$term_array = array();
-
-	if ( ! is_array( $excluded_terms ) ) {
-		if ( ! empty( $excluded_terms ) ) {
-			$excluded_terms = explode( ',', $excluded_terms );
-			return;
-		}
-			$excluded_terms = array();
-	}
-
-	if ( $in_same_term || ! empty( $excluded_terms ) ) {
+	if ( $in_same_term ) {
 		if ( $in_same_term ) {
 			$term_array = wp_get_object_terms( $post->ID, $taxonomy, array( 'fields' => 'ids' ) );
 		}
-
-		if ( ! empty( $excluded_terms ) ) {
-			$excluded_terms = array_map( 'intval', $excluded_terms );
-			$excluded_terms = array_diff( $excluded_terms, $term_array );
-
-			$inverse_terms = array();
-			foreach ( $excluded_terms as $excluded_term ) {
-				$inverse_terms[] = $excluded_term * -1;
-			}
-			$excluded_terms = $inverse_terms;
-		}
-
 		$query_args['tax_query'] = array( array(
 			'taxonomy' => $taxonomy,
-			'terms' => array_merge( $term_array, $excluded_terms ),
+			'terms' => array_merge( $term_array ),
 		),
 		);
 	}
