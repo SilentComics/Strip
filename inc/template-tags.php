@@ -132,33 +132,34 @@ endif; // ends check for strip_term_description.
  * @return bool
  */
 function strip_categorized_blog() {
-	if ( false === ( $all_the_cool_cats = get_transient( 'strip_categories' ) ) ) {
+	$category_count = get_transient( 'strip_categories' );
+
+	if ( false === $category_count ) {
 		// Create an array of all the categories that are attached to posts.
-		$all_the_cool_cats = get_categories(array(
+		$categories = get_categories( array(
 			'fields'     => 'ids',
 			'hide_empty' => 1,
 			// We only need to know if there is more than one category.
 			'number'     => 2,
-		));
+		) );
 
 		// Count the number of categories that are attached to the posts.
-		$all_the_cool_cats = count( $all_the_cool_cats );
+		$category_count = count( $categories );
 
-		set_transient( 'strip_categories', $all_the_cool_cats );
+		set_transient( 'strip_categories', $category_count );
 	}
 
-	if ( $all_the_cool_cats > 1 ) {
-		// This blog has more than 1 category so strip_categorized_blog should return true.
+	// Allow viewing case of 0 or 1 categories in post preview.
+	if ( is_preview() ) {
 		return true;
 	}
-	if ( $all_the_cool_cats = 1 ) {
-		// This blog has only 1 category so strip_categorized_blog should return false.
-		return false;
-	}
+
+	return $category_count > 1;
 }
 
+
 /**
- * Flushes out the transients used in strip_categorized_blog.
+ * Flush out the transients used in strip_categorized_blog.
  */
 function strip_category_transient_flusher() {
 	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
@@ -168,7 +169,7 @@ function strip_category_transient_flusher() {
 	delete_transient( 'strip_categories' );
 }
 add_action( 'edit_category', 'strip_category_transient_flusher' );
-add_action( 'save_post', 'strip_category_transient_flusher' );
+add_action( 'save_post',     'strip_category_transient_flusher' );
 
 if ( ! function_exists( 'strip_the_custom_logo' ) ) :
 	/**
@@ -191,12 +192,11 @@ endif;
  * @link https://core.trac.wordpress.org/ticket/27094
  *
  * @param bool   $in_same_term   Optional. Whether returned post should be in a same taxonomy term.
- * @param string $excluded_terms Optional. Array or comma-separated list of excluded term IDs.
  * @param bool   $start          Optional. Whether to retrieve first or last post.
  * @param string $taxonomy       Optional. Taxonomy, if $in_same_term is true. Default 'category'.
  * @return mixed Array containing the boundary post object if successful, null otherwise.
  */
-function get_comic_boundary_post( $in_same_term = false, $excluded_terms = '', $start = true, $taxonomy = 'category' ) {
+function get_comic_boundary_post( $in_same_term = false, $start = true, $taxonomy = 'category' ) {
 	global $post;
 	setup_postdata( $post );
 	if ( ! taxonomy_exists( $taxonomy ) ) {
