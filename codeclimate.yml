@@ -1,0 +1,7 @@
+engines:
+  phpcodesniffer:
+    enabled: true
+  csslint:
+    enabled: true
+    config:
+      standard: "WordPress-Docs"
