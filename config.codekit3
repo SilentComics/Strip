@@ -391,6 +391,12 @@
 		"oAP": "\/changelog.txt",
 		"oF": 0
 		},
+	"\/codeclimate-config.patch": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/codeclimate-config.patch",
+		"oF": 0
+		},
 	"\/codeclimate.yml": {
 		"ft": 8192,
 		"oA": 2,
