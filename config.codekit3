@@ -255,6 +255,24 @@
 		"oAP": "\/assets\/inline-logo.svg.php",
 		"oF": 0
 		},
+	"\/assets\/js\/customizer-min.js": {
+		"ft": 64,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/assets\/js\/customizer-min-min.js",
+		"oF": 0,
+		"sC": 1,
+		"tS": 0
+		},
+	"\/assets\/js\/customizer.js": {
+		"ft": 64,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/assets\/js\/customizer-min.js",
+		"oF": 0,
+		"sC": 1,
+		"tS": 0
+		},
 	"\/assets\/js\/html5.js": {
 		"ft": 64,
 		"mi": 1,

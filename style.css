@@ -530,7 +530,7 @@ a:active {
 	background-color: transparent;
 	background-repeat: no-repeat;
 	background-position: center;
-	background-size: cover;
+	background-size: contain; /* cover */
 	padding: 0;
 	position: relative;
 	text-align: center; /* Avoid overflowing wide custom logo in small screens in Firefox and IEs */
