@@ -10,15 +10,13 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<div class="wrap">
-		<?php if ( '' !== get_the_post_thumbnail() ) : ?>
-			<?php if ( ! is_single() ) : ?>
+			<?php if ( '' !== get_the_post_thumbnail() && ! is_single() ) : ?>
 			<a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'strip' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="<?php the_ID(); ?>" class="strip-featured-thumbnail">
 				<?php the_post_thumbnail( 'strip-featured-thumbnail' ); ?>
 			</a>
 			<?php else : ?>
 				<?php the_post_thumbnail( 'strip-featured-thumbnail' ); ?>
 			<?php endif; ?>
-		<?php endif; ?>
 
 		<header class="entry-header">
 			<?php
@@ -26,7 +24,6 @@
 			if ( $categories_list && strip_categorized_blog() ) {
 				echo '<span class="categories-links">' . $categories_list . '</span>';
 			}
-
 			if ( ! is_single() ) :
 				the_title( '<h1 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h1>' );
 			else :
@@ -55,7 +52,7 @@
 			the_content(sprintf(
 				/* translators: %s: Name of current post. */
 				esc_html( __( 'Continue reading %s <span class="meta-nav">&rarr;</span>', 'strip' ), array( 'span' => array( 'class' => array() ) ) ),
-				the_title( '<span class="screen-reader-text">"', '"</span>', false )
+				get_the_title( '<span class="screen-reader-text">"', '"</span>', false )
 			));
 
 			wp_link_pages(array(
