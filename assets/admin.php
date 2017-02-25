@@ -65,8 +65,6 @@ function strip_rss_dashboard_widget() {
 	if ( function_exists( 'fetch_feed' ) ) {
 		$feed = fetch_feed( 'https://silent-comics.tumblr.com/rss/' );// specify the source feed.
 		if ( is_wp_error( $feed ) ) {
-			$limit = 0;
-			$items = 0;
 			return;
 		}
 			$limit = $feed->get_item_quantity( 7 );                        // specify number of items.
