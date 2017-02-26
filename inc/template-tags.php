@@ -84,7 +84,7 @@ if ( ! function_exists( 'strip_entry_meta' ) ) :
 	function strip_entry_meta() {
 		if ( is_sticky() && is_home() ) {
 			printf(
-				__( '<span class="featured-post"><a href="%1$s" title="%2$s" rel="bookmark">Sticky</a></span>', 'strip' ),
+				wp_kses( '<span class="featured-post"><a href="%1$s" title="%2$s" rel="bookmark">Sticky</a></span>', 'strip' ),
 				esc_url( get_permalink() ),
 				esc_attr( get_the_time() )
 			);
@@ -226,7 +226,6 @@ function get_comic_boundary_post( $in_same_term = false, $start = true, $taxonom
 
 	$get_posts = new wp_query;
 	return $get_posts -> query( $query_args );
-	wp_reset_postdata();
 }
 
 /**
