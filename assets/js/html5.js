@@ -201,8 +201,8 @@
       return createElement(nodeName, ownerDocument, data);
     };
 
-    ownerDocument.createDocumentFragment = Function("h,f", 'return function(){' +
-      'var n=f.cloneNode(),c=n.createElement;' +
+    ownerDocument.createDocumentFragment = Function("h,f", 'return new function(){' +
+      "var n=f.cloneNode(),c=n.createElement;" +
       'h.shivMethods&&(' +
         // unroll the `createElement` calls
         getElements().join().replace(/[\w\-:]+/g, function(nodeName) {
