@@ -62,12 +62,6 @@ if ( ! function_exists( 'strip_header_style' ) ) :
 		/* Start header styles. */
 		$style = '';
 
-		/* Header image height. */
-		$header_height = get_custom_header()->height;
-
-		/* Header image width. */
-		$header_width = get_custom_header()->width;
-
 		/* When to show header image. */
 		$min_width = absint( apply_filters( 'strip_header_bg_show', 1 ) );
 
@@ -90,7 +84,7 @@ if ( ! function_exists( 'strip_header_style' ) ) :
 
 		/* Echo styles if it's not empty. */
 		if ( ! empty( $style ) ) {
-			echo "\n" . '<style type="text/css" id="custom-header-css">' . trim( $style ) . '</style>' . "\n";
+			echo "\n" . '<style type="text/css" id="custom-header-css">' . esc_attr( trim( $style ) ) . '</style>' . "\n";
 		}
 
 	}
