@@ -28,14 +28,8 @@ if ( ! function_exists( 'strip_content_nav' ) ) :
 	 * @param $string $nav_id strip_content_nav.
 	 */
 	function strip_content_nav( $nav_id ) {
-		global $wp_query;
-		// Don't print empty markup on single pages if there's nowhere to navigate.
-		// Don't print empty markup in archives if there's only one page.
-		if ( $wp_query->max_num_pages < 2 && ( is_home() || is_archive() || is_search() ) ) {
-			return;
-		}
 
-		$nav_class = ( is_single() || is_tax( 'story' ) ) ? 'post-navigation' : 'paging-navigation' ;
+		$nav_class = ( is_single() || is_post_type( 'comic' ) ) ? 'post-navigation' : 'paging-navigation' ;
 
 		?> <div class="wrap clear">
 
@@ -58,16 +52,6 @@ if ( ! function_exists( 'strip_content_nav' ) ) :
 
 		<?php previous_post_link( '<div class="nav-previous">%link</div>', '<span class="meta-nav">' . _x( '&#8592;', 'Previous post link', 'strip' ) . '</span> %title' ); ?>
 		<?php next_post_link( '<div class="nav-next">%link</div>', '%title <span class="meta-nav">' . _x( '&#8594;', 'Next post link', 'strip' ) . '</span>' ); ?>
-
-	<?php elseif ( $wp_query->max_num_pages > 1 && ( is_home() || is_archive() || is_search() ) ) : // navigation links for blog, archive, and search pages. ?>
-
-		<?php if ( get_next_posts_link() ) : ?>
-		<div class="nav-previous-page"><?php next_posts_link( __( 'Older posts', 'strip' ) ); ?></div>
-		<?php endif; ?>
-
-		<?php if ( get_previous_posts_link() ) : ?>
-		<div class="nav-next-page"><?php previous_posts_link( __( 'Recent posts', 'strip' ) ); ?></div>
-			<?php endif; ?>
 
 		<?php endif; ?>
 

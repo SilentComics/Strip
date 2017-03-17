@@ -85,7 +85,9 @@ get_header(); ?>
 						// Show an optional term description.
 						$term_description = term_description();
 					if ( ! empty( $term_description ) ) :
-						'<div class="taxonomy-description"' . printf( esc_html( '%s', $term_description, 'strip' ) ) . '</div>';
+						echo '<div class="taxonomy-description">';
+						echo term_description();
+						echo '</div>';
 			endif;
 					?>
 				</div><!-- .wrap -->
@@ -106,7 +108,11 @@ get_header(); ?>
 
 			<?php endwhile; ?>
 
-			<?php strip_content_nav( 'nav-below' ); ?>
+			<?php the_posts_pagination( array(
+				'prev_text' => _x( '&#8592;', 'Previous page link', 'strip' ) . '<span class="screen-reader-text">' . __( 'Previous page', 'strip' ) . '</span>',
+				'next_text' => '<span class="screen-reader-text">' . __( 'Next page', 'strip' ) . '</span>' . _x( '&#8594;', 'Next post link', 'strip' ),
+				'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'strip' ) . ' </span>',
+			) ); ?>
 
 		<?php else : ?>
 
