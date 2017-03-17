@@ -273,6 +273,15 @@
 		"sC": 1,
 		"tS": 0
 		},
+	"\/assets\/js\/html5-min.js": {
+		"ft": 64,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/assets\/js\/html5-min-min.js",
+		"oF": 0,
+		"sC": 1,
+		"tS": 0
+		},
 	"\/assets\/js\/html5.js": {
 		"ft": 64,
 		"mi": 1,
@@ -563,6 +572,12 @@
 		"ft": 8192,
 		"oA": 2,
 		"oAP": "\/inc\/jetpack.php",
+		"oF": 0
+		},
+	"\/inc\/template-tags.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/inc\/template-tags.php",
 		"oF": 0
 		},
 	"\/index.php": {
