@@ -27,6 +27,12 @@
 		"oAP": "\/.jshintignore",
 		"oF": 0
 		},
+	"\/.scrutinizer.yml": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/.scrutinizer.yml",
+		"oF": 0
+		},
 	"\/.travis.yml": {
 		"ft": 8192,
 		"oA": 2,
