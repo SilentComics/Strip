@@ -24,7 +24,7 @@ function strip_body_classes( $classes ) {
 add_filter( 'body_class', 'strip_body_classes' );
 
 /**
- * Disable the emoji's
+ * Disable emojis introduced in WordPress 4.2.
  */
 function disable_emojis() {
 	remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
@@ -39,7 +39,7 @@ function disable_emojis() {
 } add_action( 'init', 'disable_emojis' );
 
 /**
- * Filter function used to remove the tinymce emoji plugin introduced in WordPress 4.2.
+ * Filter function used to remove the tinymce emoji plugin.
  *
  * @param array $plugins disable_emojis_tinymce.
  * @return array Difference betwen the two arrays.
