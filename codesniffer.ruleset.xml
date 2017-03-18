@@ -22,6 +22,10 @@
 
 	</rule>
 
+	<rule ref="WordPress-VIP">
+        <exclude name="WordPress.VIP.RestrictedFunctions" />
+</rule>
+
 	<rule ref="Squiz.Commenting.FunctionComment.ScalarTypeHintMissing">
 		<severity>0</severity>
 	</rule>
