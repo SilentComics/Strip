@@ -280,7 +280,7 @@ require get_template_directory() . '/inc/jetpack.php';
  * see https://gist.github.com/SilentComics/0a7ea47942eb759dbb48eac2b7be1bbc
  */
 function get_first_image( $size = 'thumbnail' ) {
-	global $post, $posts;
+	global $post;
 	$first_img = '';
 	preg_match_all( '/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', do_shortcode( $post->post_content, 'gallery' ), $matches );
 	  $first_img = isset( $matches[1][0] ) ? $matches[1][0] : null;
