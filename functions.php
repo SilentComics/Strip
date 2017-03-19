@@ -66,8 +66,9 @@ if ( ! function_exists( 'strip_setup' ) ) :
 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
 */
 		add_theme_support( 'post-thumbnails' );
-		set_post_thumbnail_size( 1920, 0 ); // was using add_image_size.
-		add_image_size( 'thumbnail', 312, 156, true ); // cropped.
+		add_image_size( 'stri-featured-image', 1920, 960, true );
+		add_image_size( 'strip-medium', 624, 312, true ); // cropped.
+		add_image_size( 'strip-thumbnail', 312, 156, true ); // cropped.
 
 		/**
 		 * See https://css-tricks.com/snippets/wordpress/remove-paragraph-tags-from-around-images/
@@ -272,7 +273,7 @@ require get_template_directory() . '/inc/customizer.php';
 require get_template_directory() . '/inc/jetpack.php';
 
 /**
- * Get the first image in a post. Strip Version. Retrieve the first image from each post and resize.
+ * Get the first image in a post. Strip Version. Retrieve the first image from each post and resize it.
  *
  * @param string $size get the first image size.
  * @link https://css-tricks.com/snippets/wordpress/get-the-first-image-from-a-post/
