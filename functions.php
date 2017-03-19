@@ -569,15 +569,19 @@ add_action( 'after_switch_theme', 'strip_rewrite_rules' );
 	 * @param string $query strip_set_posts_per_page.
 	 */
 	function strip_set_posts_per_page( $query ) {
-		if ( ( ! is_admin() ) && ( is_home() ) && ( is_search() ) ) {
-			$query->set( 'post_type', array( 'post', 'page', 'comic', 'posts_per_page', 12 ) );
+
+		  global $wp_the_query;
+
+		if ( ( ! is_admin() ) && ( $query === $wp_the_query ) && ( $query->is_home() ) && ( $query->is_search() ) ) {
+			 $query->set( 'posts_per_page', 12 );
 		}
-		if ( ( ! is_admin() ) && ( is_post_type_archive( 'product' ) ) && ( taxonomy_exists( 'category' ) ) ) {
+		if ( ( ! is_admin() ) && ( $query === $wp_the_query ) && ( $query->is_post_type_archive( 'product' ) ) && (taxonomy_exists( 'category' ) ) ) {
 			$query->set( 'posts_per_page', 8 );
-		} elseif ( ( ! is_admin() ) && ( is_archive( 'story' ) ) ) {
+		} elseif ( ( ! is_admin() ) && ( $query === $wp_the_query ) && ( $query->is_archive() )  && (is_tax( 'story' ) ) ) {
 			$query->set( 'posts_per_page', 3 );
 		}
-		return $query;
+
+		  return $query;
 	}
 
 	/**
