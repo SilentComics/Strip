@@ -272,29 +272,31 @@ require get_template_directory() . '/inc/customizer.php';
 require get_template_directory() . '/inc/jetpack.php';
 
 /**
- * Get the first image in a post. Strip Version. Retrieve images fine but doesn't resize.
+ * Get the first image in a post. Strip Version. Retrieve the first image from each post and resize.
  *
  * @param string $size get the first image size.
  * @link https://css-tricks.com/snippets/wordpress/get-the-first-image-from-a-post/
- * see https://gist.github.com/tommaitland/8001524
+ * see https://gist.github.com/SilentComics/0a7ea47942eb759dbb48eac2b7be1bbc
  */
-function get_first_image( $size = true ) {
-	  global $post, $_wp_additional_image_sizes;
-
-	  preg_match_all( '/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', do_shortcode( $post->post_content, 'gallery' ), $matches );
-		$first_img = isset( $matches[1][0] ) ? $matches[1][0] : null;
+function get_first_image( $size = 'thumbnail' ) {
+	global $post, $posts;
+	$first_img = '';
+	preg_match_all( '/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', do_shortcode( $post->post_content, 'gallery' ), $matches );
+	  $first_img = isset( $matches[1][0] ) ? $matches[1][0] : null;
 
 	if ( empty( $first_img ) ) {
 			return get_template_directory_uri() . '/assets/images/empty.png'; // path to default image.
 	}
-	if ( $size && $_wp_additional_image_sizes[ $size ]['crop'] === 1 ) {
-		$size = '-' . $_wp_additional_image_sizes[ $size ]['width'] . 'x' . $_wp_additional_image_sizes[ $size ]['height'] . '.jpg';
-		$pattern = '/-\d+x\d+\.jpg$/i';
-		$first_img = preg_replace( $pattern, $size, $first_img );
-	}
-	  return $first_img;
+
+	// Now we have the $first_img but we want the thumbnail of that image.
+	 $explode = explode( '.', $first_img );
+	 $count = count( $explode );
+	 $size = '-624x312'; // Our panel ratio (2:1) 312x156 for lighther page, 624x312 for retina; use add_image_size() and Force Regenerate Thumbnails plugin when changing sizes.
+	 $explode[ $count -2 ] = $explode[ $count -2 ] . '' . $size;
+	 $thumb_img = implode( '.', $explode );
+	 return $thumb_img;
 }
-			add_filter( 'first_img', 'get_first_image', 'thumbnail' );
+	add_filter( 'get_first_image', 'thumbnail' );
 
 /**
  * Register Custom Post Type for comics
