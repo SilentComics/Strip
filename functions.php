@@ -572,12 +572,12 @@ add_action( 'after_switch_theme', 'strip_rewrite_rules' );
 
 		  global $wp_the_query;
 
-		if ( ( ! is_admin() ) && ( $query === $wp_the_query ) && ( $query->is_home() ) && ( $query->is_search() ) ) {
+		if ( ( ! is_admin() ) && ( $query === $wp_the_query ) && ( is_home() ) && ( is_search() ) ) {
 			 $query->set( 'posts_per_page', 12 );
 		}
-		if ( ( ! is_admin() ) && ( $query === $wp_the_query ) && ( $query->is_post_type_archive( 'product' ) ) && (taxonomy_exists( 'category' ) ) ) {
+		if ( ( ! is_admin() ) && ( $query === $wp_the_query ) && ( is_post_type_archive( 'product' ) ) && (taxonomy_exists( 'category' ) ) ) {
 			$query->set( 'posts_per_page', 8 );
-		} elseif ( ( ! is_admin() ) && ( $query === $wp_the_query ) && ( $query->is_archive() )  && (is_tax( 'story' ) ) ) {
+		} elseif ( ( ! is_admin() ) && ( $query === $wp_the_query ) && ( is_archive() )  && (is_tax( 'story' ) ) ) {
 			$query->set( 'posts_per_page', 3 );
 		}
 
