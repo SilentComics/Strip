@@ -77,7 +77,7 @@ function strip_rss_dashboard_widget() {
 
 			<h4 style="margin-bottom: 0;">
 				<a href="<?php echo $item->get_permalink(); ?>" title="<?php echo mysql2date( __( 'j F Y @ g:i a', 'strip' ), $item->get_date( 'Y-m-d H:i:s' ) ); ?>" target="_blank">
-					<?php echo $item->get_title(); ?>
+					<?php echo esc_attr( $item->get_title() ); ?>
 				</a>
 			</h4>
 			<p style="margin-top: 0.5em;
@@ -120,12 +120,16 @@ function strip_login_css() {
 
 /**
  * Changing the logo link from wordpress.org to your site.
+ *
+ * @return custom link.
  */
 function strip_login_url() {
 	return home_url(); }
 
 	/**
 	 * Changing the alt text on the logo to show your site name.
+	 *
+	 * @return blog title.
 	 */
 function strip_login_title() {
 	return get_option( 'blogname' ); }
