@@ -617,3 +617,11 @@ add_action( 'after_switch_theme', 'strip_rewrite_rules' );
 		 $scripts->add( 'jquery', false, array( 'jquery-core' ), '1.10.2' );
 	}
 		add_action( 'wp_default_scripts', 'remove_jquery_migrate' );
+
+		/**
+		 * Remove login errors notices (security measure)
+		 */
+	function no_wordpress_errors() {
+		return 'Something is wrong!';
+	}
+		add_filter( 'login_errors', 'no_wordpress_errors' );
