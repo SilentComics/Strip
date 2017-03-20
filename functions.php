@@ -561,21 +561,21 @@ add_action( 'after_switch_theme', 'strip_rewrite_rules' );
 	}
 
 	add_action( 'pre_get_posts', 'strip_set_posts_per_page' );
-		/**
-		 * Set posts, WooCommerce products & comics number per archive page
-		 * Fixes 404 error on pagination due to CTP conflicting with WordPress posts_per_page default
-		 * see http://wordpress.stackexchange.com/questions/30757/change-posts-per-page-count/30763#30763
-		 *
-		 * @param string $query strip_set_posts_per_page.
-		 */
+	/**
+	 * Set posts, WooCommerce products & comics number per archive page
+	 * Fixes 404 error on pagination due to CTP conflicting with WordPress posts_per_page default
+	 * see http://wordpress.stackexchange.com/questions/30757/change-posts-per-page-count/30763#30763
+	 *
+	 * @param string $query strip_set_posts_per_page.
+	 */
 	function strip_set_posts_per_page( $query ) {
-		global $wp_the_query;
-		if ( ( ! is_admin() )  && ( $query === $wp_the_query ) && ( $query -> is_home() ) && ( $query ->is_search() ) ) {
+		  global $wp_the_query;
+		if ( ( ! is_admin() )  && ( $query === $wp_the_query ) && ( is_home() ) && ( is_search() ) ) {
 			$query->set( 'post_type', array( 'post', 'page', 'comic', 'posts_per_page', 12 ) );
 		}
-		if ( ( ! is_admin() )  && ( $query === $wp_the_query ) && ( $query->is_post_type_archive( 'product' ) ) && ( $query->taxonomy_exists( 'category' ) ) ) {
+		if ( ( ! is_admin() )  && ( $query === $wp_the_query ) && ( is_post_type_archive( 'product' ) ) && ( taxonomy_exists( 'category' ) ) ) {
 			$query->set( 'posts_per_page', 4 );
-		} elseif ( ( ! is_admin() )  && ( $query === $wp_the_query ) && ( $query->is_archive() ) && ( is_tax( 'story' ) ) ) {
+		} elseif ( ( ! is_admin() )  && ( $query === $wp_the_query ) && ( is_archive() ) && ( is_tax( 'story' ) ) ) {
 			$query->set( 'posts_per_page', 3 );
 		}
 		return $query;
