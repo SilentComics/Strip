@@ -14,7 +14,7 @@ tools:
         config:
             suspicious_code: { enabled: true, overriding_parameter: true, overriding_closure_use: true, parameter_closure_use_conflict: true, parameter_multiple_times: true, non_existent_class_in_instanceof_check: true, non_existent_class_in_catch_clause: true, assignment_of_null_return: true, non_commented_switch_fallthrough: true, non_commented_empty_catch_block: true, overriding_private_members: true, use_statement_alias_conflict: true, precedence_in_condition_assignment: true }
             verify_php_doc_comments: { enabled: true, parameters: true, return: true, suggest_more_specific_types: true, ask_for_return_if_not_inferrable: true, ask_for_param_type_annotation: true }
-            loops_must_use_braces: { enabled: true }
+            loops_must_use_braces: { enabled: false }
             simplify_boolean_return: { enabled: true }
             phpunit_checks: { enabled: true }
             reflection_fixes: { enabled: true }
