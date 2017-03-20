@@ -76,7 +76,7 @@ function strip_rss_dashboard_widget() {
 	foreach ( $items as $item ) { ?>
 
 			<h4 style="margin-bottom: 0;">
-				<a href="<?php echo $item->get_permalink(); ?>" title="<?php echo mysql2date( __( 'j F Y @ g:i a', 'strip' ), $item->get_date( 'Y-m-d H:i:s' ) ); ?>" target="_blank">
+				<a href="<?php echo esc_url( $item->get_permalink() ); ?>" title="<?php echo esc_html( mysql2date( __( 'j F Y @ g:i a', 'strip' ), $item->get_date( 'Y-m-d H:i:s' ) ) ); ?>" target="_blank">
 					<?php echo esc_attr( $item->get_title() ); ?>
 				</a>
 			</h4>
@@ -115,7 +115,7 @@ function strip_login_css() {
 	 wp_enqueue_style( 'strip_login_css', get_template_directory_uri() . '/assets/css/login.css', false );
 
 	// Enqueue custom font to the login form.
-	wp_enqueue_style( 'inconsolata', get_template_directory_uri() . '/assets/fonts/inconsolata.css', array(), null );
+	wp_enqueue_style( 'strip_inconsolata_css', get_template_directory_uri() . '/assets/fonts/inconsolata.css', array(), null );
 }
 
 /**
@@ -134,13 +134,10 @@ function strip_login_url() {
 function strip_login_title() {
 	return get_option( 'blogname' ); }
 
-// calling it only on the login page.
+// calling only on the login page.
 add_action( 'login_enqueue_scripts', 'strip_login_css', 10 );
-// Add custom font to the login form.
-add_action( 'login_enqueue_scripts', 'inconsolata.css', 10 );
 add_filter( 'login_headerurl', 'strip_login_url' );
 add_filter( 'login_headertitle', 'strip_login_title' );
-
 
 /************* CUSTOMIZE ADMIN *******************/
 
