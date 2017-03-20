@@ -110,9 +110,9 @@ get_header(); ?>
 
 			<div class="wrap">
 					<?php the_posts_pagination( array(
-						'prev_text' => _x( '&#8592;', 'Previous page link', 'strip' ) . '<span class="screen-reader-text">' . __( 'Previous page', 'strip' ) . '</span>',
-						'next_text' => '<span class="screen-reader-text">' . __( 'Next page', 'strip' ) . '</span>' . _x( '&#8594;', 'Next post link', 'strip' ),
-						'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'strip' ) . ' </span>',
+						'prev_text' => esc_html_x( '&#8592;', 'Previous page link', 'strip' ) . '<span class="screen-reader-text">' . esc_html_e( 'Previous page', 'strip' ) . '</span>',
+						'next_text' => '<span class="screen-reader-text">' . esc_html_e( 'Next page', 'strip' ) . '</span>' . esc_html_x( '&#8594;', 'Next post link', 'strip' ),
+						'before_page_number' => '<span class="meta-nav screen-reader-text">' . esc_html_e( 'Page', 'strip' ) . ' </span>',
 					) ); ?>
 	</div>
 
