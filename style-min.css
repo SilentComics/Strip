@@ -4,7 +4,7 @@ Theme URI: https://github.com/SilentComics/Strip
 Author: SILENT COMICS
 Author URI: http://silent-comics.com
 Description: A WordPress theme for comics and webcomics <a href="https://github.com/SilentComics/Strip/">Contribute on GitHub</a>
-Version: 1.1.1
+Version: 1.1.2
 License: GNU General Public License v3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Text Domain: strip
@@ -1364,7 +1364,7 @@ span > object {
 	margin-bottom: 34px;
 	max-width: 100%; }
 
-.wp-caption img[class*="wp-image-"] {
+.wp-caption {
 	display: block;
 	height: auto;
 	margin: 0;
@@ -1505,10 +1505,6 @@ span > object {
 .page-title {
 	font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
 	margin: 0.24em;
-	/*
-	font: italic 400 24px/1 Futura, "Trebuchet MS", Arial, sans-serif;
-	margin-bottom: 0.6em;
-	*/
 	text-align: center; }
 
 .author-title {
@@ -1533,7 +1529,7 @@ span > object {
 	line-height: 1.2; }
 
 /* Four columns grid */
-.columns { width: 101%; margin: 0.6em 0 0;  }
+.columns { width: 100%; margin: 0.6em 0 0 1%;  }
 .columns:before, .columns:after { content: " "; display: table; }
 .columns:after { clear: both; }
 .column { float: left; margin: 0 1% 12px 0; width: 24%; }
@@ -1541,7 +1537,7 @@ span > object {
 .column:nth-child(4n+1) { margin-left: 0; clear: left; }
 .column img { width: 100%; max-width: 312px; height: auto; }
 
-@media screen and (max-width: 744px) {
+@media screen and (max-width: 816px) {
 .column { margin: 0 2% 10px 0; width: 48%; }
 .column:nth-child(2n) { margin-right: 0; }
 .column:nth-child(2n+1) { margin-left: 0; clear: left; } }
@@ -1576,12 +1572,14 @@ button.toggle-comments {
 /*--------------------------------------------------------------
 10.6.2 Comments
 --------------------------------------------------------------*/
-.comment-author .author-cite,
-.comment-author .author-cite a {
-	color: #c9a6ab;
+.comment-author,
+.comment-author a {
 	font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
-	font-size: 14px;
-	font-size: 0.875rem;
+	font-size: 16px;
+	font-size: 1rem;
+	font-weight: 500;
+	padding-left: 1em;
+	color: #c9a6ab;
 	text-transform: uppercase;
 	vertical-align: middle; }
 
@@ -1598,15 +1596,18 @@ button.toggle-comments {
 .comment-meta,
 .comment-meta a,
 .ping-meta {
-	font-size: 12px;
-	font-size: 0.875rem;
-	color: #c9a6ab;
 	height: 1.2;
-	margin-bottom: 2.4em; }
+	margin-bottom: 1.2em; }
 
-.comment-meta .comment-reply-link {
+.comment-metadata a {
+	display: block;
+	font-family: Inconsolata, monospace;
+	color: #ffcccc;
+}
+.comment .reply {
   padding: 3px;
-  color: #000; }
+  margin-bottom: 2.4em;
+text-align: right; }
 
 .comment-meta a:hover {
 	color: #ffaaaa; }
@@ -1670,9 +1671,9 @@ button.toggle-comments {
 .site-info {
 	color: #421212;
 	background-color: #faf4f4; /* white? */
-	font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
-	font-size: 10px;
-	font-size: 0.625rem;
+	font-family: Inconsolata, monospace;
+	font-size: 12px;
+	font-size: 0.75rem;
 	line-height: 1.2;
 	padding: 8px 0 9px 0;
 	text-align: center; }
