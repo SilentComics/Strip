@@ -224,23 +224,23 @@ function strip_scripts() {
 	wp_style_add_data( 'strip-ie', 'conditional', 'lt IE 10' );
 
 	if ( has_nav_menu( 'primary' ) ) {
-		wp_enqueue_script( 'strip-navigation', get_template_directory_uri() . '/assets/js/min/navigation-min.js', array(), '20120206', true );
+		wp_enqueue_script( 'strip-navigation', get_template_directory_uri() . '/assets/js/min/navigation-min.js', array(), '1.0', true );
 	}
 
 	// Load the html5 shiv.
 	wp_enqueue_script( 'strip-html5', get_template_directory_uri() . '/assets/js/min/html5-min.js', array(), '3.7.3' );
 	wp_script_add_data( 'strip-html5', 'conditional', 'lt IE 9' );
 
-	wp_enqueue_script( 'strip-skip-link-focus-fix', get_template_directory_uri() . '/assets/js/min/skip-link-focus-fix-min.js', array(), '20130115', true );
+	wp_enqueue_script( 'strip-skip-link-focus-fix', get_template_directory_uri() . '/assets/js/min/skip-link-focus-fix-min.js', array(), '1.0', true );
 
 	// toggle comments js.
-	wp_enqueue_script( 'strip-toggle-comments', get_template_directory_uri() . '/assets/js/min/toggle-comments-min.js', array( 'jquery' ), '20160401', false );
+	wp_enqueue_script( 'strip-toggle-comments', get_template_directory_uri() . '/assets/js/min/toggle-comments-min.js', array( 'jquery' ), '1.2', true );
 
 	if ( is_single() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 
 		if ( is_single() && wp_attachment_is_image() ) {
-			wp_enqueue_script( 'strip-keyboard-image-navigation', get_template_directory_uri() . '/assets/js/min/keyboard-image-navigation-min.js', array( 'jquery' ), '20120202' );
+			wp_enqueue_script( 'strip-keyboard-image-navigation', get_template_directory_uri() . '/assets/js/min/keyboard-image-navigation-min.js', array( 'jquery' ), '20160412', true );
 		}
 	}
 }
@@ -272,21 +272,40 @@ require get_template_directory() . '/inc/customizer.php';
  */
 require get_template_directory() . '/inc/jetpack.php';
 
+add_action( 'wp_enqueue_scripts', 'enqueue_royal_sliders' );
 /**
- * Get the first image in a post. Strip Version. Retrieve the first image from each post and resize it.
+ * Register RoyalSLider
+ */
+function enqueue_royal_sliders() {
+	global $posts;
+
+	if ( function_exists( 'register_new_royalslider_files' ) ) {
+			register_new_royalslider_files( 1 ); // place register_new_royalslider_files function here.
+	}
+}
+
+/**
+ * Get the first image in a post. Strip Version. Retrieve the first image from each post and resize.
  *
  * @param string $size get the first image size.
  * @link https://css-tricks.com/snippets/wordpress/get-the-first-image-from-a-post/
  * see https://gist.github.com/SilentComics/0a7ea47942eb759dbb48eac2b7be1bbc
  */
 function get_first_image( $size = 'thumbnail' ) {
-	global $post;
+	global $post, $slider;
 	$first_img = '';
 	preg_match_all( '/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', do_shortcode( $post->post_content, 'gallery' ), $matches );
 	  $first_img = isset( $matches[1][0] ) ? $matches[1][0] : null;
 
 	if ( empty( $first_img ) ) {
 			return get_template_directory_uri() . '/assets/images/empty.png'; // path to default image.
+	}
+
+	if ( '[' !== $slider[0] ) {
+			return $first_img;
+		foreach ( $first_img as $first_img => $size ) {
+			return $size( 'strip-medium' );
+		} // because RoyalSLider resizes images on its own we let it do so.
 	}
 
 	// Now we have the $first_img but we want the thumbnail of that image.
@@ -297,8 +316,8 @@ function get_first_image( $size = 'thumbnail' ) {
 	 $thumb_img = implode( '.', $explode );
 	 return $thumb_img;
 }
-	add_filter( 'get_first_image', 'thumbnail' );
 
+	add_filter( 'get_first_image', 'thumbnail' );
 /**
  * Register Custom Post Type for comics
  */
@@ -357,7 +376,7 @@ function comic_post_type() {
 		'feeds'                      => true,
 		'exclude_from_search'        => false,
 		'rewrite'                    => array( 'slug' => 'stories', 'with_front' => true ),
-		'publicly_queryable'	     => true,
+		'publicly_queryable'	       => true,
 		'capability_type'            => 'post',
 	);
 	register_post_type( 'comic', $args );
@@ -523,9 +542,9 @@ add_action( 'after_switch_theme', 'strip_rewrite_rules' );
 		// remove generator meta tag.
 		remove_action( 'wp_head', array( 'woocommerce', 'generator' ) ); // this line when used with $GLOBALS['woocommerce'] prompts an error when Woo is deactivated though.
 		// first check that woo exists to prevent fatal errors.
-		if ( function_exists( 'is_woocommerce' ) ) {
+		if ( function_exists( 'strip_is_woocommerce_activated' ) ) {
 			// dequeue scripts and styles, unless we're in the store.
-			if ( ! is_woocommerce() && ! is_page( 'store' ) && ! is_shop() && ! is_product_category() && ! is_product() && ! is_cart() && ! is_checkout() ) {
+			if ( ! is_woocommerce() && ! is_cart() && ! is_checkout() ) {
 				wp_dequeue_style( 'woocommerce_frontend_styles' );
 				wp_dequeue_style( 'woocommerce-general' );
 				wp_dequeue_style( 'woocommerce-layout' );
@@ -581,6 +600,20 @@ add_action( 'after_switch_theme', 'strip_rewrite_rules' );
 		return $query;
 	}
 
+	add_action( 'pre_get_posts', 'add_my_post_types_to_query' );
+	/**
+	 * Show 'comics' post types on home page.
+	 *
+	 * @param string $query add_my_post_types_to_query.
+	 */
+	function add_my_post_types_to_query( $query ) {
+		if ( is_home() && $query->is_main_query() ) {
+			$query->set( 'post_type', array( 'post', 'page', 'comic' ) );
+
+		}
+		  return $query;
+	}
+
 	/**
 	 * Set an automatic default custom taxonomy for comic posts.
 	 * When no "story" (taxonomy) is set, comic posts default to “draft”.
@@ -619,7 +652,7 @@ add_action( 'after_switch_theme', 'strip_rewrite_rules' );
 		add_action( 'wp_default_scripts', 'remove_jquery_migrate' );
 
 		/**
-		 * Remove login errors notices (security measure)
+		 * Remove login errors notices (security)
 		 */
 	function no_wordpress_errors() {
 		return 'Something is wrong!';
