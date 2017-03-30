@@ -37,9 +37,7 @@ if ( ! function_exists( 'strip_setup' ) ) :
 */
 		load_theme_textdomain( 'strip', get_template_directory() . '/languages' );
 
-		/**
-* Add default posts and comments RSS feed links to head
-*/
+		// Add default posts and comments RSS feed links to head.
 		add_theme_support( 'automatic-feed-links' );
 
 		/**
@@ -67,14 +65,16 @@ if ( ! function_exists( 'strip_setup' ) ) :
 */
 		add_theme_support( 'post-thumbnails' );
 		add_image_size( 'stri-featured-image', 1920, 960, true );
+		add_image_size( 'strip-large', 1920, 960, true ); // cropped.
 		add_image_size( 'strip-medium', 624, 312, true ); // cropped.
 		add_image_size( 'strip-thumbnail', 312, 156, true ); // cropped.
 
 		/**
-		 * See https://css-tricks.com/snippets/wordpress/remove-paragraph-tags-from-around-images/
-		 * http://codex.wordpress.org/Function_Reference/wpautop gets the same result but also removes line blocks: remove_filter( 'the_content', 'wpautop' );
+		 * Remove paragraph tags around images.
 		 *
 		 * @param $strings $content filter_ptags_on_images.
+		 * @link https://css-tricks.com/snippets/wordpress/remove-paragraph-tags-from-around-images/
+		 * http://codex.wordpress.org/Function_Reference/wpautop gets the same result but also removes line blocks: remove_filter( 'the_content', 'wpautop' );
 		 */
 		function filter_ptags_on_images( $content ) {
 			return preg_replace( '/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $content );
@@ -98,19 +98,18 @@ if ( ! function_exists( 'strip_setup' ) ) :
 			'comment-list',
 			'gallery',
 			'caption',
+			'widgets',
 		) );
 
 		/**
 	 * Enable support for Post Formats
 	 */
 		add_theme_support( 'post-formats', array(
-			'aside',
 			'image',
 			'video',
 			'quote',
 			'link',
 			'gallery',
-			'status',
 			'audio',
 			'chat',
 		) );
@@ -119,8 +118,29 @@ if ( ! function_exists( 'strip_setup' ) ) :
 		add_theme_support('custom-background', apply_filters('strip_custom_background_args', array(
 			'default-color' => 'ffffff',
 			'default-image' => '',
-		)));
+		) ) );
 	}
+
+	/**
+	* Clean wp_head, remove queries.
+	*
+	* @link: http://cubiq.org/clean-up-and-optimize-wordpress-for-your-next-theme
+	*/
+			remove_action( 'wp_head', 'wp_generator' );
+			remove_action( 'wp_head', 'wlwmanifest_link' );
+			remove_action( 'wp_head', 'rsd_link' );
+			remove_action( 'wp_head', 'wp_shortlink_wp_head' );
+
+			remove_action( 'wp_head', 'parent_post_rel_link' );
+			remove_action( 'wp_head', 'start_post_rel_link' );
+			remove_action( 'wp_head', 'index_rel_link' );
+
+			remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10 );
+
+			add_filter( 'the_generator', '__return_false' );
+
+			remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+			remove_action( 'wp_print_styles', 'print_emoji_styles' );
 
 	/**
 	* This theme styles the visual editor to resemble the theme style,
@@ -236,7 +256,7 @@ function strip_scripts() {
 	// toggle comments js.
 	wp_enqueue_script( 'strip-toggle-comments', get_template_directory_uri() . '/assets/js/min/toggle-comments-min.js', array( 'jquery' ), '1.2', true );
 
-	if ( is_single() && comments_open() && get_option( 'thread_comments' ) ) {
+	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 
 		if ( is_single() && wp_attachment_is_image() ) {
@@ -277,22 +297,22 @@ add_action( 'wp_enqueue_scripts', 'enqueue_royal_sliders' );
  * Register RoyalSLider
  */
 function enqueue_royal_sliders() {
-	global $posts;
-
 	if ( function_exists( 'register_new_royalslider_files' ) ) {
-			register_new_royalslider_files( 1 ); // place register_new_royalslider_files function here.
+		// you could try this: if ( is_single() && is_archive() ) { but you don't really need it.
+			register_new_royalslider_files( 1 ); // place register_new_royalslider_files function here, 1 is your slider's configuration number
+		// add } if use is_single etc.
 	}
 }
 
 /**
- * Get the first image in a post. Strip Version. Retrieve the first image from each post and resize.
+ * Get the first image from each post and resize it.
  *
- * @param string $size get the first image size.
+ * @return the first image.
  * @link https://css-tricks.com/snippets/wordpress/get-the-first-image-from-a-post/
  * see https://gist.github.com/SilentComics/0a7ea47942eb759dbb48eac2b7be1bbc
  */
-function get_first_image( $size = 'thumbnail' ) {
-	global $post, $slider;
+function get_first_image() {
+	global $post;
 	$first_img = '';
 	preg_match_all( '/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', do_shortcode( $post->post_content, 'gallery' ), $matches );
 	  $first_img = isset( $matches[1][0] ) ? $matches[1][0] : null;
@@ -301,23 +321,16 @@ function get_first_image( $size = 'thumbnail' ) {
 			return get_template_directory_uri() . '/assets/images/empty.png'; // path to default image.
 	}
 
-	if ( '[' !== $slider[0] ) {
-			return $first_img;
-		foreach ( $first_img as $first_img => $size ) {
-			return $size( 'strip-medium' );
-		} // because RoyalSLider resizes images on its own we let it do so.
-	}
-
-	// Now we have the $first_img but we want the thumbnail of that image.
-	 $explode = explode( '.', $first_img );
-	 $count = count( $explode );
-	 $size = '-624x312'; // Our panel ratio (2:1) 312x156 for lighther page, 624x312 for retina; use add_image_size() and Force Regenerate Thumbnails plugin when changing sizes.
-	 $explode[ $count -2 ] = $explode[ $count -2 ] . '' . $size;
-	 $thumb_img = implode( '.', $explode );
-	 return $thumb_img;
+		// Now we have the $first_img but we want the thumbnail of that image.
+		$explode = explode( '.', $first_img );
+		$count = count( $explode );
+		$size = '-624x312'; // Our panel ratio (2:1) 312x156 for lighther page, 624x312 for retina; use add_image_size() and Force Regenerate Thumbnails plugin when changing sizes.
+		$explode[ $count -2 ] = $explode[ $count -2 ] . '' . $size;
+		$thumb_img = implode( '.', $explode );
+		return $thumb_img;
 }
-
 	add_filter( 'get_first_image', 'thumbnail' );
+
 /**
  * Register Custom Post Type for comics
  */
@@ -328,6 +341,8 @@ function comic_post_type() {
 		'singular_name'              => _x( 'Comic', 'Post Type Singular Name', 'strip' ),
 		'menu_name'                  => _x( 'Comics', 'admin menu', 'strip' ),
 		'name_admin_bar'             => _x( 'Comic', 'add new on admin bar', 'strip' ),
+		'archives'             			 => __( 'Item Archives', 'strip' ),
+		'attributes'           			 => __( 'Item Attributes', 'strip' ),
 		'parent_item_colon'	         => __( 'Parent Comic:', 'strip' ),
 		'all_items'                  => __( 'All Comics', 'strip' ),
 		'add_new_item'               => __( 'Add New Comic', 'strip' ),
@@ -590,14 +605,14 @@ add_action( 'after_switch_theme', 'strip_rewrite_rules' );
 	function strip_set_posts_per_page( $query ) {
 		  global $wp_the_query;
 		if ( ( ! is_admin() )  && ( $query === $wp_the_query ) && ( is_home() ) && ( is_search() ) ) {
-			$query->set( 'post_type', array( 'post', 'page', 'comic', 'posts_per_page', 12 ) );
+			$wp_the_query->set( 'post_type', array( 'post', 'page', 'comic', 'posts_per_page', 12 ) );
 		}
 		if ( ( ! is_admin() )  && ( $query === $wp_the_query ) && ( is_post_type_archive( 'product' ) ) && ( taxonomy_exists( 'category' ) ) ) {
-			$query->set( 'posts_per_page', 4 );
+			$wp_the_query->set( 'posts_per_page', 8 );
 		} elseif ( ( ! is_admin() )  && ( $query === $wp_the_query ) && ( is_archive() ) && ( is_tax( 'story' ) ) ) {
-			$query->set( 'posts_per_page', 3 );
+			$wp_the_query->set( 'posts_per_page', 3 );
 		}
-		return $query;
+		return $wp_the_query;
 	}
 
 	add_action( 'pre_get_posts', 'add_my_post_types_to_query' );
