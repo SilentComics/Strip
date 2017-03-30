@@ -1,6 +1,6 @@
 /*!
-Site Name: SILENT COMICS
-Author: Anh Hoa	Si
+Site Name: Strip
+Author: SIlENT COMICS
 
 Stylesheet: WooCommerce Stylesheet
 
@@ -15,8 +15,8 @@ https://docs.woothemes.com/documentation/plugins/woocommerce/
 --------------------------------------------------------------*/
 .woocommerce-content {
   margin: 0 auto;
-  max-width: 984px;
-  /* 1272px if you want a larger product page display */ }
+  max-width: 792px;
+  /* Use 984px or even 1272px if you want a larger product page display */ }
 
 .woocommerce .custom-logo,
 .woocommerce-cart .custom-logo,
@@ -89,6 +89,7 @@ p.demo_store {
 
 .woocommerce-content .product a {
   padding-top: 2.4em;
+  font-family: Inconsolata, monospace;
   font-size: large;
   font-weight: 500;
   color: #aaddee;
@@ -101,6 +102,7 @@ p.demo_store {
 .woocommerce-content .woocommerce-price-suffix,
 .woocommerce-content .added_to_cart.wc-forward {
   font-family: Inconsolata, monospace;
+  font-size: medium;
   color: #00bbff; }
 
 .woocommerce-content .added_to_cart.wc-forward:hover {
