@@ -307,7 +307,7 @@ function enqueue_royal_sliders() {
 /**
  * Get the first image from each post and resize it.
  *
- * @return the first image.
+ * @return $string $first_img.
  * @link https://css-tricks.com/snippets/wordpress/get-the-first-image-from-a-post/
  * see https://gist.github.com/SilentComics/0a7ea47942eb759dbb48eac2b7be1bbc
  */
@@ -601,6 +601,7 @@ add_action( 'after_switch_theme', 'strip_rewrite_rules' );
 	 * see http://wordpress.stackexchange.com/questions/30757/change-posts-per-page-count/30763#30763
 	 *
 	 * @param string $query strip_set_posts_per_page.
+	 * @return $wp_the_query.
 	 */
 	function strip_set_posts_per_page( $query ) {
 		  global $wp_the_query;
