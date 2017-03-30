@@ -6,8 +6,7 @@
  * dashboard. Updates to this page are coming soon.
  * The file is called by functions.php.
  *
- * Developed by: Eddie Machado
- * adapted
+ * Adapted from Bones, developed by: Eddie Machado
  * URL: http://themble.com/bones/
  *
  * Special Thanks for code & inspiration to:
@@ -82,7 +81,7 @@ function strip_rss_dashboard_widget() {
 			</h4>
 			<p style="margin-top: 0.5em;
 					  .inside { max-width: 240px;}">
-			<?php echo substr( $item->get_description(), 0, 600 ); ?>
+			<?php echo wp_kses_post( substr( $item->get_description(), 0, 600 ) ); ?>
 			</p>
 			<?php
 	}
