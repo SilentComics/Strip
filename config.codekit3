@@ -412,12 +412,6 @@
 		"oAP": "\/changelog.txt",
 		"oF": 0
 		},
-	"\/codeclimate-config.patch": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/codeclimate-config.patch",
-		"oF": 0
-		},
 	"\/codesniffer.ruleset.xml": {
 		"ft": 8192,
 		"oA": 2,

@@ -1,3 +1,40 @@
+<<<<<<< HEAD
+=======
+diff --git a/.codeclimate.yml b/.codeclimate.yml
+index e69de29..8772857 100644
+--- a/.codeclimate.yml
++++ b/.codeclimate.yml
+@@ -0,0 +1,29 @@
++---
++engines:
++  phpcodesniffer:
++    enabled: true
++  csslint:
++    enabled: true
++  duplication:
++    enabled: true
++    config:
+      standard: "WordPress-Docs"
++      languages:
++      - javascript
++      - php
++  eslint:
++    enabled: true
++  fixme:
++    enabled: true
++  phpmd:
++    enabled: true
++ratings:
++  paths:
++  - "**.css"
++  - "**.inc"
++  - "**.js"
++  - "**.jsx"
++  - "**.module"
++  - "**.php"
+
++exclude_paths: []
+>>>>>>> parent of b62af35... disable phpmd for now
 diff --git a/.csslintrc b/.csslintrc
 index e69de29..aacba95 100644
 --- a/.csslintrc
