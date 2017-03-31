@@ -21,3 +21,5 @@ wp-content/wp-cache-config.php
 .sass-cache
 codekit-config.json
 config.codekit
+
+config.codekit3
