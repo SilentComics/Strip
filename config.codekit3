@@ -9,6 +9,12 @@
 	],
 "creatorBuild": "25704",
 "files": {
+	"\/.codeclimate.yml": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/.codeclimate.yml",
+		"oF": 0
+		},
 	"\/.gitignore": {
 		"ft": 8192,
 		"oA": 2,
