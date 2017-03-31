@@ -21,7 +21,7 @@ index e69de29..8772857 100644
 +  fixme:
 +    enabled: true
 +  phpmd:
-+    enabled: true
++    enabled: false
 +ratings:
 +  paths:
 +  - "**.css"
