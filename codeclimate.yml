@@ -3,5 +3,27 @@ engines:
     enabled: true
   csslint:
     enabled: true
+  duplication:
+    enabled: true
     config:
-      standard: "WordPress-Docs"
+      standard: "WordPress"
+      languages:
+      - javascript
+      - php
+  eslint:
+    enabled: true
+    env:
+      jquery: true
+  fixme:
+    enabled: true
+  phpmd:
+    enabled: false
+ratings:
+  paths:
+    - "**.js"
+    - "**.php"
+exclude_paths:
+  - node_modules/**/*
+  - languages/**
+  # - css/**
+  # - js/**

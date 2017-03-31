@@ -69,6 +69,22 @@
 		"oAP": "\/archive.php",
 		"oF": 0
 		},
+	"\/assets\/admin.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/assets\/admin.php",
+		"oF": 0
+		},
+	"\/assets\/css\/editor-style-min.css": {
+		"aP": 0,
+		"bl": 0,
+		"ft": 16,
+		"ma": 0,
+		"oA": 2,
+		"oAP": "\/assets\/css\/editor-style-min-min.css",
+		"oF": 0,
+		"oS": 0
+		},
 	"\/assets\/css\/editor-style.css": {
 		"aP": 0,
 		"bl": 0,
@@ -390,12 +406,6 @@
 		"oAP": "\/changelog.txt",
 		"oF": 0
 		},
-	"\/codeclimate-config.patch": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/codeclimate-config.patch",
-		"oF": 0
-		},
 	"\/codeclimate.yml": {
 		"ft": 8192,
 		"oA": 2,
@@ -580,6 +590,12 @@
 		"ft": 8192,
 		"oA": 2,
 		"oAP": "\/languages\/strip.pot",
+		"oF": 0
+		},
+	"\/license": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/license",
 		"oF": 0
 		},
 	"\/page.php": {
