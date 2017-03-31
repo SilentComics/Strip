@@ -12,7 +12,7 @@ index e69de29..8772857 100644
 +  duplication:
 +    enabled: true
 +    config:
-      standard: "WordPress-Docs"
+      standard: "WordPress"
 +      languages:
 +      - javascript
 +      - php

@@ -307,9 +307,9 @@ function enqueue_royal_sliders() {
 /**
  * Get the first image from each post and resize it.
  *
- * @return string $first_img the thumbnail image from each post.
+ * @return string $first_img.
  * @link https://css-tricks.com/snippets/wordpress/get-the-first-image-from-a-post/
- * see https://gist.github.com/SilentComics/0a7ea47942eb759dbb48eac2b7be1bbc
+ * see https://gist.github.com/SilentComics/0a7ea47942eb759dbb48eac2b7be1bbc/
  */
 function get_first_image() {
 	global $post;
@@ -324,7 +324,7 @@ function get_first_image() {
 		// Now we have the $first_img but we want the thumbnail of that image.
 		$explode = explode( '.', $first_img );
 		$count = count( $explode );
-		$size = '-624x312'; // Our panel ratio (2:1) 312x156 for lighther page, 624x312 for retina; use add_image_size() and Force Regenerate Thumbnails plugin when changing sizes.
+		$size = '-624x312'; // Panel ratio (2:1) 312x156 for lighther page, 624x312 for retina; use add_image_size() and Force Regenerate Thumbnails plugin when changing sizes.
 		$explode[ $count -2 ] = $explode[ $count -2 ] . '' . $size;
 		$thumb_img = implode( '.', $explode );
 		return $thumb_img;
