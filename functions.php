@@ -8,11 +8,6 @@
  * @subpackage Strip
  */
 
-// Set the content width based on the theme's design and stylesheet.
-if ( ! isset( $content_width ) ) {
-	$content_width = 1920;
-} /* pixels */
-
 if ( ! function_exists( 'strip_setup' ) ) :
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
@@ -68,6 +63,9 @@ if ( ! function_exists( 'strip_setup' ) ) :
 		add_image_size( 'strip-large', 1920, 960, true ); // cropped.
 		add_image_size( 'strip-medium', 624, 312, true ); // cropped.
 		add_image_size( 'strip-thumbnail', 312, 156, true ); // cropped.
+
+		// Set the default content width.
+		$GLOBALS['content_width'] = 792;
 
 		/**
 		 * Remove paragraph tags around images.
@@ -307,7 +305,7 @@ function enqueue_royal_sliders() {
 /**
  * Get the first image from each post and resize it.
  *
- * @return $string $first_img.
+ * @return the thumbnail image from each post.
  * @link https://css-tricks.com/snippets/wordpress/get-the-first-image-from-a-post/
  * see https://gist.github.com/SilentComics/0a7ea47942eb759dbb48eac2b7be1bbc
  */
@@ -601,7 +599,7 @@ add_action( 'after_switch_theme', 'strip_rewrite_rules' );
 	 * see http://wordpress.stackexchange.com/questions/30757/change-posts-per-page-count/30763#30763
 	 *
 	 * @param string $query strip_set_posts_per_page.
-	 * @return $wp_the_query.
+	 * @return the posts per page.
 	 */
 	function strip_set_posts_per_page( $query ) {
 		  global $wp_the_query;
