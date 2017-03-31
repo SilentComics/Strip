@@ -10,10 +10,9 @@ engines:
   duplication:
     enabled: true
     config:
+      standard: "WordPress-core"
       languages:
-      - ruby
       - javascript
-      - python
       - php
   eslint:
     enabled: true
