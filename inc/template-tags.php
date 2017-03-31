@@ -3,7 +3,6 @@
  * Custom template tags for this theme
  *
  * Eventually, some of the functionality here could be replaced by core features.
- * TO DO: trim.
  *
  * @package WordPress
  * @subpackage Strip
@@ -76,7 +75,7 @@ if ( ! function_exists( 'strip_entry_meta' ) ) :
 
 		if ( 'post' === get_post_type() ) {
 			printf(
-				__( '<span class="entry-date"><a href="%1$s" title="%2$s" rel="bookmark"><time datetime="%3$s">%4$s</time></a></span><span class="author vcard"><a class="url fn n" href="%5$s" title="%6$s" rel="author">%7$s</a></span>', 'strip' ),
+				wp_kses_post( '<span class="entry-date"><a href="%1$s" title="%2$s" rel="bookmark"><time datetime="%3$s">%4$s</time></a></span><span class="author vcard"><a class="url fn n" href="%5$s" title="%6$s" rel="author">%7$s</a></span>', 'strip' ),
 				esc_url( get_permalink() ),
 				esc_attr( get_the_time() ),
 				esc_attr( get_the_date( 'c' ) ),
