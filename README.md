@@ -25,7 +25,7 @@ Theme review aside, there are a few ways you can [support this project ♥](http
 
 [![Flattr this git repo](http://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?user_id=512grl&url=https://github.com/SilentComics/Strip&title=Strip&language=&tags=github&category=software)
 
-<script id='fb6w9q8'>(function(i){var f,s=document.getElementById(i);f=document.createElement('iframe');f.src='//button.flattr.com/view/?fid=512grl&button=compact&url=https%3A%2F%2Fgithub.com%2FSilentComics%2FStrip';f.title='Flattr';f.height=20;f.width=110;f.style.borderWidth=0;s.parentNode.insertBefore(f,s);})('fb6w9q8');</script>
+<a href="https://flattr.com/submit/auto?fid=512grl&url=https%3A%2F%2Fgithub.com%2FSilentComics%2FStrip" target="_blank"><img src="//button.flattr.com/flattr-badge-large.png" alt="Flattr this" title="Flattr this" border="0"></a>
 
 <small><a name="myfootnote1">1</a>: See WordPress.org’s [presentation vs functionality](https://make.wordpress.org/themes/handbook/review/required/#presentation-vs-functionality) guidelines</small>
 
