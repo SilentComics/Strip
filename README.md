@@ -9,7 +9,6 @@ Strip: A WordPress Theme for Silent Comics
 =================================
 
 *Strip* is a WordPress theme designed for the upcoming [SILENT COMICS site](http://silent-comics.com). 
-![screenshot](http://silentcomics.com/images/screenshot.png)
 
 <figure>
 <a href="https://github.com/SilentComics/Strip"><img src="http://silentcomics.com/images/screenshot.png"/></a>
