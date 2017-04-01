@@ -23,6 +23,8 @@ I'd love to get contributions for this project. **I’m not a developer** at all
 ## Other ways you can help:
 Theme review aside, there are a few ways you can [support this project ♥](http://silentcomics.com/subscribe/). *Thank you!*
 
+[![Flattr this git repo](http://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?user_id=512grl&url=https://github.com/SilentComics/Strip&title=Strip&language=&tags=github&category=software)
+
 <small><a name="myfootnote1">1</a>: See WordPress.org’s [presentation vs functionality](https://make.wordpress.org/themes/handbook/review/required/#presentation-vs-functionality) guidelines</small>
 
 <small><a name="myfootnote2">2</a>: Because the less plugins this project uses, the better.</small>
