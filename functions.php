@@ -72,7 +72,7 @@ if ( ! function_exists( 'strip_setup' ) ) :
 		/**
 		 * Remove paragraph tags around images.
 		 *
-		 * @param string $content filter p tags.
+		 * @param array $content filter p tags.
 		 * @return $content
 		 * @link https://css-tricks.com/snippets/wordpress/remove-paragraph-tags-from-around-images/
 		 * @see http://codex.wordpress.org/Function_Reference/wpautop gets the same result
@@ -644,12 +644,12 @@ add_action( 'after_switch_theme', 'strip_rewrite_rules' );
 	 */
 	function strip_set_posts_per_page( $query ) {
 		  global $wp_the_query;
-		if (  ( $query === $wp_the_query ) && ( is_home() ) && ( is_search() ) ) {
+		if (  ( is_home() ) && ( is_search() ) ) {
 			$wp_the_query->set( 'post_type', array( 'post', 'comic', 'posts_per_page', 12 ) );
 		}
-		if ( ( $query === $wp_the_query ) && ( is_post_type_archive( 'product' ) ) ) {
+		if ( ( is_post_type_archive( 'product' ) ) ) {
 			$wp_the_query->set( 'posts_per_page', 4 );
-		} elseif ( ( $query === $wp_the_query ) && ( is_archive() ) && ( is_tax( 'story' ) ) ) {
+		} elseif ( ( is_archive() ) && ( is_tax( 'story' ) ) ) {
 			$wp_the_query->set( 'posts_per_page', 3 );
 		}
 		return $wp_the_query;
