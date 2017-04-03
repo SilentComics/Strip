@@ -6,7 +6,7 @@
  * dashboard. Updates to this page are coming soon.
  * The file is called by functions.php.
  *
- * Adapted from Bones, developed by: Eddie Machado
+ * Adapted from Bones, developed by Eddie Machado.
  * URL: http://themble.com/bones/
  *
  * Special Thanks for code & inspiration to:
@@ -74,14 +74,18 @@ function strip_rss_dashboard_widget() {
 	}
 	foreach ( $items as $item ) { ?>
 
-			<h4 style="margin-bottom: 0;">
-				<a href="<?php echo esc_url( $item->get_permalink() ); ?>" title="<?php echo esc_html( mysql2date( __( 'j F Y @ g:i a', 'strip' ), $item->get_date( 'Y-m-d H:i:s' ) ) ); ?>" target="_blank">
+			<h4 style="margin-bottom: 1em; max-width: 384px;">
+				<a href="<?php echo esc_url( $item->get_permalink() ); ?>" title="" target="_blank">
 					<?php echo esc_attr( $item->get_title() ); ?>
+					<br>
 				</a>
 			</h4>
-			<p style="margin-top: 0.5em;
-					  .inside { max-width: 240px;}">
-			<?php echo wp_kses_post( substr( $item->get_description(), 0, 600 ) ); ?>
+
+			<?php echo esc_html( mysql2date( __( 'j F Y @ g:i a', 'strip' ), $item->get_date( 'Y-m-d H:i:s' ) ) ); ?>
+
+			<p style="margin-top: 1.2em;
+					  #strip_rss_dashboard_widget .postbox.postbox-container { width: 12px; }">
+			<?php echo wp_kses_post( substr( $item->get_description(), 0, 742 ) ); ?>
 			</p>
 			<?php
 	}
