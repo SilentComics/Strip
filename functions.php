@@ -64,7 +64,7 @@ if ( ! function_exists( 'strip_setup' ) ) :
 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
 */
 		add_theme_support( 'post-thumbnails' );
-		add_image_size( 'stri-featured-image', 1920, 960, true );
+		add_image_size( 'strip-featured-image', 1920, 960, true );
 		add_image_size( 'strip-large', 1920, 960, true ); // cropped.
 		add_image_size( 'strip-medium', 624, 312, true ); // cropped.
 		add_image_size( 'strip-thumbnail', 312, 156, true ); // cropped.
@@ -75,8 +75,7 @@ if ( ! function_exists( 'strip_setup' ) ) :
 		 * @param array $content filter p tags.
 		 * @return $content
 		 * @link https://css-tricks.com/snippets/wordpress/remove-paragraph-tags-from-around-images/
-		 * @see http://codex.wordpress.org/Function_Reference/wpautop gets the same result
-		 * but it removes line blocks: remove_filter( 'the_content', 'wpautop' );
+		 * @see http://codex.wordpress.org/Function_Reference/wpautop gets the same result but removes line blocks: remove_filter( 'the_content', 'wpautop' );
 		 */
 		function filter_ptags_on_images( $content ) {
 			return preg_replace( '/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $content );
