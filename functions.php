@@ -660,8 +660,8 @@ add_action( 'after_switch_theme', 'strip_rewrite_rules' );
 	 * @param string $query add_my_post_types_to_query.
 	 */
 	function add_my_post_types_to_query( $query ) {
-		if ( is_home() && $query->is_main_query() ) {
-			$query->set( 'post_type', array( 'post', 'page', 'comic' ) );
+		if ( $query->is_home() && $query->is_main_query() ) {
+			$query->set( 'post_type', array( 'post', 'comic' ) );
 
 		}
 		  return $query;
@@ -669,6 +669,7 @@ add_action( 'after_switch_theme', 'strip_rewrite_rules' );
 
 	/**
 	 * Set an automatic default custom taxonomy for comic posts.
+	 *
 	 * When no "story" (taxonomy) is set, comic posts default to “draft”.
 	 *
 	 * @param	string $post_id set_default_object_terms.
