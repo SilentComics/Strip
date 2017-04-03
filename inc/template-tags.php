@@ -179,7 +179,7 @@ endif;
  * @param string $taxonomy       Optional. Taxonomy, if $in_same_term is true. Default 'category'.
  * @return mixed Array containing the boundary post object if successful, null otherwise.
  */
-function get_comic_boundary_post( $in_same_term = false, $start = true, $taxonomy = 'category' ) {
+function get_comic_boundary_post( $in_same_term, $start, $taxonomy ) {
 	global $post;
 	setup_postdata( $post );
 	if ( ! taxonomy_exists( $taxonomy ) ) {
