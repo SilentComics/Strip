@@ -72,7 +72,7 @@ if ( ! function_exists( 'strip_setup' ) ) :
 		/**
 		 * Remove paragraph tags around images.
 		 *
-		 * @param $strings $content filter p tags.
+		 * @param string $content filter p tags.
 		 * @return $content
 		 * @link https://css-tricks.com/snippets/wordpress/remove-paragraph-tags-from-around-images/
 		 * @see http://codex.wordpress.org/Function_Reference/wpautop gets the same result
