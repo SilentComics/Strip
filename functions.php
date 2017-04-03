@@ -660,7 +660,7 @@ add_action( 'after_switch_theme', 'strip_rewrite_rules' );
 	 * @param string $query add_comic_post_types_to_query.
 	 */
 	function add_comic_post_type_to_query( $query ) {
-		if ( $query->is_home() && $query->is_main_query() ) {
+		if ( is_home() ) {
 			$query->set( 'post_type', array( 'post', 'comic' ) );
 		}
 	}
