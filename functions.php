@@ -643,19 +643,19 @@ add_action( 'after_switch_theme', 'strip_rewrite_rules' );
 	 * @return the posts per page.
 	 */
 	function strip_set_posts_per_page( $query ) {
-		  global $wp_the_query;
-		if (  ( is_home() ) && ( is_search() ) ) {
-			$wp_the_query->set( 'post_type', array( 'post', 'comic', 'posts_per_page', 12 ) );
+
+		if ( $query-> is_home() && $query-> is_search() ) {
+			$query->set( 'post_type', array( 'post', 'comic', 'posts_per_page', 12 ) );
 		}
-		if ( ( is_post_type_archive( 'product' ) ) ) {
-			$wp_the_query->set( 'posts_per_page', 4 );
-		} elseif ( ( is_archive() ) && ( is_tax( 'story' ) ) ) {
-			$wp_the_query->set( 'posts_per_page', 3 );
+		if ( $query-> is_post_type_archive( 'product' ) ) {
+			$query->set( 'posts_per_page', 4 );
+		} elseif ( $query-> is_archive() && $query-> is_tax( 'story' )  ) {
+			$query->set( 'posts_per_page', 3 );
 		}
-		return $wp_the_query;
+			return $query;
 	}
 
-	add_action( 'pre_get_posts', 'add_my_post_types_to_query' );
+		add_action( 'pre_get_posts', 'strip_set_posts_per_page' );
 	/**
 	 * Show 'comics' post types on home page.
 	 *
