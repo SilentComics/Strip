@@ -380,8 +380,6 @@ function comic_post_type() {
 		'singular_name'              => _x( 'Comic', 'Post Type Singular Name', 'strip' ),
 		'menu_name'                  => _x( 'Comics', 'admin menu', 'strip' ),
 		'name_admin_bar'             => _x( 'Comic', 'add new on admin bar', 'strip' ),
-		'archives'             			 => __( 'Item Archives', 'strip' ),
-		'attributes'           			 => __( 'Item Attributes', 'strip' ),
 		'parent_item_colon'	         => __( 'Parent Comic:', 'strip' ),
 		'all_items'                  => __( 'All Comics', 'strip' ),
 		'add_new_item'               => __( 'Add New Comic', 'strip' ),
@@ -652,7 +650,7 @@ add_action( 'after_switch_theme', 'strip_rewrite_rules' );
 		} elseif ( ( $query === $wp_the_query ) && ( is_archive() ) && ( is_tax( 'story' ) ) ) {
 			$query->set( 'posts_per_page', 3 );
 		}
-		return $query;
+		return;
 	}
 
 	add_action( 'pre_get_posts', 'strip_set_posts_per_page' );
