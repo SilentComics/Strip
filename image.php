@@ -26,7 +26,7 @@ $content_width = 1920;
 					/**
 					 * Filter the default strip image attachment size.
 					 *
-					 * @since strip 2.5.0
+					 * @since strip 1.0.0
 					 *
 					 * @param string $image_size Image size. Default 'full'.
 					 */
@@ -50,7 +50,7 @@ $content_width = 1920;
 						esc_html( get_the_title( $post->post_parent ) )
 					); ?>
 				</nav>
-</nav><!-- #image-navigation --><!-- #image-navigation -->
+</nav><!-- #image-navigation -->
 
 		<?php if ( has_excerpt() ) : ?>
 					<div class="entry-caption">
