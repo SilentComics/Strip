@@ -655,17 +655,16 @@ add_action( 'after_switch_theme', 'strip_rewrite_rules' );
 	add_action( 'pre_get_posts', 'strip_set_posts_per_page' );
 
 	/**
-	 * Show 'comics' post types on home page.
+	 * Show comics post types on home page.
 	 *
-	 * @param string $query add_my_post_types_to_query.
+	 * @param string $query add_comic_post_types_to_query.
 	 */
-	function add_my_post_types_to_query( $query ) {
+	function add_comic_post_type_to_query( $query ) {
 		if ( $query->is_home() && $query->is_main_query() ) {
 			$query->set( 'post_type', array( 'post', 'comic' ) );
-
 		}
-		  return $query;
 	}
+	add_action( 'pre_get_posts', 'add_comic_post_type_to_query' );
 
 	/**
 	 * Set an automatic default custom taxonomy for comic posts.
