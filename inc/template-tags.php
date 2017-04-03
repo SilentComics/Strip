@@ -24,7 +24,7 @@ if ( ! function_exists( 'strip_content_nav' ) ) :
 	/**
 	 * Display navigation to next/previous pages when applicable
 	 *
-	 * @param array $nav_id strip_content_nav.
+	 * @param string $nav_id strip_content_nav.
 	 */
 	function strip_content_nav( $nav_id ) {
 
