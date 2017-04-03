@@ -639,23 +639,24 @@ add_action( 'after_switch_theme', 'strip_rewrite_rules' );
 	 * Fixes 404 error on pagination due to CTP conflicting with WordPress posts_per_page default
 	 * see http://wordpress.stackexchange.com/questions/30757/change-posts-per-page-count/30763#30763
 	 *
-	 * @param string $query strip_set_posts_per_page.
-	 * @return the posts per page.
+	 * @param WP_Query $query strip_set_posts_per_page.
+	 * @return $query
 	 */
 	function strip_set_posts_per_page( $query ) {
-
-		if ( $query-> is_home() && $query-> is_search() ) {
+		global $wp_the_query;
+		if ( $wp_the_query-> is_home() && $wp_the_query-> is_search() ) {
 			$query->set( 'post_type', array( 'post', 'comic', 'posts_per_page', 12 ) );
 		}
-		if ( $query-> is_post_type_archive( 'product' ) ) {
+		if ( $wp_the_query-> is_post_type_archive( 'product' ) ) {
 			$query->set( 'posts_per_page', 4 );
-		} elseif ( $query-> is_archive() && $query-> is_tax( 'story' )  ) {
+		} elseif ( ( $query === $wp_the_query ) && ( is_archive() ) && ( is_tax( 'story' ) ) ) {
 			$query->set( 'posts_per_page', 3 );
 		}
-			return $query;
+		return $query;
 	}
 
-		add_action( 'pre_get_posts', 'strip_set_posts_per_page' );
+	add_action( 'pre_get_posts', 'strip_set_posts_per_page' );
+
 	/**
 	 * Show 'comics' post types on home page.
 	 *
