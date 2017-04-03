@@ -72,9 +72,11 @@ if ( ! function_exists( 'strip_setup' ) ) :
 		/**
 		 * Remove paragraph tags around images.
 		 *
-		 * @param $strings $content filter_ptags_on_images.
+		 * @param $strings $content filter p tags.
+		 * @return $content
 		 * @link https://css-tricks.com/snippets/wordpress/remove-paragraph-tags-from-around-images/
-		 * http://codex.wordpress.org/Function_Reference/wpautop gets the same result but also removes line blocks: remove_filter( 'the_content', 'wpautop' );
+		 * @see http://codex.wordpress.org/Function_Reference/wpautop gets the same result
+		 * but it removes line blocks: remove_filter( 'the_content', 'wpautop' );
 		 */
 		function filter_ptags_on_images( $content ) {
 			return preg_replace( '/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $content );
