@@ -649,7 +649,7 @@ add_action( 'after_switch_theme', 'strip_rewrite_rules' );
 		} elseif ( ( $query === $wp_the_query ) && ( is_archive() ) && ( is_tax( 'story' ) ) ) {
 			$query->set( 'posts_per_page', 3 );
 		}
-		return;
+		return  $query;
 	}
 
 	add_action( 'pre_get_posts', 'add_comic_post_type_to_query' );
@@ -662,7 +662,6 @@ add_action( 'after_switch_theme', 'strip_rewrite_rules' );
 		if (  $query->is_home() && $query->is_main_query() ) {
 			$query->set( 'post_type', array( 'post', 'comic' ) );
 		}
-		return $query;
 	}
 
 	/**
