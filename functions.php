@@ -123,64 +123,6 @@ if ( ! function_exists( 'strip_setup' ) ) :
 	}
 
 	/**
-	 * Clean wp_head, remove queries.
-	 *
-	 * @since    1.1.3
-	 * @link: http://cubiq.org/clean-up-and-optimize-wordpress-for-your-next-theme
-	 */
-	function strip_cleanup() {
-			remove_action( 'wp_head', 'wp_generator' );					// WP Version.
-			remove_action( 'wp_head', 'wlwmanifest_link' );
-			remove_action( 'wp_head', 'rsd_link' );
-			remove_action( 'wp_head', 'rel_canonical', 10, 0 );
-			remove_action( 'wp_head', 'wp_shortlink_wp_head', 10, 0 );
-
-			remove_action( 'wp_head', 'parent_post_rel_link', 10, 0 );// Parent rel link.
-			remove_action( 'wp_head', 'start_post_rel_link', 10, 0 );	// Start post rel link.
-			remove_action( 'wp_head', 'index_rel_link' );
-
-			remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0 ); // Adjacent post rel link.
-
-			add_filter( 'the_generator', '__return_false' );
-
-			remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
-			remove_action( 'wp_print_styles', 'print_emoji_styles' );
-	}
-	/**
-	 * Cleanup head remove rss version
-	 *
-	 * @since    1.1.3
-	 */
-	function strip_remove_rss_version() {
-		return '';
-	}
-	/**
-	 * Cleanup head remove X-Pingback
-	 *
-	 * @param array $headers remove x pingback.
-	 * @since    1.1.3
-	 */
-	function strip_remove_x_pingback( $headers ) {
-		unset( $headers['X-Pingback'] );
-		return $headers;
-	}
-
-	/**
-	 * Cleanup head remove inline CSS comments
-	 *
-	 * @since    1.1.3
-	 */
-	function strip_remove_comments_inline_styles() {
-		global $wp_widget_factory;
-		if ( has_filter( 'wp_head', 'wp_widget_recent_comments_style' ) ) {
-			remove_filter( 'wp_head', 'wp_widget_recent_comments_style' );
-		}
-
-		remove_action( 'wp_head', array( $wp_widget_factory->widgets['WP_Widget_Recent_Comments'], 'recent_comments_style' ) );
-	}
-
-
-	/**
 	* This theme styles the visual editor to resemble the theme style,
 	* specifically font, colors, icons, and column width.
 	*/
