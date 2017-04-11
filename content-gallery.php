@@ -6,10 +6,6 @@
  * @subpackage Strip
  */
 
-// Access global variable directly to set content_width.
-if ( isset( $GLOBALS['content_width'] ) ) {
-	$GLOBALS['content_width'] = 1920;
-}
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
