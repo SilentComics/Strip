@@ -7,7 +7,6 @@
  */
 
 get_header( 'lite' );
-$content_width = 1920;
 ?>
 	<div id="primary" class="content-area image-attachment">
 		<div id="content" class="site-content" role="main">
