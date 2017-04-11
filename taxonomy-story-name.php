@@ -1,13 +1,13 @@
 <?php
 /**
- * The template for the "example" story pages
+ * The template for archiving the example "name" story pages
  * Clone this template and replace "name" by your own story name.
  *
  * @package WordPress
  * @subpackage Strip
  */
 
- 	get_header(); ?>
+		get_header(); ?>
 
 	<section id="primary"
 		<main id="content" class="wrap" role="main">
@@ -20,7 +20,7 @@
 	// Show an optional term description.
 	$term_description = term_description();
 	if ( ! empty( $term_description ) ) :
-		echo apply_filters( 'taxonomy_archive_meta', '<div class="taxonomy-description">' . $term_description . '</div>' );
+		printf( '<div class="taxonomy-description">%s</div>', $term_description, 'strip' ); // WPCS: XSS OK.
 endif;
 ?>
 
@@ -40,7 +40,7 @@ endif;
 	$args = array(
 
 	'post_type'       => 'comic',
-	'posts_per_page'  => 3, // Must be = or > than number set in function.php to avoid breaking pagination.
+	'posts_per_page'  => 3, // // Must be < or = to the number set in function.php to avoid breaking pagination.
 	'story'           => 'name', // change this to your own story name, clone template for multiple stories.
 	'orderby'         => 'title', // you can order by date if you so prefer.
 	'paged'           => $paged,
@@ -63,16 +63,18 @@ endif;
 		$big = 999999999; // need an unlikely integer.
 		$translated = __( 'Page', 'strip' ); // supply translatable string.
 
-		echo paginate_links(
+		echo wp_kses_post( paginate_links(
 			array(
 			'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
 			'format' => '?paged=%#%',
 			'current' => max( 1, get_query_var( 'paged' ) ),
-			'total' => $loop->max_num_pages,
+			'total' => $wp_query->max_num_pages,
 			'before_page_number' => '<span class="screen-reader-text">' . $translated . ' </span>',
-			)
-		);
-
+			'prev_text' => __( 'Previous', 'strip' ), // In case you want to change the previous link text.
+			'next_text' => __( 'Next', 'strip' ), // In case you want to change the next link text.
+			'type' => 'title', // How you want the return value to be formatted.
+			'add_fragment' => '#result', // Your anchor.
+		) ) );
 
 		else :
 			get_template_part( 'no-results', 'archive-comic' );
