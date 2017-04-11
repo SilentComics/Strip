@@ -25,19 +25,6 @@ get_header(); ?>
 						?>
 					</h1>
 
-					<h2 class="taxonomy-description">
-						<a href="<?php echo esc_url( home_url( '/series/' ) ); ?>">
-						<?php '<span class="meta-nav"' . printf( esc_html_e( 'Series', 'strip' ) ) . '</span>'; ?>
-						</a>
-					</h2>
-
-					<h4 class="series-title">
-					<a href="<?php echo esc_url( home_url( '/story/exile/' ) ); ?>">ExIle</a></h4>
-					<h4 class="series-title">
-					<a href="<?php echo esc_url( home_url( '/story/tofu/' ) ); ?>">Morning Tofu Chase</a></h4>
-					<h3 class="series-title">
-					<a href="<?php echo esc_url( home_url( '/story/sentient-drone/' ) ); ?>">Sentient Drone</a></h3>
-
 				<?php
 					// Show an optional term description.
 					$term_description = term_description();
@@ -67,7 +54,13 @@ while ( $comic->have_posts() ) : $comic->the_post();
 	<?php endwhile;
 						wp_reset_postdata(); ?>
 
-		<?php strip_content_nav( 'nav-below' ); ?>
+						<div class="wrap">
+								<?php the_posts_pagination( array(
+									'prev_text' => _x( '&#8592;', 'Previous page link', 'strip' ) . '<span class="screen-reader-text">' . __( 'Previous page', 'strip' ) . '</span>',
+									'next_text' => '<span class="screen-reader-text">' . __( 'Next page', 'strip' ) . '</span>' . _x( '&#8594;', 'Next post link', 'strip' ),
+									'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'strip' ) . ' </span>',
+								) ); ?>
+				</div>
 
 	<?php else : ?>
 
