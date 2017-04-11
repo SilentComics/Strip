@@ -16,8 +16,6 @@ wp-content/wp-cache-config.php
 /license.txt
 
 .BridgeSort
-.DS_Store
-.ds_store 
 .sass-cache
 codekit-config.json
 config.codekit
