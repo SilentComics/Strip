@@ -26,21 +26,10 @@ endif;
 
 	</header><!-- .page-header -->
 
-	<?php
-	// get the correct paged figure on a static page.
-	if ( get_query_var( 'paged' ) ) {
-		   $paged = get_query_var( 'paged' );
-	} elseif ( get_query_var( 'page' ) ) {
-		   $paged = get_query_var( 'page' );
-	} else {
-		   $paged = 1;
-	}
-
-	// Call and run loop in ascending order.
+	<?php // Call and run loop in ascending order.
 	$args = array(
 
 	'post_type'       => 'comic',
-	'posts_per_page'  => 3, // // Must be < or = to the number set in function.php to avoid breaking pagination.
 	'story'           => 'name', // change this to your own story name, clone template for multiple stories.
 	'orderby'         => 'title', // you can order by date if you so prefer.
 	'paged'           => $paged,
@@ -50,35 +39,28 @@ endif;
 	$loop = new WP_Query( $args );
 	// Start the loop.
 	if ( $loop->have_posts() ) :
-		while ( $loop->have_posts() ) : $loop->the_post();
+		$i = 1;
+		while ( $loop->have_posts() && $i < 3 ) : $loop->the_post(); // 3 sets the posts per page. @link https://digwp.com/2009/12/limit-posts-without-plugin/
 
 			get_template_part( 'content-series' ); ?>
 
-		<?php endwhile;
+				<?php  $i++;
+endwhile;
 		wp_reset_postdata(); ?>
 
-		<?php
-		global $wp_query;
+<div class="wrap">
+	<?php the_posts_pagination( array(
+		'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'strip' ) . ' </span>',
+		'prev_text' => __( 'Previous', 'strip' ), // In case you want to change the previous link text.
+		'next_text' => __( 'Next', 'strip' ), // In case you want to change the next link text.
+		'type' => 'title', // How you want the return value to be formatted.
+		'add_fragment' => '#result', // Your anchor.
+	) ); ?>
+</div>
 
-		$big = 999999999; // need an unlikely integer.
-		$translated = __( 'Page', 'strip' ); // supply translatable string.
-
-		echo wp_kses_post( paginate_links(
-			array(
-			'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
-			'format' => '?paged=%#%',
-			'current' => max( 1, get_query_var( 'paged' ) ),
-			'total' => $wp_query->max_num_pages,
-			'before_page_number' => '<span class="screen-reader-text">' . $translated . ' </span>',
-			'prev_text' => __( 'Previous', 'strip' ), // In case you want to change the previous link text.
-			'next_text' => __( 'Next', 'strip' ), // In case you want to change the next link text.
-			'type' => 'title', // How you want the return value to be formatted.
-			'add_fragment' => '#result', // Your anchor.
-		) ) );
-
-		else :
-			get_template_part( 'no-results', 'archive-comic' );
-		endif; ?>
+<?php else :
+	get_template_part( 'no-results', 'archive-comic' );
+endif; ?>
 
 		</main><!-- #content -->
 	</section><!-- #primary -->
