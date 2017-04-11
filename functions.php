@@ -601,7 +601,7 @@ add_action( 'after_switch_theme', 'strip_rewrite_rules' );
 	 * @param string $query add_comic_post_types_to_loop.
 	 */
 	function add_comic_post_type_to_loop( $query ) {
-		if ( $query->is_feed() || $query->is_main_query() && $query->is_home() ) {
+		if ( $query->is_main_query() && $query->is_home() ) {
 			$query->set( 'post_type', array( 'post', 'comic' ) );
 			return $query;
 		}
