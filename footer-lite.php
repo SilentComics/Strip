@@ -1,6 +1,6 @@
 <?php
 /**
- * The template for displaying the footer for comics
+ * The template for displaying the single comics simplified footer
  *
  * Contains the closing of the #content div and all content after.
  *
@@ -14,7 +14,7 @@
 
 	  <div class="site-info">
 				&copy; <span class="site-name"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></span> <?php
-				$from_year = 2013;
+				$from_year = 2016;
 				$this_year = (int) date( 'Y' );
 				echo esc_html( $from_year . (($from_year !== $this_year) ? '-' . $this_year : '') );?>
 				<span class="sep"> | </span>
