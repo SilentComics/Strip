@@ -17,17 +17,22 @@ get_header(); ?>
 
 			<?php get_template_part( 'content', get_post_format() ); ?>
 
-			<?php strip_content_nav( 'nav-below' ); ?>
-
 			<?php
 				// If comments are open or we have at least one comment, load up the comment template.
 			if ( comments_open() || '0' !== get_comments_number() ) :
 				comments_template();
-			endif; ?>
+			endif;
 
-		<?php endwhile; // end of the loop. ?>
+			the_post_navigation( array(
+				'prev_text' => '<span class="screen-reader-text">' . __( 'Previous Post', 'strip' ) . '</span><span aria-hidden="true" class="nav-subtitle">' . _x( '&#8592;', 'Previous post link', 'strip' ) . '</span> %title</span>',
+				'next_text' => '<span class="screen-reader-text">' . __( 'Next Post', 'strip' ) . '</span> %title <span aria-hidden="true" class="nav-subtitle">' . _x( '&#8594;', 'Next post link', 'strip' ) . '</span> </span>',
+			) );
+
+		endwhile; // end of the loop. ?>
 
 		</main><!-- #content -->
 	</section><!-- #primary -->
+
+<br><br>
 
 <?php get_footer(); ?>
