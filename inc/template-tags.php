@@ -19,47 +19,6 @@ function strip_header_background() {
 }
 add_action( 'wp_enqueue_scripts', 'strip_header_background', 11 );
 
-if ( ! function_exists( 'strip_content_nav' ) ) :
-
-	/**
-	 * Display navigation to next/previous pages when applicable
-	 *
-	 * @param string $nav_id strip_content_nav.
-	 */
-	function strip_content_nav( $nav_id ) {
-
-		$nav_class = ( is_single() || is_post_type( 'comic' ) ) ? 'post-navigation' : 'paging-navigation' ;
-
-		?> <div class="wrap clear">
-
-		<nav role="navigation" id="<?php echo esc_attr( $nav_id ); ?>" class="<?php echo esc_attr( $nav_class ); ?> clear">
-		<h1 class="screen-reader-text"><?php esc_html_e( 'Post navigation', 'strip' ); ?></h1>
-
-		<?php  if ( 'comic' === get_post_type() && ( is_single() ) ) : // comics navigation links.
-
-			$nav_class .= ' navigation-comic'; ?>
-
-				<div class="navigation-comic">
-				<nav class="nav-first"><a href="<?php echo esc_url( first_comic_link() ); ?>"><?php esc_html_e( 'Start', 'strip' ); ?></a></nav>
-				<nav class="nav-previous"><?php previous_post_link( '%link', __( 'Previous', 'strip' ), true, '', 'story' ); ?></nav>
-				<nav class="nav-title"><?php the_title( '<h4 class="series-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h4>' ); ?></nav>
-				<nav class="nav-next"><?php next_post_link( '%link', __( 'Next', 'strip' ), true, '', 'story' ); ?></nav>
-				<nav class="nav-last"><a href="<?php echo esc_url( last_comic_link() ); ?>"><?php esc_html_e( 'Last', 'strip' ); ?></a></nav>
-			</div><!-- .navigation-comic -->
-
-		<?php elseif ( is_single() ) : // navigation links for single posts. ?>
-
-		<?php previous_post_link( '<div class="nav-previous">%link</div>', '<span class="meta-nav">' . _x( '&#8592;', 'Previous post link', 'strip' ) . '</span> %title' ); ?>
-		<?php next_post_link( '<div class="nav-next">%link</div>', '%title <span class="meta-nav">' . _x( '&#8594;', 'Next post link', 'strip' ) . '</span>' ); ?>
-
-		<?php endif; ?>
-
-				</div><!-- .entry-wrap -->
-			</nav><!-- #<?php echo esc_attr( $nav_id ); ?> -->
-			<?php
-	}
-endif; // strip_content_nav.
-
 if ( ! function_exists( 'strip_entry_meta' ) ) :
 	/**
 	 * Prints HTML with meta information for the current post-date/time and author.
