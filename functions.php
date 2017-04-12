@@ -474,7 +474,7 @@ add_action( 'after_switch_theme', 'strip_rewrite_rules' );
 	remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20, 0 );
 	remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10 );
 	remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10 );
-	remove_action( 'woocommerce_after_shop_loop', 'woocommerce_pagination', 10 );
+	// remove_action( 'woocommerce_after_shop_loop', 'woocommerce_pagination', 10 ); removes woo pagination.
 	remove_action( 'woocommerce_before_shop_loop', 'woocommerce_result_count', 20 );
 	remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30 );
 
@@ -533,7 +533,7 @@ add_action( 'after_switch_theme', 'strip_rewrite_rules' );
 	 */
 	function strip_manage_woocommerce_styles() {
 		// remove generator meta tag.
-		remove_action( 'wp_head', array( 'woocommerce', 'generator' ) ); // this line when used with $GLOBALS['woocommerce'] prompts an error when Woo is deactivated though.
+		remove_action( 'wp_head', array( 'woocommerce', 'generator' ) );
 		// first check that woo exists to prevent fatal errors.
 		if ( function_exists( 'strip_is_woocommerce_activated' ) ) {
 			// dequeue scripts and styles, unless we're in the store.
@@ -588,8 +588,6 @@ add_action( 'after_switch_theme', 'strip_rewrite_rules' );
 		}
 		if ( $wp_the_query-> is_post_type_archive( 'product' ) ) {
 			$query->set( 'posts_per_page', 4 );
-		} elseif ( ( $query === $wp_the_query ) && ( is_archive() ) && ( is_tax( 'story' ) ) ) {
-			$query->set( 'posts_per_page', 3 );
 		}
 		return  $query;
 	}
@@ -598,12 +596,12 @@ add_action( 'after_switch_theme', 'strip_rewrite_rules' );
 	/**
 	 * Show comics post types on home page (blog) and feeds.
 	 *
-	 * @param string $query add_comic_post_types_to_loop.
+	 * @param string $loop add_comic_post_types_to_loop.
 	 */
-	function add_comic_post_type_to_loop( $query ) {
-		if ( $query->is_main_query() && $query->is_home() ) {
-			$query->set( 'post_type', array( 'post', 'comic' ) );
-			return $query;
+	function add_comic_post_type_to_loop( $loop ) {
+		if ( $loop->is_main_query() && $loop->is_home() ) {
+			$loop->set( 'post_type', array( 'post', 'comic' ) );
+			return $loop;
 		}
 	}
 
