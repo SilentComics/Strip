@@ -29,7 +29,27 @@
     if (-1 === menu.className.indexOf("nav-menu")) {
         menu.className += ' nav-menu';
     }
+    /**
+     * Sets or removes .focus class on an element.
+     */
+    function toggleFocus() {
+        var self = this;
 
+        // Move up through the ancestors of the current link until we hit .nav-menu.
+        while (-1 === self.className.indexOf("nav-menu")) {
+
+            // On li elements toggle the class .focus.
+            if ("li" === self.tagName.toLowerCase()) {
+                if (-1 !== self.className.indexOf("focus")) {
+                    self.className = self.className.replace(' focus', '');
+                } else {
+                    self.className += ' focus';
+                }
+            }
+
+            self = self.parentElement;
+        }
+    }
     button.onclick = function () {
         if (-1 !== container.className.indexOf("toggled")) {
             container.className = container.className.replace(' toggled', "");
@@ -56,26 +76,4 @@
         links[i].addEventListener("focus", toggleFocus, true);
         links[i].addEventListener("blur", toggleFocus, true);
     }
-
-    /**
-     * Sets or removes .focus class on an element.
-     */
-    function toggleFocus() {
-        var self = this;
-
-        // Move up through the ancestors of the current link until we hit .nav-menu.
-        while (-1 === self.className.indexOf("nav-menu")) {
-
-            // On li elements toggle the class .focus.
-            if ("li" === self.tagName.toLowerCase()) {
-                if (-1 !== self.className.indexOf("focus")) {
-                    self.className = self.className.replace(' focus', '');
-                } else {
-                    self.className += ' focus';
-                }
-            }
-
-            self = self.parentElement;
-        }
-    }
-})();
+}());
