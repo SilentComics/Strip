@@ -11,5 +11,30 @@ changelog.txt
 
 == changelog ==
 
+= (20/04/2017) - Version 1.1.3 =
+[-] Removed post formats "status" and "aside" in functions.php
+[>] Improved archive.php, removed navigation error on tag & category archives
+[-] Cleaned wp_head, removing some useless queries
+[+] Sidebar in index.php
+[-] Removed function strip_content_nav completely
+[>] Cleaned Template_Tags
+[^] the_post_navigation is now in single.php
+[*] single.php uses <br>
+[>] archive-story.php now displays each comic post first image in a three columns grid
+[*] taxonomy-story-name.php navigation must be improved (change page numbers without errors)
+
+= (19/03/2017) - Version 1.1.2 =
+[+] code clean up
+
+[+] Page navigation on blog, archive and search using `the_posts_pagination` instead of 'nav-next-page'
+[-] `strip_content_nav( 'nav-below' );`
+[x] Deleted the "aside" post format template
+[-] unused code in extras.php
+[+] disable emojis (in extras.php)
+[+]
+
+= (from 26/12.2016 to 17/03/2017) - Version 1.1.1 =
+[>] minor incremental improvements
+
 = (26/12/2016) - Version 1.0 =
 [+] ported from SilentComics VS 2.6.4

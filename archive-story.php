@@ -3,7 +3,7 @@
  * Template Name: Stories Archive
  *
  * The template for displaying comic series archives pages.
- * Showcasing the first image of each comic post on a four columns grid.
+ * Showcasing the first image of each comic post on a three columns grid.
  * T0DO: excerpts enhancements — Use this template as reference during develoment.
  *
  * @package WordPress
@@ -25,12 +25,14 @@ get_header(); ?>
 				<h1 class="page-title"><?php the_title(); ?></h1>
 			</header>
 
-		<div class="columns">
+		<div class="three-columns">
+
+			<?php
+			// get the correct paged figure on a Custom Page That Isn’t Static Home Page.
+			$paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1; ?>
+
 
 		<?php
-		if ( get_query_var( 'paged' ) ) {
-			$paged = 1;
-		}
 
 					// Call and run loop in descending order.
 					$loop = new WP_Query( array(
@@ -47,14 +49,14 @@ get_header(); ?>
 						while ( $loop->have_posts() ) :
 							$loop->the_post();
 			?>
-			<div class="column">
+			<div class="three-column">
 				<a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php printf( esc_html__( 'Permanent Link to %s', 'strip' ),the_title_attribute( 'echo=0' ) ); ?>"></a>
 				<?php if ( get_the_post_thumbnail() !== '' ) {
 
 					echo '<a href="';
 					the_permalink();
 					echo '" class="thumbnail-wrapper">';
-					the_post_thumbnail();
+					the_post_thumbnail( 'thumbnail' );
 
 					echo '</a>';
 
@@ -64,7 +66,7 @@ get_header(); ?>
 	the_permalink();
 	echo '" class="thumbnail-wrapper">';
 	echo '<img src="';
-	echo esc_html( get_first_image() );
+	echo esc_html( get_first_image( 'thumbnail' ) );
 	echo '" alt="" />';
 	echo '</a>';
 } ?>
@@ -78,20 +80,25 @@ get_header(); ?>
 			wp_reset_postdata();
 		?>
 
-<?php
-// get_next_posts_link() usage with max_num_pages. ?>
-<nav class="paging-navigation">
-<div class="nav-previous-page">
-<?php next_posts_link( esc_html_x( 'Previous episodes', 'Next posts link', 'strip' ), $loop->max_num_pages ); ?>
-	</div>
-		<div class="nav-next-page">
-			<?php previous_posts_link( esc_html_x( 'Recent episodes' , 'Previous post link', 'strip' ) ); ?>
-		</div>
-</nav>
-<?php // clean up after the query and pagination.
-wp_reset_postdata();
-?>
 		<?php
+				global $wp_query;
+
+				$big = 999999999; // need an unlikely integer.
+				$translated = __( 'Page', 'strip' ); // supply translatable string.
+
+				echo wp_kses_post( paginate_links( // Data validation: wp_kses_post see https://developer.wordpress.org/reference/functions/wp_kses_post/.
+					array(
+					'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
+					'format' => '?paged=%#%',
+					'current' => max( 1, get_query_var( 'paged', 1 ) ),
+					'total' => $loop->max_num_pages,
+					'before_page_number' => '<span class="screen-reader-text">' . $translated . ' </span>',
+					'prev_text' => esc_html__( 'Previous', 'strip' ), // If you want to change the previous link text.
+					'next_text' => esc_html__( 'Next', 'strip' ), // If you want to change the next link text.
+					'type' => 'title', // How you want the return value to be formatted.
+					'add_fragment' => '#result', // Your anchor.
+				) ) );
+
 		else :
 			get_template_part( 'no-results', 'archive-comic' );
 		endif; ?>

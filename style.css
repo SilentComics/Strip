@@ -4,9 +4,9 @@ Theme URI: https://github.com/SilentComics/Strip
 Author: SILENT COMICS
 Author URI: http://silent-comics.com
 Description: A WordPress theme for comics and webcomics <a href="https://github.com/SilentComics/Strip/">Contribute on GitHub</a>
-Version: 1.1.2
-License: GNU General Public License v3 or later
-License URI: http://www.gnu.org/licenses/gpl-3.0.html
+Version: 1.1.3
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: strip
 Domain Path: /languages/
 Tags: one-column, flexible-header, grid-layout, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images, post-formats, rtl-language-support, sticky-post, theme-options, custom-logo, translation-ready, blog
@@ -731,15 +731,17 @@ button.menu-toggle:hover {
 	display: inline-block; }
 
 /* navigation specific */
+.nav-previous a,
 .nav-previous-page,
 .image-navigation .nav-previous,
 .image-navigation .previous,
 .comment-navigation .nav-previous,
 .paging-navigation .nav-previous,
 .post-navigation .nav-previous {
-	float: left;
-    text-align: left; }
+	display: inline-block;
+  text-align: left; }
 
+.nav-next a,
 .nav-next-page,
 .image-navigation .nav-next,
 .image-navigation .next,
@@ -1131,7 +1133,7 @@ article.error404 .widget_calendar tfoot td {
 .entry-content,
 .entry-summary {
 	margin: 0 0 24px 0;
-	max-width: 792px; /* 840px instead of 696px */
+	max-width: 768px; /* 840px  792px 696px */
 	width: 100%; }
 
 /*--------------------------------------------------------------
@@ -1201,7 +1203,7 @@ span > object {
 	max-width: 1920px; }
 
 .format-gallery .entry-meta {
-	margin-bottom: 12px; }
+	margin-top: 12px; }
 
 /* Video */
 .format-video .entry-content {
@@ -1238,6 +1240,9 @@ span > object {
     width: 100%;
     height: 100%; }
 
+.attachment-strip-featured-thumbnail { /* Add space to the post thumbnail meta */
+	padding-bottom: 12px; }
+
 /*--------------------------------------------------------------
 10.3 Author Box
 --------------------------------------------------------------*/
@@ -1245,7 +1250,7 @@ span > object {
 	display: inline-block; }
 
 .author-avatar img {
-	max-width: 120px;
+	max-width: 240px;
 	outline: double;
 	outline-color: #f9f9f9;
 	margin-bottom: 0; }
@@ -1257,6 +1262,7 @@ span > object {
 
 .author-index .author-description {
 	display: inline-block;
+	text-align: left;
 	background: transparent; }
 
 /*--------------------------------------------------------------
@@ -1528,14 +1534,38 @@ span > object {
 	font-size: 1rem;
 	line-height: 1.2; }
 
+/* Three columns grid */
+.three-columns { width: 100%; margin: 0.6em 0 0 0; }
+.three-columns:before, .three-columns:after { content: " "; display: table; }
+.three-columns:after { clear: both; }
+.three-column { float: left; margin: 0 2% 12px 0; width: 32%; }
+.three-column:nth-child(3n) { margin-right: 0; }
+.three-column:nth-child(3n+1) { margin-left: 0; clear: left; }
+.three-column img { width: 100%; }
+
+@media screen and (max-width: 744px) {
+.three-column  { width: 100%; }
+.three-column :nth-child(2n) { margin-right: 0; }
+.three-column :nth-child(2n+1) { margin-left: 0; clear: left; } }
+
+@media screen and (max-width: 456px) {
+.three-column  { margin: 0; width: 100%; }
+.three-column :nth-child(1n) { margin-right: 0; }
+.three-column :nth-child(1n+1) { margin-left: 0; clear: left; }
+.series-title { font-size: 10px; font-weight: 100; line-height: 1.2; } }
+
 /* Four columns grid */
-.columns { width: 100%; margin: 0.6em 0 0 1%;  }
+.columns { width: 100%; margin: 0.6em 0 0 0;  }
 .columns:before, .columns:after { content: " "; display: table; }
 .columns:after { clear: both; }
-.column { float: left; margin: 0 1% 12px 0; width: 24%; }
+.column { float: left; margin: 0 1.2% 12px 0; width: 24%; }
 .column:nth-child(4n) { margin-right: 0; }
 .column:nth-child(4n+1) { margin-left: 0; clear: left; }
-.column img { width: 100%; max-width: 312px; height: auto; }
+.column img { width: 100%;
+
+max-width: 312px; /* Width of new image */
+max-height: 156px; /* Height of new image */
+   }
 
 @media screen and (max-width: 816px) {
 .column { margin: 0 2% 10px 0; width: 48%; }

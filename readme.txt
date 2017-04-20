@@ -1,9 +1,9 @@
 === Strip ===
 
 Contributors: Anh Hoa Si, SILENT COMICS
-Requires at least: WordPress 4.5.3
+Requires at least: WordPress 4.7.3
 Tested up to: 4.8-alpha
-Version; 1.0
+Version; 1.1.3
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Tags: one-column, flexible-header, grid-layout, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images, post-formats, rtl-language-support, sticky-post, theme-options, custom-logo, translation-ready, blog
@@ -85,7 +85,7 @@ Comics specific archive templates:
 This is where all your comics are archived in ascending order, by title. Pagination is set by default to the default posts per page set in WordPress dashboard > Settings > Reading `Blog pages show at most` number. You can change the `'posts_per_page'` number.
 
 `archive-story.php`
-This is a template you can use to archive your comics in a four columns grids.
+This is a template you can use to archive your comics in a three columns grids.
 Archived by title in descending order by default. You can add a story term (your story name) to `'story'`
 You can change `'posts_per_page'` number, use `-1` to retrieve all the comics. Change `'DESC'` to `'ASC'` if you want the comics to appear in chronological order, starting from the first.
 
@@ -93,15 +93,16 @@ You can change `'posts_per_page'` number, use `-1` to retrieve all the comics. C
 This template call all comics episodes but will only display their titles, in ascending order. It’s basically a single row of titles, grouped by stories.
 
 `taxonomy-story-draft.php`
-The fallback for all uncategorised stories — no pagination.
-Note that for the theme to run smootly you should have a single taxonomy for each story.
+The fallback for all uncategorized stories — no pagination.
+Note that for the theme to run smoothly you should have a single taxonomy for each story.
 A "draft" taxonomy is a good way to preview your unpublished stories.
 
 `taxonomy-story-name.php`
 A sample template — replace “name” by your own story title and duplicate this template with new details for each new story
 
-## A word about pagination.
-Pagination behaviour in WordPress is a fragile thing. As in, some changes can result in unpredictable behaviour. I have tried to comment the templates to avoid unexpected results such as breaking pagination or not displaying admin dashboard as expected.
+## Pagination.
+In WordPress, pagination method differs for a static front page and other pages — Strip has archives for comics (archive.story.php and taxonomy-story-name.php for instance). If you use these template for your home page you need to adjust the pagination accordingly
+ `get_query_var( 'paged' )`` should become  `get_query_var( 'page')``
 
 == Frequently Asked Questions ==
 
