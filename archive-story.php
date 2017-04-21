@@ -66,7 +66,7 @@ get_header(); ?>
 	the_permalink();
 	echo '" class="thumbnail-wrapper">';
 	echo '<img src="';
-	echo esc_html( get_first_image( 'thumbnail' ) );
+	echo esc_html( get_first_image() );
 	echo '" alt="" />';
 	echo '</a>';
 } ?>
