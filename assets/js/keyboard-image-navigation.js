@@ -12,7 +12,7 @@
 
 		// Right arrow key code.
 		} else if ( 39 === e.which ) {
-			url = $( '.next a' ).attr( 'href' );
+			url = $( ".next a" ).attr( "href" );
 
 		// Other key code.
 		} else {

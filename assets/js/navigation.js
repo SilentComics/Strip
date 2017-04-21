@@ -13,19 +13,19 @@
     }
 
     button = container.getElementsByTagName("button")[0];
-    if ("undefined" === typeof button) {
+    if (typeof button === "undefined") {
         return undefined;
     }
 
     menu = container.getElementsByTagName("ul")[0];
 
     // Hide menu toggle button if menu is empty and return early.
-    if ("undefined" === typeof menu) {
+    if (typeof menu === "undefined") {
         button.style.display = "none";
         return undefined;
     }
 
-    menu.setAttribute('aria-expanded', 'false');
+    menu.setAttribute("aria-expanded", "false");
     if (-1 === menu.className.indexOf("nav-menu")) {
         menu.className += ' nav-menu';
     }
@@ -64,7 +64,7 @@
 
     // Get all the link elements within the menu.
     links = menu.getElementsByTagName("a");
-    subMenus = menu.getElementsByTagName('ul');
+    subMenus = menu.getElementsByTagName("ul");
 
     // Set menu items with submenus to aria-haspopup="true".
     for (var i = 0, len = subMenus.length; i < len; i++) {

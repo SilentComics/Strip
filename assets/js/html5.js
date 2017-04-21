@@ -19,7 +19,7 @@
   var supportsHtml5Styles;
 
   /** Name of the expando, to work with multiple documents or to re-shiv one document */
-  var expando = '_html5shiv';
+  var expando = "_html5shiv";
 
   /** The id for the the documents expando */
   var expanID = 0;
@@ -39,7 +39,7 @@
 
         supportsUnknownElements = a.childNodes.length === 1 || (function() {
           // assign a false positive if unable to shiv
-          (document.createElement)('a');
+          (document.createElement)("a");
           var frag = document.createDocumentFragment();
           return (
             typeof frag.cloneNode === "undefined" ||

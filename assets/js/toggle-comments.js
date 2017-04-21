@@ -6,7 +6,7 @@
 jQuery(document).ready(function() {
 
 	// Get #comment-section div
-	var commentsDiv = jQuery('#comments');
+	var commentsDiv = jQuery("#comments");
 
 	// Only do this work if that div isn't empty
 	if (commentsDiv.length) {
