@@ -16,8 +16,8 @@ jQuery(document).ready(function() {
 
 	// Append a link to show/hide
 	jQuery("<button/>")
-		.attr('class', 'toggle-comments')
-		.attr('href', '#')
+		.attr("class", "toggle-comments")
+		.attr("href", "#")
 		.text("Join the Discussion")
 		.insertBefore(commentsDiv);
 
@@ -27,7 +27,7 @@ jQuery(document).ready(function() {
 	}));
 
 	// When show/hide is clicked
-	jQuery('.toggle-comments').on('click', function(e) {
+	jQuery(".toggle-comments").on("click", function(e) {
 		e.preventDefault();
 
 	// Show/hide the div using jQuery's toggle()
@@ -39,6 +39,6 @@ jQuery(document).ready(function() {
 	});
 	});
 
-	} // End of commentsDiv.length
+} // End of commentsDiv.length
 
 }); // End of Show/Hide Comments
