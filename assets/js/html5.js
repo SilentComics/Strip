@@ -77,7 +77,7 @@
    * @private
    * @returns {Array} An array of shived element node names.
    */
-  function getElements() {
+    function getElements() {
     var elements = html5.elements;
     return typeof elements === "string" ? elements.split(' ') : elements;
   }
@@ -201,7 +201,7 @@
       return createElement(nodeName, ownerDocument, data);
     };
 
-    ownerDocument.createDocumentFragment = Function("h,f", 'return new function(){' +
+    ownerDocument.createDocumentFragment = new Function("h,f", 'return new function(){' +
       "var n=f.cloneNode(),c=n.createElement;" +
       'h.shivMethods&&(' +
         // unroll the `createElement` calls
@@ -318,7 +318,7 @@
 
   // shiv the document
   shivDocument(document);
-
+var module;
   if(typeof module === "object" && module.exports){
     module.exports = html5;
   }
