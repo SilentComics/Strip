@@ -34,11 +34,11 @@ jQuery(document).ready(function() {
 	jQuery(commentsDiv).toggle("slow", function() {
 	// change the text of the anchor
 		var anchor = jQuery(".toggle-comments");
-		var anchorText = anchor.html() === 'Hide Comments' ? 'Show Comments' : 'Hide Comments';
+		var anchorText = anchor.html() === "Hide Comments" ? "Show Comments" : "Hide Comments";
 		jQuery(anchor).text(anchorText);
 	});
 	});
 
-} // End of commentsDiv.length
+	} // End of commentsDiv.length
 
 }); // End of Show/Hide Comments
