@@ -27,7 +27,7 @@
 
     menu.setAttribute("aria-expanded", "false");
     if (-1 === menu.className.indexOf("nav-menu")) {
-        menu.className += ' nav-menu';
+        menu.className += " nav-menu";
     }
     /**
      * Sets or removes .focus class on an element.
@@ -43,7 +43,7 @@
                 if (-1 !== self.className.indexOf("focus")) {
                     self.className = self.className.replace(' focus', '');
                 } else {
-                    self.className += ' focus';
+                    self.className += " focus";
                 }
             }
 
@@ -54,9 +54,9 @@
         if (-1 !== container.className.indexOf("toggled")) {
             container.className = container.className.replace(' toggled', "");
             button.setAttribute("aria-expanded", "false");
-            menu.setAttribute('aria-expanded', 'false');
+            menu.setAttribute("aria-expanded", "false");
         } else {
-            container.className += ' toggled';
+            container.className += " toggled";
             button.setAttribute("aria-expanded", "true");
             menu.setAttribute("aria-expanded", "true");
         }

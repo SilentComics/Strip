@@ -8,7 +8,7 @@
 
 		// Left arrow key code.
 		if ( 37 === e.which ) {
-			url = $( '.previous a' ).attr( 'href' );
+			url = $( ".previous a" ).attr( "href" );
 
 		// Right arrow key code.
 		} else if ( 39 === e.which ) {
