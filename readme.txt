@@ -4,20 +4,25 @@ Contributors: Anh Hoa Si, SILENT COMICS
 Requires at least: WordPress 4.7.3
 Tested up to: 4.8-alpha
 Version; 1.1.3
-License: GPLv3 or later
+License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Tags: one-column, flexible-header, grid-layout, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images, post-formats, rtl-language-support, sticky-post, theme-options, custom-logo, translation-ready, blog
 
 Strip is a WordPress theme designed for the upcoming [SILENT COMICS](http://silent-comics.com) site. The theme is still in development and released under the GNU General Public License.
 
 === Warning ===
-At this writing, the theme doesn't comply with WordPress.org requirements of separation of presentation and content. Two of the theme's functions, custom post type and custom taxonomy, should go in a plugin. This means you will lose access to your (comics) data if you use this theme and then switch theme. That is not something we want to happen. So until a simple webcomic plugin is ready to solve this potential issue, it is best to avoid using this theme on your live site.
+
+At this writing, the theme doesn't comply with WordPress.org requirements of separation of presentation and content.
+Two of the theme's functions, custom post type and custom taxonomy, should go in a plugin.
+This means you will lose access to your (comics) data if you use this theme and then switch theme.
+That is not something we want to happen.
+So until a simple webcomic plugin is ready to solve this potential issue, it is best to avoid using this theme on your live site.
 
 == Description ==
 
 Strip is a theme to showcase and manage online comics with WordPress.
 Easy to use, distraction free and responsive.
-Designed for large images, galleries and continuous stories, optimised for fullscreen mode on desktop computers, mobile and tablets.
+Designed for large images, galleries and continuous stories, optimized for fullscreen mode on desktop computers, mobile and tablets.
 Its main function is a comic post format with basic navigation for web comics.
 It will display comics in ascending or descending order (scroll) or one panel at a time, using the native WP gallery for each comic post (card). Following this logic, each story reads either panel by panel or page by page.
 The theme will handle different series or one-offs, sorted under the custom taxonomy “story”.
@@ -49,7 +54,7 @@ For more information about Silent Comics please go to https://Strip.com/about.
 Replace the Base64 code found in assets/inline-logo.svg.php with your own logo.
 You can then call your logo in header.php replacing this line: `<?php get_template_part(‘assets/inline', 'logo.svg'); ?>`.
 Or remove that line if you don’t bother about having a svg logo.
-You can also add a custom image logo from the customiser → site identity → logo, just use the site text title or both.
+You can also add a custom image logo from the customizer → site identity → logo, just use the site text title or both.
 
 - 3 To publish a comic you can post under “comic” or “add a new comic”.
 Add a story name to sort comics by titles for multiple stories.
@@ -66,7 +71,7 @@ The url will be http://yoururl/story/name
 
 - 4 Post each comic episode as a single image or several images to form one comic.
 The theme allows for high resolution pictures.
-For large images, the recommended width is 1920px.
+The recommended width for large images is 1920px.
 The theme uses native WordPress galleries for galleries posted in comics and regular posts.
 Clicking on one image will take the user to a single image page. So a comics can read panel by panel.
 You can go to the next single panel by click or keyboard navigation (left and right arrows).
@@ -151,4 +156,4 @@ GNU General Public License for more details.
 
 This theme looks best in the latest version of one of the following browsers; Safari, Firefox, Edge, Chrome, Opera, Vivaldi or Brave.
 
-If you find a bug, please report it to hoa // at // silent-comics.com
+Found a bug? Please report it to hoa // at // silent-comics.com

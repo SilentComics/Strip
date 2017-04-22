@@ -583,9 +583,6 @@ add_action( 'after_switch_theme', 'strip_rewrite_rules' );
 	 */
 	function strip_set_posts_per_page( $query ) {
 		global $wp_the_query;
-		if ( $wp_the_query-> is_home() && $wp_the_query-> is_search() ) {
-			$query->set( 'post_type', array( 'post', 'comic', 'posts_per_page', 12 ) );
-		}
 		if ( $wp_the_query-> is_post_type_archive( 'product' ) ) {
 			$query->set( 'posts_per_page', 4 );
 		}
