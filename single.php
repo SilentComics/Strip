@@ -24,8 +24,8 @@ get_header(); ?>
 			endif;
 
 			the_post_navigation( array(
-				'prev_text' => '<span class="screen-reader-text">' . __( 'Previous Post', 'strip' ) . '</span><span aria-hidden="true" class="nav-subtitle">' . _x( '&#8592;', 'Previous post link', 'strip' ) . '</span> %title</span>',
-				'next_text' => '<span class="screen-reader-text">' . __( 'Next Post', 'strip' ) . '</span> %title <span aria-hidden="true" class="nav-subtitle">' . _x( '&#8594;', 'Next post link', 'strip' ) . '</span> </span>',
+				'prev_text' => '<span class="screen-reader-text">' . __( 'Previous Post', 'strip' ) . '</span><span aria-hidden="true" class="nav-subtitle">' . esc_html_x( '&larr;', 'Previous post link', 'strip' ) . '</span> %title</span>',
+				'next_text' => '<span class="screen-reader-text">' . __( 'Next Post', 'strip' ) . '</span> %title <span aria-hidden="true" class="nav-subtitle">' . esc_html_x( '&rarr;', 'Next post link', 'strip' ) . '</span> </span>',
 			) );
 
 		endwhile; // end of the loop. ?>
