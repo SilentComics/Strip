@@ -590,19 +590,20 @@ add_action( 'after_switch_theme', 'strip_rewrite_rules' );
 		return  $query;
 	}
 
-	add_action( 'pre_get_posts', 'add_comic_post_type_to_loop' );
 	/**
 	 * Show comics post types on home page (blog) and feeds.
 	 *
-	 * @param string $loop add_comic_post_types_to_loop.
+	 * @param string $query strip_add_comics_to_blog.
 	 */
-	function add_comic_post_type_to_loop( $loop ) {
-		$loop = '';
-		if ( $loop->is_main_query() && $loop->is_home() ) {
-			$loop->set( 'post_type', array( 'post', 'comic' ) );
-			return $loop;
+	function strip_add_comics_to_blog( $query ) {
+		if ( ! is_admin()
+			&& $query->is_main_query()
+			&& $query->is_home()
+		) {
+			$query->set( 'post_type', array( 'post', 'comic' ) );
 		}
 	}
+	add_action( 'pre_get_posts', 'strip_add_comics_to_blog' );
 
 	/**
 	 * Set an automatic default custom taxonomy for comic posts.
