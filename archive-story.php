@@ -81,8 +81,6 @@ get_header(); ?>
 		?>
 
 		<?php
-				global $wp_query;
-
 				$big = 999999999; // need an unlikely integer.
 				$translated = __( 'Page', 'strip' ); // supply translatable string.
 
