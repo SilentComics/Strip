@@ -582,13 +582,13 @@ add_action( 'after_switch_theme', 'strip_rewrite_rules' );
 	 * @return $query
 	 */
 	function strip_set_posts_per_page( $query ) {
-		global $wp_the_query;
 		$query  = '';
-		if ( $wp_the_query-> is_post_type_archive( 'product' ) ) {
+		if ( is_post_type_archive( 'product' ) ) {
 			$query->set( 'posts_per_page', 4 );
 		}
-		return  $query;
+		return;
 	}
+
 
 	/**
 	 * Show comics post types on home page (blog) and feeds.
@@ -596,14 +596,13 @@ add_action( 'after_switch_theme', 'strip_rewrite_rules' );
 	 * @param string $query strip_add_comics_to_blog.
 	 */
 	function strip_add_comics_to_blog( $query ) {
-		if ( ! is_admin()
-			&& $query->is_main_query()
-			&& $query->is_home()
-		) {
+		if ( ! is_admin() || ! $query->is_main_query() || ! $query->is_home() ) {
+			return; {
 			$query->set( 'post_type', array( 'post', 'comic' ) );
+			}
 		}
 	}
-	add_action( 'pre_get_posts', 'strip_add_comics_to_blog' );
+		add_action( 'pre_get_posts', 'strip_add_comics_to_blog' );
 
 	/**
 	 * Set an automatic default custom taxonomy for comic posts.
