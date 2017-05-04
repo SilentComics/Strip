@@ -279,7 +279,7 @@ add_action( 'wp_enqueue_scripts', 'enqueue_royal_sliders' );
 function enqueue_royal_sliders() {
 	if ( function_exists( 'register_new_royalslider_files' ) ) {
 		// you could try this: if ( is_single() && is_archive() ) { but you don't really need it.
-			register_new_royalslider_files( 1 ); // place register_new_royalslider_files function here, 1 is your slider's configuration number
+			register_new_royalslider_files( 1 ); // 1 is RoyalSlider configuration number
 		// add } if use is_single etc.
 	}
 }
@@ -474,7 +474,7 @@ add_action( 'after_switch_theme', 'strip_rewrite_rules' );
 	remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20, 0 );
 	remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10 );
 	remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10 );
-	// remove_action( 'woocommerce_after_shop_loop', 'woocommerce_pagination', 10 ); removes woo pagination.
+	// remove_action( 'woocommerce_after_shop_loop', 'woocommerce_pagination', 10 ); // removes woo pagination.
 	remove_action( 'woocommerce_before_shop_loop', 'woocommerce_result_count', 20 );
 	remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30 );
 
@@ -583,6 +583,7 @@ add_action( 'after_switch_theme', 'strip_rewrite_rules' );
 	 */
 	function strip_set_posts_per_page( $query ) {
 		global $wp_the_query;
+		$query  = '';
 		if ( $wp_the_query-> is_post_type_archive( 'product' ) ) {
 			$query->set( 'posts_per_page', 4 );
 		}
@@ -596,6 +597,7 @@ add_action( 'after_switch_theme', 'strip_rewrite_rules' );
 	 * @param string $loop add_comic_post_types_to_loop.
 	 */
 	function add_comic_post_type_to_loop( $loop ) {
+		$loop = '';
 		if ( $loop->is_main_query() && $loop->is_home() ) {
 			$loop->set( 'post_type', array( 'post', 'comic' ) );
 			return $loop;
