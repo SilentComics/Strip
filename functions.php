@@ -582,13 +582,11 @@ add_action( 'after_switch_theme', 'strip_rewrite_rules' );
 	 * @return $query
 	 */
 	function strip_set_posts_per_page( $query ) {
-		$query  = '';
 		if ( is_post_type_archive( 'product' ) ) {
 			$query->set( 'posts_per_page', 4 );
 		}
-		return;
+		return $query;
 	}
-
 
 	/**
 	 * Show comics post types on home page (blog) and feeds.
@@ -596,11 +594,10 @@ add_action( 'after_switch_theme', 'strip_rewrite_rules' );
 	 * @param string $query strip_add_comics_to_blog.
 	 */
 	function strip_add_comics_to_blog( $query ) {
-		if ( ! is_admin() || ! $query->is_main_query() || ! $query->is_home() ) {
-			return; {
+		if ( is_home() && $query->is_main_query() ) {
 			$query->set( 'post_type', array( 'post', 'comic' ) );
-			}
 		}
+			return $query;
 	}
 		add_action( 'pre_get_posts', 'strip_add_comics_to_blog' );
 
