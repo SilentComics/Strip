@@ -26,12 +26,12 @@ function strip_infinite_scroll_setup() {
 add_action( 'after_setup_theme', 'strip_infinite_scroll_setup' );
 
 /**
- * Enables Jetpack's Infinite Scroll for home (blog), disables it in WooCommerce product archives
+ * Enables Jetpack's Infinite Scroll for home (blog)
  *
  * @return bool
  * https://wordpress.org/support/topic/suppress-infinite-blog-with-woocommerce
  */
 function strip_jetpack_infinite_scroll_supported() {
-	return current_theme_supports( 'infinite-scroll' ) && ( is_admin() || is_home() || is_search()  && ! is_post_type_archive( 'product' ) );
+	return current_theme_supports( 'infinite-scroll' ) && ( is_admin() || is_home() || is_search() );
 }
 add_filter( 'infinite_scroll_archive_supported', 'strip_jetpack_infinite_scroll_supported' );

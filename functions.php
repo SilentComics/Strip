@@ -584,8 +584,10 @@ add_action( 'after_switch_theme', 'strip_rewrite_rules' );
 	function strip_set_posts_per_page( $query ) {
 		if ( is_post_type_archive( 'product' ) ) {
 			$query->set( 'posts_per_page', 4 );
+			return  $query;
+		} elseif ( is_tax( 'story' ) ) {
+			$query->set( 'posts_per_page', 6 );
 		}
-		return $query;
 	}
 
 	/**
@@ -596,8 +598,8 @@ add_action( 'after_switch_theme', 'strip_rewrite_rules' );
 	function strip_add_comics_to_blog( $query ) {
 		if ( is_home() && $query->is_main_query() ) {
 			$query->set( 'post_type', array( 'post', 'comic' ) );
+				return $query;
 		}
-			return $query;
 	}
 		add_action( 'pre_get_posts', 'strip_add_comics_to_blog' );
 
