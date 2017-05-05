@@ -72,14 +72,14 @@ if ( ! function_exists( 'strip_setup' ) ) :
 		/**
 		 * Remove paragraph tags around images.
 		 *
-		 * @param array $content filter p tags.
-		 * @return $content
+		 * @param array $picture filter p tags.
+		 * @return $picture
 		 * @link https://css-tricks.com/snippets/wordpress/remove-paragraph-tags-from-around-images/
 		 * @see http://codex.wordpress.org/Function_Reference/wpautop gets the same result but removes line blocks: remove_filter( 'the_content', 'wpautop' );
 		 */
-		function filter_ptags_on_images( $content ) {
-			$content = preg_replace( '/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $content );
-			return preg_replace( '/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $content );
+		function filter_ptags_on_images( $picture ) {
+			$picture = preg_replace( '/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $picture );
+			return preg_replace( '/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $picture );
 		}
 		add_filter( 'the_content', 'filter_ptags_on_images' );
 
