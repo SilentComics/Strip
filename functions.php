@@ -72,12 +72,12 @@ if ( ! function_exists( 'strip_setup' ) ) :
 		/**
 		 * Remove paragraph tags around images.
 		 *
-		 * @param array $hinh filter p tags.
+		 * @param array $img filter p tags.
 		 * @link https://css-tricks.com/snippets/wordpress/remove-paragraph-tags-from-around-images/
 		 * @see http://codex.wordpress.org/Function_Reference/wpautop gets the same result but removes line blocks: remove_filter( 'the_content', 'wpautop' );
 		 */
-		function filter_ptags_on_images( $hinh ) {
-			return preg_replace( '/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $hinh );
+		function filter_ptags_on_images( $img ) {
+			return preg_replace( '/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $img );
 		}
 		add_filter( 'the_content', 'filter_ptags_on_images' );
 
