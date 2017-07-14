@@ -219,7 +219,7 @@ function strip_scripts() {
 	wp_enqueue_style( 'strip-style', get_stylesheet_uri() );
 
 	// Load the Internet Explorer specific stylesheet. Conditional stylesheet — tested and works with IE9 on Windows7.
-	wp_enqueue_style( 'strip-ie', get_template_directory_uri() . 'assets/css/ie.css', array( 'strip-style' ), '20160305' );
+	wp_enqueue_style( 'strip-ie', get_template_directory_uri() . '/assets/css/ie.css', array( 'strip-style' ), '20160305' );
 	wp_style_add_data( 'strip-ie', 'conditional', 'lt IE 10' );
 
 	if ( has_nav_menu( 'primary' ) ) {
