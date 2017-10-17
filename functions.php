@@ -63,12 +63,11 @@ if ( ! function_exists( 'strip_setup' ) ) :
 *
 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
 */
-		add_theme_support( 'post-thumbnails' );
-		add_image_size( 'strip-featured-image', 1920, 960, true );
-		add_image_size( 'strip-large', 1920, 960, true ); // cropped.
-		add_image_size( 'strip-medium', 624, 312, true ); // cropped.
-		add_image_size( 'strip-thumbnail', 312, 156, true ); // cropped.
-
+add_theme_support( 'post-thumbnails' );
+add_image_size( 'strip-featured-image', 1920, 480, true );
+add_image_size( 'strip-large', 1272, 636, true ); // cropped.
+add_image_size( 'strip-medium', 624, 312, true ); // cropped.
+add_image_size( 'strip-thumbnail', 312, 156, true ); // cropped.
 		/**
 		 * Remove paragraph tags around images.
 		 *
