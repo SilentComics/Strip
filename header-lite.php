@@ -23,7 +23,7 @@
 }
 	?>" />
 <link rel="profile" href="http://gmpg.org/xfn/11">
-<link type="text/plain" rel="author" href="http://silent-comics.com/humans.txt" />
+<link type="text/plain" rel="author" href="" />
 
 <?php wp_head(); ?>
 </head>
