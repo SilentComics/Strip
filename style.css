@@ -4,7 +4,7 @@ Theme URI: https://github.com/SilentComics/Strip
 Author: SILENT COMICS
 Author URI: http://silent-comics.com
 Description: A WordPress theme for comics and webcomics <a href="https://github.com/SilentComics/Strip/">Contribute on GitHub</a>
-Version: 1.1.3
+Version: 1.1.3.9
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: strip
@@ -95,7 +95,7 @@ abbr[title] {
 
 b,
 strong {
-	font-weight: 700; }
+	font-weight: bold; }
 
 dfn {
 	font-style: italic; }
@@ -184,7 +184,6 @@ input[type="search"] {
 	-webkit-appearance: textfield;
 	-moz-appearance: textfield;
 	box-sizing: content-box; }
-
 /*--------------------------------------------------------------
 2.0 Typography
 --------------------------------------------------------------*/
@@ -493,13 +492,11 @@ a:active {
 .custom-logo-link {
 	display: block;
 }
-.wp-custom-logo  .site-title {
+.custom-logo  .site-title {
 	margin-top: 0.2em; }
 
 .custom-logo {
-	max-width: 312px; }
-
-.wp-custom-logo .site-header-main {
+	max-width: 312px;
 	margin: 0 auto; }
 
 /* author's custom style (svg logo)
@@ -508,7 +505,7 @@ a:active {
 	width: 124px; /* required to center */
 	height: 62px;
 	position: relative;
-	margin: 12px 0 12px 0;
+	margin: 24px 0 12px 0;
 	display: inline-block; }
 
 .logo:after, a.logo:after {
@@ -535,7 +532,7 @@ a:active {
 	position: relative;
 	text-align: center; /* Avoid overflowing wide custom logo in small screens in Firefox and IEs */
 	max-width: 100%;
- 	min-width: 0;
+ 	min-width: 100%;
  	overflow: hidden; }
 
 .site-title {
@@ -547,6 +544,7 @@ a:active {
 	letter-spacing: 0.1em;
 	margin: 0 auto;
 	width: 312px; /* prevent overflow for long titles */
+	margin-top: 12px;
 	padding: 3px 9px 4px 9px;
 	text-align: center;
 	text-transform: uppercase;
@@ -564,11 +562,6 @@ a:active {
 	text-align: center;
 	padding: 0 6px 6px 6px;
 	margin-bottom: 0.1em; }
-
-.header-image {
-  width: 100%;
-  height: auto;
-  -ms-interpolation-mode: bicubic; }
 
 /* =Menu
 ----------------------------------------------- */
@@ -714,16 +707,16 @@ button.menu-toggle:hover {
 .nav-previous-page a,
 .nav-next-page a {
 	font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
-    font-size: 10px;
-    font-size: 0.625rem;
-    overflow: hidden;
-    line-height: 2;
-    margin: 0 0 6px 0;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: black;
-    padding: 10px 12px;
-    background-color: #faf4f4; }
+  font-size: 10px;
+  font-size: 0.625rem;
+  overflow: hidden;
+  line-height: 2;
+  margin: 0 0 6px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: black;
+  padding: 10px 12px;
+  background-color: #faf4f4; }
 
 .page-numbers,
 .prev page-numbers,
@@ -748,11 +741,11 @@ button.menu-toggle:hover {
 .comment-navigation .nav-next,
 .paging-navigation .nav-next,
 .post-navigation .nav-next {
-    float: right;
-    text-align: right; }
+  float: right;
+  text-align: right; }
 
  .image-navigation {
-	font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
+	font-family: Inconsolata, monospace; /*font-family: Futura, 'Trebuchet MS', Arial, sans-serif;*/
 	font-size: 16px;
 	font-size: 1rem; }
 
@@ -861,7 +854,8 @@ body {
 .footer-widget-4 {
 	float: left;
 	text-align: left;
-	letter-spacing: 0.09em; }
+	/* padding-left: 0.2em; */
+	letter-spacing: 0.16em; }
 
 .footer-widget-4 {
 	margin-right: 0; }
@@ -871,8 +865,8 @@ body {
 .widget a {
 	font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
 	color: #422424;
-	font-size: 12px;
-	line-height: 1.44; /*check */
+	font-size: 0.75rem;
+	line-height: 1.5; /*check */
 	font-weight: 300;
 	margin: 0 0 2.4em 0;
 }
@@ -910,7 +904,7 @@ body {
 
 .widget-area-wrapper {
 	margin: 0 auto;
-	max-width: 1128px; /* wraps the footer widget */}
+max-width: 1272px; /* wraps the footer widget */}
 
 /* Search widget */
 .widget_search form {
@@ -946,7 +940,7 @@ body {
 
 .widget_calendar thead th,
 .widget_calendar tbody td {
-	background-color: #faf4f4; }
+	background-color: #fff; }
 
 .widget_calendar thead th a,
 .widget_calendar tbody td a {
@@ -1024,12 +1018,9 @@ article.error404 .widget ul a  {
 article.error404 .widget li {
 	border-top: 1px solid #ffeeee; }
 
-article.error404 .widget_calendar {
-width: auto;
-font-size: 8px; }
-
 article.error404 .widget_calendar,
 article.error404 .widget_calendar a {
+	width: auto;
 	font-size: 12px;
 	line-height: 2; }
 
@@ -1227,7 +1218,7 @@ span > object {
 
 .tab--preview {
   	display: block;
-	position: relative;
+		position: relative;
     padding-bottom: 56.25%;
     padding-top: 30px; height: 0; overflow: hidden; }
 
@@ -1271,45 +1262,45 @@ span > object {
 .gallery-item,
 .gallery-item .attachment-thumbnail {
     float: left;
-    margin: 0 6px 9px 0; /* vertical & horizontal space between image galleries */
+    margin: 0 6px 8px 0; /* vertical & horizontal space between image galleries */
     line-height: 0; /* remove default space between rows */
     overflow: hidden;
-    position: relative; }
+    position:   relative; }
 
 .gallery-columns-1 .gallery-item {
     max-width: 100%; }
 
 .gallery-columns-2 .gallery-item {
     max-width: 48%;
-    max-width: calc(50% - 3px); }
+    max-width: calc(50% - 6px); }
 
 .gallery-columns-3 .gallery-item {
     max-width: 32%;
-    max-width: calc(33.3% - 4px); }
+    max-width: calc(33.3% - 6px); }
 
 .gallery-columns-4 .gallery-item {
     max-width: 23%;
-    max-width: calc(25% - 5px); }
+    max-width: calc(25% - 6px); }
 
 .gallery-columns-5 .gallery-item {
     max-width: 19%;
-    max-width: calc(20% - 5px); }
+    max-width: calc(20% - 6px); }
 
 .gallery-columns-6 .gallery-item {
     max-width: 15%;
-    max-width: calc(16.82% - 7px); }
+    max-width: calc(16.7% - 6px); }
 
 .gallery-columns-7 .gallery-item {
     max-width: 13%;
-    max-width: calc(14.5% - 8px); }
+    max-width: calc(14.28% - 6px); }
 
 .gallery-columns-8 .gallery-item {
     max-width: 11%;
-    max-width: calc(12.56% - 6px); }
+    max-width: calc(12.5% - 6px); }
 
 .gallery-columns-9 .gallery-item {
     max-width: 9%;
-    max-width: calc(11.47% - 10px); }
+    max-width: calc(11.1% - 6px); }
 
 .gallery-columns-1 .gallery-item:nth-of-type(1n),
 .gallery-columns-2 .gallery-item:nth-of-type(2n),
@@ -1370,10 +1361,10 @@ span > object {
 	margin-bottom: 34px;
 	max-width: 100%; }
 
-.wp-caption {
+.wp-caption img {
 	display: block;
 	height: auto;
-	margin: 0;
+	margin: 0 auto;
 	max-width: 100%; }
 
 .wp-caption-text {
@@ -1534,6 +1525,8 @@ span > object {
 	font-size: 1rem;
 	line-height: 1.2; }
 
+/* Two columns grid */
+
 /* Three columns grid */
 .three-columns { width: 100%; margin: 0.6em 0 0 0; }
 .three-columns:before, .three-columns:after { content: " "; display: table; }
@@ -1555,27 +1548,28 @@ span > object {
 .series-title { font-size: 10px; font-weight: 100; line-height: 1.2; } }
 
 /* Four columns grid */
-.columns { width: 100%; margin: 0.6em 0 0 0;  }
-.columns:before, .columns:after { content: " "; display: table; }
-.columns:after { clear: both; }
-.column { float: left; margin: 0 1.2% 12px 0; width: 24%; }
-.column:nth-child(4n) { margin-right: 0; }
-.column:nth-child(4n+1) { margin-left: 0; clear: left; }
-.column img { width: 100%;
+/* Four columns grid */
+.four-columns { width: 100%; margin: 0;  }
+.four-columns:before, .four-columns:after { content: " "; display: table; }
+.four-columns:after { clear: both; }
+.four-column { float: left; margin: 0 1.333% 1.2rem 0; width: 24%; }
+.four-column:nth-child(4n) { margin-right: 0; }
+.four-column:nth-child(4n+1) { margin-left: 0; clear: left; }
+.four-column img { width: 100%;
 
-max-width: 312px; /* Width of new image */
-max-height: 156px; /* Height of new image */
+max-width: 624px; /* Width of new image */
+max-height: 312px; /* Height of new image */
    }
 
 @media screen and (max-width: 816px) {
-.column { margin: 0 2% 10px 0; width: 48%; }
-.column:nth-child(2n) { margin-right: 0; }
-.column:nth-child(2n+1) { margin-left: 0; clear: left; } }
+.four-column { margin: 0 2% 0.625rem 0; width: 49%; }
+.four-column:nth-child(2n) { margin-right: 0; }
+.four-column:nth-child(2n+1) { margin-left: 0; clear: left; } }
 
 @media screen and (max-width: 456px) {
-.column { margin: 0; width: 100%; }
-.column:nth-child(1n) { margin-right: 0; }
-.column:nth-child(1n+1) { margin-left: 0; clear: left; }
+.four-column { margin: 0; width: 100%; }
+.four-column:nth-child(1n) { margin-right: 0; }
+.four-column:nth-child(1n+1) { margin-left: 0; clear: left; }
 .series-title { font-size: 10px; font-weight: 100; line-height: 1.2; } }
 
 /*--------------------------------------------------------------
@@ -1695,12 +1689,13 @@ text-align: right; }
 10.7 Footer
 --------------------------------------------------------------*/
 .site-footer {
-	background-color: #faf4f4; /* #EFE9EA or #faf4f4  */
+	background-color: #fff; /* #EFE9EA or #faf4f4  #FF7369 */
+	border-top: 3px solid #000;
 	border-bottom: 3px solid #000; }
 
 .site-info {
 	color: #421212;
-	background-color: #faf4f4; /* white? */
+	background: transparent;  /* white? */
 	font-family: Inconsolata, monospace;
 	font-size: 12px;
 	font-size: 0.75rem;
@@ -1732,7 +1727,7 @@ text-align: right; }
 	margin:0 4px 0 0;
 	line-height: 1.2;
 	display: block;
-    font-family: Inconsolata, monospace;
+  font-family: Inconsolata, monospace;
 	text-align: center;
 	width: 100%; } /* input fields */
 
@@ -1829,8 +1824,8 @@ article.error404 .widget {
   .footer-widget-2,
   .footer-widget-3,
   .footer-widget-4 {
-    margin: 0 12% 0 0;
-    width: 38%; } }
+    margin: 0 8% 0 0;
+    width: 42%; } }
 
 @media screen and (min-width: 744px) {
 	.wrap {
@@ -1882,8 +1877,8 @@ article.error404 .widget {
   .footer-widget-2,
   .footer-widget-3,
   .footer-widget-4 {
-    margin: 0 6% 0 0;
-    width: 19%; } }
+    margin: 0 1% 0 0;
+    width: 24%; } }
 
 @media screen and (min-width: 1176px) {
 	.wrap {
