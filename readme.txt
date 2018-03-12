@@ -2,21 +2,26 @@
 
 Contributors: Anh Hoa Si, SILENT COMICS
 Requires at least: WordPress 4.7.3
-Tested up to: 4.8
-Version; 1.1.4
+Tested up to: 4.9.4
+Version; 1.1.5
 License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-3.0.html
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: one-column, flexible-header, grid-layout, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images, post-formats, rtl-language-support, sticky-post, theme-options, custom-logo, translation-ready, blog
 
-Strip is a WordPress theme designed for the upcoming [SILENT COMICS](http://silent-comics.com) site. The theme is still in development and released under the GNU General Public License.
+Strip is a WordPress theme designed for the upcoming [SILENT COMICS](http://silent-comics.com) site. The theme is released under the GNU General Public License but still under development.
+If you intend to use this theme on a live site, please read the warning first.
 
 === Warning ===
 
 At this writing, the theme doesn't comply with WordPress.org requirements of separation of presentation and content.
-Two of the theme's functions, custom post type and custom taxonomy, should go in a plugin.
-This means you will lose access to your (comics) data if you use this theme and then switch theme.
-That is not something we want to happen.
-So until a simple webcomic plugin is ready to solve this potential issue, it is best to avoid using this theme on your live site.
+To be specific, two ```functions, register_post_type()``` and ```register_taxonomy()``` should go in a plugin.
+These enable "comics", and sorting through different series or "stories".
+In effect, this creates an involuntary lock-in effect.
+This means you would lose access to your (comics) data if you used this theme and then switched to another theme.
+The data would still exist but you wouldn’t be able to see it.
+That is an unwanted consequence of sharing a theme designed for a specific project.
+Until a simple comic plugin can solve this potential issue, it is best to avoid using this theme on your live site.
+**DON’T** use it on your live site, unless the above doesn’t bother you
 
 == Description ==
 
@@ -118,7 +123,7 @@ Strip includes support for Infinite Scroll in Jetpack, and support for WooCommer
 
 == Credits ==
 
-Strip WordPress Theme, Copyright 2013-2016 silent-comics.com
+Strip WordPress Theme, Copyright 2013-2018 silent-comics.com
 
 Strip Theme bundles the following third-party resources:
 Based on Underscores http://underscores.me/, Copyright 2012-2016 Automattic, Inc.,

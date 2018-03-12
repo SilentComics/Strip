@@ -11,13 +11,17 @@ changelog.txt
 
 == changelog ==
 
-= (00/07/2017) - Version 1.1.4 =
-[>] Fix inconsistencies
+= (12/03/2018) - Version 1.1.5 =
+Added REST API support for custom content type (comics) & custom taxonomy (story) — to comics post now works with Gutenberg enabled.
+
+= (00/08/2017) - Version 1.1.4 =
+[>] Fixed little inconsistencies in styling and code
+[+] Added a two columns grid option for home
 
 = (20/04/2017) - Version 1.1.3 =
 [-] Removed post formats "status" and "aside" in functions.php
 [>] Improved archive.php, removed navigation error on tag & category archives
-[-] Cleaned wp_head, removing some useless queries
+[-] Cleaned wp_head, removed some useless queries
 [+] Sidebar in index.php
 [-] Removed function strip_content_nav completely
 [>] Cleaned Template_Tags
@@ -33,7 +37,7 @@ changelog.txt
 [-] `strip_content_nav( 'nav-below' );`
 [x] Deleted the "aside" post format template
 [-] unused code in extras.php
-[+] disable emojis (in extras.php)
+[+] disabled emojis (in extras.php)
 [+]
 
 = (from 26/12.2016 to 17/03/2017) - Version 1.1.1 =
