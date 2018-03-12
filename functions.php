@@ -310,7 +310,7 @@ function get_first_image() {
 	add_filter( 'get_first_image', 'thumbnail' );
 
 /**
- * Register Custom Post Type for comics
+ * Register Custom Post Type for comics with REST API support
  */
 function comic_post_type() {
 
@@ -336,6 +336,7 @@ function comic_post_type() {
 	);
 
 	$supports = array(
+	'gutenberg', // see https://github.com/WordPress/gutenberg/issues/2457
 	'title',
 	'editor',
 	'excerpt',
@@ -356,6 +357,9 @@ function comic_post_type() {
 		'taxonomies'                 => array( 'story', 'story_term', 'draft' ),
 		'hierarchical'               => true,
 		'public'                     => true,
+		'show_in_rest'               => true,
+		'rest_base'                  => 'comics',
+		'rest_controller_class' 		 => 'WP_REST_Posts_Controller',
 		'show_ui'                    => true,
 		'show_in_menu'               => true,
 		'menu_position'              => 20,
