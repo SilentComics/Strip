@@ -28,8 +28,13 @@ Theme review aside, there are a few ways you can [support this project ♥](http
 
 [![Flattr this git repo](http://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?user_id=512grl&url=https://github.com/SilentComics/Strip&title=Strip&language=&tags=github&category=software)
 
+[![Support development][img-donate]][url-donate]
+
 ***
 
 <small><a name="myfootnote1">1</a>: See WordPress.org’s [presentation vs functionality](https://make.wordpress.org/themes/handbook/review/required/#presentation-vs-functionality) guidelines</small>
+
+[img-donate]: https://img.shields.io/badge/donate-paypal-blue.svg?style=flat-square
+[url-donate]: https://www.paypal.me/silentcomics
 
 <small><a name="myfootnote2">2</a>: Because the less plugins this project uses, the better.</small>
