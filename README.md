@@ -26,7 +26,7 @@ I'd love to get contributions for this project. **I’m not a developer** at all
 ## Other ways you can help:
 Theme review aside, there are a few ways you can [support this project ♥](https://silentcomics.com/lynchpin/). *Thank you!*
 
-[![Flattr this git repo](http://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?user_id=512grl&url=https://github.com/SilentComics/Strip&title=Strip&language=&tags=github&category=software)
+[![Flattr Silent Comics](http://silentcomics.com/images/flattr-badge-large.png)](https://flattr.com/@SILENT-COMICS)
 
 [![Support development][img-donate]][url-donate]
 
