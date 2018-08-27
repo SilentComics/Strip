@@ -11,6 +11,10 @@ changelog.txt
 
 == changelog ==
 
+= (27/08/2018) - Version 1.1.6 =
+
+[+] no-referrer meta
+
 = (12/03/2018) - Version 1.1.5 =
 Added REST API support for custom content type (comics) & custom taxonomy (story) — to comics post now works with Gutenberg enabled.
 

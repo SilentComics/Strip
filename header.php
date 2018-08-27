@@ -24,6 +24,7 @@
 	?>" />
 <link rel="profile" href="http://gmpg.org/xfn/11">
 <link type="text/plain" rel="author" href="" />
+<meta name="referrer" content="no-referrer">
 
 <?php wp_head(); ?>
 </head>
