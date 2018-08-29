@@ -21,7 +21,7 @@ This theme is not 100% ready for production, although you are welcome to test it
 
 ## Contributing
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
-**I’m not a developer** and there is room for improvements. Do you know how to make this theme better? I would love to get contributions for this project! Please send your findings and suggestions over to hoa // @ // silent-comics.com or open a pull request here.
+**I’m not a developer** and there is room for improvements. Do you know how to make this theme better? I would love to get contributions for this project! Please send your findings and suggestions over to hoa // @ // silent-comics.com or [open a pull request here](https://github.com/SilentComics/Strip/pulls).
 
 ## Other ways you can help:
 Theme review aside, there are a few ways you can [support this project ♥](https://silentcomics.com/lynchpin/). *Thank you!*
