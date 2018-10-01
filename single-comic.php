@@ -6,7 +6,7 @@
  * @subpackage Strip
  */
 
-if ( post_type_exists( $comics )  && is_single() ) {
+if ( post_type_exists( $comic ) ) {
 	get_header( 'lite' );
 } else {
 	get_header();
@@ -36,7 +36,7 @@ if ( post_type_exists( $comics )  && is_single() ) {
 								<nav class="nav-last"><a href="<?php echo esc_url( last_comic_link() ); ?>"><?php esc_html_e( 'Last', 'strip' ); ?></a></nav>
 							</div><!-- .wrap -->
 
-						<?php set_transient( 'story', $comics );?>
+						<?php set_transient( 'story', $comic );?>
 
 			</div><!-- #entry-comic -->
 
