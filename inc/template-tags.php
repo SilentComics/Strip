@@ -99,7 +99,6 @@ function strip_categorized_blog() {
 	return $category_count > 1;
 }
 
-
 /**
  * Flush out the transients used in strip_categorized_blog.
  */
@@ -129,6 +128,19 @@ if ( ! function_exists( 'strip_the_custom_logo' ) ) :
 endif;
 
 /**
+ * Display navigation to next/previous pages when applicable
+ * TO DO clean up
+ */
+if ( $wp_query->max_num_pages > 1 && ( is_home() || is_archive() || is_post_type_archive( 'comic' ) || is_search() ) ) : // navigation links for home, archive, and search pages
+
+			the_posts_pagination( array(
+						'prev_text' => _x( '&#8592;', 'Previous page link', 'strip' ) . '<span class="screen-reader-text">' . __( 'Previous page', 'strip' ) . '</span>',
+						'next_text' => '<span class="screen-reader-text">' . __( 'Next page', 'strip' ) . '</span>' . _x( '&#8594;', 'Next post link', 'strip' ),
+						'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'strip' ) . ' </span>',
+					) ); 
+		 endif;
+
+/**
  * Get the first and last custom type post using get_boundary_post()
  *
  * @link https://core.trac.wordpress.org/ticket/27094
@@ -149,7 +161,7 @@ function get_comic_boundary_post( $in_same_term, $start, $taxonomy ) {
 		'post_type'              => 'comic',
 		'posts_per_page'         => 1,
 		'order'                  => $start ? 'ASC' : 'DESC',
-		'no_found_rows'          => true,
+		/*'no_found_rows'          => true,*/
 		'update_post_term_cache' => false,
 		'update_post_meta_cache' => false,
 	);

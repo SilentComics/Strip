@@ -2,9 +2,9 @@
 Theme Name: Strip
 Theme URI: https://github.com/SilentComics/Strip
 Author: SILENT COMICS
-Author URI: http://silent-comics.com
+Author URI: https://silent-comics.com
 Description: A WordPress theme for comics and webcomics <a href="https://github.com/SilentComics/Strip/">Contribute on GitHub</a>
-Version: 1.1.6
+Version: 1.1.7
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: strip
@@ -46,144 +46,148 @@ This theme is licensed under the GPL, and is based on Underscores http://undersc
 1.0 - Normalize
 --------------------------------------------------------------*/
 html {
-	font-family: sans-serif;
-	-webkit-text-size-adjust: 100%;
-	-ms-text-size-adjust:     100%; }
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%; }
 
 body {
-	margin: 0; }
+  margin: 0; }
 
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-main,
-menu,
-nav,
-section,
-summary {
-	display: block; }
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0; }
 
-audio,
-canvas,
-progress,
-video {
-	display: inline-block;
-	vertical-align: baseline; }
 
-audio:not([controls]) {
-	display: none;
-	height: 0; }
+hr {
+  box-sizing: content-box;
+  height: 0; 
+  overflow: visible; }
 
-[hidden],
-template {
-	display: none; }
+pre {
+  font-family: monospace, monospace;
+  font-size: 1em; }
 
 a {
-	background-color: transparent; }
-
-/* Accessibility, use focus instead of outline: 0; https://github.com/CSSLint/csslint/wiki/Disallow-outline%3Anone */
-a:focus {
-    border: 1px solid red;
-    outline: none; }
+  background-color: transparent; }
 
 abbr[title] {
-	border-bottom: 1px dotted; }
+  border-bottom: none;
+  text-decoration: underline;
+  text-decoration: underline dotted; }
 
 b,
 strong {
-	font-weight: bold; }
-
-dfn {
-	font-style: italic; }
-
-h1 {
-	font-size: 2em;
-	margin: 0.67em 0; }
-
-mark {
-	background: #ff0;
-	color: #000; }
-
-small {
-	font-size: 80%; }
-
-sub,
-sup {
-	font-size: 75%;
-	line-height: 0;
-	position: relative;
-	vertical-align: baseline; }
-
-sup {
-	top: -0.5em; }
-
-sub {
-	bottom: -0.25em; }
-
-img {
-	border: 0; }
-
-svg:not(:root) {
-	overflow: hidden; }
-
-figure {
-	margin: 1em 40px; }
-
-hr {
-	box-sizing: content-box;
-	height: 0; }
-
-pre {
-	overflow: auto; }
+  font-weight: bolder; }
 
 code,
 kbd,
-pre,
 samp {
-	font-family: monospace, monospace;
-	font-size: 1em; }
+  font-family: monospace, monospace;
+  font-size: 1em; }
+
+small {
+  font-size: 80%; }
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline; }
+
+sub {
+  bottom: -0.25em; }
+
+sup {
+  top: -0.5em; }
+
+img {
+  border-style: none; }
 
 button,
 input,
 optgroup,
 select,
 textarea {
-	color: inherit;
-	font: inherit;
-	margin: 0; }
+  font-family: inherit; 
+  font-size: 100%;
+  line-height: 1.15;
+  margin: 0; }
 
-button {
-	overflow: visible; }
+button,
+input { 
+  overflow: visible; }
 
 button,
 select {
-	text-transform: none; }
+  text-transform: none; }
 
 button,
-html input[type="button"],
-input[type="reset"],
-input[type="submit"] {
-	-moz-appearance: button;
-	-webkit-appearance: button;
-	cursor: pointer; }
-
-button[disabled],
-html input[disabled] {
-  cursor: default; }
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button; }
 
 button::-moz-focus-inner,
-input::-moz-focus-inner {
-	border: 0;
-	padding: 0; }
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+  border-style: none;
+  padding: 0; }
 
-input[type="search"] {
-	-webkit-appearance: textfield;
-	-moz-appearance: textfield;
-	box-sizing: content-box; }
+button:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
+  outline: 1px dotted ButtonText; }
+
+fieldset {
+  padding: 0.35em 0.75em 0.625em; }
+
+legend {
+  box-sizing: border-box;
+  color: inherit;
+  display: table;
+  max-width: 100%;
+  padding: 0;
+  white-space: normal; }
+
+progress {
+  vertical-align: baseline; }
+
+textarea {
+  overflow: auto; }
+
+[type="checkbox"],
+[type="radio"] {
+  box-sizing: border-box;
+  padding: 0; }
+
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+  height: auto; }
+
+[type="search"] {
+  -webkit-appearance: textfield;
+  outline-offset: -2px; }
+
+[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none; }
+
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  font: inherit; }
+
+details {
+  display: block; }
+
+summary {
+  display: list-item; }
+
+template {
+  display: none; }
+
+[hidden] {
+  display: none; }
 /*--------------------------------------------------------------
 2.0 Typography
 --------------------------------------------------------------*/
@@ -356,7 +360,6 @@ button,
 input,
 select,
 textarea {
-	font-size: 100%; /* Corrects font size not being inherited in all browsers */
 	margin: 0; /* Addresses margins set differently in IE6/7, F3/4, S5, Chrome */
 	vertical-align: top; /* Improves readability and alignment in all browsers */ }
 
@@ -372,7 +375,7 @@ input[type="submit"] {
 	-moz-appearance: button;
 	-webkit-appearance: button;
 	border: 0;
-	background: #EFE9EA;
+	background: #fff;
 	color: #422442;
 	cursor: pointer;
 	font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
@@ -439,7 +442,7 @@ textarea {
   input[type="datetime-local"]:focus,
   input[type="color"]:focus,
   textarea:focus {
-  color: #111; }
+  color: #484848; }
 
 select {
 	border: 1px solid #ccc; }
@@ -459,8 +462,9 @@ input[type="time"],
 input[type="datetime"],
 input[type="datetime-local"],
 input[type="color"] {
-	padding: 3px; }
-
+	padding: 3px;
+	font-size: small; }
+ 
   textarea {
 	width: 100%; }
 
@@ -492,7 +496,8 @@ a:active {
 .custom-logo-link {
 	display: block;
 }
-.custom-logo  .site-title {
+.custom-logo,
+.site-title {
 	margin-top: 0.2em; }
 
 .custom-logo {
@@ -707,16 +712,16 @@ button.menu-toggle:hover {
 .nav-previous-page a,
 .nav-next-page a {
 	font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
-  font-size: 10px;
-  font-size: 0.625rem;
-  overflow: hidden;
-  line-height: 2;
-  margin: 0 0 6px 0;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: black;
-  padding: 10px 12px;
-  background-color: #faf4f4; }
+	font-size: 10px;
+	font-size: 0.625rem;
+	overflow: hidden;
+	line-height: 2;
+	margin: 0 0 6px 0;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	color: black;
+	padding: 10px 12px;
+	background-color: #faf4f4; }
 
 .page-numbers,
 .prev page-numbers,
@@ -732,7 +737,7 @@ button.menu-toggle:hover {
 .paging-navigation .nav-previous,
 .post-navigation .nav-previous {
 	display: inline-block;
-  text-align: left; }
+	text-align: left; }
 
 .nav-next a,
 .nav-next-page,
@@ -741,8 +746,8 @@ button.menu-toggle:hover {
 .comment-navigation .nav-next,
 .paging-navigation .nav-next,
 .post-navigation .nav-next {
-  float: right;
-  text-align: right; }
+  	float: right;
+  	text-align: right; }
 
  .image-navigation {
 	font-family: Inconsolata, monospace; /*font-family: Futura, 'Trebuchet MS', Arial, sans-serif;*/
@@ -811,12 +816,33 @@ button.menu-toggle:hover {
 8.0 Clearings
 --------------------------------------------------------------*/
 .clear:before,
-.clear:after {
-	content: "";
-	display: table; }
+.clear:after,
+.gallery:before,
+.gallery:after,
+.entry-content:before,
+.entry-content:after,
+.comment-content:before,
+.comment-content:after,
+.site-header:before,
+.site-header:after,
+.site-content:before,
+.site-content:after,
+.site-footer:before,
+.site-footer:after {
+  content: "";
+  display: table;
+  table-layout: fixed;
+}
 
-.clear:after {
-	clear: both; }
+.clear:after,
+.gallery:after,
+.entry-content:after,
+.comment-content:after,
+.site-header:after,
+.site-content:after,
+.site-footer:after {
+  clear: both;
+}
 
 /* Hidden */
 .hide {
@@ -904,11 +930,11 @@ body {
 
 .widget-area-wrapper {
 	margin: 0 auto;
-max-width: 1272px; /* wraps the footer widget */}
+    max-width: 1272px; /* wraps the footer widget */}
 
 /* Search widget */
 .widget_search form {
-  position: relative; }
+    position: relative; }
 
 .widget_search .search-field,
 .error404 .search-field,
@@ -1092,11 +1118,15 @@ article.error404 .widget_calendar tfoot td {
 	font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
 	font-size: 10px;
 	font-size: 0.625rem;
-  letter-spacing: 0.12em;
+    letter-spacing: 0.12em;
 	line-height: inherit;
 	max-width: 696px;
-	padding: 0;
+	padding: 24px 0;
 	text-transform: uppercase; }
+	
+.entry-meta {
+	text-align: right;
+}
 
 .entry-meta span + span:before {
 	content: "\0020\007C\0020";
@@ -1732,7 +1762,8 @@ text-align: right; }
 11.1 CSS for MailChimp 4 WP form
 --------------------------------------------------------------*/
 .mc4wp-form {
-	max-width: 100%; } /* the form element */
+	margin: 0 auto;
+    width: 264px; } /* the form element */
 
 .mc4wp-form label {
 	display: none; } /* labels */
@@ -1746,7 +1777,6 @@ text-align: right; }
 	margin:0 4px 0 0;
 	line-height: 1.2;
 	display: block;
-  font-family: Inconsolata, monospace;
 	text-align: center;
 	width: 100%; } /* input fields */
 
@@ -1755,9 +1785,10 @@ text-align: right; }
 	background: #fff; }
 
 .mc4wp-form input[type="submit"] {
-	font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
-	font-size: 10px;
-	font-size: 0.625rem; } /* submit button */
+	font-family: Inconsolata, monospace;
+	font-size: 16px;
+	font-size: 1rem; 
+	border: 2px solid #000; } /* submit button */
 
 .mc4wp-success {
 	color: #0ddb85; } /* success message */
@@ -1767,8 +1798,8 @@ text-align: right; }
 
 @media screen and (max-width: 600px) {
 	.mc4wp-form input[type="submit"] {
-		font-size: 9px;
-		font-size: 0.5625rem; } } /* small screens */
+	font-size: 12px;
+	font-size: 0.75rem; } } /* small screens */
 
 /*--------------------------------------------------------------
 11.2 RoyalSlider

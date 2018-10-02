@@ -25,11 +25,7 @@ get_header(); ?>
 
 			endwhile;
 
-			the_posts_pagination( array(
-				'prev_text' => _x( '&#8592;', 'Previous page link', 'strip' ) . '<span class="screen-reader-text">' . __( 'Previous page', 'strip' ) . '</span>',
-				'next_text' => '<span class="screen-reader-text">' . __( 'Next page', 'strip' ) . '</span>' . _x( '&#8594;', 'Next post link', 'strip' ),
-				'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'strip' ) . ' </span>',
-			) );
+			the_posts_pagination();
 
 		else : ?>
 

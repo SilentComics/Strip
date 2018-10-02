@@ -2,13 +2,13 @@
 
 Contributors: Anh Hoa Si, SILENT COMICS
 Requires at least: WordPress 4.7.3
-Tested up to: 4.9.4
-Version; 1.1.5
+Tested up to: 4.9.8
+Version; 1.1.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: one-column, flexible-header, grid-layout, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images, post-formats, rtl-language-support, sticky-post, theme-options, custom-logo, translation-ready, blog
 
-Strip is a WordPress theme designed for the upcoming [SILENT COMICS](http://silent-comics.com) site. The theme is released under the GNU General Public License but still under development.
+Strip is a WordPress theme designed for the upcoming [SILENT COMICS](https://silent-comics.com) site. The theme is released under the GNU General Public License but still under development.
 If you intend to use this theme on a live site, please read the warning first.
 
 === Warning ===
@@ -21,7 +21,8 @@ This means you would lose access to your (comics) data if you used this theme an
 The data would still exist but you wouldn’t be able to see it.
 That is an unwanted consequence of sharing a theme designed for a specific project.
 Until a simple comic plugin can solve this potential issue, it is best to avoid using this theme on your live site.
-**DON’T** use it on your live site, unless the above doesn’t bother you
+
+**DO NOT** use it on your live site, unless the above doesn’t bother you.
 
 == Description ==
 
