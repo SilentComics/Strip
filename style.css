@@ -4,7 +4,7 @@ Theme URI: https://github.com/SilentComics/Strip
 Author: SILENT COMICS
 Author URI: https://silent-comics.com
 Description: A WordPress theme for comics and webcomics <a href="https://github.com/SilentComics/Strip/">Contribute on GitHub</a>
-Version: 1.1.7.1
+Version: 1.1.7.2
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: strip
@@ -872,7 +872,14 @@ body {
 	text-align: center; }
 
 .widget-area .calendar_wrap {
-	display: inline-block; }
+	display: inline; }
+	
+.footer-widget-1 .widget_calendar,
+.footer-widget-2 .widget_calendar,
+.footer-widget-3 .widget_calendar,
+.footer-widget-4 .widget_calendar {
+	display: inline;
+	letter-spacing: normal; }
 
 .footer-widget-1,
 .footer-widget-2,
@@ -880,8 +887,7 @@ body {
 .footer-widget-4 {
 	float: left;
 	text-align: left;
-	/* padding-left: 0.2em; */
-	letter-spacing: 0.16em; }
+	letter-spacing: 0.12em; }
 
 .footer-widget-4 {
 	margin-right: 0; }
@@ -926,7 +932,7 @@ body {
 	max-width: 100%; }
 
 .widget select {
-	max-width: 100%; }
+	width: 100%; }
 
 .widget-area-wrapper {
 	margin: 0 auto;
@@ -957,11 +963,11 @@ body {
 .widget_calendar thead th,
 .widget_calendar tbody td {
 	font-family: Inconsolata, monospace;
-	font-size: 16px;
-	font-size: 1rem;
+	font-size: 14px;
+	font-size: 0.875rem;
 	border: 1px solid #f0f0f0; /* fallback */
 	border: 1px solid rgba(255, 255, 255, 0.2);
-	border-width: 0 1px 1px 0;
+	border-width: 0px 1px 1px 0px;
 	text-align: center; }
 
 .widget_calendar thead th,
@@ -972,7 +978,7 @@ body {
 .widget_calendar tbody td a {
 	background-color: #0ddb85;
 	color: #fff;
-	padding: 0.4em; }
+	padding: 0.5rem; }
 
 .widget_calendar tbody td a:hover {
 	background-color: #00ffcc;
@@ -1758,6 +1764,7 @@ text-align: right; }
 11.1 CSS for MailChimp 4 WP form
 --------------------------------------------------------------*/
 .mc4wp-form {
+	max-width: 294px;
 	margin: 0 auto; } /* the form element */
 
 .mc4wp-form label {
@@ -1773,7 +1780,7 @@ text-align: right; }
 	line-height: 1.2;
 	display: block;
 	text-align: center;
-	width: 90%; } /* input fields */
+	width: 94%; } /* input fields */
 
 .mc4wp-form input[type="email"],
 .mc4wp-form input[type="text"] {
@@ -1791,6 +1798,10 @@ text-align: right; }
 .mc4wp-error {
 	color: #ff00cc; } /* error messages */
 
+.mc4wp-response {	
+	letter-spacing: normal;
+	font-family: Inconsolata, monospace; }
+	
 @media screen and (max-width: 600px) {
 	.mc4wp-form input[type="submit"] {
 	font-size: 12px;
@@ -1901,7 +1912,7 @@ article.error404 .widget {
 	.entry-meta {
 		text-align: right; }
 
-.entry-meta span + span:before {
+	.entry-meta span + span:before {
 		content: ""; }
 
 	.entry-meta,
@@ -1923,8 +1934,8 @@ article.error404 .widget {
   .footer-widget-2,
   .footer-widget-3,
   .footer-widget-4 {
-    margin: 0 1% 0 0;
-    width: 24%; } }
+	margin: 0px 2% 0px 0px;
+    width: 23%; } }
 
 @media screen and (min-width: 1176px) {
 	.wrap {
