@@ -4,7 +4,7 @@ Theme URI: https://github.com/SilentComics/Strip
 Author: SILENT COMICS
 Author URI: https://silent-comics.com
 Description: A WordPress theme for comics and webcomics <a href="https://github.com/SilentComics/Strip/">Contribute on GitHub</a>
-Version: 1.1.7
+Version: 1.1.7.1
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: strip
@@ -1123,10 +1123,6 @@ article.error404 .widget_calendar tfoot td {
 	max-width: 696px;
 	padding: 24px 0;
 	text-transform: uppercase; }
-	
-.entry-meta {
-	text-align: right;
-}
 
 .entry-meta span + span:before {
 	content: "\0020\007C\0020";
@@ -1435,7 +1431,7 @@ span > object {
 
 .comic .post-edit-link {
   padding: 9px 6px 6px 6px;
-	font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
+  font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
   font-size: 10px;
   font-size: 0.625rem;
   text-transform: uppercase;
@@ -1762,8 +1758,7 @@ text-align: right; }
 11.1 CSS for MailChimp 4 WP form
 --------------------------------------------------------------*/
 .mc4wp-form {
-	margin: 0 auto;
-    width: 264px; } /* the form element */
+	margin: 0 auto; } /* the form element */
 
 .mc4wp-form label {
 	display: none; } /* labels */
@@ -1778,7 +1773,7 @@ text-align: right; }
 	line-height: 1.2;
 	display: block;
 	text-align: center;
-	width: 100%; } /* input fields */
+	width: 90%; } /* input fields */
 
 .mc4wp-form input[type="email"],
 .mc4wp-form input[type="text"] {
@@ -1847,6 +1842,7 @@ text-align: right; }
 	.wrap {
 		max-width: 552px; }
 
+
 	.comment-list .children {
 		margin-left: 16px; }
 
@@ -1880,16 +1876,16 @@ article.error404 .widget {
 @media screen and (min-width: 744px) {
 	.wrap {
 	max-width: 696px; }
-
+	
 	article.error404 input[type="search"],
 	article.no-results input[type="search"] {
 		width: auto; } }
 
 @media screen and (min-width: 888px) {
-	.wrap,
-	.categories-links {
+	.wrap {
 		max-width: 840px; }
-
+	.entry-meta {
+		text-align: left; }
 	.entry-content,
 	.entry-summary,
 	article.attachment .entry-caption {
@@ -1901,9 +1897,9 @@ article.error404 .widget {
 @media screen and (min-width: 1032px) {
 	.wrap {
 		max-width: 984px; }
-
-	.categories-links {
-		max-width: 912px; }
+		
+	.entry-meta {
+		text-align: right; }
 
 .entry-meta span + span:before {
 		content: ""; }
