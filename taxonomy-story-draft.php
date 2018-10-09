@@ -34,8 +34,8 @@
 			'post_type'  => 'comic',
 			'showposts'	 => -1,
 			'story'      => 'draft',
-			'orderby'  	 => 'title', // you can also order by date.
-			'order'  		 => 'DESC',
+			'orderby'  	 => 'title', // You can also order by date, like regular posts.
+			'order'  	 => 'DESC', // It is either ASC or DESC, standing for ascendant or descendant order.
 			)
 		);
 

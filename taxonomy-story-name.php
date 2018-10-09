@@ -1,7 +1,7 @@
 <?php
 /**
  * The template for archiving the example "name" story pages
- * Clone this template and replace "name" by your own story name.
+ * Clone this template and replace "name" by your own story name to get going.
  *
  * @package WordPress
  * @subpackage Strip
@@ -30,10 +30,10 @@ endif;
 	$args = array(
 
 	'post_type'       => 'comic',
-	'story'           => 'name', // change this to your own story name, clone template for multiple stories.
+	'story'           => 'name', // Change this to your own story name, clone template for multiple stories.
 	'orderby'         => 'title', // you can order by date if you so prefer.
 	'paged'           => $paged,
-	'order'           => 'ASC',
+	'order'           => 'ASC', // It is either ASC or DESC, standing for ascendant or descendant order.
 	);
 
 	$loop = new WP_Query( $args );
