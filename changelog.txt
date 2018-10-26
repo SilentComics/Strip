@@ -11,6 +11,9 @@ changelog.txt
 
 == changelog ==
 
+= (26/10/2018) - Version 1.1.8 =
+[>] Changed RSS feed widget — links to SILENT COMICS blog instead of Tumblr
+
 = (02/09/2018) - Version 1.1.7 =
 [>] CSS clearings
 [>] CSS Styling improvements

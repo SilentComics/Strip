@@ -4,7 +4,7 @@ Theme URI: https://github.com/SilentComics/Strip
 Author: SILENT COMICS
 Author URI: https://silent-comics.com
 Description: A WordPress theme for comics and webcomics <a href="https://github.com/SilentComics/Strip/">Contribute on GitHub</a>
-Version: 1.1.7.2
+Version: 1.1.8
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: strip
@@ -613,8 +613,8 @@ a:active {
 
 .main-navigation ul ul {
 	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
-	position: absolute;
-    display: none; }
+	display: none;
+	position: absolute; }
 
 .main-navigation ul ul ul a {
 	background: #69F5FF; /*  #00ffcc */
@@ -680,9 +680,7 @@ button.menu-toggle:hover {
 	font-size: 0.875rem;
 	line-height: 1.4; }
 
-/* Display the menu toggle when JavaScript is available.
-* It only works with JavaScript.
-*/
+/* Works only with JavaScript. */
 .js .main-navigation ul {
 		display: none; } }
 
