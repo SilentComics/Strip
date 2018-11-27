@@ -72,18 +72,14 @@ body form .input {
 .forgetmenot {
 	display: none;
 }
-
-#nav a,
-#backtoblog a {
+.login #backtoblog a,
+.login #nav a,
+.login #nav a:hover,
+.login #backtoblog a:hover {
+  color: #7369FF;
   font-family: Inconsolata, monospace;
   font-size: 16px;
-  color: #7369FF !important;
-}
-
-#nav a:hover,
-#backtoblog a:hover {
-  font-family: Inconsolata, monospace;
-  color: #7369FF;
+  text-decoration: none;
 }
 
 /* login button*/
