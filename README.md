@@ -11,7 +11,7 @@ Strip: A WordPress Theme for Silent Comics
 *Strip* is a WordPress theme designed for the upcoming [SILENT COMICS site](https://silent-comics.com). 
 
 <figure>
-<a href="https://github.com/SilentComics/Strip"><img src="http://silentcomics.com/images/screenshot.png"/></a>
+<a href="https://github.com/SilentComics/Strip"><img src="https://silentcomics.com/images/index_silent-comics.png"/></a>
 </figure>
 
 This theme is not 100% ready for production, although you are welcome to test it. Right now two of the theme's functions, *custom post type* and *custom taxonomy*, should go in a plugin. WordPress.org advocates for the separation of presentation and content<sup>[1](#myfootnote1)</sup>. While this is important for portability of content, custom functions within the theme suit this particular project at this point<sup>[2](#myfootnote2)</sup>. **Warning** :loudspeaker: But that means you would lose access to your (comics) data if you used this theme and then switched to another. That is not something you want to happen. So until a simple webcomic plugin can solve this issue, it is best to avoid using this theme on your live site.
