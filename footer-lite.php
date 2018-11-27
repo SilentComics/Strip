@@ -20,7 +20,7 @@
 				<span class="sep"> | </span>
 		<?php do_action( 'strip_credits' );
 					?>
-					<a href="<?php echo esc_url( __( 'https://github.com/SilentComics/Strip', 'strip' ) ); ?>"><?php printf( esc_html__( 'Theme: %1$s by %2$s.', 'strip' ), 'strip', 'Hoa' ); ?></a>
+					<a href="<?php echo esc_url( __( 'https://github.com/SilentComics/Strip', 'strip' ) ); ?>"><?php printf( esc_html__( 'Theme: %1$s by %2$s.', 'strip' ), 'strip', 'SILENT COMICS' ); ?></a>
 			</div><!-- .site-info -->
 		</footer><!-- #colophon -->
 	</div><!-- #page -->

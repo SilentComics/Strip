@@ -1,1 +1,10 @@
-!function($,t){t.customize("blogname",function(t){t.bind(function(t){$(".site-title").text(t)})}),t.customize("blogdescription",function(t){t.bind(function(t){$(".site-description").text(t)})}),t.customize("header_textcolor",function(t){t.bind(function(t){"blank"===t?$(".site-title, .site-description").css({clip:"rect(1px, 1px, 1px, 1px)",position:"absolute"}):($(".site-title, .site-description").css({clip:"auto",color:t,position:"static"}),$(".site-title a, .site-description").css({color:t}),$(".site-title a").css({"border-color":t}))})})}(jQuery);
+/**
+ * Theme Customizer enhancements for a better user experience.
+ *
+ * Contains handlers to make Theme Customizer preview reload changes asynchronously.
+ */
+!function(i,t){var e=t.customize;
+// Site title and description.
+e("blogname",function(t){t.bind(function(t){i("#header h1 a, #footer a.site-name").html(t)})}),e("blogdescription",function(t){t.bind(function(t){i("#header p.site-description").html(t)})}),
+// Header text color.
+e("header_textcolor",function(t){t.bind(function(t){"blank"===t?i(".site-title, .site-description").css({clip:"rect(1px, 1px, 1px, 1px)",position:"absolute"}):(i(".site-title, .site-description").css({clip:"auto",color:t,position:"static"}),i(".site-title a, .site-description").css({color:t}),i(".site-title a").css({"border-color":t}))})})}(jQuery);

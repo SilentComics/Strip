@@ -12,17 +12,23 @@ get_header(); ?>
 
 <div id="primary" class="content-area">
 	<main id="main" class="site-main" role="main">
-
+		<div class="wrap">
 	<?php
 	if ( have_posts() ) : ?>
 
 		<header class="page-header">
-			<div class="wrap">
+				<h1 class="page-title">
 			<?php
+			if ( is_author() && get_the_author_meta( 'description' ) ) {
+													echo '<div class="author-index shorter">';
+													get_template_part( 'inc/author','box' );
+													echo '</div>';
+			} else {
 				the_archive_title( '<h1 class="page-title">', '</h1>' );
 				the_archive_description( '<div class="taxonomy-description">', '</div>' );
+			}
 			?>
-				</div><!-- .wrap -->
+		</h1>
 			</header><!-- .page-header -->
 
 			<?php /* Start the Loop */ ?>
@@ -40,15 +46,15 @@ get_header(); ?>
 
 			<?php endwhile; ?>
 
-			<div class="wrap">
 					<?php the_posts_pagination(); ?>
-	</div>
 
 		<?php else : ?>
 
 			<?php get_template_part( 'no-results', 'archive' ); ?>
 
 		<?php endif; ?>
+
+		</div><!-- .wrap -->
 
 		</main><!-- #content -->
 	</section><!-- #primary -->

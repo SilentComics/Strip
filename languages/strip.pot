@@ -1,400 +1,621 @@
-# Copyright (C) 2015 Automattic
-# This file is distributed under the GNU General Public License v2 or later.
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Strip 1.0.0\n"
-"Report-Msgid-Bugs-To: http://wordpress.org/tags/_s\n"
-"POT-Creation-Date: 2016-10-03 00:43+0200\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Project-Id-Version: Strip\n"
+"POT-Creation-Date: 2017-07-07 18:27+0200\n"
+"PO-Revision-Date: 2017-04-27 10:59+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
-"X-Generator: Poedit 1.8.9\n"
+"X-Generator: Poedit 2.0.2\n"
 "X-Poedit-Basepath: ..\n"
-"X-Poedit-SearchPath-0: 404.php\n"
-"X-Poedit-SearchPath-1: archive-comic.php\n"
-"X-Poedit-SearchPath-2: archive-story-exile.php\n"
-"X-Poedit-SearchPath-3: archive-story.php\n"
-"X-Poedit-SearchPath-4: archive-titles.php\n"
-"X-Poedit-SearchPath-5: archive.php\n"
-"X-Poedit-SearchPath-6: assets/admin.php\n"
-"X-Poedit-SearchPath-7: assets/css/editor-style.css\n"
-"X-Poedit-SearchPath-8: assets/css/ie.css\n"
-"X-Poedit-SearchPath-9: assets/css/login.css\n"
-"X-Poedit-SearchPath-10: assets/css/woocommerce.min.css\n"
-"X-Poedit-SearchPath-11: assets/WooCommerce/woocommerce.scss\n"
-"X-Poedit-SearchPath-12: assets/js/customizer.js\n"
-"X-Poedit-SearchPath-13: assets/js/html5.js\n"
-"X-Poedit-SearchPath-14: assets/js/keyboard-image-navigation.js\n"
-"X-Poedit-SearchPath-15: assets/js/navigation.js\n"
-"X-Poedit-SearchPath-16: assets/js/skip-link-focus-fix.js\n"
-"X-Poedit-SearchPath-17: assets/js/toggle-comments.js\n"
-"X-Poedit-SearchPath-18: changelog.txt\n"
-"X-Poedit-SearchPath-19: comments.php\n"
-"X-Poedit-SearchPath-20: content-aside.php\n"
-"X-Poedit-SearchPath-21: content-audio.php\n"
-"X-Poedit-SearchPath-22: content-comic.php\n"
-"X-Poedit-SearchPath-23: content-gallery.php\n"
-"X-Poedit-SearchPath-24: content-image.php\n"
-"X-Poedit-SearchPath-25: content-link.php\n"
-"X-Poedit-SearchPath-26: content-page.php\n"
-"X-Poedit-SearchPath-27: content-quote.php\n"
-"X-Poedit-SearchPath-28: content-series.php\n"
-"X-Poedit-SearchPath-29: content-video.php\n"
-"X-Poedit-SearchPath-30: content.php\n"
-"X-Poedit-SearchPath-31: footer-lite.php\n"
-"X-Poedit-SearchPath-32: footer.php\n"
-"X-Poedit-SearchPath-33: functions.php\n"
-"X-Poedit-SearchPath-34: header-lite.php\n"
-"X-Poedit-SearchPath-35: header.php\n"
-"X-Poedit-SearchPath-36: humans.txt\n"
-"X-Poedit-SearchPath-37: image.php\n"
-"X-Poedit-SearchPath-38: inc/author-box.php\n"
-"X-Poedit-SearchPath-39: inc/custom-header.php\n"
-"X-Poedit-SearchPath-40: inc/customizer.php\n"
-"X-Poedit-SearchPath-41: inc/extras.php\n"
-"X-Poedit-SearchPath-42: inc/jetpack.php\n"
-"X-Poedit-SearchPath-43: inc/template-tags.php\n"
-"X-Poedit-SearchPath-44: index.php\n"
-"X-Poedit-SearchPath-45: no-results.php\n"
-"X-Poedit-SearchPath-46: page.php\n"
-"X-Poedit-SearchPath-47: readme.txt\n"
-"X-Poedit-SearchPath-48: rtl.css\n"
-"X-Poedit-SearchPath-49: screenshot.png\n"
-"X-Poedit-SearchPath-50: search.php\n"
-"X-Poedit-SearchPath-51: searchform.php\n"
-"X-Poedit-SearchPath-52: sidebar.php\n"
-"X-Poedit-SearchPath-53: single-comic.php\n"
-"X-Poedit-SearchPath-54: single.php\n"
-"X-Poedit-SearchPath-55: style.css\n"
-"X-Poedit-SearchPath-56: taxonomy-story-draft.php\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: style.css\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
 
-# @ _s
-#: 404.php:15
+#: 404.php:19
 msgid "Oops! That page can&rsquo;t be found."
 msgstr ""
 
-# @ _s
-#: 404.php:19
-msgid "It looks like nothing was found at this location. Maybe try one of the links below or a search?"
+#: 404.php:23
+msgid "Nothing was found here. Maybe try one of the links below or a search?"
 msgstr ""
 
-# @ _s
-#: 404.php:27
+#: 404.php:30
 msgid "Most Used Categories"
 msgstr ""
 
-# @ _s
+#: 404.php:36
+msgid "Calendar"
+msgstr ""
+
 #. translators: %1$s: smiley
-#: 404.php:44
+#: 404.php:40
 #, php-format
 msgid "Try looking in the monthly archives. %1$s"
 msgstr ""
 
-# @ _s
-#: comments.php:29
+#: archive-comic.php:30
+msgid "Series"
+msgstr ""
+
+#: archive-comic.php:72 index.php:39 search.php:29
+msgctxt "Previous page link"
+msgid "&#8592;"
+msgstr ""
+
+#: archive-comic.php:72 index.php:39 search.php:29
+msgid "Previous page"
+msgstr ""
+
+#: archive-comic.php:73 index.php:40 search.php:30
+msgid "Next page"
+msgstr ""
+
+#: archive-comic.php:73 index.php:40 search.php:30
+msgctxt "Next post link"
+msgid "&#8594;"
+msgstr ""
+
+#: archive-comic.php:74 archive-story.php:85 content.php:63 exile.php:85
+#: index.php:41 magar.php:85 search.php:31 taxonomy-story-exile.php:55
+#: taxonomy-story-magar.php:66 taxonomy-story-tofu.php:55
+msgid "Page"
+msgstr ""
+
+#: archive-story.php:53 archive-story.php:74 exile.php:55 exile.php:72
+#: magar.php:57 magar.php:74
+#, php-format
+msgid "Permanent Link to %s"
+msgstr ""
+
+#: archive-story.php:94 comments.php:68 exile.php:94 magar.php:94
+#: single-comic.php:33 taxonomy-story-exile.php:56 taxonomy-story-magar.php:75
+#: taxonomy-story-tofu.php:56
+msgid "Previous"
+msgstr ""
+
+#: archive-story.php:95 comments.php:69 exile.php:95 magar.php:95
+#: single-comic.php:35 taxonomy-story-exile.php:57 taxonomy-story-magar.php:76
+#: taxonomy-story-tofu.php:57
+msgid "Next"
+msgstr ""
+
+#: archive-titles.php:26
+msgid "All Episodes"
+msgstr ""
+
+#: assets/admin.php:86
+msgid "j F Y @ g:i a"
+msgstr ""
+
+#: assets/admin.php:97
+msgid "SILENT COMICS on tumblr"
+msgstr ""
+
+#: assets/admin.php:158
+msgid "http://silent-comics.com/"
+msgstr ""
+
+#: assets/admin.php:158
+#, php-format
+msgid "Developed by %s"
+msgstr ""
+
+#: assets/admin.php:160
+msgid "https://github.com/SilentComics/Strip/"
+msgstr ""
+
+#: assets/admin.php:160
+#, php-format
+msgid "Contribute on %s"
+msgstr ""
+
+#. translators: %s: post title
+#: comments.php:36
 #, php-format
 msgctxt "comments title"
-msgid "One thought on &ldquo;%2$s&rdquo;"
-msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
+msgid "One Reply to &ldquo;%s&rdquo;"
+msgstr ""
+
+#: comments.php:42
+#, php-format
+msgctxt "comments title"
+msgid "%1$s Reply to &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s Replies to &ldquo;%2$s&rdquo;"
 msgstr[0] ""
 msgstr[1] ""
 
-# @ _s
-#: comments.php:38 comments.php:59
-msgid "Comment navigation"
+#: comments.php:62
+msgid "Reply"
 msgstr ""
 
-# @ _s
-#: comments.php:41 comments.php:62
-msgid "Older Comments"
-msgstr ""
-
-# @ _s
-#: comments.php:42 comments.php:63
-msgid "Newer Comments"
-msgstr ""
-
-# @ _s
-#: comments.php:75
+#: comments.php:77
 msgid "Comments are closed."
 msgstr ""
 
-# @ _s
-#: footer.php:16
-msgid "http://wordpress.org/"
+#: content-audio.php:17 content-gallery.php:19 content-image.php:17
+#: content-link.php:15 content-quote.php:15 content-video.php:22 content.php:23
+msgid ", "
 msgstr ""
 
-# @ _s
-#: footer.php:16
+#: content-audio.php:29 content-gallery.php:36 content-image.php:34
+#: content-link.php:22 content-quote.php:21 content-video.php:46
 #, php-format
-msgid "Proudly powered by %s"
+msgid "All %s posts"
 msgstr ""
 
-# @ _s
-#: footer.php:18
+#: content-audio.php:31 content-gallery.php:38 content-image.php:36
+#: content-link.php:24 content-page.php:25 content-quote.php:23
+#: content-video.php:48 content.php:42
+msgid "Edit"
+msgstr ""
+
+#: content-audio.php:37 content-gallery.php:28 content-image.php:27
+#: content-link.php:28 content-quote.php:27
+msgid "Continue reading <span class=\"meta-nav\">&rarr;</span>"
+msgstr ""
+
+#: content-comic.php:14 content-series.php:15 content.php:14
+#, php-format
+msgid "Permalink to %s"
+msgstr ""
+
+#: content-comic.php:46 content-series.php:27 functions.php:328
+msgid "Edit Comic"
+msgstr ""
+
+#: content-comic.php:66
+msgid "Continue watching <span class=\"meta-nav\">&rarr;</span>"
+msgstr ""
+
+#. translators: %s: Name of current post.
+#: content-video.php:36 content.php:54
+#, php-format
+msgid "Continue reading %s <span class=\"meta-nav\">&rarr;</span>"
+msgstr ""
+
+#: content.php:39
+msgid "Leave a comment"
+msgstr ""
+
+#: content.php:39
+msgid "1 Comment"
+msgstr ""
+
+#: content.php:39
+msgid "% Comments"
+msgstr ""
+
+#: content.php:59
+msgid "Pages:"
+msgstr ""
+
+#. Theme URI of the plugin/theme
+#: footer-lite.php:23 footer.php:53
+msgid "https://github.com/SilentComics/Strip"
+msgstr ""
+
+#: footer-lite.php:23 footer.php:53
 #, php-format
 msgid "Theme: %1$s by %2$s."
 msgstr ""
 
-# @ _s
-#: functions.php:45 header.php:32
+#: functions.php:88
 msgid "Primary Menu"
 msgstr ""
 
-# @ _s
-#: functions.php:100
-msgid "Sidebar"
+#: functions.php:141
+msgid "Main Sidebar"
 msgstr ""
 
-# @ _s
-#: header.php:23
+#: functions.php:143
+msgid "The main body widget area"
+msgstr ""
+
+#: functions.php:152
+msgid "First Footer Widget"
+msgstr ""
+
+#: functions.php:154
+msgid "The first footer widget"
+msgstr ""
+
+#: functions.php:163
+msgid "Second Footer Widget"
+msgstr ""
+
+#: functions.php:165
+msgid "The second footer widget"
+msgstr ""
+
+#: functions.php:174
+msgid "Third Footer Widget"
+msgstr ""
+
+#: functions.php:176
+msgid "The third footer widget"
+msgstr ""
+
+#: functions.php:185
+msgid "Fourth Footer Widget"
+msgstr ""
+
+#: functions.php:187
+msgid "The fourth footer widget"
+msgstr ""
+
+#: functions.php:319
+msgctxt "Post Type General Name"
+msgid "Comics"
+msgstr ""
+
+#: functions.php:320
+msgctxt "Post Type Singular Name"
+msgid "Comic"
+msgstr ""
+
+#: functions.php:321
+msgctxt "admin menu"
+msgid "Comics"
+msgstr ""
+
+#: functions.php:322
+msgctxt "add new on admin bar"
+msgid "Comic"
+msgstr ""
+
+#: functions.php:323
+msgid "Parent Comic:"
+msgstr ""
+
+#: functions.php:324
+msgid "All Comics"
+msgstr ""
+
+#: functions.php:325 functions.php:326
+msgid "Add New Comic"
+msgstr ""
+
+#: functions.php:327
+msgid "New Comic"
+msgstr ""
+
+#: functions.php:329
+msgid "Update Comic"
+msgstr ""
+
+#: functions.php:330
+msgid "View Comic"
+msgstr ""
+
+#: functions.php:331
+msgid "Search Item"
+msgstr ""
+
+#: functions.php:332
+msgid "No Comics found"
+msgstr ""
+
+#: functions.php:333
+msgid "No Comics found in Trash"
+msgstr ""
+
+#: functions.php:334
+msgid "Comics list"
+msgstr ""
+
+#: functions.php:335
+msgid "Comics list navigation"
+msgstr ""
+
+#: functions.php:336
+msgid "Filter Comics list"
+msgstr ""
+
+#: functions.php:353
+msgid "Comic"
+msgstr ""
+
+#: functions.php:354
+msgid "Publish Comics and Webcomics"
+msgstr ""
+
+#: functions.php:385
+msgctxt "Taxonomy General Name"
+msgid "Comic Story"
+msgstr ""
+
+#: functions.php:386
+msgctxt "Taxonomy Singular Name"
+msgid "Comic Story"
+msgstr ""
+
+#: functions.php:387
+msgid "Comic Stories"
+msgstr ""
+
+#: functions.php:388
+msgid "All Comic Stories"
+msgstr ""
+
+#: functions.php:389
+msgid "Parent Story"
+msgstr ""
+
+#: functions.php:390
+msgid "Parent Story:"
+msgstr ""
+
+#: functions.php:391
+msgid "New Comic Story"
+msgstr ""
+
+#: functions.php:392
+msgid "Add New Story"
+msgstr ""
+
+#: functions.php:393
+msgid "Edit Story"
+msgstr ""
+
+#: functions.php:394
+msgid "Update Story"
+msgstr ""
+
+#: functions.php:395
+msgid "View Item"
+msgstr ""
+
+#: functions.php:396
+msgid "Separate stories with commas"
+msgstr ""
+
+#: functions.php:397
+msgid "Add or Remove Stories"
+msgstr ""
+
+#: functions.php:398
+msgid "Choose from the most used stories"
+msgstr ""
+
+#: functions.php:399
+msgid "Popular comic stories"
+msgstr ""
+
+#: functions.php:400
+msgid "Search Stories"
+msgstr ""
+
+#: functions.php:401
+msgid "No comic Stories found"
+msgstr ""
+
+#: functions.php:402
+msgid "Comic Stories list"
+msgstr ""
+
+#: functions.php:403
+msgid "Comic Stories list navigation"
+msgstr ""
+
+#: functions.php:436
+msgctxt "Taxonomy General Name"
+msgid "Prints"
+msgstr ""
+
+#: functions.php:437
+msgctxt "Taxonomy Singular Name"
+msgid "Print"
+msgstr ""
+
+#: functions.php:438
+msgid "Print"
+msgstr ""
+
+#: functions.php:439
+msgid "All Prints"
+msgstr ""
+
+#: functions.php:440
+msgid "Parent Print"
+msgstr ""
+
+#: functions.php:441
+msgid "Parent Print:"
+msgstr ""
+
+#: functions.php:442
+msgid "New Print Name"
+msgstr ""
+
+#: functions.php:443
+msgid "Add New Print"
+msgstr ""
+
+#: functions.php:444
+msgid "Edit Print"
+msgstr ""
+
+#: functions.php:445
+msgid "Update Pring"
+msgstr ""
+
+#: functions.php:446
+msgid "View Print"
+msgstr ""
+
+#: functions.php:447
+msgid "Separate prints with commas"
+msgstr ""
+
+#: functions.php:448
+msgid "Add or remove prints"
+msgstr ""
+
+#: functions.php:449
+msgid "Choose from the most used"
+msgstr ""
+
+#: functions.php:450
+msgid "Popular Prints"
+msgstr ""
+
+#: functions.php:451
+msgid "Search Prints"
+msgstr ""
+
+#: functions.php:452
+msgid "Not Found"
+msgstr ""
+
+#: functions.php:453
+msgid "No prints"
+msgstr ""
+
+#: functions.php:454
+msgid "Prints list"
+msgstr ""
+
+#: functions.php:455
+msgid "Prints list navigation"
+msgstr ""
+
+#: header-lite.php:37 header.php:44
+msgid "discover"
+msgstr ""
+
+#: header-lite.php:38 header.php:45
 msgid "Skip to content"
 msgstr ""
 
-# @ _s
-#: inc/extras.php:52
+#: image.php:43
+msgid ""
+"<span class=\"meta-nav\">&larr;</span> <span class=\"text-nav\">Previous "
+"panel</span>"
+msgstr ""
+
+#: image.php:44
+msgid ""
+"<span class=\"meta-nav\">&rarr;</span> <span class=\"text-nav\">Next panel</"
+"span>"
+msgstr ""
+
+#: inc/author-box.php:32
+msgid "&#9998;"
+msgstr ""
+
+#: inc/author-box.php:38
 #, php-format
-msgid "Page %s"
+msgid "View all articles by %s"
 msgstr ""
 
-# @ _s
-#: inc/template-tags.php:23
-msgid "Posts navigation"
+#: inc/custom-header.php:39
+msgctxt "header image description"
+msgid "DefaultHeader"
 msgstr ""
 
-# @ _s
-#: inc/template-tags.php:27
-msgid "Older posts"
+#: inc/customizer.php:20
+msgctxt "admin"
+msgid "Content Title Color"
 msgstr ""
 
-# @ _s
-#: inc/template-tags.php:31
-msgid "Newer posts"
-msgstr ""
-
-# @ _s
-#: inc/template-tags.php:56
-msgid "Post navigation"
-msgstr ""
-
-# @ _s
-#: inc/template-tags.php:86
+#: inc/template-tags.php:43
 #, php-format
-msgctxt "post date"
-msgid "Posted on %s"
+msgid "View all posts by %s"
 msgstr ""
 
-# @ _s
-#: inc/template-tags.php:91
-#, php-format
-msgctxt "post author"
-msgid "by %s"
-msgstr ""
-
-# @ _s
-#. translators: used between list items, there is a space after the comma
-#: inc/template-tags.php:108 inc/template-tags.php:114
+#: inc/template-tags.php:48
+msgctxt "Used between list items, there is a space after the comma."
 msgid ", "
 msgstr ""
 
-# @ _s
-#: inc/template-tags.php:110
-#, php-format
-msgid "Posted in %1$s"
-msgstr ""
-
-# @ _s
-#: inc/template-tags.php:116
-#, php-format
-msgid "Tagged %1$s"
-msgstr ""
-
-# @ _s
-#: inc/template-tags.php:122
-msgid "Leave a comment"
-msgstr ""
-
-# @ _s
-#: inc/template-tags.php:122
-msgid "1 Comment"
-msgstr ""
-
-# @ _s
-#: inc/template-tags.php:122
-msgid "% Comments"
-msgstr ""
-
-# @ _s
-#: inc/template-tags.php:126 template-parts/content-page.php:26
-msgid "Edit"
-msgstr ""
-
-# @ _s
-#: inc/template-tags.php:143
-#, php-format
-msgid "Category: %s"
-msgstr ""
-
-# @ _s
-#: inc/template-tags.php:145
-#, php-format
-msgid "Tag: %s"
-msgstr ""
-
-# @ _s
-#: inc/template-tags.php:147
-#, php-format
-msgid "Author: %s"
-msgstr ""
-
-# @ _s
-#: inc/template-tags.php:149
-#, php-format
-msgid "Year: %s"
-msgstr ""
-
-# @ _s
-#: inc/template-tags.php:149
-msgctxt "yearly archives date format"
-msgid "Y"
-msgstr ""
-
-# @ _s
-#: inc/template-tags.php:151
-#, php-format
-msgid "Month: %s"
-msgstr ""
-
-# @ _s
-#: inc/template-tags.php:151
-msgctxt "monthly archives date format"
-msgid "F Y"
-msgstr ""
-
-# @ _s
-#: inc/template-tags.php:153
-#, php-format
-msgid "Day: %s"
-msgstr ""
-
-# @ _s
-#: inc/template-tags.php:153
-msgctxt "daily archives date format"
-msgid "F j, Y"
-msgstr ""
-
-# @ _s
-#: inc/template-tags.php:156
-msgctxt "post format archive title"
-msgid "Asides"
-msgstr ""
-
-# @ _s
-#: inc/template-tags.php:158
-msgctxt "post format archive title"
-msgid "Galleries"
-msgstr ""
-
-# @ _s
-#: inc/template-tags.php:160
-msgctxt "post format archive title"
-msgid "Images"
-msgstr ""
-
-# @ _s
-#: inc/template-tags.php:162
-msgctxt "post format archive title"
-msgid "Videos"
-msgstr ""
-
-# @ _s
-#: inc/template-tags.php:164
-msgctxt "post format archive title"
-msgid "Quotes"
-msgstr ""
-
-# @ _s
-#: inc/template-tags.php:166
-msgctxt "post format archive title"
-msgid "Links"
-msgstr ""
-
-# @ _s
-#: inc/template-tags.php:168
-msgctxt "post format archive title"
-msgid "Statuses"
-msgstr ""
-
-# @ _s
-#: inc/template-tags.php:170
-msgctxt "post format archive title"
-msgid "Audio"
-msgstr ""
-
-# @ _s
-#: inc/template-tags.php:172
-msgctxt "post format archive title"
-msgid "Chats"
-msgstr ""
-
-# @ _s
-#: inc/template-tags.php:175
-#, php-format
-msgid "Archives: %s"
-msgstr ""
-
-# @ _s
-#. translators: 1: Taxonomy singular name, 2: Current taxonomy term
-#: inc/template-tags.php:179
-#, php-format
-msgid "%1$s: %2$s"
-msgstr ""
-
-# @ _s
-#: inc/template-tags.php:181
-msgid "Archives"
-msgstr ""
-
-# @ _s
-#: search.php:16
+#: search.php:17
 #, php-format
 msgid "Search Results for: %s"
 msgstr ""
 
-# @ _s
-#: template-parts/content-none.php:14
+#: search.php:38
 msgid "Nothing Found"
 msgstr ""
 
-# @ _s
-#: template-parts/content-none.php:20
-#, php-format
-msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+#: search.php:41
+msgid ""
+"Bummer, I cannot find what you are looking for.\n"
+"\t\t\t\tWould you like to search in the"
 msgstr ""
 
-# @ _s
-#: template-parts/content-none.php:24
-msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
+#: search.php:46
+msgid "Or do you prefer trying another search with different keywords?"
 msgstr ""
 
-# @ _s
-#: template-parts/content-none.php:29
-msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
+#: searchform.php:12
+msgctxt "label"
+msgid "Search for:"
 msgstr ""
 
-# @ _s
-#: template-parts/content-page.php:19 template-parts/content-single.php:23
-#: template-parts/content.php:32
-msgid "Pages:"
+#: searchform.php:13
+msgctxt "placeholder"
+msgid "Search?"
 msgstr ""
 
-# @ _s
-#. translators: %s: Name of current post
-#: template-parts/content.php:25
-#, php-format
-msgid "Continue reading %s <span class=\"meta-nav\">&rarr;</span>"
+#: searchform.php:15
+msgctxt "submit button"
+msgid "Search"
+msgstr ""
+
+#: single-comic.php:29
+msgid "Post navigation"
+msgstr ""
+
+#: single-comic.php:32
+msgid "Start"
+msgstr ""
+
+#: single-comic.php:36
+msgid "Last"
+msgstr ""
+
+#: single.php:27
+msgid "Previous Post"
+msgstr ""
+
+#: single.php:27
+msgctxt "Previous post link"
+msgid "&larr;"
+msgstr ""
+
+#: single.php:28
+msgid "Next Post"
+msgstr ""
+
+#: single.php:28
+msgctxt "Next post link"
+msgid "&rarr;"
+msgstr ""
+
+#. Theme Name of the plugin/theme
+msgid "Strip"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"A WordPress theme for comics and webcomics <a href=\"https://github.com/"
+"SilentComics/Strip/\">Contribute on GitHub</a>"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "SILENT COMICS"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://silent-comics.com"
 msgstr ""

@@ -25,7 +25,7 @@ get_header( 'lite' );
 					/**
 					 * Filter the default strip image attachment size.
 					 *
-					 * @since strip 1.0.0
+					 * @since strip 2.5.0
 					 *
 					 * @param string $image_size Image size. Default 'full'.
 					 */

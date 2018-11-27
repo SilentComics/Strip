@@ -45,12 +45,12 @@
 
 		<div class="site-info">
 			&copy; <span class="site-name"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></span> <?php
-			$from_year = 2013;
+			$from_year = 2016;
 			$this_year = (int) date( 'Y' );
 			echo esc_html( $from_year . (($from_year !== $this_year) ? '-' . $this_year : '') );?>
 			<span class="sep"> | </span>
 	<?php do_action( 'strip_credits' ); ?>
-				<a href="<?php echo esc_url( __( 'https://github.com/SilentComics/Strip', 'strip' ) ); ?>"><?php printf( esc_html__( 'Theme: %1$s by %2$s.', 'strip' ), 'strip', 'Hoa' ); ?></a>
+				<a href="<?php echo esc_url( __( 'https://github.com/SilentComics/Strip', 'strip' ) ); ?>"><?php printf( esc_html__( 'Theme: %1$s by %2$s.', 'strip' ), 'Strip', 'SILENT COMICS' ); ?></a>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->

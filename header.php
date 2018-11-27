@@ -23,7 +23,7 @@
 }
 	?>" />
 <link rel="profile" href="http://gmpg.org/xfn/11">
-<link type="text/plain" rel="author" href="" />
+<link type="text/plain" rel="author" href="https://silent-comics.com/humans.txt" />
 <meta name="referrer" content="no-referrer">
 
 <?php wp_head(); ?>
@@ -35,7 +35,8 @@
 	<header id="branding" class="site-header" role="banner">
 
 		<div class="site-branding">
-			<?php get_template_part( '/assets/inline', 'logo.svg' ); // remove or replace by your own custom svg logo. ?>
+			<?php get_template_part( '/assets/inline-logo.svg' ); // remove or replace by your own custom svg logo. ?>
+			<?php get_template_part( 'template-parts/header/header', 'image' ); ?>
 			<?php strip_the_custom_logo(); ?>
 				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1> <h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
 	</div><!-- .site-branding -->

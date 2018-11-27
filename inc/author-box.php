@@ -16,11 +16,11 @@
 		/**
 		 * Filter the strip author bio avatar size.
 		 *
-		 * @since strip 2.6.9
+		 * @since strip 1.0
 		 *
 		 * @param int $size The avatar height and width size in pixels.
 		 */
-		$author_bio_avatar_size = apply_filters( 'strip_author_bio_avatar_size', 168 );
+		$author_bio_avatar_size = apply_filters( 'strip_author_bio_avatar_size', 240 );
 
 		echo get_avatar( get_the_author_meta( 'user_email' ), $author_bio_avatar_size );
 		?>

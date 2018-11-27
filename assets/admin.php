@@ -62,11 +62,11 @@ http://digwp.com/2010/10/customize-wordpress-dashboard/
  */
 function strip_rss_dashboard_widget() {
 	if ( function_exists( 'fetch_feed' ) ) {
-		$feed = fetch_feed( 'https://silent-comics.tumblr.com/rss/' );// specify the source feed.
+		$feed = fetch_feed( 'https://silentcomics.com/feed.xml' );// specify the source feed.
 		if ( is_wp_error( $feed ) ) {
 			return;
 		}
-			$limit = $feed->get_item_quantity( 7 );                        // specify number of items.
+			$limit = $feed->get_item_quantity( 3 );                        // specify number of items.
 			$items = $feed->get_items( 0, $limit );                        // create an array of items.
 	}
 	if ( 0 ) { echo '<div>The RSS Feed is either empty or unavailable.</div>'; // fallback message.
@@ -81,10 +81,9 @@ function strip_rss_dashboard_widget() {
 				</a>
 			</h4>
 
-			<?php echo esc_html( mysql2date( __( 'j F Y @ g:i a', 'strip' ), $item->get_date( 'Y-m-d H:i:s' ) ) ); ?>
-
 			<p style="margin-top: 1.2em;
 					  #strip_rss_dashboard_widget .postbox.postbox-container { width: 12px; }">
+						<?php echo esc_html( mysql2date( __( 'j F Y @ g:i a', 'strip' ), $item->get_date( 'Y-m-d H:i:s' ) ) ); ?>
 			<?php echo wp_kses_post( substr( $item->get_description(), 0, 742 ) ); ?>
 			</p>
 			<?php
@@ -95,7 +94,7 @@ function strip_rss_dashboard_widget() {
  * Calling all custom dashboard widgets.
  */
 function strip_custom_dashboard_widgets() {
-	wp_add_dashboard_widget( 'strip_rss_dashboard_widget', __( 'SILENT COMICS on tumblr', 'strip' ), 'strip_rss_dashboard_widget' );
+	wp_add_dashboard_widget( 'strip_rss_dashboard_widget', __( 'SILENT COMICS blog', 'strip' ), 'strip_rss_dashboard_widget' );
 	/**
 	* Be sure to drop any other created Dashboard Widgets.
 	* in this function and they will all load.
@@ -156,7 +155,7 @@ you like.
  */
 function strip_custom_admin_footer() {
 	?>
-	<span id="footer-thankyou"><a href="<?php echo esc_url( __( 'http://silent-comics.com/', 'strip' ) ); ?>"><?php printf( esc_html__( 'Developed by %s', 'strip' ), 'Silent Comics' ); ?></a>
+	<span id="footer-thankyou"><a href="<?php echo esc_url( __( 'https://silent-comics.com/', 'strip' ) ); ?>"><?php printf( esc_html__( 'Developed by %s', 'strip' ), 'Silent Comics' ); ?></a>
 			<span class="sep"> | </span>
 			<a href="<?php echo esc_url( __( 'https://github.com/SilentComics/Strip/', 'strip' ) ); ?>"><?php printf( esc_html__( 'Contribute on %s', 'strip' ), 'GitHub' ); ?></a>
 <?php }

@@ -12,7 +12,6 @@ For more info, check out the codex:
 http://codex.wordpress.org/Creating_Admin_Themes
 
 ******************************************************************/
-
 /* the form box */
 /*
 * wp-login CSS overwrites
@@ -20,21 +19,18 @@ http://codex.wordpress.org/Creating_Admin_Themes
 * with the width and height.
 *
 */
-
 .login h1 a {
-  background: url('../images/login-logo.svg') no-repeat top center;
-/* make sure to replace this! */
+  background: url("../images/login-logo.svg") no-repeat top center;
+  /* make sure to replace this! */
   width: 124px;
   height: 62px;
   text-indent: -9999px;
   overflow: hidden;
   padding-bottom: 10;
-  display: block;
-}
+  display: block; }
 
 .no-svg login h1 a {
-  background-image: url('../images/login-logo.png');
-}
+  background-image: url("../images/login-logo.png"); }
 
 #loginform {
   margin-left: 8px;
@@ -44,89 +40,76 @@ http://codex.wordpress.org/Creating_Admin_Themes
   background: transparent;
   border: none;
   border-radius: 3px;
-  box-shadow: none;
-}
+  box-shadow: none; }
 
 #loginform label {
-  color: #c9a6ab; /* #c9a6ab meta #BF8B87 monochromatic */
-}
+  color: #c9a6ab;
+  /* #c9a6ab meta #BF8B87 monochromatic */ }
 
 body form .input {
   font-family: Inconsolata, monospace;
   font-weight: 400;
   color: #420084;
   font-size: 12px;
-
   text-align: center;
-  width: 100%;
   border: 1px solid #e7e7e7;
   background: #f9f6f2;
   outline: none;
-  box-shadow: inset 1px 1px 2px rgba(200, 200, 200, 0.2);
-}
+  box-shadow: inset 1px 1px 2px rgba(200, 200, 200, 0.2); }
 
 /*
 * You'll have to override some of the default styles
 * but since we're referencing the id, it should be easy.
 */
-
 /* Forget Me Not */
 .forgetmenot {
-	display: none;
-
-}
+  display: none; }
 
 #nav a,
 #backtoblog a {
   font-family: Inconsolata, monospace;
   font-size: 16px;
-}
+  color: #7369FF !important; }
 
 #nav a:hover,
 #backtoblog a:hover {
   font-family: Inconsolata, monospace;
-  color: #7369FF;
-}
+  color: #7369FF; }
 
 /* login button*/
 .wp-core-ui.login .button-primary {
-	width: 100%;
-	height: 40px;
-	background: #FF7369;
-	text-transform: uppercase;
-	color: #fff;
-	border: none;
-	-webkit-border-radius: 2px;
-	-moz-border-radius: 2px;
-	border-radius: 2px;
-	outline: none;
-	position: relative;
-	text-shadow: none;
-	/*font-family: Futura, "Trebuchet MS", Arial, sans-serif;*/
-	font-size: 16px;
-	letter-spacing: 0.1em;
-	-webkit-box-shadow: none;
-	box-shadow: none;
-}
+  width: 100%;
+  height: 40px;
+  background: #FF7369;
+  text-transform: uppercase;
+  color: #fff;
+  border: none;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  outline: none;
+  position: relative;
+  text-shadow: none;
+  /*font-family: Futura, "Trebuchet MS", Arial, sans-serif;*/
+  font-size: 16px;
+  letter-spacing: 0.1em;
+  -webkit-box-shadow: none;
+  box-shadow: none; }
 
 .wp-core-ui.login .button-primary:hover {
-	background: #7369FF;
-	-webkit-transition: background 0.2s ease;
-	transition: background 0.2s ease;
-}
+  background: #7369FF;
+  -webkit-transition: background 0.2s ease;
+  transition: background 0.2s ease; }
 
 .wp-core-ui.login .button-primary:active {
-	-webkit-box-shadow: none;
-	box-shadow: none;
-	top: 0;
-}
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  top: 0; }
 
 /* background colour */
-
 body {
   transition: background-color 0.5s ease;
-  background-color: #420084;
-}
+  background-color: #420084; }
+
 body:hover {
-  background-color: #EFE9EA;
-}
+  background-color: #EFE9EA; }

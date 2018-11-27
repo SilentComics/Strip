@@ -12,7 +12,7 @@
 	<div class="wrap">
 	<?php
 	if ( '' !== get_the_post_thumbnail() ) :
-		the_post_thumbnail( 'strip-featured-thumbnail' );
+		the_post_thumbnail( 'strip-featured-image' );
 	endif;
 	?>
 		<header class="entry-header">

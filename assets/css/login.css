@@ -36,7 +36,7 @@ http://codex.wordpress.org/Creating_Admin_Themes
   background-image: url('../images/login-logo.png');
 }
 
-#loginform {
+#loginform  {
   margin-left: 8px;
   padding: 26px 24px 48px;
   font-family: Inconsolata, monospace;
@@ -56,9 +56,7 @@ body form .input {
   font-weight: 400;
   color: #420084;
   font-size: 12px;
-
   text-align: center;
-  width: 100%;
   border: 1px solid #e7e7e7;
   background: #f9f6f2;
   outline: none;
@@ -73,13 +71,13 @@ body form .input {
 /* Forget Me Not */
 .forgetmenot {
 	display: none;
-
 }
 
 #nav a,
 #backtoblog a {
   font-family: Inconsolata, monospace;
   font-size: 16px;
+  color: #7369FF !important;
 }
 
 #nav a:hover,

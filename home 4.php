@@ -1,9 +1,9 @@
 <?php
 /**
- * Template Name: Three Columns Stories Archive
+ * Template Name: Four columns page
  *
  * The template for displaying comic series archives pages.
- * Show the first image of each comic post on a three columns grid.
+ * Show the first image of each comic post on a four columns grid.
  * T0DO: excerpts enhancements — Use this template as reference during develoment.
  *
  * @package WordPress
@@ -25,7 +25,7 @@ get_header(); ?>
 				<h1 class="page-title"><?php the_title(); ?></h1>
 			</header>
 
-		<div class="three-columns">
+		<div class="four-columns">
 
 			<?php
 			// get the correct paged figure on a Custom Page That Isn’t Static Home Page.
@@ -49,7 +49,7 @@ get_header(); ?>
 						while ( $loop->have_posts() ) :
 							$loop->the_post();
 			?>
-			<div class="three-column">
+			<div class="four-column">
 				<a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php printf( esc_html__( 'Permanent Link to %s', 'strip' ),the_title_attribute( 'echo=0' ) ); ?>"></a>
 				<?php if ( get_the_post_thumbnail() !== '' ) {
 

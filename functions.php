@@ -381,7 +381,7 @@ function comic_post_type() {
 add_action( 'init', 'comic_post_type', 0 ); // End of register_cpt_comic().
 
 	/**
-	 * Register Custom Taxonomy 'story'
+	 * Register Custom Taxonomy 'story' with REST API support
 	 */
 function comic_story_taxonomy() {
 	$labels = array(
@@ -416,6 +416,9 @@ function comic_story_taxonomy() {
 		'show_tagcloud'              => true,
 		'query_var'	                 => true,
 		'rewrite'                    => array( 'slug' => 'story' ),
+		'show_in_rest'               => true,
+    'rest_base'                  => 'genre',
+    'rest_controller_class'      => 'WP_REST_Terms_Controller',
 	);
 	register_taxonomy( 'story', array( 'comic' ), $args );
 	register_taxonomy_for_object_type( 'story', 'comic' );
@@ -593,21 +596,20 @@ add_action( 'after_switch_theme', 'strip_rewrite_rules' );
 	}
 
 	/**
-	 * Show comics post types on home page (blog) and feeds.
+	 * Show comics post types on home page (blog) and feeds. Off by default
 	 *
 	 * @param string $query strip_add_comics_to_blog.
 	 */
-	function strip_add_comics_to_blog( $query ) {
-		if ( is_home() && $query->is_main_query() ) {
-			$query->set( 'post_type', array( 'post', 'comic' ) );
-				return $query;
-		}
-	}
-		add_action( 'pre_get_posts', 'strip_add_comics_to_blog' );
+//	function strip_add_comics_to_blog( $query ) {
+//		if ( is_home() && $query->is_main_query() ) {
+//			$query->set( 'post_type', array( 'post', 'comic' ) );
+//				return $query;
+//		}
+//	}
+//		add_action( 'pre_get_posts', 'strip_add_comics_to_blog' );
 
 	/**
 	 * Set an automatic default custom taxonomy for comic posts.
-	 *
 	 * When no "story" (taxonomy) is set, comic posts default to “draft”.
 	 *
 	 * @param	string $post_id set_default_object_terms.

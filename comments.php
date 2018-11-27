@@ -46,7 +46,7 @@ if ( post_password_required() ) {
 							'strip'
 						)
 					),
-					number_format_i18n( $comments_number ),
+					esc_html( number_format_i18n( $comments_number ) ),
 					get_the_title()
 				);
 			}

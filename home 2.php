@@ -1,9 +1,9 @@
 <?php
 /**
- * Template Name: Three Columns Stories Archive
+ * Template Name: Two columns page
  *
  * The template for displaying comic series archives pages.
- * Show the first image of each comic post on a three columns grid.
+ * Show the first image of each comic post on a two columns grid.
  * T0DO: excerpts enhancements — Use this template as reference during develoment.
  *
  * @package WordPress
@@ -25,7 +25,7 @@ get_header(); ?>
 				<h1 class="page-title"><?php the_title(); ?></h1>
 			</header>
 
-		<div class="three-columns">
+		<div class="two-columns">
 
 			<?php
 			// get the correct paged figure on a Custom Page That Isn’t Static Home Page.
@@ -38,7 +38,7 @@ get_header(); ?>
 					$loop = new WP_Query( array(
 						'post_type'			     => 'comic',
 						'story'              => '', // add story term here if you want this template to only archive a specific story.
-						'posts_per_page'     => 12, // changes default Blog pages number "reading settings" set in dashboard.
+						'posts_per_page'     => 6, // changes default Blog pages number "reading settings" set in dashboard.
 						'paged'              => $paged, // you absolutely need this.
 						'orderby'            => 'title', // order by title or date.
 						'order'              => 'ASC',
@@ -49,14 +49,14 @@ get_header(); ?>
 						while ( $loop->have_posts() ) :
 							$loop->the_post();
 			?>
-			<div class="three-column">
+			<div class="two-column">
 				<a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php printf( esc_html__( 'Permanent Link to %s', 'strip' ),the_title_attribute( 'echo=0' ) ); ?>"></a>
 				<?php if ( get_the_post_thumbnail() !== '' ) {
 
 					echo '<a href="';
 					the_permalink();
 					echo '" class="thumbnail-wrapper">';
-					the_post_thumbnail( 'strip-medium' );
+					the_post_thumbnail();
 
 					echo '</a>';
 

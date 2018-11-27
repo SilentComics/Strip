@@ -1,10 +1,10 @@
 /*!
 Site Name: Strip
-Author: SIlENT COMICS
+Author: SILENT COMICS
 
 Stylesheet: WooCommerce Stylesheet
 
-This stylesheet overwrites some WooCommerce CSS rules to better match SilentComics theme.
+This stylesheet overwrites some WooCommerce CSS rules to better match Strip theme.
 
 For more info, check out:
 https://docs.woothemes.com/documentation/plugins/woocommerce/
@@ -139,16 +139,26 @@ p.demo_store{
 	display: block;
 }
 .woocommerce-content #toggle-comments-container {
-	display: none; /* Because there is no point to toggle on and off reviews like comments if you enabled reviews in the first place */
+	display: block; /* Because there is no point to toggle on and off reviews like comments if you enabled reviews in the first place */
 }
 
-.woocommerce-content #comments .comment_container .img.avatar {
-	max-width: 120px;
-	outline:  black;
-	outline-color: #ffcc00;
-	margin-bottom: 0;
-		width: 196px;
-		height: 196px;
+button.toggle-comments {
+	display: none;
+}
+
+.woocommerce .avatar {
+	border-radius: 50%; /* 50% = Circle  */
+		width: 296px;
+		height: 296px;
+		border: none;
+}
+
+.woocommerce .comment_container {
+	border: 40px;
+}
+
+.woocommerce-review__dash {
+	border: none;
 }
 
 .woocommerce label,
@@ -257,7 +267,6 @@ p.demo_store{
 	font-size: 0.625rem;
 	width: 100%
 } /* submit button */
-
 
 .woocommerce .added_to_cart.wc-forward {
 	display: initial;

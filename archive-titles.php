@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Archive titles
+ * Template Name: Comics Archive by titles
  * The template for displaying comic Archives by titles only.
  *
  * @package WordPress
@@ -23,7 +23,7 @@
 			<?php
 				$args = array(
 				'post_type'     => 'comic',
-				'title_li'      => esc_html_e( 'All Episodes', 'strip' ),
+				'title_li'      => esc_html_e( '', 'strip' ),
 				);
 				wp_list_pages( $args );
 			?>

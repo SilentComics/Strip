@@ -6,7 +6,7 @@
  * @subpackage Strip
  */
 
-if ( post_type_exists( $comic ) ) {
+if ( post_type_exists( 'comic' ) ) {
 	get_header( 'lite' );
 } else {
 	get_header();

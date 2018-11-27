@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Three Columns Stories Archive
+ * Template Name: Three columns page
  *
  * The template for displaying comic series archives pages.
  * Show the first image of each comic post on a three columns grid.
@@ -38,7 +38,7 @@ get_header(); ?>
 					$loop = new WP_Query( array(
 						'post_type'			     => 'comic',
 						'story'              => '', // add story term here if you want this template to only archive a specific story.
-						'posts_per_page'     => 12, // changes default Blog pages number "reading settings" set in dashboard.
+						'posts_per_page'     => 9, // changes default Blog pages number "reading settings" set in dashboard.
 						'paged'              => $paged, // you absolutely need this.
 						'orderby'            => 'title', // order by title or date.
 						'order'              => 'ASC',

@@ -22,6 +22,7 @@ function strip_custom_header_setup() {
 		'default-image'          => get_template_directory_uri() . '/assets/images/Default-header.png',
 		'default-text-color'     => '000',
 		'flex-height'            => true,
+		'flex-width'             => true,
 		'height'                 => 320,
 		'width'                  => 1920,
 		'wp-head-callback'       => 'strip_header_style',
@@ -74,6 +75,5 @@ $header_image = esc_url( get_header_image() );
 	if ( ! empty( $style ) ) {
 		echo "\n" . '<style type="text/css" id="custom-header-css">' . esc_attr( trim( $style ) ) . '</style>' . "\n";
 	}
-
 }
 endif; // strip_header_style.
