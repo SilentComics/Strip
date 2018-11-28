@@ -8,15 +8,15 @@
     var api = wp.customize;
 
     // Site title and description.
-    api( 'blogname', function( value ) {
+    api( "blogname", function( value ) {
         value.bind( function( to ) {
-            $( '#header h1 a, #footer a.site-name' ).html( to );
+            $( "#header h1 a, #footer a.site-name" ).html( to );
         } );
     } );
 
-    api( 'blogdescription', function( value ) {
+    api( "blogdescription", function( value ) {
         value.bind( function( to ) {
-            $( '#header p.site-description' ).html( to );
+            $( "#header p.site-description" ).html( to );
         } );
     } );
      // Header text color.
