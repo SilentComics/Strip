@@ -28,6 +28,8 @@ Theme review aside, there are a few ways you can [support this project ♥](http
 
 [![Flattr Silent Comics](http://silentcomics.com/images/flattr-badge-large.png)](https://flattr.com/@SILENT-COMICS)
 
+<img src="http://img.shields.io/liberapay/patrons/silentcomics.svg?logo=liberapay">
+
 [![Support development][img-donate]][url-donate]
 
 ***
