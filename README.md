@@ -3,8 +3,6 @@
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/SilentComics/Strip/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/SilentComics/Strip/?branch=master)
 [![Code Climate](https://codeclimate.com/github/SilentComics/Strip/badges/gpa.svg)](https://codeclimate.com/github/SilentComics/Strip)
 
-[![Mastodon](https://img.shields.io/badge/Mastodon-@Silent_Comics-blue.svg?style=flat)](https://mastodon.social/users/Silent_Comics)
-
 Strip: A WordPress Theme for Silent Comics
 =================================
 
@@ -22,6 +20,17 @@ See the [Theme wiki](https://github.com/SilentComics/Strip/wiki/Theme-set-up) fo
 ## Contributing
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 **I’m not a developer** and there is room for improvements. Do you know how to make this theme better? I would love to get contributions for this project! Please send your findings and suggestions over to hoa // @ // silent-comics.com or [open a pull request here](https://github.com/SilentComics/Strip/pulls).
+
+### More about the project:
+SILENT COMICS’s publishing site [(silent-comics.com)](https://silent-comics.com) is coming soon. Please visit [Strip WP theme repo](https://github.com/SilentComics/Strip) here on GitHub to contribute.
+
+* [Silent Comics manifesto](https://silentcomics.com/manifesto/ "SILENT COMICS manifesto")
+* on Twitter: [@silentcomics](https://twitter.com/silentcomics "SILENT COMICS on Twitter")
+* on Facebook: [https://www.facebook.com/SilentComics/](https://www.facebook.com/SilentComics/ "SILENT COMICS on Facebook")
+
+[![Mastodon](https://img.shields.io/badge/Mastodon-@Silent_Comics-blue.svg?style=flat)](https://mastodon.social/users/Silent_Comics)
+
+QR <p><a href="http://eepurl.com/go58Rb"><img src="http://eepurl.com/go58Rb.qr.2"/></a></p>
 
 ## Other ways you can help:
 Theme review aside, there are a few ways you can [support this project ♥](https://silentcomics.com/lynchpin/). *Thank you!*
