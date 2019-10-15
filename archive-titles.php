@@ -1,7 +1,7 @@
 <?php
 /**
  * Template Name: Comics Archive by titles
- * The template for displaying comic Archives by titles only.
+ * The template to display comic Archives by titles only.
  *
  * @package WordPress
  * @subpackage Strip

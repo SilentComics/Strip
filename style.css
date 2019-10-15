@@ -4,7 +4,7 @@ Theme URI: https://github.com/SilentComics/Strip
 Author: SILENT COMICS
 Author URI: https://silent-comics.com
 Description: A WordPress theme for comics and webcomics <a href="https://github.com/SilentComics/Strip/">Contribute on GitHub</a>
-Version: 1.1.9
+Version: 1.2.1
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: strip
@@ -59,7 +59,7 @@ h1 {
 
 hr {
   box-sizing: content-box;
-  height: 0; 
+  height: 0;
   overflow: visible; }
 
 pre {
@@ -108,13 +108,13 @@ input,
 optgroup,
 select,
 textarea {
-  font-family: inherit; 
+  font-family: inherit;
   font-size: 100%;
   line-height: 1.15;
   margin: 0; }
 
 button,
-input { 
+input {
   overflow: visible; }
 
 button,
@@ -205,16 +205,22 @@ body {
 	font-family:'Fenix', Georgia, serif;
 	line-height: 1.45; }
 
-h2, h3, h4, h5 {
+h2, h3, h4, h5,  {
 	clear: both;
-	font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
 	font-weight: 700;
 	line-height: 1.2; }
 
-h6  {
-	font-family:'Fenix', Georgia, serif; /* font-family: Inconsolata, monospace;  */
-	font-weight: 100;
-	line-height: 1.2; }
+h1, h2, h3, h4, h5, h6, .site-title, .main-navigation, .page-numbers, .nav-previous a, .nav-next a, .nav-previous-page a, .nav-next-page a, .entry-title, .entry-title a, .widget-title, .widget, .widget a, .categories-links,
+.entry-meta, .comic .post-edit-link, .series-title, .series-title a, .series-title li,
+.post-parent-title, .post-parent-title a, .page-title, .author-title, .comment-author,
+.comment-author a, blockquote {
+	font-family: -apple-system, BlinkMacSystemFont,
+               'avenir next', avenir,
+               'helvetica neue', helvetica,
+               ubuntu,
+               roboto, noto,
+               'segoe ui', arial,
+               sans-serif; }
 
 p {
 	margin-bottom: 1.3em; }
@@ -224,7 +230,15 @@ i {
 	font-style: italic; }
 
 blockquote {
-	margin: 0 1.3em; }
+	border-left: 4px solid #422442;
+	color: #422442; /* #c9a6ab, #ff91ae or #c9a6ab */
+	font-size: 19px;
+	font-style: italic;
+	font-weight: 300;
+	line-height: 1.4736842105;
+	margin: 0 1.3em;
+	margin-bottom: 28px;
+	padding: 0 0 0 24px; }
 
 address {
 	margin: 0 1.3em; }
@@ -234,7 +248,7 @@ pre, code, kbd, tt, var {
 	font-size: 16px;
 	font-size: 1rem; }
 
-pre {
+pre, code, kbd, tt, var {
 	background: #aaffe3;
 	color: #422442;
 	max-width: 100%;
@@ -245,7 +259,7 @@ pre {
 	word-wrap: break-word; }
 
 code, kbd, tt, var {
-	background: #faf4f4;
+	background: #aaffe3;
 	padding: 4px;
 	vertical-align: middle; }
 
@@ -378,7 +392,13 @@ input[type="submit"] {
 	background: #fff;
 	color: #422442;
 	cursor: pointer;
-	font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
+	font-family: -apple-system, BlinkMacSystemFont,
+               'avenir next', avenir,
+               'helvetica neue', helvetica,
+               ubuntu,
+               roboto, noto,
+               'segoe ui', arial,
+               sans-serif;
 	font-size: 10px;
 	font-size: 0.625rem;
 	letter-spacing: 0.12em;
@@ -442,7 +462,7 @@ textarea {
   input[type="datetime-local"]:focus,
   input[type="color"]:focus,
   textarea:focus {
-  color: #484848; }
+  color: #422442; }
 
 select {
 	border: 1px solid #ccc; }
@@ -464,7 +484,7 @@ input[type="datetime-local"],
 input[type="color"] {
 	padding: 3px;
 	font-size: small; }
- 
+
   textarea {
 	width: 100%; }
 
@@ -523,7 +543,7 @@ a:active {
 .no-svg .logo {
 	width: 96px;
 	height: 48px;
-	background-image: url('../images/silent-comics-logo.png');
+	background-image: url(.../assets/images/silent-comics-logo.png);
 	background-repeat: no-repeat; }
 
 /* =Masthead
@@ -544,7 +564,6 @@ a:active {
 	box-sizing: border-box;
 	border: 6px solid #420084;
 	display: table;
-	font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
 	line-height: 1.2;
 	letter-spacing: 0.1em;
 	margin: 0 auto;
@@ -574,7 +593,6 @@ a:active {
 	position: relative;
 	display: block;
 	clear: both;
-	font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
 	font-size: 16px;
 	font-size: 1rem;
 	letter-spacing: 0.24em;
@@ -709,7 +727,6 @@ button.menu-toggle:hover {
 .nav-next a,
 .nav-previous-page a,
 .nav-next-page a {
-	font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
 	font-size: 10px;
 	font-size: 0.625rem;
 	overflow: hidden;
@@ -748,7 +765,7 @@ button.menu-toggle:hover {
   	text-align: right; }
 
  .image-navigation {
-	font-family: Inconsolata, monospace; /*font-family: Futura, 'Trebuchet MS', Arial, sans-serif;*/
+	font-family: Inconsolata, monospace;
 	font-size: 16px;
 	font-size: 1rem; }
 
@@ -871,7 +888,7 @@ body {
 
 .widget-area .calendar_wrap {
 	display: inline; }
-	
+
 .footer-widget-1 .widget_calendar,
 .footer-widget-2 .widget_calendar,
 .footer-widget-3 .widget_calendar,
@@ -893,13 +910,12 @@ body {
 .widget-title,
 .widget,
 .widget a {
-	font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
 	color: #422424;
 	font-size: 0.75rem;
 	line-height: 1.5; /*check */
 	font-weight: 300;
-	margin: 0 0 2.4em 0;
-}
+	margin: 0 0 2.4em 0; }
+
 .widget a:hover {
 	color: #ff7369; }
 
@@ -932,9 +948,9 @@ body {
 .widget select {
 	width: 100%; }
 
-.widget-area-wrapper {
+/* .widget-area-wrapper {
 	margin: 0 auto;
-    max-width: 1272px; /* wraps the footer widget */}
+    max-width: 1272px; /* wraps the footer widget }*/
 
 /* Search widget */
 .widget_search form {
@@ -951,6 +967,10 @@ body {
 	display: none; }
 
 /* Calendar widget */
+.widget_calendar,
+.widget_calendar a {
+	font-size: 12px; }
+
 .widget_calendar caption {
 	color: #769993;
 	letter-spacing: 0.2em;
@@ -960,9 +980,6 @@ body {
 
 .widget_calendar thead th,
 .widget_calendar tbody td {
-	font-family: Inconsolata, monospace;
-	font-size: 14px;
-	font-size: 0.875rem;
 	border: 1px solid #f0f0f0; /* fallback */
 	border: 1px solid rgba(255, 255, 255, 0.2);
 	border-width: 0px 1px 1px 0px;
@@ -1084,8 +1101,16 @@ article.error404 .widget_calendar tfoot td {
 	display: block; }
 
 .sticky {
-	color: #422442; /* or #c9a6ab */
-	background-color: #faf4f4; } /* #7369FF, #00ffaa or #f3e7e7 */
+	color: #422442;
+	background-color: #00ffaa; } /* #faf4f4 #7369FF, #00ffaa or #f3e7e7 */
+
+.sticky .entry-meta,
+.sticky .entry-meta a,
+.sticky .categories-links a {
+color: #000000; }
+
+.sticky .entry-title a {
+color: #ffffff; }
 
 .sticky .entry-date {
 	display: none; }
@@ -1103,12 +1128,12 @@ article.error404 .widget_calendar tfoot td {
 	margin-top: 24px; }
 
 .entry-title, .entry-title a {
-	font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
+	color:#422442;
 	margin: 0 auto;
 	max-width: 696px;
 	-ms-word-wrap: break-word; /* support non-breaking text for edge cases  */
 	word-wrap: break-word;
-	color:#422442;
+	letter-spacing: 0.04em;
 	text-transform: uppercase;
 	text-align:center; }
 
@@ -1119,7 +1144,6 @@ article.error404 .widget_calendar tfoot td {
 .categories-links,
 .entry-meta {
 	display: block;
-	font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
 	font-size: 10px;
 	font-size: 0.625rem;
     letter-spacing: 0.12em;
@@ -1199,7 +1223,7 @@ span > object {
 
 /* link */
 .format-link, .format-chat {
-	margin: 0 auto;
+  margin: 0 auto;
 	font-family: Inconsolata, monospace; }
 
 .format-link .entry-content a {
@@ -1209,7 +1233,6 @@ span > object {
 .format-chat {
 	color: white;
 	background-color: #7369FF; /* #ff7369 over #c9a6ab or a contrasting colour #BE69FF */
-	margin: 0 auto;
 	padding: 1.2em 0;
 	font-size: 18px;
 	font-size: 1.125rem;
@@ -1248,7 +1271,7 @@ span > object {
 
 .tab--preview {
   	display: block;
-		position: relative;
+	position: relative;
     padding-bottom: 56.25%;
     padding-top: 30px; height: 0; overflow: hidden; }
 
@@ -1296,49 +1319,41 @@ span > object {
     overflow: hidden;
     position:   relative; }
 
-		.gallery-columns-1 .gallery-item {
-		    max-width: 100%;
-		  }
+	.gallery-columns-1 .gallery-item {
+	    max-width: 100%; }
 
-		.gallery-columns-2 .gallery-item {
-		    max-width: 48%;
-		    max-width: calc(50% - 6px);
-		  }
+	.gallery-columns-2 .gallery-item {
+	    max-width: 48%;
+	    max-width: calc(50% - 6px); }
 
-		.gallery-columns-3 .gallery-item {
-		    max-width: 32%;
-		    max-width: calc(33.48% - 6px);
-		  }
+	.gallery-columns-3 .gallery-item {
+	    max-width: 32%;
+	    max-width: calc(33.48% - 6px); }
 
-		.gallery-columns-4 .gallery-item {
-		    max-width: 23%;
-		    max-width: calc(25% - 6px);
-		  }
+	.gallery-columns-4 .gallery-item {
+	    max-width: 23%;
+	    max-width: calc(25% - 6px); }
 
-		.gallery-columns-5 .gallery-item {
-		    max-width: 19%;
-		    max-width: calc(20% - 6px);
-		  }
+	.gallery-columns-5 .gallery-item {
+	    max-width: 19%;
+	    max-width: calc(20% - 6px); }
 
-		.gallery-columns-6 .gallery-item {
-		    max-width: 15%;
-		    max-width: calc(16.7% - 6px);
-		  }
+	.gallery-columns-6 .gallery-item {
+ 	    max-width: 15%;
+	    max-width: calc(16.7% - 6px); }
 
-		.gallery-columns-7 .gallery-item {
-		    max-width: 13%;
-		    max-width: calc(14.28% - 6px);
-		  }
+	.gallery-columns-7 .gallery-item {
+	    max-width: 13%;
+	    max-width: calc(14.28% - 6px); }
 
-		.gallery-columns-8 .gallery-item {
-		    max-width: 11%;
-		    max-width: calc(12.5% - 6px);
-		  }
+	.gallery-columns-8 .gallery-item {
+	    max-width: 11%;
+	    max-width: calc(12.5% - 6px); }
 
-		.gallery-columns-9 .gallery-item {
-		    max-width: 9%;
-		    max-width: calc(11.1% - 6px);
-		  }
+	.gallery-columns-9 .gallery-item {
+	    max-width: 9%;
+	    max-width: calc(11.1% - 6px); }
+
 		.gallery-columns-1 .gallery-item:nth-of-type(1n),
 		.gallery-columns-2 .gallery-item:nth-of-type(2n),
 		.gallery-columns-3 .gallery-item:nth-of-type(3n),
@@ -1348,50 +1363,45 @@ span > object {
 		.gallery-columns-7 .gallery-item:nth-of-type(7n),
 		.gallery-columns-8 .gallery-item:nth-of-type(8n),
 		.gallery-columns-9 .gallery-item:nth-of-type(9n) {
-		    margin-right: 0;
-		}
+		    margin-right: 0; }
 		.gallery-columns-1 .gallery-size-medium figure.gallery-item:nth-of-type(1n+1),
 		.gallery-columns-1 .gallery-size-thumbnail figure.gallery-item:nth-of-type(1n+1),
 		.gallery-columns-2 .gallery-size-thumbnail figure.gallery-item:nth-of-type(2n+1),
 		.gallery-columns-3 .gallery-size-thumbnail figure.gallery-item:nth-of-type(3n+1) {
-		    clear: left;
-		}
+		    clear: left; }
 
-		.gallery-caption {
-		    background-color: rgba(255, 255, 255, 0.7);
-		    -moz-box-sizing: border-box;
-		    box-sizing: border-box;
-		    color: #777777;
-		    font-size: 12px;
-		    font-style: italic;
-		    line-height: 1.5;
-		    margin: 0;
-		    max-height: 50%;
-		    opacity: 0;
-		    padding: 6px 8px;
-		    position: absolute;
-		    bottom: 0;
-		    left: 0;
-		    text-align: left;
-		    width: 100%;
-		}
-		.gallery-caption:before {
-		    content: "";
-		    height: 100%;
-		    min-height: 49px;
-		    position: absolute;
-		    top: 0;
-		    left: 0;
-		    width: 100%;
-		}
+	.gallery-caption {
+	    background-color: rgba(255, 255, 255, 0.7);
+	    -moz-box-sizing: border-box;
+	    box-sizing: border-box;
+	    color: #777777;
+	    font-size: 12px;
+	    font-style: italic;
+	    line-height: 1.5;
+	    margin: 0;
+	    max-height: 50%;
+	    opacity: 0;
+	    padding: 6px 8px;
+	    position: absolute;
+	    bottom: 0;
+	    left: 0;
+	    text-align: left;
+	    width: 100%; }
+
+	.gallery-caption:before {
+	    content: "";
+	    height: 100%;
+	    min-height: 49px;
+	    position: absolute;
+	    top: 0;
+	    left: 0;
+	    width: 100%; }
 		.gallery-item:hover .gallery-caption {
-		    opacity: 1;
-		}
-		.gallery-columns-7 .gallery-caption,
-		.gallery-columns-8 .gallery-caption,
-		.gallery-columns-9 .gallery-caption {
-		    display: none;
-		}
+		    opacity: 1; }
+	.gallery-columns-7 .gallery-caption,
+	.gallery-columns-8 .gallery-caption,
+	.gallery-columns-9 .gallery-caption {
+		    display: none; }
 
 /* Captions settings */
 .wp-caption {
@@ -1420,7 +1430,6 @@ span > object {
 10.5 Comics
 --------------------------------------------------------------*/
 .comic .entry-title {
-	font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
 	font-size: 24px;
 	font-size: 1.5rem;
 	font-weight: 400;
@@ -1435,7 +1444,6 @@ span > object {
 
 .comic .post-edit-link {
   padding: 9px 6px 6px 6px;
-  font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
   font-size: 10px;
   font-size: 0.625rem;
   text-transform: uppercase;
@@ -1516,16 +1524,15 @@ span > object {
 	background: #ff7369;
 	color: #fff; }
 
-	.navigation-comic .nav-first a:active,
-	.navigation-comic .nav-previous current_page_item > a,
-	.navigation-comic .nav-next current_page_item > a,
-	.navigation-comic .nav-last current_page_item > a {
-		background: #000;
-		color: #fff; }
+.navigation-comic .nav-first a:active,
+.navigation-comic .nav-previous current_page_item > a,
+.navigation-comic .nav-next current_page_item > a,
+.navigation-comic .nav-last current_page_item > a {
+	background: #000;
+	color: #fff; }
 
 .series-title, .series-title a, .series-title li,
 .post-parent-title, .post-parent-title a {
-	font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
 	color: #422442;
 	text-align: center;
 	margin-bottom: 1em; }
@@ -1537,12 +1544,10 @@ span > object {
 
 /* the comic page title */
 .page-title {
-	font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
 	margin: 0.24em;
 	text-align: center; }
 
 .author-title {
-	font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
 	text-transform: uppercase;
 	font-weight: 500; }
 
@@ -1562,20 +1567,20 @@ span > object {
 	font-size: 1rem;
 	line-height: 1.2; }
 
-	/* Two columns grid */
-	.two-columns { width: 100%; margin: 1.2em 0; }
-	.two-columns:before, .two-columns:after { content: " "; display: table; }
-	.two-columns:after { clear: both; }
-	.two-column { float: left; margin: 0 3% 1em 0; width: 48.5%; }
-	.two-column:nth-child(2n) { margin-right: 0; }
-	.two-column:nth-child(2n+1) { margin-left: 0; clear: left; }
-	.two-column img { width: 100%; }
+/* Two columns grid */
+.two-columns { width: 100%; margin: 1.2em 0; }
+.two-columns:before, .two-columns:after { content: " "; display: table; }
+.two-columns:after { clear: both; }
+.two-column { float: left; margin: 0 3% 1em 0; width: 48.5%; }
+.two-column:nth-child(2n) { margin-right: 0; }
+.two-column:nth-child(2n+1) { margin-left: 0; clear: left; }
+.two-column img { width: 100%; }
 
-	@media screen and (max-width: 552px) {
-	.two-column  { margin: 0; width: 100%; }
-	.two-column :nth-child(1n) { margin-right: 0; }
-	.two-column :nth-child(1n+1) { margin-left: 0; clear: left; }
-	.series-title { font-size: 10px; font-weight: 100; line-height: 1.2; } }
+@media screen and (max-width: 552px) {
+.two-column  { margin: 0; width: 100%; }
+.two-column :nth-child(1n) { margin-right: 0; }
+.two-column :nth-child(1n+1) { margin-left: 0; clear: left; }
+.series-title { font-size: 10px; font-weight: 100; line-height: 1.2; } }
 
 /* Three columns grid */
 .three-columns { width: 100%; margin: 0.6em 0 0 0; }
@@ -1607,8 +1612,7 @@ span > object {
 .four-column img { width: 100%;
 
 max-width: 624px; /* Width of new image */
-max-height: 312px; /* Height of new image */
-   }
+max-height: 312px; /* Height of new image */ }
 
 @media screen and (max-width: 816px) {
 .four-column { margin: 0 2% 0.625rem 0; width: 49%; }
@@ -1645,9 +1649,9 @@ button.toggle-comments {
 /*--------------------------------------------------------------
 10.6.2 Comments
 --------------------------------------------------------------*/
+.bypostauthor .comment-author a,
 .comment-author,
 .comment-author a {
-	font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
 	font-size: 16px;
 	font-size: 1rem;
 	font-weight: 500;
@@ -1662,28 +1666,31 @@ button.toggle-comments {
 .bypostauthor .comment-content {
 	color: #422442;
 	background: #fffcfc; /* Highlight for Theme Check */
-	padding: 2px 12px 1px 12px;
-	margin-bottom: 2.4em;
+	padding-left: 1em;
+	margin-bottom: 1.2em;
 	border-radius: 6px; }
 
 .comment-meta,
 .comment-meta a,
 .ping-meta {
 	height: 1.2;
-	margin-bottom: 1.2em; }
+	margin-bottom: 0.6em; }
 
-.comment-metadata a {
+.comment-metadata, .comment-metadata a {
+	color: #ffcccc;
 	display: block;
 	font-family: Inconsolata, monospace;
-	color: #ffcccc;
-}
+	font-size: 12px;
+	font-size: 0.75rem;
+	text-align: right; }
+
 .comment .reply {
   padding: 3px;
-  margin-bottom: 2.4em;
-text-align: right; }
+  text-align: right; }
 
 .comment-meta a:hover {
-	color: #ffaaaa; }
+	color: #ffaaaa;
+	text-decoration: none; }
 
 .ping-meta {
 	color: #a2a2a2; }
@@ -1704,11 +1711,8 @@ text-align: right; }
 	font-family: Inconsolata, monospace;
 	font-size: 18px;
 	font-size: 1.125rem;
-	line-height: 1.6;
+	line-height: 1.2;
 	margin: 0 auto; }
-
-.comment-metadata {
-	text-align: right; }
 
 .comments-title {
 	margin-bottom: 24px;
@@ -1719,8 +1723,8 @@ text-align: right; }
 	display: inline-block; }
 
 .comment-respond {
-	margin: 0 1.5em;
-	padding-top: 24px; }
+	margin: 2px;
+	padding-top: 0; }
 
 .form-submit .submit {
     background: transparent;
@@ -1785,9 +1789,9 @@ text-align: right; }
 	background: #fff; }
 
 .mc4wp-form input[type="submit"] {
-	font-family: Inconsolata, monospace;
+	/* font-family: Inconsolata, monospace; */
 	font-size: 16px;
-	font-size: 1rem; 
+	font-size: 1rem;
 	border: 2px solid #000; } /* submit button */
 
 .mc4wp-success {
@@ -1796,10 +1800,10 @@ text-align: right; }
 .mc4wp-error {
 	color: #ff00cc; } /* error messages */
 
-.mc4wp-response {	
+.mc4wp-response {
 	letter-spacing: normal;
 	font-family: Inconsolata, monospace; }
-	
+
 @media screen and (max-width: 600px) {
 	.mc4wp-form input[type="submit"] {
 	font-size: 12px;
@@ -1866,14 +1870,14 @@ text-align: right; }
 	.comment-meta {
 	padding: 0; }
 
-article.error404 .widget {
+	article.error404 .widget {
 	float: left;
 	width: 50%; }
 
 	article.error404 .widget_most_used_categories,
 	article.error404 .widget_archive {
-		padding-right: 0;
-		padding-left: 12px; }
+	padding-right: 0;
+	padding-left: 12px; }
 
   .footer-widget-1,
   .footer-widget-2,
@@ -1885,7 +1889,7 @@ article.error404 .widget {
 @media screen and (min-width: 744px) {
 	.wrap {
 	max-width: 696px; }
-	
+
 	article.error404 input[type="search"],
 	article.no-results input[type="search"] {
 		width: auto; } }
@@ -1906,7 +1910,7 @@ article.error404 .widget {
 @media screen and (min-width: 1032px) {
 	.wrap {
 		max-width: 984px; }
-		
+
 	.entry-meta {
 		text-align: right; }
 
@@ -1966,27 +1970,28 @@ article.error404 .widget {
 		max-width: 1920px; } }
 
 @media screen and (max-width: 816px) {
-	.site-title {
-		font-size: 24px;
-		font-size: 1.5rem;
-		border: 5px solid #420084;
-		max-width: 312px; }
+.site-title {
+	font-size: 24px;
+	font-size: 1.5rem;
+	border: 5px solid #420084;
+	max-width: 312px; }
 
-	.series-title, series-title a,
-	.post-parent-title, .post-parent-title a {
-		font-size: 10px;
-		font-size: 0.625rem;
-		font-weight: 500; }
+.series-title, series-title a,
+.post-parent-title, .post-parent-title a {
+	font-size: 10px;
+	font-size: 0.625rem;
+	font-weight: 500; }
 
-	.navigation-comic .nav-previous a,
-	.navigation-comic .nav-next a,
-	.navigation-comic .nav-title a,
-	.navigation-comic .nav-first a,
-	.navigation-comic .nav-last a {
-		font-size: 10px;
-		font-size: 0.625rem;
-		vertical-align: text-bottom;
-		width: 72px; }
+.navigation-comic .nav-previous a,
+.navigation-comic .nav-next a,
+.navigation-comic .nav-title a,
+.navigation-comic .nav-first a,
+.navigation-comic .nav-last a {
+	font-size: 10px;
+	font-size: 0.625rem;
+	vertical-align: text-bottom;
+
+	width: 72px; }
 
 .navigation-comic .nav-title {
 	width: 19.9%; } }
@@ -2015,12 +2020,9 @@ article.error404 .widget {
 .site-description {
 	display: block; }
 
-blockquote p {
+	blockquote {
 	font-size: 16px;
-	font-size: 1rem;
-	font-weight: 400;
-	line-height: 1;
-	margin-bottom: 24px; }
+}
 
 .entry-title {
 	font-size: 1.5rem; }
@@ -2077,7 +2079,7 @@ blockquote p {
 	width: 48px; }
 
 .widget-area {
-		overflow: hidden; }
+	overflow: hidden; }
 
 .footer-widget-1,
 .footer-widget-2,

@@ -11,6 +11,15 @@ changelog.txt
 
 == changelog ==
 
+= (15/10/2019) - Version 1.2.1 =
+[>] Styling: minor change for sticky post and block quotes
+[>] Silent comics logo
+[*] archive documentation
+
+= (20/03/2018) - Version 1.2.0 =
+
+[>] Styling: CSS changes—replaced Futura & sans serif by system font
+
 = (27/11/2018) - Version 1.1.9 =
 
 clean-up

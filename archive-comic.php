@@ -2,8 +2,8 @@
 /**
  * Template Name: Archive all comics
  *
- * The template for displaying comic Archives pages
- * An overview to peruse all stories — has links to custom comic posts in a second loop
+ * Comic pages archives, an overview to peruse all stories.
+ * It has links to custom comic posts in a second loop.
  *
  * @package WordPress
  * @subpackage Strip

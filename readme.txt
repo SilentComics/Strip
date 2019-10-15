@@ -2,13 +2,13 @@
 
 Contributors: Anh Hoa Si, SILENT COMICS
 Requires at least: WordPress 4.7.3
-Tested up to: 5.0 RC 1
-Version; 1.1.9
+Tested up to: WordPress 5.2.4
+Version; 1.2.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: one-column, flexible-header, grid-layout, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images, post-formats, rtl-language-support, sticky-post, theme-options, custom-logo, translation-ready, blog
 
-Strip is a WordPress theme designed for the upcoming [SILENT COMICS](https://silent-comics.com) site. The theme is released under the GNU General Public License but still under development.
+Strip is a WordPress theme designed for the upcoming [SILENT COMICS](https://silent-comics.com) site. The theme is released under the GNU General Public License and still under development.
 If you intend to use this theme on a live site, please read the warning first.
 
 === Warning ===
@@ -124,7 +124,7 @@ Strip includes support for Infinite Scroll in Jetpack, and support for WooCommer
 
 == Credits ==
 
-Strip WordPress Theme, Copyright 2013-2018 silent-comics.com
+Strip WordPress Theme, Copyright 2013-2019 silent-comics.com
 
 Strip Theme bundles the following third-party resources:
 Based on Underscores http://underscores.me/, Copyright 2012-2016 Automattic, Inc.,

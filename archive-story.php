@@ -2,7 +2,7 @@
 /**
  * Template Name: Three Columns Stories Archive
  *
- * The template for displaying comic series archives pages.
+ * This template archives comic series pages.
  * Show the first image of each comic post on a three columns grid.
  * T0DO: excerpts enhancements — Use this template as reference during develoment.
  *
