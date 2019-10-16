@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: Strip\n"
-"POT-Creation-Date: 2017-07-07 18:27+0200\n"
-"PO-Revision-Date: 2017-04-27 10:59+0200\n"
+"POT-Creation-Date: 2019-10-17 01:55+0200\n"
+"PO-Revision-Date: 2019-10-17 01:53+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.0.2\n"
+"X-Generator: Poedit 2.2.4\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
 "X-Poedit-WPHeader: style.css\n"
@@ -19,7 +19,7 @@ msgstr ""
 "esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
 "_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
 "X-Poedit-SearchPath-0: .\n"
-"X-Poedit-SearchPathExcluded-0: *.js\n"
+"X-Poedit-SearchPathExcluded-0: *.min.js\n"
 
 #: 404.php:19
 msgid "Oops! That page can&rsquo;t be found."
@@ -47,50 +47,25 @@ msgstr ""
 msgid "Series"
 msgstr ""
 
-#: archive-comic.php:72 index.php:39 search.php:29
-msgctxt "Previous page link"
-msgid "&#8592;"
-msgstr ""
-
-#: archive-comic.php:72 index.php:39 search.php:29
-msgid "Previous page"
-msgstr ""
-
-#: archive-comic.php:73 index.php:40 search.php:30
-msgid "Next page"
-msgstr ""
-
-#: archive-comic.php:73 index.php:40 search.php:30
-msgctxt "Next post link"
-msgid "&#8594;"
-msgstr ""
-
-#: archive-comic.php:74 archive-story.php:85 content.php:63 exile.php:85
-#: index.php:41 magar.php:85 search.php:31 taxonomy-story-exile.php:55
-#: taxonomy-story-magar.php:66 taxonomy-story-tofu.php:55
-msgid "Page"
-msgstr ""
-
-#: archive-story.php:53 archive-story.php:74 exile.php:55 exile.php:72
-#: magar.php:57 magar.php:74
+#: archive-story.php:53 archive-story.php:74 home 2.php:53 2.php:74 3.php:53
+#: 3.php:74 4.php:53 4.php:74
 #, php-format
 msgid "Permanent Link to %s"
 msgstr ""
 
-#: archive-story.php:94 comments.php:68 exile.php:94 magar.php:94
-#: single-comic.php:33 taxonomy-story-exile.php:56 taxonomy-story-magar.php:75
-#: taxonomy-story-tofu.php:56
+#: archive-story.php:85 content.php:63 home 2.php:85 3.php:85 4.php:85
+#: inc/template-tags.php:139 taxonomy-story-name.php:53
+msgid "Page"
+msgstr ""
+
+#: archive-story.php:94 home 2.php:94 3.php:94 4.php:94 single-comic.php:33
+#: taxonomy-story-name.php:54
 msgid "Previous"
 msgstr ""
 
-#: archive-story.php:95 comments.php:69 exile.php:95 magar.php:95
-#: single-comic.php:35 taxonomy-story-exile.php:57 taxonomy-story-magar.php:76
-#: taxonomy-story-tofu.php:57
+#: archive-story.php:95 home 2.php:95 3.php:95 4.php:95 single-comic.php:35
+#: taxonomy-story-name.php:55
 msgid "Next"
-msgstr ""
-
-#: archive-titles.php:26
-msgid "All Episodes"
 msgstr ""
 
 #: assets/admin.php:86
@@ -98,11 +73,11 @@ msgid "j F Y @ g:i a"
 msgstr ""
 
 #: assets/admin.php:97
-msgid "SILENT COMICS on tumblr"
+msgid "SILENT COMICS blog"
 msgstr ""
 
 #: assets/admin.php:158
-msgid "http://silent-comics.com/"
+msgid "https://silent-comics.com/"
 msgstr ""
 
 #: assets/admin.php:158
@@ -120,13 +95,13 @@ msgid "Contribute on %s"
 msgstr ""
 
 #. translators: %s: post title
-#: comments.php:36
+#: comments.php:35
 #, php-format
 msgctxt "comments title"
 msgid "One Reply to &ldquo;%s&rdquo;"
 msgstr ""
 
-#: comments.php:42
+#: comments.php:41
 #, php-format
 msgctxt "comments title"
 msgid "%1$s Reply to &ldquo;%2$s&rdquo;"
@@ -134,11 +109,23 @@ msgid_plural "%1$s Replies to &ldquo;%2$s&rdquo;"
 msgstr[0] ""
 msgstr[1] ""
 
-#: comments.php:62
+#: comments.php:61
 msgid "Reply"
 msgstr ""
 
-#: comments.php:77
+#: comments.php:71
+msgid "Newer Comments"
+msgstr ""
+
+#: comments.php:72
+msgid "Older Comments"
+msgstr ""
+
+#: comments.php:83
+msgid "Comments"
+msgstr ""
+
+#: comments.php:95
 msgid "Comments are closed."
 msgstr ""
 
@@ -209,47 +196,47 @@ msgstr ""
 msgid "Theme: %1$s by %2$s."
 msgstr ""
 
-#: functions.php:88
+#: functions.php:87
 msgid "Primary Menu"
 msgstr ""
 
-#: functions.php:141
+#: functions.php:140
 msgid "Main Sidebar"
 msgstr ""
 
-#: functions.php:143
+#: functions.php:142
 msgid "The main body widget area"
 msgstr ""
 
-#: functions.php:152
+#: functions.php:151
 msgid "First Footer Widget"
 msgstr ""
 
-#: functions.php:154
+#: functions.php:153
 msgid "The first footer widget"
 msgstr ""
 
-#: functions.php:163
+#: functions.php:162
 msgid "Second Footer Widget"
 msgstr ""
 
-#: functions.php:165
+#: functions.php:164
 msgid "The second footer widget"
 msgstr ""
 
-#: functions.php:174
+#: functions.php:173
 msgid "Third Footer Widget"
 msgstr ""
 
-#: functions.php:176
+#: functions.php:175
 msgid "The third footer widget"
 msgstr ""
 
-#: functions.php:185
+#: functions.php:184
 msgid "Fourth Footer Widget"
 msgstr ""
 
-#: functions.php:187
+#: functions.php:186
 msgid "The fourth footer widget"
 msgstr ""
 
@@ -321,179 +308,179 @@ msgstr ""
 msgid "Filter Comics list"
 msgstr ""
 
-#: functions.php:353
+#: functions.php:354
 msgid "Comic"
 msgstr ""
 
-#: functions.php:354
+#: functions.php:355
 msgid "Publish Comics and Webcomics"
 msgstr ""
 
-#: functions.php:385
+#: functions.php:389
 msgctxt "Taxonomy General Name"
 msgid "Comic Story"
 msgstr ""
 
-#: functions.php:386
+#: functions.php:390
 msgctxt "Taxonomy Singular Name"
 msgid "Comic Story"
 msgstr ""
 
-#: functions.php:387
+#: functions.php:391
 msgid "Comic Stories"
 msgstr ""
 
-#: functions.php:388
+#: functions.php:392
 msgid "All Comic Stories"
 msgstr ""
 
-#: functions.php:389
+#: functions.php:393
 msgid "Parent Story"
 msgstr ""
 
-#: functions.php:390
+#: functions.php:394
 msgid "Parent Story:"
 msgstr ""
 
-#: functions.php:391
+#: functions.php:395
 msgid "New Comic Story"
 msgstr ""
 
-#: functions.php:392
+#: functions.php:396
 msgid "Add New Story"
 msgstr ""
 
-#: functions.php:393
+#: functions.php:397
 msgid "Edit Story"
 msgstr ""
 
-#: functions.php:394
+#: functions.php:398
 msgid "Update Story"
 msgstr ""
 
-#: functions.php:395
+#: functions.php:399
 msgid "View Item"
 msgstr ""
 
-#: functions.php:396
+#: functions.php:400
 msgid "Separate stories with commas"
 msgstr ""
 
-#: functions.php:397
+#: functions.php:401
 msgid "Add or Remove Stories"
 msgstr ""
 
-#: functions.php:398
+#: functions.php:402
 msgid "Choose from the most used stories"
 msgstr ""
 
-#: functions.php:399
+#: functions.php:403
 msgid "Popular comic stories"
 msgstr ""
 
-#: functions.php:400
+#: functions.php:404
 msgid "Search Stories"
 msgstr ""
 
-#: functions.php:401
+#: functions.php:405
 msgid "No comic Stories found"
 msgstr ""
 
-#: functions.php:402
+#: functions.php:406
 msgid "Comic Stories list"
 msgstr ""
 
-#: functions.php:403
+#: functions.php:407
 msgid "Comic Stories list navigation"
 msgstr ""
 
-#: functions.php:436
+#: functions.php:443
 msgctxt "Taxonomy General Name"
 msgid "Prints"
 msgstr ""
 
-#: functions.php:437
+#: functions.php:444
 msgctxt "Taxonomy Singular Name"
 msgid "Print"
 msgstr ""
 
-#: functions.php:438
+#: functions.php:445
 msgid "Print"
 msgstr ""
 
-#: functions.php:439
+#: functions.php:446
 msgid "All Prints"
 msgstr ""
 
-#: functions.php:440
+#: functions.php:447
 msgid "Parent Print"
 msgstr ""
 
-#: functions.php:441
+#: functions.php:448
 msgid "Parent Print:"
 msgstr ""
 
-#: functions.php:442
+#: functions.php:449
 msgid "New Print Name"
 msgstr ""
 
-#: functions.php:443
+#: functions.php:450
 msgid "Add New Print"
 msgstr ""
 
-#: functions.php:444
+#: functions.php:451
 msgid "Edit Print"
 msgstr ""
 
-#: functions.php:445
+#: functions.php:452
 msgid "Update Pring"
 msgstr ""
 
-#: functions.php:446
+#: functions.php:453
 msgid "View Print"
 msgstr ""
 
-#: functions.php:447
+#: functions.php:454
 msgid "Separate prints with commas"
 msgstr ""
 
-#: functions.php:448
+#: functions.php:455
 msgid "Add or remove prints"
 msgstr ""
 
-#: functions.php:449
+#: functions.php:456
 msgid "Choose from the most used"
 msgstr ""
 
-#: functions.php:450
+#: functions.php:457
 msgid "Popular Prints"
 msgstr ""
 
-#: functions.php:451
+#: functions.php:458
 msgid "Search Prints"
 msgstr ""
 
-#: functions.php:452
+#: functions.php:459
 msgid "Not Found"
 msgstr ""
 
-#: functions.php:453
+#: functions.php:460
 msgid "No prints"
 msgstr ""
 
-#: functions.php:454
+#: functions.php:461
 msgid "Prints list"
 msgstr ""
 
-#: functions.php:455
+#: functions.php:462
 msgid "Prints list navigation"
 msgstr ""
 
-#: header-lite.php:37 header.php:44
+#: header-lite.php:38 header.php:46
 msgid "discover"
 msgstr ""
 
-#: header-lite.php:38 header.php:45
+#: header-lite.php:39 header.php:47
 msgid "Skip to content"
 msgstr ""
 
@@ -538,22 +525,40 @@ msgctxt "Used between list items, there is a space after the comma."
 msgid ", "
 msgstr ""
 
+#: inc/template-tags.php:137
+msgctxt "Previous page link"
+msgid "&#8592;"
+msgstr ""
+
+#: inc/template-tags.php:137
+msgid "Previous page"
+msgstr ""
+
+#: inc/template-tags.php:138
+msgid "Next page"
+msgstr ""
+
+#: inc/template-tags.php:138
+msgctxt "Next post link"
+msgid "&#8594;"
+msgstr ""
+
 #: search.php:17
 #, php-format
 msgid "Search Results for: %s"
 msgstr ""
 
-#: search.php:38
+#: search.php:34
 msgid "Nothing Found"
 msgstr ""
 
-#: search.php:41
+#: search.php:37
 msgid ""
 "Bummer, I cannot find what you are looking for.\n"
 "\t\t\t\tWould you like to search in the"
 msgstr ""
 
-#: search.php:46
+#: search.php:42
 msgid "Or do you prefer trying another search with different keywords?"
 msgstr ""
 
@@ -617,5 +622,17 @@ msgid "SILENT COMICS"
 msgstr ""
 
 #. Author URI of the plugin/theme
-msgid "http://silent-comics.com"
+msgid "https://silent-comics.com"
+msgstr ""
+
+#. Template Name of the plugin/theme
+msgid "Four columns page"
+msgstr ""
+
+#. Template Name of the plugin/theme
+msgid "Three columns page"
+msgstr ""
+
+#. Template Name of the plugin/theme
+msgid "Two columns page"
 msgstr ""
