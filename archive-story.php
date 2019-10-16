@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Three Columns Stories Archive
+ * Three Columns Stories Archive
  *
  * This template archives comic series pages.
  * Show the first image of each comic post on a three columns grid.

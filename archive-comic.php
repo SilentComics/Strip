@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Archive all comics
+ * Archive all comics
  *
  * Comic pages archives, an overview to peruse all stories.
  * It has links to custom comic posts in a second loop.

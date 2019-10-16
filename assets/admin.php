@@ -139,7 +139,7 @@ function strip_login_title() {
 // calling only on the login page.
 add_action( 'login_enqueue_scripts', 'strip_login_css', 10 );
 add_filter( 'login_headerurl', 'strip_login_url' );
-add_filter( 'login_headertitle', 'strip_login_title' );
+add_filter( 'login_headertext', 'strip_login_title' );
 
 /************* CUSTOMIZE ADMIN *******************/
 

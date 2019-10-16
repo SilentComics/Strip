@@ -11,6 +11,12 @@ changelog.txt
 
 == changelog ==
 
+= (16/10/2019) - Version 1.2.2 =
+[>] login_headertitle is deprecated, changed to login_headertext
+[+] paginate_comments_links
+[>] archive documentation
+[*] improved get_first_image()
+
 = (15/10/2019) - Version 1.2.1 =
 [>] Styling: minor change for sticky post and block quotes
 [>] Silent comics logo

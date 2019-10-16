@@ -71,7 +71,7 @@ add_image_size( 'strip-thumbnail', 312, 156, true ); // cropped.
 		/**
 		 * Remove paragraph tags around images.
 		 *
-		 * @param array $img filter p tags.
+		 * @param array $img filter <p> tags.
 		 * @link https://css-tricks.com/snippets/wordpress/remove-paragraph-tags-from-around-images/
 		 * @see http://codex.wordpress.org/Function_Reference/wpautop gets the same result but removes line blocks: remove_filter( 'the_content', 'wpautop' );
 		 */
@@ -100,7 +100,7 @@ add_image_size( 'strip-thumbnail', 312, 156, true ); // cropped.
 			'widgets',
 		) );
 
-		/**
+   /**
 	 * Enable support for Post Formats
 	 */
 		add_theme_support( 'post-formats', array(
@@ -288,11 +288,12 @@ function enqueue_royal_sliders() {
  * @return string $first_img.
  * @link https://css-tricks.com/snippets/wordpress/get-the-first-image-from-a-post/
  * @link https://gist.github.com/SilentComics/0a7ea47942eb759dbb48eac2b7be1bbc/
+ *
  */
 function get_first_image() {
 	$post  = get_post();
 	$first_img = '';
-	preg_match_all( '/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', do_shortcode( $post->post_content, 'gallery' ), $matches );
+	preg_match_all( '@src="([^"]+)"@' , do_shortcode( $post->post_content, 'gallery' ), $matches );
 	  $first_img = isset( $matches[1][0] ) ? $matches[1][0] : null;
 
 	if ( empty( $first_img ) ) {

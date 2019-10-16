@@ -3,7 +3,7 @@
 Contributors: Anh Hoa Si, SILENT COMICS
 Requires at least: WordPress 4.7.3
 Tested up to: WordPress 5.2.4
-Version; 1.2.1
+Version; 1.2.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: one-column, flexible-header, grid-layout, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images, post-formats, rtl-language-support, sticky-post, theme-options, custom-logo, translation-ready, blog

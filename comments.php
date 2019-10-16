@@ -8,11 +8,10 @@
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
  * @package WordPress
- * @subpackage Twenty_Seventeen
- * @since 1.0
+ * @subpackage Strip
+ * @since 1.2.2
  * @version 1.0
  */
-
 /*
  * If the current post is protected by a password and
  * the visitor has not yet entered the password we will
@@ -64,10 +63,29 @@ if ( post_password_required() ) {
 			?>
 		</ol>
 
-		<?php the_comments_pagination( array(
-			'prev_text' => '<span class="screen-reader-text">' . __( 'Previous', 'strip' ) . '</span>',
-			'next_text' => '<span class="screen-reader-text">' . __( 'Next', 'strip' ) . '</span>',
-		) );
+		<?php $comment_pagination = paginate_comments_links(
+ 				array(
+ 					'echo'      => false,
+ 					'end_size'  => 0,
+ 					'mid_size'  => 0,
+ 					'next_text' => __( 'Newer Comments', 'Strip' ) . ' &rarr;',
+ 					'prev_text' => '&larr; ' . __( 'Older Comments', 'Strip' ),
+ 				)
+ 			);
+ 			if ( $comment_pagination ) {
+ 				$pagination_classes = '';
+ 				// If we're only showing the "Next" link, add a class indicating so.
+ 				if ( false === strpos( $comment_pagination, 'prev page-numbers' ) ) {
+ 					$pagination_classes = ' only-next';
+ 				}
+ 				?>
+
+ 				<nav class="comments-pagination pagination<?php echo $pagination_classes; //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static output ?>" aria-label="<?php esc_attr_e( 'Comments', 'Strip' ); ?>">
+ 					<?php echo wp_kses_post( $comment_pagination ); ?>
+ 				</nav>
+
+ 				<?php
+ 			}
 
 	endif; // Check for have_comments().
 

@@ -1,7 +1,8 @@
 <?php
 /**
- * The template for displaying Archive pages
+ * Archive pages
  *
+ * Used to archive pages
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
  * @package WordPress
