@@ -449,7 +449,7 @@ add_action( 'after_switch_theme', 'strip_rewrite_rules' );
 		'new_item_name'              => __( 'New Print Name', 'strip' ),
 		'add_new_item'               => __( 'Add New Print', 'strip' ),
 		'edit_item'                  => __( 'Edit Print', 'strip' ),
-		'update_item'                => __( 'Update Pring', 'strip' ),
+		'update_item'                => __( 'Update Print', 'strip' ),
 		'view_item'                  => __( 'View Print', 'strip' ),
 		'separate_items_with_commas' => __( 'Separate prints with commas', 'strip' ),
 		'add_or_remove_items'        => __( 'Add or remove prints', 'strip' ),
