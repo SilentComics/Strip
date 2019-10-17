@@ -1,0 +1,647 @@
+msgid ""
+msgstr ""
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Project-Id-Version: Strip\n"
+"POT-Creation-Date: 2019-10-17 01:55+0200\n"
+"PO-Revision-Date: 2019-10-17 18:45+0200\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2.4\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: style.css\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"Last-Translator: \n"
+"Language: fr\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.min.js\n"
+
+#: 404.php:19
+msgid "Oops! That page can&rsquo;t be found."
+msgstr "Oups ! Cette page est introuvable."
+
+#: 404.php:23
+msgid "Nothing was found here. Maybe try one of the links below or a search?"
+msgstr "Rien trouvé qui ressemble à ça ici. Essayer une recherche?"
+
+#: 404.php:30
+msgid "Most Used Categories"
+msgstr "Catégories les plus utilisées"
+
+#: 404.php:36
+msgid "Calendar"
+msgstr "Calendrier"
+
+#. translators: %1$s: smiley
+#: 404.php:40
+#, php-format
+msgid "Try looking in the monthly archives. %1$s"
+msgstr "Explorer du côté des archives mensuelles. %1$s"
+
+#: archive-comic.php:30
+msgid "Series"
+msgstr "Séries"
+
+#: archive-story.php:53 archive-story.php:74 home 2.php:53 2.php:74 3.php:53
+#: 3.php:74 4.php:53 4.php:74
+#, php-format
+msgid "Permanent Link to %s"
+msgstr "Lien permanent vers  %s"
+
+#: archive-story.php:85 content.php:63 home 2.php:85 3.php:85 4.php:85
+#: inc/template-tags.php:139 taxonomy-story-name.php:53
+msgid "Page"
+msgstr "Page"
+
+#: archive-story.php:94 home 2.php:94 3.php:94 4.php:94 single-comic.php:33
+#: taxonomy-story-name.php:54
+msgid "Previous"
+msgstr "Précédente"
+
+#: archive-story.php:95 home 2.php:95 3.php:95 4.php:95 single-comic.php:35
+#: taxonomy-story-name.php:55
+msgid "Next"
+msgstr "Suivante"
+
+#: assets/admin.php:86
+msgid "j F Y @ g:i a"
+msgstr ""
+
+#: assets/admin.php:97
+msgid "SILENT COMICS blog"
+msgstr "Silent COMICS blog"
+
+#: assets/admin.php:158
+msgid "https://silent-comics.com/"
+msgstr "https://silent-comics.com/"
+
+#: assets/admin.php:158
+#, php-format
+msgid "Developed by %s"
+msgstr "Développé par %s"
+
+#: assets/admin.php:160
+msgid "https://github.com/SilentComics/Strip/"
+msgstr "https://github.com/SilentComics/Strip/"
+
+#: assets/admin.php:160
+#, php-format
+msgid "Contribute on %s"
+msgstr "Contribuer sur %s"
+
+#. translators: %s: post title
+#: comments.php:35
+#, php-format
+msgctxt "comments title"
+msgid "One Reply to &ldquo;%s&rdquo;"
+msgstr "Une réponse à &ldquo;%s&rdquo;"
+
+#: comments.php:41
+#, php-format
+msgctxt "comments title"
+msgid "%1$s Reply to &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s Replies to &ldquo;%2$s&rdquo;"
+msgstr[0] "%1$s réponse à  &ldquo;%2$s&rdquo;"
+msgstr[1] "%1$s réponses à  &ldquo;%2$s&rdquo;"
+
+#: comments.php:61
+msgid "Reply"
+msgstr "Répondre"
+
+#: comments.php:71
+msgid "Newer Comments"
+msgstr "Commentaires récents"
+
+#: comments.php:72
+msgid "Older Comments"
+msgstr "Commentaires plus anciens"
+
+#: comments.php:83
+msgid "Comments"
+msgstr "Commentaires"
+
+#: comments.php:95
+msgid "Comments are closed."
+msgstr "Les commentaires sont fermés."
+
+#: content-audio.php:17 content-gallery.php:19 content-image.php:17
+#: content-link.php:15 content-quote.php:15 content-video.php:22 content.php:23
+msgid ", "
+msgstr ", "
+
+#: content-audio.php:29 content-gallery.php:36 content-image.php:34
+#: content-link.php:22 content-quote.php:21 content-video.php:46
+#, php-format
+msgid "All %s posts"
+msgstr "Tous les postes %s"
+
+#: content-audio.php:31 content-gallery.php:38 content-image.php:36
+#: content-link.php:24 content-page.php:25 content-quote.php:23
+#: content-video.php:48 content.php:42
+msgid "Edit"
+msgstr "Modifier"
+
+#: content-audio.php:37 content-gallery.php:28 content-image.php:27
+#: content-link.php:28 content-quote.php:27
+msgid "Continue reading <span class=\"meta-nav\">&rarr;</span>"
+msgstr "Lire la suite <span class=« meta-nav »>&rarr;</span>"
+
+#: content-comic.php:14 content-series.php:15 content.php:14
+#, php-format
+msgid "Permalink to %s"
+msgstr "Lien permanent vers %s"
+
+#: content-comic.php:46 content-series.php:27 functions.php:328
+msgid "Edit Comic"
+msgstr "Modifier la bande dessinée"
+
+#: content-comic.php:66
+msgid "Continue watching <span class=\"meta-nav\">&rarr;</span>"
+msgstr "Continuer <span class=\"meta-nav\">à</span> regarder"
+
+#. translators: %s: Name of current post.
+#: content-video.php:36 content.php:54
+#, php-format
+msgid "Continue reading %s <span class=\"meta-nav\">&rarr;</span>"
+msgstr "Lire la suite %s <span class=\"meta-nav\">&rarr;</span>"
+
+#: content.php:39
+msgid "Leave a comment"
+msgstr "Laisser un commentaire"
+
+#: content.php:39
+msgid "1 Comment"
+msgstr "1 commentaire"
+
+#: content.php:39
+msgid "% Comments"
+msgstr "% Commentaires"
+
+#: content.php:59
+msgid "Pages:"
+msgstr "Pages :"
+
+#. Theme URI of the plugin/theme
+#: footer-lite.php:23 footer.php:53
+msgid "https://github.com/SilentComics/Strip"
+msgstr "https://github.com/SilentComics/Strip"
+
+#: footer-lite.php:23 footer.php:53
+#, php-format
+msgid "Theme: %1$s by %2$s."
+msgstr "Thème: %1$s par %2$s."
+
+#: functions.php:87
+msgid "Primary Menu"
+msgstr "Menu principal"
+
+#: functions.php:140
+msgid "Main Sidebar"
+msgstr "Colonne latérale principale"
+
+#: functions.php:142
+msgid "The main body widget area"
+msgstr "La zone principale de gadget de corps"
+
+#: functions.php:151
+msgid "First Footer Widget"
+msgstr "Premier gadget Pied de Page"
+
+#: functions.php:153
+msgid "The first footer widget"
+msgstr "Le premier gadget Pied de Page"
+
+#: functions.php:162
+msgid "Second Footer Widget"
+msgstr "Second gadget Pied de Page"
+
+#: functions.php:164
+msgid "The second footer widget"
+msgstr "Le second gadget Pied de Page"
+
+#: functions.php:173
+msgid "Third Footer Widget"
+msgstr "Gadget Pied de Page 3"
+
+#: functions.php:175
+msgid "The third footer widget"
+msgstr "Le troisième gadget Pied de Page"
+
+#: functions.php:184
+msgid "Fourth Footer Widget"
+msgstr "Quatrième gadget Pied de Page"
+
+#: functions.php:186
+msgid "The fourth footer widget"
+msgstr "Le quatrième gadget Pied de Page"
+
+#: functions.php:319
+msgctxt "Post Type General Name"
+msgid "Comics"
+msgstr "Bandes dessinées"
+
+#: functions.php:320
+msgctxt "Post Type Singular Name"
+msgid "Comic"
+msgstr "Bande dessinée"
+
+#: functions.php:321
+msgctxt "admin menu"
+msgid "Comics"
+msgstr "Menu Bandes dessinées"
+
+#: functions.php:322
+msgctxt "add new on admin bar"
+msgid "Comic"
+msgstr "Ajouter une bande dessinée"
+
+#: functions.php:323
+msgid "Parent Comic:"
+msgstr "Bande dessinée Parent:"
+
+#: functions.php:324
+msgid "All Comics"
+msgstr "Toutes les bandes dessinées"
+
+#: functions.php:325 functions.php:326
+msgid "Add New Comic"
+msgstr "Ajouter une nouvelle bande dessinée"
+
+#: functions.php:327
+msgid "New Comic"
+msgstr "Nouvelle bande dessinée"
+
+#: functions.php:329
+msgid "Update Comic"
+msgstr "Mise à jour Bande dessinée"
+
+#: functions.php:330
+msgid "View Comic"
+msgstr "Voir la Bande dessinée"
+
+#: functions.php:331
+msgid "Search Item"
+msgstr "Rechercher un article"
+
+#: functions.php:332
+msgid "No Comics found"
+msgstr "Aucune bande dessinée trouvée"
+
+#: functions.php:333
+msgid "No Comics found in Trash"
+msgstr "Pas de bandes dessinées trouvées dans la poubelle"
+
+#: functions.php:334
+msgid "Comics list"
+msgstr "Liste des BDs"
+
+#: functions.php:335
+msgid "Comics list navigation"
+msgstr "Naviguer la liste des BDs"
+
+#: functions.php:336
+msgid "Filter Comics list"
+msgstr "Filtrer la liste des BDs"
+
+#: functions.php:354
+msgid "Comic"
+msgstr "Bande dessinée"
+
+#: functions.php:355
+msgid "Publish Comics and Webcomics"
+msgstr "Publier des bandes dessinées et Webcomics"
+
+#: functions.php:389
+msgctxt "Taxonomy General Name"
+msgid "Comic Story"
+msgstr "Histoires Bande dessinée"
+
+#: functions.php:390
+msgctxt "Taxonomy Singular Name"
+msgid "Comic Story"
+msgstr "Histoire Bande dessinée"
+
+#: functions.php:391
+msgid "Comic Stories"
+msgstr "Histoires Bande dessinée"
+
+#: functions.php:392
+msgid "All Comic Stories"
+msgstr "Toutes les histoires en BD"
+
+#: functions.php:393
+msgid "Parent Story"
+msgstr "Histoire apparentée"
+
+#: functions.php:394
+msgid "Parent Story:"
+msgstr "Histoire apparentée :"
+
+#: functions.php:395
+msgid "New Comic Story"
+msgstr "Nouvelle histoire en BD"
+
+#: functions.php:396
+msgid "Add New Story"
+msgstr "Ajouter une nouvelle BD"
+
+#: functions.php:397
+msgid "Edit Story"
+msgstr "Éditer une histoire"
+
+#: functions.php:398
+msgid "Update Story"
+msgstr "Mise à jour de l'histoire"
+
+#: functions.php:399
+msgid "View Item"
+msgstr "Voir l’élément"
+
+#: functions.php:400
+msgid "Separate stories with commas"
+msgstr "Histoires séparées avec des virgules"
+
+#: functions.php:401
+msgid "Add or Remove Stories"
+msgstr "Ajouter ou supprimer des histoires"
+
+#: functions.php:402
+msgid "Choose from the most used stories"
+msgstr "Choisissez parmi les histoires les plus utilisées"
+
+#: functions.php:403
+msgid "Popular comic stories"
+msgstr "Histoires en BD populaires"
+
+#: functions.php:404
+msgid "Search Stories"
+msgstr "Rechercher les histoires"
+
+#: functions.php:405
+msgid "No comic Stories found"
+msgstr "Pas d'histoires BD trouvées"
+
+#: functions.php:406
+msgid "Comic Stories list"
+msgstr "Liste des histoires en BD"
+
+#: functions.php:407
+msgid "Comic Stories list navigation"
+msgstr "Liste de navigation des histoires BDs"
+
+#: functions.php:443
+msgctxt "Taxonomy General Name"
+msgid "Prints"
+msgstr ""
+
+#: functions.php:444
+msgctxt "Taxonomy Singular Name"
+msgid "Print"
+msgstr "Imprimé"
+
+#: functions.php:445
+msgid "Print"
+msgstr "Imprimé"
+
+#: functions.php:446
+msgid "All Prints"
+msgstr "Toutes les imprimés"
+
+#: functions.php:447
+msgid "Parent Print"
+msgstr "Imprimé parent"
+
+#: functions.php:448
+msgid "Parent Print:"
+msgstr "Imprimé parent:"
+
+#: functions.php:449
+msgid "New Print Name"
+msgstr "Nouveau nom d'imprimé"
+
+#: functions.php:450
+msgid "Add New Print"
+msgstr "Ajouter un nouvel imprimé"
+
+#: functions.php:451
+msgid "Edit Print"
+msgstr "Modifier l'imprimé"
+
+#: functions.php:452
+msgid "Update Pring"
+msgstr "Mise à jour de l’imprimé"
+
+#: functions.php:453
+msgid "View Print"
+msgstr "Afficher l'imprimé"
+
+#: functions.php:454
+msgid "Separate prints with commas"
+msgstr "Séparer les imprimés avec des virgules"
+
+#: functions.php:455
+msgid "Add or remove prints"
+msgstr "Ajouter ou supprimer des imrimés"
+
+#: functions.php:456
+msgid "Choose from the most used"
+msgstr "Choisir parmi les plus utilisés"
+
+#: functions.php:457
+msgid "Popular Prints"
+msgstr "Imprimés populaires"
+
+#: functions.php:458
+msgid "Search Prints"
+msgstr "Rechercher des imprimés"
+
+#: functions.php:459
+msgid "Not Found"
+msgstr "Non trouvé"
+
+#: functions.php:460
+msgid "No prints"
+msgstr "Pas d’imprimés"
+
+#: functions.php:461
+msgid "Prints list"
+msgstr "Liste des imprimés"
+
+#: functions.php:462
+msgid "Prints list navigation"
+msgstr "Naviguer la liste des imprimés"
+
+#: header-lite.php:38 header.php:46
+msgid "discover"
+msgstr "découvrir"
+
+#: header-lite.php:39 header.php:47
+msgid "Skip to content"
+msgstr "Accéder au contenu"
+
+#: image.php:43
+msgid ""
+"<span class=\"meta-nav\">&larr;</span> <span class=\"text-nav\">Previous "
+"panel</span>"
+msgstr ""
+"<span class=\"meta-nav\">Case</span> <span class=\"text-nav\">précédente</"
+"span>"
+
+#: image.php:44
+msgid ""
+"<span class=\"meta-nav\">&rarr;</span> <span class=\"text-nav\">Next panel</"
+"span>"
+msgstr ""
+"<span class=\"meta-nav\">-</span> <span class=\"text-nav\">Case suivante</"
+"span>"
+
+#: inc/author-box.php:32
+msgid "&#9998;"
+msgstr "&#9998;"
+
+#: inc/author-box.php:38
+#, php-format
+msgid "View all articles by %s"
+msgstr "Voir tous les articles de %s"
+
+#: inc/custom-header.php:39
+msgctxt "header image description"
+msgid "DefaultHeader"
+msgstr "En tête par défaut"
+
+#: inc/customizer.php:20
+msgctxt "admin"
+msgid "Content Title Color"
+msgstr "Couleur du titre de contenu"
+
+#: inc/template-tags.php:43
+#, php-format
+msgid "View all posts by %s"
+msgstr "Voir tous les articles de %s"
+
+#: inc/template-tags.php:48
+msgctxt "Used between list items, there is a space after the comma."
+msgid ", "
+msgstr ", "
+
+#: inc/template-tags.php:137
+msgctxt "Previous page link"
+msgid "&#8592;"
+msgstr "Page précédente &#8592;"
+
+#: inc/template-tags.php:137
+msgid "Previous page"
+msgstr "Page précédente"
+
+#: inc/template-tags.php:138
+msgid "Next page"
+msgstr "Page suivante"
+
+#: inc/template-tags.php:138
+msgctxt "Next post link"
+msgid "&#8594;"
+msgstr "Article suivant &#8594;"
+
+#: search.php:17
+#, php-format
+msgid "Search Results for: %s"
+msgstr "Résultats de recherche pour : %s"
+
+#: search.php:34
+msgid "Nothing Found"
+msgstr "Rien trouvé"
+
+#: search.php:37
+msgid ""
+"Bummer, I cannot find what you are looking for.\n"
+"\t\t\t\tWould you like to search in the"
+msgstr ""
+"Flûte, je ne trouve pas ce que tu cherches.\n"
+"\t\t\t\tSouhaitez-tu rechercher dans le"
+
+#: search.php:42
+msgid "Or do you prefer trying another search with different keywords?"
+msgstr ""
+"Ou préférez-vous essayer une autre recherche avec différents mots clés?"
+
+#: searchform.php:12
+msgctxt "label"
+msgid "Search for:"
+msgstr "Chercher :"
+
+#: searchform.php:13
+msgctxt "placeholder"
+msgid "Search?"
+msgstr "Chercher?"
+
+#: searchform.php:15
+msgctxt "submit button"
+msgid "Search"
+msgstr "Rechercher"
+
+#: single-comic.php:29
+msgid "Post navigation"
+msgstr "Navigation des articles"
+
+#: single-comic.php:32
+msgid "Start"
+msgstr "Début"
+
+#: single-comic.php:36
+msgid "Last"
+msgstr "Dernier"
+
+#: single.php:27
+msgid "Previous Post"
+msgstr "Article précédent"
+
+#: single.php:27
+msgctxt "Previous post link"
+msgid "&larr;"
+msgstr "&larr;"
+
+#: single.php:28
+msgid "Next Post"
+msgstr "Article suivant"
+
+#: single.php:28
+msgctxt "Next post link"
+msgid "&rarr;"
+msgstr "Suivant &rarr;"
+
+#. Theme Name of the plugin/theme
+msgid "Strip"
+msgstr "Strip"
+
+#. Description of the plugin/theme
+msgid ""
+"A WordPress theme for comics and webcomics <a href=\"https://github.com/"
+"SilentComics/Strip/\">Contribute on GitHub</a>"
+msgstr ""
+"Un thème WordPress pour les bandes dessinées et webcomics <a href=\"https://"
+"github.com/SilentComics/Strip/\">Contribuer sur GitHub</a>"
+
+#. Author of the plugin/theme
+msgid "SILENT COMICS"
+msgstr "SILENT COMICS"
+
+#. Author URI of the plugin/theme
+msgid "https://silent-comics.com"
+msgstr "https://silent-comics.com"
+
+#. Template Name of the plugin/theme
+msgid "Four columns page"
+msgstr "Page quatre colonnes"
+
+#. Template Name of the plugin/theme
+msgid "Three columns page"
+msgstr "Page trois colonnes"
+
+#. Template Name of the plugin/theme
+msgid "Two columns page"
+msgstr "Page deux colonnes"
