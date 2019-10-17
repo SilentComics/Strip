@@ -16,6 +16,7 @@ changelog.txt
 [+] paginate_comments_links
 [>] archive documentation
 [*] improved get_first_image()
+[+] added French translation
 
 = (15/10/2019) - Version 1.2.1 =
 [>] Styling: minor change for sticky post and block quotes
