@@ -91,7 +91,7 @@ function strip_rss_dashboard_widget() {
 
 		// Check items
 		if ( $maxitems == 0 ) {
-			echo '<li>'.__( 'No item', 'rc_mdm').'.</li>';
+			echo '<li>'.__( 'No item', 'strip').'.</li>';
 		} {
 			// Loop through each feed item and display each item as a hyperlink.
 			foreach ( $rss_items as $item ) :
@@ -99,7 +99,7 @@ function strip_rss_dashboard_widget() {
 				//$item_date = $item->get_date( get_option('date_format').' @ '.get_option('time_format') );
 
 				// Get human date (comment if you want to use non human date)
-				$item_date = human_time_diff( $item->get_date('U'), current_time('timestamp')).' '.__( 'ago', 'rc_mdm' );
+				$item_date = human_time_diff( $item->get_date('U'), current_time('timestamp')).' '.__( 'ago', 'strip' );
 
 				// Start displaying item content within a <li> tag
 				echo '<li>';
