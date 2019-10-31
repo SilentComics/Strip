@@ -92,7 +92,7 @@ function strip_rss_dashboard_widget() {
 		// Check items
 		if ( $maxitems == 0 ) {
 			echo '<li>'.__( 'No item', 'rc_mdm').'.</li>';
-		} else {
+		} {
 			// Loop through each feed item and display each item as a hyperlink.
 			foreach ( $rss_items as $item ) :
 				// Uncomment line below to display non human date
