@@ -4,7 +4,7 @@ Theme URI: https://github.com/SilentComics/Strip
 Author: SILENT COMICS
 Author URI: https://silent-comics.com
 Description: A WordPress theme for comics and webcomics <a href="https://github.com/SilentComics/Strip/">Contribute on GitHub</a>
-Version: 1.2.3
+Version: 1.2.4
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: strip
@@ -205,7 +205,7 @@ body {
 	font-family:'Fenix', Georgia, serif;
 	line-height: 1.45; }
 
-h2, h3, h4, h5,  {
+h2, h3, h4, h5  {
 	clear: both;
 	font-weight: 700;
 	line-height: 1.2; }
@@ -1112,6 +1112,9 @@ color: #000000; }
 .sticky .entry-title a {
 color: #ffffff; }
 
+.sticky .entry-title a:hover {
+color: #422442; }
+
 .sticky .entry-date {
 	display: none; }
 
@@ -1137,7 +1140,7 @@ color: #ffffff; }
 	text-transform: uppercase;
 	text-align:center; }
 
-.entry-title a:hover{
+.entry-title a:hover {
 	text-decoration: none;
 	color:#ff7369; }
 
