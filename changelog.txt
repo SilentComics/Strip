@@ -11,6 +11,13 @@ changelog.txt
 
 == changelog ==
 
+= (15/06/2019) - Version 1.2.4 =
+[*] minor styling improvements
+[*] Update admin.php
+
+= (31/10/2019) - Version 1.2.3 =
+[>] Improved RSS dashboard
+
 = (16/10/2019) - Version 1.2.2 =
 [>] login_headertitle is deprecated, changed to login_headertext
 [+] paginate_comments_links
